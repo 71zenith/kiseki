@@ -33,6 +33,48 @@
     enable = true;
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "tomorrow-night";
+      theme_background = false;
+      vim_keys = true;
+    };
+  };
+
+  programs.mpv = {
+    enable = true;
+    config = {
+      osc = "no";
+      osd-bar = "no";
+      profile = "gpu-hq";
+      vo = "gpu";
+      scale = "ewa_lanczossharp";
+      cscale = "ewa_lanczossharp";
+      save-position-on-quit = "yes";
+      video-sync = "display-resample";
+      interpolation = "yes";
+      tscale = "oversample";
+ 
+      image-display-duration = "inf";
+      osd-font = "Monaspace Radon";
+ 
+      cache = "yes";
+      demuxer-max-bytes = "1000MiB";
+      demuxer-max-back-bytes = "50MiB";
+      demuxer-readahead-secs = "60";
+      border = "no";
+      keepaspect-window = "no";
+    };
+    bindings = {
+      "l" = "seek 5";
+      "h" = "seek -5";
+      "k" = "seek 60";
+      "j" = "seek -60";
+      "shift+s" = "script-binding crop-screenshot";
+    };
+    scripts = [ pkgs.mpvScripts.mpris pkgs.mpvScripts.uosc];
+  };
 
   programs.bat = {
     enable = true;
@@ -119,66 +161,81 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = { 
-    "$mod1" = "ALT";
-    "$mod2" = "ALTSHIFT";
-    "$mod3" = "ALTCONTROL";
-    "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
-    exec-once = [
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "WLR_NO_HARDWARE_CURSORS,1"
+	"NIXOS_OZONE_WL,1"
+        "MOZ_ENABLE_WAYLAND,1"
+        "MOZ_WEBRENDER,1"
+        "_JAVA_AWT_WM_NONREPARENTING,1"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "QT_QPA_PLATFORM,wayland"
+        "SDL_VIDEODRIVER,wayland"
+        "GDK_BACKEND,wayland"
+      ];
+      "$mod1" = "ALT";
+      "$mod2" = "ALTSHIFT";
+      "$mod3" = "ALTCONTROL";
+      "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
+      exec-once = [
       "foot --server &"
       "swww init"
       "swww img ~/dl/blue-blossom.jpg"
-    ];
-    input = {
-      kb_options = "caps:escape";
-      repeat_rate = 60;
-      repeat_delay = 250;
-      force_no_accel = 1;
-    };
-    dwindle = {
-      force_split = 2;
-    };
-    misc = {
-      enable_swallow = "true";
-      disable_hyprland_logo = "true";
-      swallow_regex = "^(footclient).*$";
-    };
-    decoration = {
-      rounding = 0;
-      drop_shadow = "yes";
-    };
-    general = {
-      gaps_in = 5;
-      gaps_out = 10;
-      border_size = 3;
-    };
-    animations = {
-      enabled = "true";
-      bezier = [
-        "overshot, 0.35, 0.9, 0.1, 1.05"
-        "smoothOut, 0.36, 0, 0.66, -0.56"
-        "smoothIn, 0.25, 1, 0.5, 1"
-        "pace, 0.46, 1, 0.29, 0.99"
       ];
-      animation = [
-      "fade, 1, 3, smoothIn"
-      "windows, 1, 3, overshot"
-      "windowsOut, 1, 3, smoothIn"
-      "windowsMove, 1, 3, default"
-      "workspaces, 1, 2, default"
-      "specialWorkspace, 1, 2, pace, slidevert"
-      ];
-    };
-    bindm = [
+      input = {
+        kb_options = "caps:escape";
+        repeat_rate = 60;
+        repeat_delay = 250;
+        force_no_accel = 1;
+      };
+      dwindle = {
+        force_split = 2;
+      };
+      misc = {
+        enable_swallow = "true";
+        disable_hyprland_logo = "true";
+        swallow_regex = "^(footclient).*$";
+      };
+      decoration = {
+        rounding = 0;
+        drop_shadow = "yes";
+      };
+      general = {
+        gaps_in = 5;
+        gaps_out = 10;
+        border_size = 3;
+      };
+      animations = {
+        enabled = "true";
+        bezier = [
+          "overshot, 0.35, 0.9, 0.1, 1.05"
+          "smoothOut, 0.36, 0, 0.66, -0.56"
+          "smoothIn, 0.25, 1, 0.5, 1"
+          "pace, 0.46, 1, 0.29, 0.99"
+        ];
+        animation = [
+          "fade, 1, 3, smoothIn"
+          "windows, 1, 3, overshot"
+          "windowsOut, 1, 3, smoothIn"
+          "windowsMove, 1, 3, default"
+          "workspaces, 1, 2, default"
+          "specialWorkspace, 1, 2, pace, slidevert"
+        ];
+      };
+      bindm = [
 	"$mod1, mouse:272, movewindow"
 	"$mod1, mouse:273, resizewindow"
-    ];
-    binde = [
+      ];
+      binde = [
         ",Print, exec,grimblast --notify copy area"
 	",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
 	",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
 	",XF86AudioMute, exec, pulsemixer --toggle-mute"
-    ];
-    bind = 
+      ];
+      bind = 
       [
         "$mod1,Print, exec,grimblast --notify copy screen"
         "$mod2, f, exec, firefox"

@@ -65,6 +65,7 @@
     neovim
     eza
     duf
+    du-dust
     zoxide
     fd
     fzf
@@ -76,6 +77,8 @@
     mako
     xdg-utils
     aria2
+    btop
+    calibre
     cliphist
     swww
     pulsemixer
@@ -118,12 +121,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  environment.sessionVariables = {
-    WLR_NO_HARDWARE_CURSORS = "1";
-    NIXOS_OZONE_WL = "1";
-  };
-
 
   hardware.opengl = {
     enable = true;
