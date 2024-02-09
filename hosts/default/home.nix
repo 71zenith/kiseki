@@ -47,6 +47,52 @@
     userName = "zen";
     userEmail = "71zenith@proton.me";
   };
+  
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        font = "Monaspace Radon:size=13";
+	pad = "10x10";
+      };
+      mouse = {
+        hide-when-typing = "no";
+      };
+      key-bindings = {
+        scrollback-up-page = "Control+u";
+        scrollback-down-page = "Control+d";
+        scrollback-up-line = "Mod1+k";
+        scrollback-down-line = "Mod1+j";
+      };
+      cursor = {
+        style = "beam";
+	color = "282a36 f8f8f2";
+      };
+      colors = {
+        alpha = 0.9 ;
+	foreground = "ffffff";
+	background = "161616";
+        regular0 = "262626";
+ 	regular1 = "ff7eb6";
+ 	regular2 = "42be65";
+ 	regular3 = "ffe97b";
+ 	regular4 = "33b1ff";
+ 	regular5 = "ee5396";
+ 	regular6 = "3ddbd9";
+ 	regular7 = "dde1e6";
+ 
+ 	bright0 = "393939";
+ 	bright1 = "ff7eb6";
+ 	bright2 = "42be65";
+ 	bright3 = "ffe97b";
+ 	bright4 = "33b1ff";
+ 	bright5 = "ee5396";
+ 	bright6 = "3ddbd9";
+ 	bright7 = "ffffff";
+      };
+    };
+  };
+
 
   programs.eza = {
     enable = true;
@@ -161,6 +207,7 @@
       );
     };
   };
+
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
