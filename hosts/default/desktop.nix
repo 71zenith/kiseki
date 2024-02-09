@@ -15,10 +15,6 @@
     name = "Zafiro-icons-Dark";
     package = pkgs.zafiro-icons;
     };
-    #theme = {
-      #package = pkgs.flat-remix-gtk;
-      #name = "Flat-Remix-GTK-Grey-Darkest";
-    #};
   };
 
   home.pointerCursor = {
@@ -54,8 +50,8 @@
       monitor = "monitor=,preferred,1920x1080@75.00,1";
       exec-once = [
       "foot --server &"
-      #"swww init"
-      #"swww img ~/dl/blue-blossom.jpg"
+      "swww init"
+      "swww img ~/nix/resources/blue-blossom.jpg"
       ];
       input = {
         kb_options = "caps:escape";
@@ -147,6 +143,7 @@
       );
     };
   };
+
   xdg.enable = true;
   xdg.userDirs = {
     enable = true;

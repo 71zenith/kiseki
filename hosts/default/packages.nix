@@ -29,6 +29,7 @@
     zathura
     fcitx5
     neofetch
+    zsh-powerlevel10k
     git
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
   ];
@@ -36,6 +37,7 @@
   fonts.packages = with pkgs; [
     monaspace
     noto-fonts
+    terminus_font
     noto-fonts-cjk-sans
     (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];

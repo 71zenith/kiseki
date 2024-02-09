@@ -59,6 +59,12 @@
     LC_TIME = "en_IN";
   };
 
+  console = {
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-122n.psf.gz";
+    packages = with pkgs; [ terminus_font ];
+  };
+
   services.xserver = {
     layout = "us";
     xkbVariant = "";

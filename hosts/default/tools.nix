@@ -36,7 +36,7 @@
       tscale = "oversample";
  
       image-display-duration = "inf";
-      #osd-font = "Monaspace Radon";
+      osd-font = "Monaspace Radon";
  
       cache = "yes";
       demuxer-max-bytes = "1000MiB";
@@ -74,7 +74,6 @@
     enable = true;
     settings = {
       main = {
-        #font = "Monaspace Radon:size=14";
 	pad = "10x10";
       };
       mouse = {
@@ -90,40 +89,38 @@
         style = "beam";
 	color = "282a36 f8f8f2";
       };
-      colors = {
-        #alpha = 0.85;
-	foreground = "ffffff";
-	background = "161616";
-        regular0 = "262626";
- 	regular1 = "ff7eb6";
- 	regular2 = "42be65";
- 	regular3 = "ffe97b";
- 	regular4 = "33b1ff";
- 	regular5 = "ee5396";
- 	regular6 = "3ddbd9";
- 	regular7 = "dde1e6";
- 
- 	bright0 = "393939";
- 	bright1 = "ff7eb6";
- 	bright2 = "42be65";
- 	bright3 = "ffe97b";
- 	bright4 = "33b1ff";
- 	bright5 = "ee5396";
- 	bright6 = "3ddbd9";
- 	bright7 = "ffffff";
-      };
     };
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
   };
 
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
+    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" ;
     syntaxHighlighting = {
       enable = true;
     };
     historySubstringSearch = {
       enable = true;
+    };
+    history.size = 10000000;
+    shellAliases = {
+      up = "sudo nixos-rebuild switch";
+      pm = "pulsemixer";
+      rm = "rm -Ivr";
+      mv = "mv -iv";
+      cp = "cp -ivr";
+      c = "clear";
+      df = "duf";
+      du = "dust";
+      cd = "z";
+      f = "free -h";
+      ko = "pkill";
     };
     autocd = true;
     defaultKeymap = "viins";
@@ -149,8 +146,7 @@
   services.mako = {
     enable = true;
     defaultTimeout = 5000;
-    #font = "Monaspace Radon 13";
-    borderSize = 0;
+    borderSize = 3;
     width = 330;
     height = 200;
   };
