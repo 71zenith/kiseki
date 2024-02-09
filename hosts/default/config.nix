@@ -2,8 +2,9 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./hardware.nix
     ./packages.nix
+    ./stylix.nix
     inputs.home-manager.nixosModules.default
   ];
 

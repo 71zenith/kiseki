@@ -10,22 +10,18 @@
         
   home.stateVersion = "24.05";
   gtk = {
-    iconTheme = {
-      name = "Zafiro-icons-Dark";
-      package = pkgs.zafiro-icons;
-    };
-
     enable = true;
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
+    iconTheme = {
+    name = "Zafiro-icons-Dark";
+    package = pkgs.zafiro-icons;
     };
+    #theme = {
+      #package = pkgs.flat-remix-gtk;
+      #name = "Flat-Remix-GTK-Grey-Darkest";
+    #};
   };
 
   home.pointerCursor = {
-    name = "phinger-cursors-light";
-    package = pkgs.phinger-cursors;
-    size = 32;
     x11.enable = true;
     gtk.enable = true;
   };
@@ -58,8 +54,8 @@
       monitor = "monitor=,preferred,1920x1080@75.00,1";
       exec-once = [
       "foot --server &"
-      "swww init"
-      "swww img ~/dl/blue-blossom.jpg"
+      #"swww init"
+      #"swww img ~/dl/blue-blossom.jpg"
       ];
       input = {
         kb_options = "caps:escape";

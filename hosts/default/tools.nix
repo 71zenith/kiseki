@@ -36,7 +36,7 @@
       tscale = "oversample";
  
       image-display-duration = "inf";
-      osd-font = "Monaspace Radon";
+      #osd-font = "Monaspace Radon";
  
       cache = "yes";
       demuxer-max-bytes = "1000MiB";
@@ -74,7 +74,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Monaspace Radon:size=14";
+        #font = "Monaspace Radon:size=14";
 	pad = "10x10";
       };
       mouse = {
@@ -91,7 +91,7 @@
 	color = "282a36 f8f8f2";
       };
       colors = {
-        alpha = 0.85;
+        #alpha = 0.85;
 	foreground = "ffffff";
 	background = "161616";
         regular0 = "262626";
@@ -149,7 +149,7 @@
   services.mako = {
     enable = true;
     defaultTimeout = 5000;
-    font = "Monaspace Radon 13";
+    #font = "Monaspace Radon 13";
     borderSize = 0;
     width = 330;
     height = 200;
