@@ -6,6 +6,7 @@
 
   home.stateVersion = "24.05";
   home.packages = [
+
   ];
 
   home.pointerCursor = {
@@ -52,7 +53,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Monaspace Radon:size=13";
+        font = "Monaspace Radon:size=14";
 	pad = "10x10";
       };
       mouse = {
@@ -69,7 +70,7 @@
 	color = "282a36 f8f8f2";
       };
       colors = {
-        alpha = 0.9 ;
+        alpha = 0.85;
 	foreground = "ffffff";
 	background = "161616";
         regular0 = "262626";
@@ -108,6 +109,9 @@
     syntaxHighlighting = {
       enable = true;
     };
+    historySubstringSearch = {
+      enable = true;
+    };
     autocd = true;
     defaultKeymap = "viins";
   };
@@ -118,7 +122,12 @@
     "$mod1" = "ALT";
     "$mod2" = "ALTSHIFT";
     "$mod3" = "ALTCONTROL";
-    exec-once = "foot --server &";
+    "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
+    exec-once = [
+      "foot --server &"
+      "swww init"
+      "swww img ~/dl/blue-blossom.jpg"
+    ];
     input = {
       kb_options = "caps:escape";
       repeat_rate = 60;
@@ -160,16 +169,18 @@
       ];
     };
     bindm = [
-	"ALT, mouse:272, movewindow"
-	"ALT, mouse:273, resizewindow"
+	"$mod1, mouse:272, movewindow"
+	"$mod1, mouse:273, resizewindow"
     ];
     binde = [
+        ",Print, exec,grimblast --notify copy area"
 	",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
 	",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
 	",XF86AudioMute, exec, pulsemixer --toggle-mute"
     ];
     bind = 
       [
+        "$mod1,Print, exec,grimblast --notify copy screen"
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
 

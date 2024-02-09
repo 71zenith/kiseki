@@ -68,6 +68,7 @@
     zoxide
     fd
     fzf
+    ripgrep
     wget
     bat
     curl
@@ -76,6 +77,7 @@
     xdg-utils
     aria2
     cliphist
+    swww
     pulsemixer
     foot
     waybar
@@ -85,6 +87,7 @@
     fcitx5
     neofetch
     git
+    inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
   ];
 
 
@@ -98,6 +101,9 @@
 
   fonts.packages = with pkgs; [
     monaspace
+    noto-fonts
+    noto-fonts-cjk-sans
+    (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];
 
   hardware.bluetooth.enable = true;
