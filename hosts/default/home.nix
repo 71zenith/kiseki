@@ -6,28 +6,12 @@
 
   home.stateVersion = "24.05";
   home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
   ];
 
   home.pointerCursor = {
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
-    size = 16;
+    size = 32;
     x11.enable = true;
     gtk.enable = true;
   };
@@ -37,6 +21,10 @@
     iconTheme = {
       name = "Zafiro-icons-Dark";
       package = pkgs.zafiro-icons;
+    };
+    theme = {
+      package = pkgs.flat-remix-gtk;
+      name = "Flat-Remix-GTK-Grey-Darkest";
     };
   };
 
@@ -83,12 +71,16 @@
     settings = { 
     "$mod1" = "ALT";
     "$mod2" = "ALTSHIFT";
+    "$mod3" = "ALTCONTROL";
     exec-once = "foot --server &";
     input = {
       kb_options = "caps:escape";
       repeat_rate = 60;
       repeat_delay = 250;
       force_no_accel = 1;
+    };
+    dwindle = {
+      force_split = 2;
     };
     misc = {
       enable_swallow = "true";
@@ -104,11 +96,69 @@
       gaps_out = 10;
       border_size = 3;
     };
+    animations = {
+      enabled = "true";
+      bezier = [
+        "overshot, 0.35, 0.9, 0.1, 1.05"
+        "smoothOut, 0.36, 0, 0.66, -0.56"
+        "smoothIn, 0.25, 1, 0.5, 1"
+        "pace, 0.46, 1, 0.29, 0.99"
+      ];
+      animation = [
+      "fade, 1, 3, smoothIn"
+      "windows, 1, 3, overshot"
+      "windowsOut, 1, 3, smoothIn"
+      "windowsMove, 1, 3, default"
+      "workspaces, 1, 2, default"
+      "specialWorkspace, 1, 2, pace, slidevert"
+      ];
+    };
+    bindm = [
+	"ALT, mouse:272, movewindow"
+	"ALT, mouse:273, resizewindow"
+    ];
+    binde = [
+	",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
+	",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
+	",XF86AudioMute, exec, pulsemixer --toggle-mute"
+    ];
     bind = 
       [
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
-      ];
+
+	"$mod1, q, killactive,"
+	"$mod1, t, fullscreen,"
+	"$mod2, q, exit,"
+	"$mod2, s, togglefloating,"
+
+	"$mod1, l, cyclenext,"
+	"$mod1, h, cyclenext,prev"
+	"$mod1, Tab, cyclenext,"
+	"$mod2, Tab, cyclenext,prev"
+
+	"$mod2, l, resizeactive, 20 0"
+	"$mod2, h, resizeactive, -20 0"
+	"$mod2, j, resizeactive, 0 20"
+	"$mod2, k, resizeactive, 0 -20"
+
+	"$mod3, return, movetoworkspace, special"
+	"$mod2, return, togglespecialworkspace,"
+      ]
+      ++ (
+        builtins.concatLists (builtins.genList (
+            x: let
+              ws = let
+                c = (x + 1) / 10;
+              in
+                builtins.toString (x + 1 - (c * 10));
+            in [
+              "$mod1, ${ws}, workspace, ${toString (x + 1)}"
+              "$mod2, ${ws}, movetoworkspace, ${toString (x + 1)}"
+            ]
+          )
+          10)
+      );
     };
   };
   programs.rofi = {
@@ -138,42 +188,13 @@
   };
   xdg.mime.enable = true;
   services.mako = { enable = true; };
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
   };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. If you don't want to manage your shell through Home
-  # Manager then you have to manually source 'hm-session-vars.sh' located at
-  # either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/zen/etc/profile.d/hm-session-vars.sh
-  #
   home.sessionVariables = {
     EDITOR = "nvim";
     WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
   };
 
-  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
