@@ -2,11 +2,25 @@
 
 {
   imports = [
-      ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.default
+    ./hardware-configuration.nix
+    ./packages.nix
+    inputs.home-manager.nixosModules.default
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings.auto-optimise-store = true;
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    optimise = {
+      automatic = true;
+      dates = [ "weekly" ];
+    };
+  };
+
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -20,9 +34,10 @@
   security.sudo.extraRules = [
     { users = [ "zen" ];
       commands = [
-        { command = "ALL" ;
-	  options = ["NOPASSWD" ];
-         }
+        {
+          command = "ALL" ;
+          options = ["NOPASSWD" ];
+        }
       ];
     }
   ];
@@ -58,61 +73,9 @@
     packages = with pkgs; [];
   };
 
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    neovim
-    eza
-    duf
-    du-dust
-    zoxide
-    fd
-    fzf
-    ripgrep
-    wget
-    bat
-    curl
-    firefox
-    mako
-    xdg-utils
-    aria2
-    btop
-    calibre
-    cliphist
-    swww
-    pulsemixer
-    foot
-    waybar
-    blueman
-    mpv
-    zathura
-    fcitx5
-    neofetch
-    git
-    inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
-  ];
-
-
-  home-manager = {
-    extraSpecialArgs = { inherit inputs ; };
-    users = {
-      "zen" = import ./home.nix ;
-    };
-  };
-
-
-  fonts.packages = with pkgs; [
-    monaspace
-    noto-fonts
-    noto-fonts-cjk-sans
-    (nerdfonts.override { fonts = [ "Monaspace" ]; })
-  ];
-
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-
 
   sound.enable = true;
   services.pipewire = {
@@ -120,6 +83,13 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
+  };
+
+  home-manager = {
+  extraSpecialArgs = { inherit inputs ; };
+  users = {
+    "zen" = import ./desktop.nix;
+    };
   };
 
   hardware.opengl = {
@@ -134,11 +104,7 @@
     nvidiaSettings = true;
   };
 
-
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
   xdg.portal.wlr.enable = true;
-
 
   system.stateVersion = "24.05";
 }
