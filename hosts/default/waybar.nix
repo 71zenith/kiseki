@@ -1,4 +1,4 @@
-{pkgs, inputs, config,  ...}:
+{pkgs, config,  ...}:
 
 let
   inherit (config.colorScheme) palette;

@@ -1,4 +1,4 @@
-{ config, inputs, stylix, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   programs.btop = {
     enable = true;
