@@ -4,6 +4,7 @@
   environment.systemPackages = with pkgs; [
     neovim
     eza
+    steam
     xwayland
     duf
     wl-clipboard

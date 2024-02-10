@@ -118,7 +118,10 @@
     nvidiaSettings = true;
   };
 
-  xdg.portal.wlr.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   system.stateVersion = "24.05";
 }

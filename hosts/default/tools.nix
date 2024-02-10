@@ -110,7 +110,8 @@
     };
     history.size = 10000000;
     shellAliases = {
-      up = "sudo nixos-rebuild switch";
+      up = "sudo nixos-rebuild switch --flake ~/nix#default";
+      del = "sudo nix-collect-garbage --delete-old";
       pm = "pulsemixer";
       rm = "rm -Ivr";
       mv = "mv -iv";

@@ -3,7 +3,11 @@
 {
   imports = [
     ./tools.nix
+    ./waybar.nix
+    inputs.nix-colors.homeManagerModules.default
   ];
+
+  colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 
   home.username = "zen";   
   home.homeDirectory = "/home/zen";
@@ -52,6 +56,7 @@
       "foot --server &"
       "swww init"
       "swww img ~/nix/resources/blue-blossom.jpg"
+      "pkill waybar; waybar &"
       ];
       input = {
         kb_options = "caps:escape";
@@ -138,7 +143,7 @@
                 builtins.toString (x + 1 - (c * 10));
             in [
               "$mod1, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod2, ${ws}, movetoworkspace, ${toString (x + 1)}"
+              "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
             ]
           )
           10)
@@ -152,6 +157,9 @@
     createDirectories = true;
     extraConfig = {
     XDG_DOWNLOAD_DIR = "${config.home.homeDirectory}/dl";
+    XDG_DOCUMENTS_DIR = "${config.home.homeDirectory}/dox";
+    XDG_DESKTOP_DIR = "${config.home.homeDirectory}/dl";
+    XDG_VIDEOS_DIR = "${config.home.homeDirectory}/vid";
     XDG_PICTURES_DIR = "${config.home.homeDirectory}/pix";
     };
   };
