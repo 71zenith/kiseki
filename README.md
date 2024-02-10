@@ -19,11 +19,13 @@ This contains the nix flakes to build an identical copy of my system
 - [home-manager](https://github.com/nix-community/home-manager) - manage dots
 - [stylix](https://github.com/danth/stylix) - auto theme 
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
+- [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
 
 
 
 ## Programs Used
 - [Hyprland](https://github.com/hyprwm/Hyprland) - compositor
+- [nvim](https://github.com/neovim/neovim) - text editor
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
 - [btop](https://github.com/aristocratos/btop) - resource monitor
