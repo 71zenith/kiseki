@@ -39,7 +39,7 @@
         "GBM_BACKEND,nvidia-drm"
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
-	"NIXOS_OZONE_WL,1"
+        "NIXOS_OZONE_WL,1"
         "MOZ_ENABLE_WAYLAND,1"
         "MOZ_WEBRENDER,1"
         "_JAVA_AWT_WM_NONREPARENTING,1"
@@ -51,11 +51,14 @@
       "$mod1" = "ALT";
       "$mod2" = "ALTSHIFT";
       "$mod3" = "ALTCONTROL";
+      "$mod4" = "SUPER";
       "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
       monitor = "monitor=,preferred,1920x1080@75.00,1";
       exec-once = [
         "foot --server &"
         "swww init"
+        "blueman-applet &"
+        "wl-paste --type text --watch cliphist store"
         "swww img ~/nix/resources/blue-blossom.jpg"
         "pkill waybar; waybar &"
       ];
@@ -67,8 +70,8 @@
       };
       dwindle = {
         force_split = 2;
-	pseudotile = true;
-	preserve_split = true;
+        pseudotile = true;
+        preserve_split = true;
       };
       misc = {
         enable_swallow = "true";
@@ -102,14 +105,14 @@
         ];
       };
       bindm = [
-	"$mod1, mouse:272, movewindow"
-	"$mod1, mouse:273, resizewindow"
+        "$mod1, mouse:272, movewindow"
+        "$mod1, mouse:273, resizewindow"
       ];
       binde = [
         ",Print, exec,grimblast --notify copy area"
-	",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
-	",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
-	",XF86AudioMute, exec, pulsemixer --toggle-mute"
+        ",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
+        ",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
+        ",XF86AudioMute, exec, pulsemixer --toggle-mute"
       ];
       bind = 
       [
@@ -119,24 +122,25 @@
         "$mod2, p, exec, rofi -show calc"
         "$mod1, p, exec, rofi -show drun"
         "$mod1, o, exec, rofi -show emoji"
+        "$mod4, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-	"$mod1, q, killactive,"
-	"$mod1, t, fullscreen,"
-	"$mod2, q, exit,"
-	"$mod2, s, togglefloating,"
+        "$mod1, q, killactive,"
+        "$mod1, t, fullscreen,"
+        "$mod2, q, exit,"
+        "$mod2, s, togglefloating,"
 
-	"$mod1, l, cyclenext,"
-	"$mod1, h, cyclenext,prev"
-	"$mod2, Tab, cyclenext,"
-	"$mod1, Tab, cyclenext,prev"
+        "$mod1, l, cyclenext,"
+        "$mod1, h, cyclenext,prev"
+        "$mod2, Tab, cyclenext,"
+        "$mod1, Tab, cyclenext,prev"
 
-	"$mod2, l, resizeactive, 20 0"
-	"$mod2, h, resizeactive, -20 0"
-	"$mod2, j, resizeactive, 0 20"
-	"$mod2, k, resizeactive, 0 -20"
+        "$mod2, l, resizeactive, 20 0"
+        "$mod2, h, resizeactive, -20 0"
+        "$mod2, j, resizeactive, 0 20"
+        "$mod2, k, resizeactive, 0 -20"
 
-	"$mod3, return, movetoworkspace, special"
-	"$mod2, return, togglespecialworkspace,"
+        "$mod3, return, movetoworkspace, special"
+        "$mod2, return, togglespecialworkspace,"
       ]
       ++ (
         builtins.concatLists (builtins.genList (
