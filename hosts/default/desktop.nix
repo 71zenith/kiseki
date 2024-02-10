@@ -115,6 +115,9 @@
         "$mod1,Print, exec,grimblast --notify copy screen"
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
+        "$mod2, p, exec, rofi -show calc"
+        "$mod1, p, exec, rofi -show drun"
+        "$mod1, o, exec, rofi -show emoji"
 
 	"$mod1, q, killactive,"
 	"$mod1, t, fullscreen,"
@@ -152,6 +155,48 @@
   };
 
   xdg.enable = true;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = let
+      browser = ["firefox.desktop"];
+      editor = ["nvim.desktop"];
+      player = ["mpv.desktop"];
+      viewer = ["nsxiv.desktop"];
+      reader = ["zathura.desktop"];
+      in {
+        "application/json" = browser;
+        "application/pdf" = reader;
+
+        "text/html" = browser;
+        "text/xml" = browser;
+        "text/plain" = editor;
+        "application/xml" = browser;
+        "application/xhtml+xml" = browser;
+        "application/xhtml_xml" = browser;
+        "application/rdf+xml" = browser;
+        "application/rss+xml" = browser;
+        "application/x-extension-htm" = browser;
+        "application/x-extension-html" = browser;
+        "application/x-extension-shtml" = browser;
+        "application/x-extension-xht" = browser;
+        "application/x-extension-xhtml" = browser;
+        "application/x-wine-extension-ini" = editor;
+
+        "x-scheme-handler/about" = browser;
+        "x-scheme-handler/ftp" = browser;
+        "x-scheme-handler/http" = browser;
+        "x-scheme-handler/https" = browser;
+
+        "audio/*" = player;
+        "video/*" = player;
+        "image/*" = viewer;
+        "image/gif" = viewer;
+        "image/jpeg" = viewer;
+        "image/png" = viewer;
+        "image/webp" = viewer;
+      };
+  };
+
   xdg.userDirs = {
     enable = true;
     createDirectories = true;
