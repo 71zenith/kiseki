@@ -13,7 +13,6 @@
         number = true;
         relativenumber = false;
         shiftwidth = 2;
-        
       };
       plugins = {
         nix.enable = true;

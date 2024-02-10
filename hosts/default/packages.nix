@@ -8,6 +8,7 @@
     xwayland
     duf
     wl-clipboard
+    cliphist
     du-dust
     zoxide
     fd
