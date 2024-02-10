@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, stylix, pkgs, ... }:
 {
   programs.btop = {
     enable = true;
@@ -12,8 +12,8 @@
   programs.zathura = {
     enable = true;
     options = {
-      render-loading = "false";
-      font = "Noto Sans 14";
+      default-bg = "rgba(0,0,0,0.7)";
+      recolor-lightcolor = "rgba(256,256,256,0)";
     };
     mappings = {
       i = "recolor";
@@ -141,7 +141,6 @@
       modi = "drun,run";
       sidebar-mode = true;
       show-icons = true;
-      icon-theme = "Nordzy";
     };
   };
   services.mako = {

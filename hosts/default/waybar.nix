@@ -87,8 +87,8 @@ in
           format-paused = " {status_icon} <i>{title}</i>";
           max-length = 80;
           status-icons = {
-            playing = "󰐊";
-            paused = "󰏤";
+            playing = "";
+            paused = "";
           };
         };
       };
