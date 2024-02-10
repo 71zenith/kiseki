@@ -4,6 +4,7 @@
   imports = [
     ./tools.nix
     ./waybar.nix
+    ./nvim.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 
