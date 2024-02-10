@@ -1,17 +1,18 @@
-<h2 align="center">:airplane: Zen's Flakes :airplane:</h2>
+
+<h2 align="center">:snowflake: Zen's Flakes :snowflake:</h2>
 
 <p align="center">
     <a href="https://nixos.org/">
-        <img src="https://img.shields.io/badge/NixOS-24.05-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=D9E0EE&labelColor=dde1e6"></a>
+        <img src="https://img.shields.io/badge/NixOS-24.05-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
     <a href="https://github.com/71zenith/nix-dots">
-        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=learning&style=for-the-badge&logo=nixos&color=161616&logoColor=D9E0EE&labelColor=82cfff"></a>
+        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=so%20good&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=82cfff"></a>
   </a>
 </p>
 
 This contains the nix flakes to build an identical copy of my system
 
 
-![](./resource/screenshot.png)
+![](./resources/screenshot.png)
 
 ## NIX Components
 - [flakes](https://nixos.wiki/wiki/Flakes)
