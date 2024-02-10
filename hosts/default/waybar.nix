@@ -139,19 +139,15 @@ in
             color: #${palette.base04};
             box-shadow: inset 0 -3px transparent;
 
-            padding-right: 4px;
-            padding-left: 4px;
+            padding-right: 7px;
+            padding-left: 7px;
 
-            margin-left: 0.1em;
-            margin-right: 0em;
             transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
           }
           #workspaces button.active {
             color: #${palette.base0B};
-            padding-left: 4px;
-            padding-right: 4px;
-            margin-left: 0em;
-            margin-right: 0em;
+            padding-left: 7px;
+            padding-right: 7px;
             transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
           }
 
@@ -170,7 +166,7 @@ in
           @keyframes blink {
             to {
               background-color: rgba(30, 34, 42, 0.5);
-              color: #abb2bf;
+              color: #${palette.base07};
             }
           }
           #clock.time {
@@ -189,26 +185,13 @@ in
             padding: 5px;
           }
 
-          label:focus {
-            background-color: #1f232b;
-          }
-
           #tray > .passive {
             -gtk-icon-effect: dim;
           }
 
           #tray > .needs-attention {
             -gtk-icon-effect: highlight;
-            background-color: #eb4d4b;
-          }
-
-          #idle_inhibitor {
-            background-color: #242933;
-          }
-
-          #idle_inhibitor.activated {
-            background-color: #ecf0f1;
-            color: #2d3436;
+            background-color: #${palette.base0A};
           }
           #mpris {
             color: #${palette.base09};

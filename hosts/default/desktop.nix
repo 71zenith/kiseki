@@ -53,10 +53,10 @@
       "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
       monitor = "monitor=,preferred,1920x1080@75.00,1";
       exec-once = [
-      "foot --server &"
-      "swww init"
-      "swww img ~/nix/resources/blue-blossom.jpg"
-      "pkill waybar; waybar &"
+        "foot --server &"
+        "swww init"
+        "swww img ~/nix/resources/blue-blossom.jpg"
+        "pkill waybar; waybar &"
       ];
       input = {
         kb_options = "caps:escape";
