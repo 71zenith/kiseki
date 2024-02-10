@@ -11,10 +11,6 @@
 
   programs.zathura = {
     enable = true;
-    options = {
-      default-bg = "rgba(0,0,0,0.7)";
-      recolor-lightcolor = "rgba(256,256,256,0)";
-    };
     mappings = {
       i = "recolor";
       f = "toggle_fullscreen";

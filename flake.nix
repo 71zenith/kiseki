@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixvim.url = "github:nix-community/nixvim";
+    nixvim.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
     hyprland.url = "github:hyprwm/Hyprland";
     nix-colors.url = "github:misterio77/nix-colors";
