@@ -33,7 +33,7 @@
           servers = {
             nil_ls.enable = true;
           };
-        };
+        }
         indent-blankline.enable = true;
         leap.enable = true;
         gitsigns.enable = true;
