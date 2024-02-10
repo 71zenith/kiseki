@@ -61,6 +61,8 @@
       };
       dwindle = {
         force_split = 2;
+	pseudotile = true;
+	preserve_split = true;
       };
       misc = {
         enable_swallow = "true";

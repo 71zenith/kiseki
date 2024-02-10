@@ -4,11 +4,18 @@
   environment.systemPackages = with pkgs; [
     neovim
     eza
+    xwayland
     duf
     wl-clipboard
     du-dust
     zoxide
     fd
+    gnome.nautilus
+    libnotify
+    libsForQt5.qt5.qtwayland
+    playerctl
+    gtk3
+    dbus
     fzf
     ripgrep
     wget
@@ -18,6 +25,7 @@
     mako
     xdg-utils
     aria2
+    nitch
     btop
     calibre
     swww
@@ -26,11 +34,16 @@
     waybar
     blueman
     mpv
+    nsxiv
     zathura
-    fcitx5
+    zip
+    unzip
+    rar
+    unrar
     neofetch
     zsh-powerlevel10k
     git
+
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
   ];
 
