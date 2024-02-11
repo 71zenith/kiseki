@@ -1,5 +1,14 @@
 { config, stylix, pkgs, ... }:
 {
+  imports = [
+    ../../modules/home-manager/spotify-player.nix
+  ];
+  /* programs.spotify-player = {
+    enable = true ;
+    settings = {
+      playback_window_position = "Bottom";
+    };
+  }; */
   programs.btop = {
     enable = true;
     settings = {
@@ -97,7 +106,7 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    initExtra = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" ;
+    initExtra = "bindkey '^H' backward-delete-char;bindkey '^?' backward-delete-char;source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" ;
     syntaxHighlighting = {
       enable = true;
     };
@@ -114,6 +123,7 @@
       cp = "cp -ivr";
       c = "clear";
       df = "duf";
+      "d" = "sudo";
       du = "dust";
       cd = "z";
       f = "free -h";
