@@ -10,6 +10,7 @@
     duf
     wl-clipboard
     cliphist
+    heroic
     du-dust
     zoxide
     fd
