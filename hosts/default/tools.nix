@@ -1,16 +1,5 @@
-{ inputs, config, stylix, pkgs, ... }:
+{ config, pkgs, ... }:
 {
-  imports = [
-    ../../modules/home-manager/spotify-player.nix
-  ];
-
-  # programs.spotify-player = {
-  #   enable = true;
-  #   settings = {
-  #     playback_window_position = "Bottom";
-  #   };
-  # };
-
   programs.btop = {
     enable = true;
     settings = {
@@ -41,10 +30,9 @@
       video-sync = "display-resample";
       interpolation = "yes";
       tscale = "oversample";
- 
       image-display-duration = "inf";
       osd-font = "Monaspace Radon";
- 
+
       cache = "yes";
       demuxer-max-bytes = "1000MiB";
       demuxer-max-back-bytes = "50MiB";
@@ -135,7 +123,6 @@
     defaultKeymap = "viins";
   };
 
-
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
@@ -151,6 +138,7 @@
       show-icons = true;
     };
   };
+
   services.mako = {
     enable = true;
     defaultTimeout = 5000;

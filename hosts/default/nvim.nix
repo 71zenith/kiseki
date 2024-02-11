@@ -13,6 +13,7 @@
         number = true;
         relativenumber = false;
         shiftwidth = 2;
+        clipboard = "unnamedplus";
       };
       plugins = {
         nix.enable = true;
@@ -62,7 +63,6 @@
             { name = "path"; }
             { name = "buffer"; }
           ];
-          completion.keywordLength = 3;
           matching.disallowFuzzyMatching = true;
           mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
