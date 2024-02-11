@@ -26,7 +26,6 @@
     firefox
     mako
     nil
-    nixd
     xdg-utils
     aria2
     nitch
