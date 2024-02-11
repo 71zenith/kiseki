@@ -67,7 +67,7 @@
         "swww img ~/nix/resources/blue-blossom.jpg"
         "pkill waybar; waybar &"
       ];
-      windowrule = [ "workspace special silent,spotify_player" ];
+      windowrule = "workspace special silent,spotify_player" ;
       input = {
         kb_options = "caps:escape";
         repeat_rate = 60;

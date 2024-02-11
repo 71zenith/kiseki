@@ -21,6 +21,16 @@
       dates = [ "weekly" ];
     };
   };
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "zen";
+      };
+      default_session = initial_session;
+    };
+  };
 
 
   boot.loader.systemd-boot.enable = true;
