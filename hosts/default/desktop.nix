@@ -33,8 +33,10 @@
   qt = {
     enable = true;
   };
+
   wayland.windowManager.hyprland = {
     enable = true;
+    systemd.enable = true;
     settings = { 
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
@@ -66,7 +68,20 @@
         "swww img ~/nix/resources/blue-blossom.jpg"
         "pkill waybar; waybar &"
       ];
-      windowrule = "workspace special silent,spotify_player" ;
+      windowrule = [
+        "workspace special silent,title:^(*otify*)$"
+        "float, file_progress"
+        "float, confirm"
+        "float, dialog"
+        "float, download"
+        "float, notification"
+        "float, error"
+        "float, splash"
+        "float, confirmreset"
+        "float, title:Library"
+        "float, title:Open File"
+        "float, title:branchdialog"
+      ];
       input = {
         kb_options = "caps:escape";
         repeat_rate = 60;
@@ -85,7 +100,7 @@
       };
       decoration = {
         rounding = 0;
-        drop_shadow = "yes";
+        drop_shadow = "true";
       };
       general = {
         gaps_in = 5;
@@ -95,18 +110,17 @@
       animations = {
         enabled = "true";
         bezier = [
-          "overshot, 0.35, 0.9, 0.1, 1.05"
-          "smoothOut, 0.36, 0, 0.66, -0.56"
-          "smoothIn, 0.25, 1, 0.5, 1"
-          "pace, 0.46, 1, 0.29, 0.99"
+          "overshoot, 0.05, 0.9, 0.1, 1.1"
         ];
         animation = [
-          "fade, 1, 3, smoothIn"
-          "windows, 1, 3, overshot"
-          "windowsOut, 1, 3, smoothIn"
-          "windowsMove, 1, 3, default"
-          "workspaces, 1, 2, default"
-          "specialWorkspace, 1, 2, pace, slidevert"
+          "fade, 1, 5, default"
+          "border, 1, 5, default"
+          "borderangle, 0, 8, default"
+          "windows, 1, 5, overshoot"
+          "windowsOut, 1, 5, overshoot, popin 80%"
+          "windowsMove, 1, 5, overshoot, popin 80%"
+          "workspaces, 1, 5, overshoot"
+          "specialWorkspace, 1, 2, overshoot, slidevert"
         ];
       };
       bindm = [
@@ -139,10 +153,17 @@
         "$mod2, Tab, cyclenext,"
         "$mod1, Tab, cyclenext,prev"
 
-        "$mod2, l, resizeactive, 20 0"
-        "$mod2, h, resizeactive, -20 0"
-        "$mod2, j, resizeactive, 0 20"
-        "$mod2, k, resizeactive, 0 -20"
+        "$mod2, l, resizeactive, 40 0"
+        "$mod2, h, resizeactive, -40 0"
+        "$mod2, j, resizeactive, 0 40"
+        "$mod2, k, resizeactive, 0 -40"
+
+        "$mod4 SHIFT, l, swapnext"
+        "$mod4 SHIFT, h, swapnext,prev"
+
+        "$mod4, 49, togglegroup,"
+        "$mod4, tab, changegroupactive,"
+        "$mod4 SHIFT, tab, changegroupactive,b"
 
         "$mod3, return, movetoworkspace, special"
         "$mod2, return, togglespecialworkspace,"
