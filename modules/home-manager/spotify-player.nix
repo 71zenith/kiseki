@@ -1,13 +1,10 @@
 { config, lib, pkgs, ... }:
-
 with lib;
 let
   cfg = config.programs.spotify-player;
   tomlFormat = pkgs.formats.toml { };
 in
 {
-  meta.maintainers = [ maintainers.zen ];
-
   options.programs.spotify-player = {
     enable = mkEnableOption "spotify-player";
 
@@ -24,6 +21,7 @@ in
       example = literalExpression ''
         {
           theme = "default";
+          playback_window_position = "Bottom";
           device = {
             name = "spotify-player";
             device_type = "speaker";
@@ -31,13 +29,6 @@ in
             bitrate = 32;
           };
         }
-      '';
-      description = ''
-        Configuration written to
-        {file}`$XDG_CONFIG_HOME/spotify-player/app.toml`.
-
-        See <https://github.com/aome510/spotify-player/blob/master/examples/app.toml>
-        for the full list of options.
       '';
     };
     keymaps = mkOption {
@@ -49,20 +40,13 @@ in
           {
             command = "PreviousPage";
             key_sequence = "esc";
-          };
+          }
           {
-            command = "SeekForward";
-            key_sequence = "L";
-          };
+            command = "ClosePopup";
+            key_sequence = "q";
+          }
           ];
         }
-      '';
-      description = ''
-        Keybinding specific configuration at
-        {file}`$XDG_CONFIG_HOME/spotify-player/keymap.toml`.
-
-        See <https://github.com/aome510/spotify-player/blob/master/examples/keymap.toml>
-        for more information.
       '';
     };
     theme = mkOption {
@@ -70,53 +54,34 @@ in
       default = { };
       example = literalExpression ''
         {
-          base16 = let
-            gray = "#665c54";
-            dark-gray = "#3c3836";
-            white = "#fbf1c7";
-            black = "#282828";
-            red = "#fb4934";
-            green = "#b8bb26";
-            yellow = "#fabd2f";
-            orange = "#fe8019";
-            blue = "#83a598";
-            magenta = "#d3869b";
-            cyan = "#8ec07c";
-          in {
-            "ui.menu" = transparent;
-            "ui.menu.selected" = { modifiers = [ "reversed" ]; };
-            "ui.linenr" = { fg = gray; bg = dark-gray; };
-            "ui.popup" = { modifiers = [ "reversed" ]; };
-            "ui.linenr.selected" = { fg = white; bg = black; modifiers = [ "bold" ]; };
-            "ui.selection" = { fg = black; bg = blue; };
-            "ui.selection.primary" = { modifiers = [ "reversed" ]; };
-            "comment" = { fg = gray; };
-            "ui.statusline" = { fg = white; bg = dark-gray; };
-          };
+          "ui.menu" = transparent;
+          "ui.menu.selected" = { modifiers = [ "reversed" ]; };
+          "ui.linenr" = { fg = gray; bg = dark-gray; };
+          "ui.popup" = { modifiers = [ "reversed" ]; };
+          "ui.linenr.selected" = { fg = white; bg = black; modifiers = [ "bold" ]; };
+          "ui.selection" = { fg = black; bg = blue; };
+          "ui.selection.primary" = { modifiers = [ "reversed" ]; };
+          "comment" = { fg = gray; };
+          "ui.statusline" = { fg = white; bg = dark-gray; };
         }
       '';
-      description = ''
-        Each theme is written to
-        {file}`$XDG_CONFIG_HOME/spotify-player/theme.toml`.
-        Where the name of each attribute is the theme-name ().
-
-        See <https://github.com/aome510/spotify-player/blob/master/examples/theme.toml>
-        for the full list of options.
-      '';
     };
-
-    config = mkIf cfg.enable {
-      xdg.configFile = {
-        "spotify-player/app.toml" = mkIf (cfg.settings != { }) {
-          source = tomlFormat.generate "spotify-player-config" cfg.settings;
-        };
-        "spotify-player/keymap.toml" = mkIf (cfg.keymaps != { }) {
-          source = tomlFormat.generate "spotify-player-keymaps-config" cfg.keymaps;
-        };
-        "spotify-player/theme.toml" = mkIf (cfg.theme != { }) {
-          source = tomlFormat.generate "spotify-player-theme-config" cfg.theme;
-        };
+  };
+  config = mkIf cfg.enable {
+    xdg.configFile = let 
+      settings = 
+      {
+      "spotify-player/app.toml" = mkIf (cfg.settings != { }) {
+        source = tomlFormat.generate "spotify-player-config" cfg.settings;
+      };
+      "spotify-player/keymap.toml" = mkIf (cfg.keymaps != { }) {
+        source = tomlFormat.generate "spotify-player-keymaps-config" cfg.keymaps;
+      };
+      "spotify-player/theme.toml" = mkIf (cfg.theme != { }) {
+        source = tomlFormat.generate "spotify-player-theme-config" cfg.theme;
       };
     };
+  in 
+    settings;
   };
 }

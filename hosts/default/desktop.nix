@@ -4,8 +4,8 @@
   imports = [
     ./tools.nix
     ./waybar.nix
-    ../../modules/home-manager/spotify-player.nix
     ./nvim.nix
+    ./spotify-player.nix
     inputs.nix-colors.homeManagerModules.default
   ];
 
