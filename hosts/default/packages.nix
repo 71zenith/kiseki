@@ -6,16 +6,20 @@
     eza
     steam
     xwayland
+    yt-dlp
     duf
     wl-clipboard
     cliphist
     du-dust
     zoxide
     fd
+    ani-cli
+    protonup-qt
     gnome.nautilus
     libnotify
     libsForQt5.qt5.qtwayland
     playerctl
+    spotify-player
     gtk3
     dbus
     fzf
@@ -51,9 +55,9 @@
   ];
 
   fonts.packages = with pkgs; [
-    monaspace
     noto-fonts
     terminus_font
+    noto-fonts-color-emoji
     noto-fonts-cjk-sans
     (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];

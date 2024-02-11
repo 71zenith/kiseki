@@ -35,7 +35,7 @@
       };
     };
 
-    opacity.terminal = 0.85;
+    opacity.terminal = 0.95;
     cursor = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";

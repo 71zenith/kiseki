@@ -4,9 +4,13 @@
   imports = [
     ./tools.nix
     ./waybar.nix
+    ../../modules/home-manager/spotify-player.nix
     ./nvim.nix
     inputs.nix-colors.homeManagerModules.default
   ];
+
+  programs.home-manager.enable = true;
+  # programs.spotify-player.enable = true;
 
   colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 
@@ -56,12 +60,14 @@
       monitor = "monitor=,preferred,1920x1080@75.00,1";
       exec-once = [
         "foot --server &"
+        "hyprctl dispatch exec 'footclient -T spotify_player spotify_player'"
         "swww init"
         "blueman-applet &"
         "wl-paste --type text --watch cliphist store"
         "swww img ~/nix/resources/blue-blossom.jpg"
         "pkill waybar; waybar &"
       ];
+      windowrule = [ "workspace special silent,spotify_player" ];
       input = {
         kb_options = "caps:escape";
         repeat_rate = 60;
@@ -213,6 +219,5 @@
     XDG_PICTURES_DIR = "${config.home.homeDirectory}/pix";
     };
   };
-  programs.home-manager.enable = true;
   xdg.mime.enable = true;
 }
