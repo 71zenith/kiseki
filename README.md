@@ -12,7 +12,7 @@
 This contains the nix flakes to build an identical copy of my system
 
 
-![](./resources/screenshot.png)
+![](./resources/screenshot2.png)
 
 ## NIX Components
 - [flakes](https://nixos.wiki/wiki/Flakes)
