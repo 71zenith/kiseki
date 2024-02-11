@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, ... }:
 let
   inherit (config.colorScheme) palette;
 in
@@ -64,32 +64,41 @@ in
         }
       ];
     };
-    theme = {
-      themes = [
-        {
-          name = "oxocarbon";
-          palette = {
-            background = "#${palette.base00}";
-            foreground = "#${palette.base06}";
-            black = "#${palette.base00}";
-            red = "#${palette.base0A}";
-            green = "#${palette.base03}";
-            yellow = "#${palette.base00}";
-            blue = "#${palette.base0B}";
-            magenta = "#${palette.base0E}";
-            cyan = "#${palette.base08}";
-            white = "#${palette.base04}";
-            bright_black = "#${palette.base01}";
-            bright_red = "#${palette.base0C}";
-            bright_green = "#${palette.base0D}";
-            bright_yellow = "#${palette.base00}";
-            bright_blue = "#${palette.base0F}";
-            bright_magenta = "#${palette.base07}";
-            bright_cyan = "#${palette.base08}";
-            bright_white = "#${palette.base06}";
-          };
-        }
-      ];
-    };
+  };
+  home.file = {
+    "${config.xdg.configHome}/spotify-player/theme.toml".text = ''
+      [[themes]]
+      name = "oxocarbon"
+      [themes.palette]
+      black = "#${palette.base00}"
+      foreground = "#${palette.base08}"
+      bright_black = "#${palette.base01}"
+      yellow = "#${palette.base02}"
+      green = "#${palette.base03}"
+      bright_yellow = "#${palette.base04}"
+      white = "#${palette.base05}"
+      bright_white = "#${palette.base06}"
+      cyan = "#${palette.base07}"
+      bright_cyan = "#${palette.base08}"
+      blue = "#${palette.base09}"
+      bright_red = "#${palette.base0A}"
+      bright_blue = "#${palette.base0B}"
+      red = "#${palette.base0C}"
+      bright_green = "#${palette.base0D}"
+      magenta = "#${palette.base0E}"
+      bright_magenta = "#${palette.base0F}"
+      [themes.component_style]
+      block_title = { fg = "Magenta" , modifiers = ["Italic","Bold"] }
+      playback_track = { fg = "BrightMagenta", modifiers = ["Bold","Italic"] }
+      playback_album = { fg = "BrightRed" , modifiers = ["Bold", "Italic"] }
+      playback_artists = { fg = "BrightCyan", modifiers = ["Bold"] }
+      playback_metadata = { fg = "BrightBlue" , modifiers = ["Bold"] }
+      playback_progress_bar = { fg = "BrightGreen" , modifiers = ["Italic"]}
+      current_playing = { fg = "Red", modifiers = ["Bold", "Italic"] }
+      page_desc = { fg = "Magenta", modifiers = ["Bold","Italic"] }
+      table_header = { fg = "Blue" , modifiers = ["Italic"] }
+      border = { fg = "BrightYellow" }
+      selection = { fg = "Red" , modifiers = ["Bold","Reversed"]}
+    '';
   };
 }

@@ -15,8 +15,8 @@ in
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray" ];
         "hyprland/workspaces" = {
           format = "{icon}";
-	  show-special = true;
-	  on-scroll-up = "hyprctl dispatch workspace r-1";
+          show-special = true;
+          on-scroll-up = "hyprctl dispatch workspace r-1";
           on-scroll-down = "hyprctl dispatch workspace r+1";
           format-icons = {
             "1" = "一";
@@ -25,13 +25,13 @@ in
             "4" = "四";
             "5" = "五";
             "6" = "六";
-	    "7" = "七";
-	    "8" = "八";
-	    "9" = "九";
-	    "10" = "十";
-	    "special" = "・";
+            "7" = "七";
+            "8" = "八";
+            "9" = "九";
+            "10" = "十";
+            "special" = "・";
           };
-	  persistent-workspaces = {
+          persistent-workspaces = {
             "1" = [];
             "2" = [];
             "3" = [];
@@ -52,7 +52,6 @@ in
         };
         "clock#time" = {
           format = "{:%H:%M}";
-	  interval = 30;
         };
         "clock#date" = {
           format =  "{:%a %d %b}";
@@ -60,7 +59,7 @@ in
         };
         "network" = {
           format-ethernet = "{bandwidthUpBits} {bandwidthDownBytes}";
-	  min-width = 20;
+          min-width = 20;
           fixed-width = 20;
           interface = "enp7s0";
           interval = 1;

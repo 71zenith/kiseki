@@ -33,11 +33,11 @@ This contains the nix flakes to build an identical copy of my system
 - [mpv](https://github.com/mpv-player/mpv) - goated media player
 - [zsh](http://www.zsh.org/) - shell
 - [rofi](https://github.com/davatorium/rofi) - custom launcher
+- [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
 - [calibre](https://github.com/kovidgoyal/calibre) - ebook manager
 - [fcitx5](https://github.com/fcitx/fcitx5) - japanese input
 - [mako](https://github.com/emersion/mako) - notification daemon
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
-
 
 
 ## Rusty Tools Used
