@@ -106,7 +106,6 @@ in
     };
 
     config = mkIf cfg.enable {
-      home.packages = [ cfg.package ];
       xdg.configFile = {
         "spotify-player/app.toml" = mkIf (cfg.settings != { }) {
           source = tomlFormat.generate "spotify-player-config" cfg.settings;

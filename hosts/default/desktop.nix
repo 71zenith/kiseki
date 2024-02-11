@@ -10,7 +10,6 @@
   ];
 
   programs.home-manager.enable = true;
-  # programs.spotify-player.enable = true;
 
   colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 

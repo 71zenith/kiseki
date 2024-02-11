@@ -1,14 +1,16 @@
-{ config, stylix, pkgs, ... }:
+{ inputs, config, stylix, pkgs, ... }:
 {
   imports = [
     ../../modules/home-manager/spotify-player.nix
   ];
-  /* programs.spotify-player = {
-    enable = true ;
-    settings = {
-      playback_window_position = "Bottom";
-    };
-  }; */
+
+  # programs.spotify-player = {
+  #   enable = true;
+  #   settings = {
+  #     playback_window_position = "Bottom";
+  #   };
+  # };
+
   programs.btop = {
     enable = true;
     settings = {

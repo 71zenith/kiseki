@@ -114,6 +114,10 @@
           key = "<Tab>";
           action = "<CMD>:bnext<NL>";
         }
+        {
+          key = "<S-Tab>";
+          action = "<CMD>:bprevious<NL>";
+        }
       ];
     };
  };
