@@ -35,7 +35,9 @@
     gtk.enable = true;
   };
 
-  qt = { enable = true; };
+  qt = {
+    enable = true;
+  };
 
   wayland.windowManager.hyprland = {
     enable = true;
