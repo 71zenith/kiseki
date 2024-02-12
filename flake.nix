@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nur.url = "github:nix-community/NUR";
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     stylix.url = "github:danth/stylix";
@@ -13,7 +14,7 @@
     hyprland-contrib.url = "github:hyprwm/contrib";
   };
 
-  outputs = { self, nixpkgs, stylix , ... }@inputs:
+  outputs = { self, nixpkgs, stylix, nur , ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -23,6 +24,7 @@
       specialArgs = { inherit inputs; };
       modules = [ 
        stylix.nixosModules.stylix
+       nur.nixosModules.nur
        ./hosts/default/config.nix
        inputs.home-manager.nixosModules.default
       ];

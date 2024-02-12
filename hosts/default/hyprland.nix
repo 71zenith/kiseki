@@ -1,10 +1,13 @@
-{pkgs, inputs, config, ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
     ./tools.nix
+    ./mpv.nix
+    ./shell.nix
     ./waybar.nix
     ./nvim.nix
+    ./xdg.nix
     ./spotify-player.nix
     inputs.nix-colors.homeManagerModules.default
   ];
@@ -13,15 +16,15 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 
-  home.username = "zen";   
+  home.username = "zen";
   home.homeDirectory = "/home/zen";
-        
+
   home.stateVersion = "24.05";
   gtk = {
     enable = true;
     iconTheme = {
-    name = "Zafiro-icons-Dark";
-    package = pkgs.zafiro-icons;
+      name = "Zafiro-icons-Dark";
+      package = pkgs.zafiro-icons;
     };
   };
 
@@ -30,14 +33,12 @@
     gtk.enable = true;
   };
 
-  qt = {
-    enable = true;
-  };
+  qt = { enable = true; };
 
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    settings = { 
+    settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
@@ -57,16 +58,17 @@
       "$mod2" = "ALTSHIFT";
       "$mod3" = "ALTCONTROL";
       "$mod4" = "SUPER";
-      "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
+      "$screenshotarea" =
+        "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
       monitor = "monitor=,preferred,1920x1080@75.00,1";
       exec-once = [
         "foot --server &"
-        "hyprctl dispatch exec 'footclient -T spotify_player spotify_player'"
         "swww init"
         "blueman-applet &"
-        "wl-paste --type text --watch cliphist store"
-        "swww img ~/nix/resources/blue-blossom.jpg"
+        "wl-paste --type text --watch cliphist store &"
+        "swww img ~/nix/resources/blue-blossom.jpg &"
         "pkill waybar; waybar &"
+        "hyprctl dispatch exec 'footclient -T spotify_player spotify_player'"
       ];
       windowrule = [
         "workspace special silent,title:^(*otify*)$"
@@ -81,6 +83,10 @@
         "float, title:Library"
         "float, title:Open File"
         "float, title:branchdialog"
+      ];
+      windowrulev2 = [
+        "stayfocused, title:^()$,class:^(steam)$"
+        "minsize 1 1, title:^()$,class:^(steam)$"
       ];
       input = {
         kb_options = "caps:escape";
@@ -121,13 +127,11 @@
           "windowsOut, 1, 3, smoothIn"
           "windowsMove, 1, 3, default"
           "workspaces, 1, 2, default"
-          "specialWorkspace, 1, 2, pace, slidevert" 
+          "specialWorkspace, 1, 2, pace, slidevert"
         ];
       };
-      bindm = [
-        "$mod1, mouse:272, movewindow"
-        "$mod1, mouse:273, resizewindow"
-      ];
+      bindm =
+        [ "$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow" ];
       binde = [
         ",Print, exec,grimblast --notify copy area"
         ",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
@@ -137,8 +141,7 @@
         ",XF86AudioPrev, exec, playerctl previous --player=spotify_player"
         ",XF86AudioPlay, exec, playerctl play-pause"
       ];
-      bind = 
-      [
+      bind = [
         "$mod1,Print, exec,grimblast --notify copy screen"
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
@@ -171,77 +174,12 @@
 
         "$mod3, return, movetoworkspace, special"
         "$mod2, return, togglespecialworkspace,"
-      ]
-      ++ (
-        builtins.concatLists (builtins.genList (
-            x: let
-              ws = let
-                c = (x + 1) / 10;
-              in
-                builtins.toString (x + 1 - (c * 10));
-            in [
-              "$mod1, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-            ]
-          )
-          10)
-      );
+      ] ++ (builtins.concatLists (builtins.genList (x:
+        let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+        in [
+          "$mod1, ${ws}, workspace, ${toString (x + 1)}"
+          "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+        ]) 10));
     };
   };
-
-  xdg.enable = true;
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = let
-      browser = ["firefox.desktop"];
-      editor = ["nvim.desktop"];
-      player = ["mpv.desktop"];
-      viewer = ["nsxiv.desktop"];
-      reader = ["zathura.desktop"];
-      in {
-        "application/json" = browser;
-        "application/pdf" = reader;
-
-        "text/html" = browser;
-        "text/xml" = browser;
-        "text/plain" = editor;
-        "application/xml" = browser;
-        "application/xhtml+xml" = browser;
-        "application/xhtml_xml" = browser;
-        "application/rdf+xml" = browser;
-        "application/rss+xml" = browser;
-        "application/x-extension-htm" = browser;
-        "application/x-extension-html" = browser;
-        "application/x-extension-shtml" = browser;
-        "application/x-extension-xht" = browser;
-        "application/x-extension-xhtml" = browser;
-        "application/x-wine-extension-ini" = editor;
-
-        "x-scheme-handler/about" = browser;
-        "x-scheme-handler/ftp" = browser;
-        "x-scheme-handler/http" = browser;
-        "x-scheme-handler/https" = browser;
-
-        "audio/*" = player;
-        "video/*" = player;
-        "image/*" = viewer;
-        "image/gif" = viewer;
-        "image/jpeg" = viewer;
-        "image/png" = viewer;
-        "image/webp" = viewer;
-      };
-  };
-
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-    extraConfig = {
-    XDG_DOWNLOAD_DIR = "${config.home.homeDirectory}/dl";
-    XDG_DOCUMENTS_DIR = "${config.home.homeDirectory}/dox";
-    XDG_DESKTOP_DIR = "${config.home.homeDirectory}/dl";
-    XDG_VIDEOS_DIR = "${config.home.homeDirectory}/vid";
-    XDG_PICTURES_DIR = "${config.home.homeDirectory}/pix";
-    };
-  };
-  xdg.mime.enable = true;
 }

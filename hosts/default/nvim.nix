@@ -1,8 +1,5 @@
-{ inputs, ... }:
-{
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-  ];
+{ inputs, ... }: {
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
   programs = {
     nixvim = {
       enable = true;
@@ -31,9 +28,7 @@
         barbecue.enable = true;
         lsp = {
           enable = true;
-          servers = {
-            nil_ls.enable = true;
-          };
+          servers = { nil_ls.enable = true; };
         };
         indent-blankline.enable = true;
         leap.enable = true;
@@ -57,12 +52,9 @@
         treesitter.enable = true;
         nvim-cmp = {
           enable = true;
-          snippet.expand = "luasnip" ;
-          sources = [
-            { name = "nvim_lsp"; }
-            { name = "path"; }
-            { name = "buffer"; }
-          ];
+          snippet.expand = "luasnip";
+          sources =
+            [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
           matching.disallowFuzzyMatching = true;
           mapping = {
             "<C-Space>" = "cmp.mapping.complete()";
@@ -72,17 +64,11 @@
             "<CR>" = "cmp.mapping.confirm({ select = true })";
             "<S-Tab>" = {
               action = "cmp.mapping.select_prev_item()";
-              modes = [
-                "i"
-                "s"
-              ];
+              modes = [ "i" "s" ];
             };
             "<Tab>" = {
               action = "cmp.mapping.select_next_item()";
-              modes = [
-                "i"
-                "s"
-              ];
+              modes = [ "i" "s" ];
             };
           };
         };
@@ -101,7 +87,7 @@
           keymaps = {
             "<leader>ff" = "find_files";
             "<leader>fs" = "grep_string";
-             "<leader>fg" = "live_grep";
+            "<leader>fg" = "live_grep";
           };
         };
       };
@@ -120,5 +106,5 @@
         }
       ];
     };
- };
+  };
 }

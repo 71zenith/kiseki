@@ -1,11 +1,12 @@
-
 <h2 align="center">:snowflake: Zen's Flakes :snowflake:</h2>
 
 <p align="center">
     <a href="https://nixos.org/">
         <img src="https://img.shields.io/badge/NixOS-24.05-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
-    <a href="https://github.com/71zenith/nix-dots">
-        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=so%20good&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=82cfff"></a>
+    <a href="https://github.com/nix-community/home-manager">
+        <img src="https://img.shields.io/static/v1?label=Home%20Manager&message=:3&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=3ddbd9"></a>
+    <a href="https://nixos.wiki/wiki/Flakes">
+        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=so good&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=78a9ff"></a>
   </a>
 </p>
 
@@ -20,6 +21,7 @@ This contains the nix flakes to build an identical copy of my system
 - [stylix](https://github.com/danth/stylix) - auto theme 
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
 - [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
+- [nur](https://github.com/nix-community/NUR) - nix user repository
 
 
 
@@ -40,9 +42,11 @@ This contains the nix flakes to build an identical copy of my system
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
 
 
+
 ## Rusty Tools Used
-- [eza](https://github.com/eza-community/eza) - ls alternative
-- [duf](https://github.com/muesli/duf) - df alternative
-- [dust](https://github.com/bootandy/dust) - du alternative
-- [fd](https://github.com/sharkdp/fd) - find alternative
-- [rg](https://github.com/BurstSushi/ripgrep) - grep alternative
+- [eza](https://github.com/eza-community/eza) - ls alter
+- [duf](https://github.com/muesli/duf) - df alter
+- [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd
+- [dust](https://github.com/bootandy/dust) - du alter
+- [fd](https://github.com/sharkdp/fd) - find alter
+- [rg](https://github.com/BurstSushi/ripgrep) - grep alter
