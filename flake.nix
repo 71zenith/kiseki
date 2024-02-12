@@ -14,20 +14,19 @@
     hyprland-contrib.url = "github:hyprwm/contrib";
   };
 
-  outputs = { self, nixpkgs, stylix, nur , ... }@inputs:
+  outputs = { self, nixpkgs, stylix, nur, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in
-  {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [ 
-       stylix.nixosModules.stylix
-       nur.nixosModules.nur
-       ./hosts/default/config.nix
-       inputs.home-manager.nixosModules.default
-      ];
+    in {
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          stylix.nixosModules.stylix
+          nur.nixosModules.nur
+          ./hosts/default/config.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
-  };
 }

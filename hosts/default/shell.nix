@@ -13,12 +13,14 @@
         up = "sudo nixos-rebuild switch --flake ~/nix#default";
         del = "sudo nix-collect-garbage --delete-old";
         pm = "pulsemixer";
+        g = "git";
         rm = "rm -Ivr";
         mv = "mv -iv";
         cp = "cp -ivr";
         c = "clear";
         df = "duf";
-        "d" = "sudo";
+        mkdir = "mkdir -pv";
+        d = "sudo";
         du = "dust";
         cd = "z";
         f = "free -h";

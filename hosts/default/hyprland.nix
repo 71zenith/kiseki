@@ -7,6 +7,7 @@
     ./shell.nix
     ./waybar.nix
     ./nvim.nix
+    ./git.nix
     ./xdg.nix
     ./spotify-player.nix
     inputs.nix-colors.homeManagerModules.default
@@ -18,6 +19,10 @@
 
   home.username = "zen";
   home.homeDirectory = "/home/zen";
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    MANPAGER = "sh -c 'col -bx | bat -p'";
+  };
 
   home.stateVersion = "24.05";
   gtk = {

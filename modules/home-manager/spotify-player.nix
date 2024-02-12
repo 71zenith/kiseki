@@ -3,8 +3,7 @@ with lib;
 let
   cfg = config.programs.spotify-player;
   tomlFormat = pkgs.formats.toml { };
-in
-{
+in {
   options.programs.spotify-player = {
     enable = mkEnableOption "spotify-player";
 
@@ -25,17 +24,16 @@ in
     };
   };
   config = mkIf cfg.enable {
-    xdg.configFile = let 
-      settings = 
-      {
-      "spotify-player/app.toml" = mkIf (cfg.settings != { }) {
-        source = tomlFormat.generate "spotify-player-config" cfg.settings;
+    xdg.configFile = let
+      settings = {
+        "spotify-player/app.toml" = mkIf (cfg.settings != { }) {
+          source = tomlFormat.generate "spotify-player-config" cfg.settings;
+        };
+        "spotify-player/keymap.toml" = mkIf (cfg.keymaps != { }) {
+          source =
+            tomlFormat.generate "spotify-player-keymaps-config" cfg.keymaps;
+        };
       };
-      "spotify-player/keymap.toml" = mkIf (cfg.keymaps != { }) {
-        source = tomlFormat.generate "spotify-player-keymaps-config" cfg.keymaps;
-      };
-    };
-  in 
-    settings;
+    in settings;
   };
 }
