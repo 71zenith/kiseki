@@ -13,7 +13,9 @@
 This contains the nix flakes to build an identical copy of my system
 
 
-![](./resources/screenshot2.png)
+![](./resources/screenshot3.png)
+
+previous iterations are in [resources](./resources/).
 
 ## NIX Components
 - [flakes](https://nixos.wiki/wiki/Flakes)
@@ -42,7 +44,6 @@ This contains the nix flakes to build an identical copy of my system
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
 
 
-
 ## Rusty Tools Used
 - [eza](https://github.com/eza-community/eza) - ls alter
 - [duf](https://github.com/muesli/duf) - df alter
@@ -50,3 +51,11 @@ This contains the nix flakes to build an identical copy of my system
 - [dust](https://github.com/bootandy/dust) - du alter
 - [fd](https://github.com/sharkdp/fd) - find alter
 - [rg](https://github.com/BurstSushi/ripgrep) - grep alter
+
+
+## Standardised Config
+- [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
+- [iosevka-comfy](https://github.com/protesilaos/iosevka-comfy) - monospace font
+- [open-sans](https://fonts.google.com/specimen/Open+Sans) - "everything else" font
+- [noto-sans-cjk](https://fonts.google.com/specimen/Noto+Sans+jP) - "everything else" font for weebs
+- [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies

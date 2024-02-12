@@ -53,15 +53,15 @@
     neofetch
     zsh-powerlevel10k
     git
-
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
   ];
 
   fonts.packages = with pkgs; [
-    noto-fonts
     terminus_font
     noto-fonts-color-emoji
     noto-fonts-cjk-sans
+    open-sans
+    iosevka-comfy.comfy
     (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];
 

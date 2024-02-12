@@ -21,7 +21,6 @@
   home.homeDirectory = "/home/zen";
   home.sessionVariables = {
     EDITOR = "nvim";
-    MANPAGER = "sh -c 'col -bx | bat -p'";
   };
 
   home.stateVersion = "24.05";

@@ -87,7 +87,7 @@ in {
     };
     style = ''
       * {
-        font-family: MonaspiceRn Nerd Font;
+        font-family: Iosevka Comfy;
         font-size: 18px;
         border: none;
         border-radius: 0;
