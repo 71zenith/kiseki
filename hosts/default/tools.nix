@@ -44,12 +44,15 @@
 
     rofi = {
       enable = true;
+      cycle = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs; [ rofi-top rofi-emoji rofi-calc rofi-file-browser ];
+      plugins = with pkgs; [ rofi-emoji rofi-calc ];
       extraConfig = {
-        modi = "drun,run";
+        modi = "drun,window";
         sidebar-mode = true;
         show-icons = true;
+        kb-mode-next = "Control+l";
+        kb-mode-previous = "Control+h";
       };
     };
   };

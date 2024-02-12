@@ -58,4 +58,10 @@
     };
     mime.enable = true;
   };
+  home.file = {
+    "${config.xdg.configHome}/electron-flags.conf".text = ''
+      --enable-features=UseOzonePlatform
+      --ozone-platform=wayland
+    '';
+  };
 }
