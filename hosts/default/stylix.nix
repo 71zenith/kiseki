@@ -43,11 +43,11 @@
         applications = 12;
         desktop = 12;
         popups = 14;
-        terminal = 15;
+        terminal = 16;
       };
     };
 
-    opacity.terminal = 0.95;
+    opacity.terminal = 0.90;
     cursor = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";

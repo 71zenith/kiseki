@@ -42,13 +42,18 @@
         auto-save.enable = true;
         cmp-buffer.enable = true;
         cmp-nvim-lsp.enable = true;
+        lastplace.enable = true;
         cmp-nvim-lua.enable = true;
         lspkind.enable = true;
+        friendly-snippets.enable = true;
         noice.enable = true;
         lualine.enable = true;
         nvim-colorizer.enable = true;
         luasnip.enable = true;
+        cmp_luasnip.enable = true;
         which-key.enable = true;
+        fidget.enable = true;
+        ts-context-commentstring.enable = true;
         treesitter.enable = true;
         nvim-cmp = {
           enable = true;
@@ -85,8 +90,8 @@
             autoDepth = true;
           };
           keymaps = {
-            "<leader>ff" = "find_files";
-            "<leader>fs" = "grep_string";
+            "<leader>ff" = "fd";
+            "<leader>fs" = "lsp_document_symbols";
             "<leader>fg" = "live_grep";
           };
         };
@@ -94,7 +99,11 @@
       keymaps = [
         {
           key = "<leader>t";
-          action = "<CMD>Neotree<NL>";
+          action = "<CMD>Neotree float toggle<NL>";
+        }
+        {
+          key = "<leader>n";
+          action = "<CMD>ToggleTerm<NL>";
         }
         {
           key = "<Tab>";
