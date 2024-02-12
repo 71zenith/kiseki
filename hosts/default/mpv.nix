@@ -13,7 +13,7 @@
       interpolation = "yes";
       tscale = "oversample";
       image-display-duration = "inf";
-      osd-font = "Monaspace Radon";
+      osd-font = "Iosevka Comfy";
 
       cache = "yes";
       demuxer-max-bytes = "1000MiB";

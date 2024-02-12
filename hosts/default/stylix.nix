@@ -24,16 +24,16 @@
     };
     fonts = {
       serif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
+        package = pkgs.open-sans;
+        name = "Open Sans";
       };
       sansSerif = {
-        package = pkgs.noto-fonts;
-        name = "Noto Sans";
+        package = pkgs.open-sans;
+        name = "Open Sans";
       };
       monospace = {
-        package = pkgs.monaspace;
-        name = "Monaspace Radon";
+        package = pkgs.iosevka-comfy.comfy;
+        name = "Iosevka Comfy";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -43,7 +43,7 @@
         applications = 12;
         desktop = 12;
         popups = 14;
-        terminal = 14;
+        terminal = 15;
       };
     };
 

@@ -14,7 +14,7 @@
       options = {
         selection-clipboard = "clipboard";
         recolor = "true";
-        font = "Noto Sans 14";
+        font = "Open Sans 14";
       };
       mappings = {
         i = "recolor";
