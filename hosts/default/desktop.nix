@@ -1,4 +1,4 @@
-{ pkgs, inputs, config, ... }:
+{pkgs, inputs, config, ... }:
 
 {
   imports = [
@@ -110,17 +110,18 @@
       animations = {
         enabled = "true";
         bezier = [
-          "overshoot, 0.05, 0.9, 0.1, 1.1"
+          "overshot, 0.35, 0.9, 0.1, 1.05"
+          "smoothOut, 0.36, 0, 0.66, -0.56"
+          "smoothIn, 0.25, 1, 0.5, 1"
+          "pace, 0.46, 1, 0.29, 0.99"
         ];
         animation = [
-          "fade, 1, 5, default"
-          "border, 1, 5, default"
-          "borderangle, 0, 8, default"
-          "windows, 1, 5, overshoot"
-          "windowsOut, 1, 5, overshoot, popin 80%"
-          "windowsMove, 1, 5, overshoot, popin 80%"
-          "workspaces, 1, 5, overshoot"
-          "specialWorkspace, 1, 2, overshoot, slidevert"
+          "fade, 1, 3, smoothIn"
+          "windows, 1, 3, overshot"
+          "windowsOut, 1, 3, smoothIn"
+          "windowsMove, 1, 3, default"
+          "workspaces, 1, 2, default"
+          "specialWorkspace, 1, 2, pace, slidevert" 
         ];
       };
       bindm = [
@@ -132,6 +133,9 @@
         ",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
         ",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
         ",XF86AudioMute, exec, pulsemixer --toggle-mute"
+        ",XF86AudioNext, exec, playerctl next --player=spotify_player"
+        ",XF86AudioPrev, exec, playerctl previous --player=spotify_player"
+        ",XF86AudioPlay, exec, playerctl play-pause"
       ];
       bind = 
       [
