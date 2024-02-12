@@ -11,9 +11,16 @@
 
   programs.zathura = {
     enable = true;
+    options = {
+      selection-clipboard = "clipboard";
+      recolor = "true";
+      font = "Noto Sans 14";
+    };
     mappings = {
       i = "recolor";
+      "[fullscreen] i" = "recolor";
       f = "toggle_fullscreen";
+      "[fullscreen] f" = "toggle_fullscreen";
     };
   };
 
