@@ -1,10 +1,11 @@
-{ config, pkgs, inputs, ... }:
-{
+{ pkgs, inputs, ... }: {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
     eza
     steam
+    steam-run
+    anime4k
     xwayland
     yt-dlp
     duf
@@ -13,6 +14,7 @@
     heroic
     du-dust
     zoxide
+    nixfmt
     fd
     ani-cli
     protonup-qt
@@ -64,5 +66,6 @@
   ];
 
   programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  programs.hyprland.package =
+    inputs.hyprland.packages."${pkgs.system}".hyprland;
 }

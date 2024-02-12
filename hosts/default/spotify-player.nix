@@ -1,11 +1,7 @@
 { config, ... }:
-let
-  inherit (config.colorScheme) palette;
-in
-{
-  imports = [
-    ../../modules/home-manager/spotify-player.nix
-  ];
+let inherit (config.colorScheme) palette;
+in {
+  imports = [ ../../modules/home-manager/spotify-player.nix ];
 
   programs.spotify-player = {
     enable = true;

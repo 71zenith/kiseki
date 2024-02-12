@@ -32,7 +32,6 @@
     };
   };
 
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -41,27 +40,20 @@
 
   networking.networkmanager.enable = true;
 
-
-  security.sudo.extraRules = [
-    { users = [ "zen" ];
-      commands = [
-        {
-          command = "ALL" ;
-          options = ["NOPASSWD" ];
-        }
-      ];
-    }
-  ];
+  security.sudo.extraRules = [{
+    users = [ "zen" ];
+    commands = [{
+      command = "ALL";
+      options = [ "NOPASSWD" ];
+    }];
+  }];
 
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-mozc
-      fcitx5-gtk
-    ];
+    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
   };
 
   i18n.extraLocaleSettings = {
@@ -82,9 +74,9 @@
     packages = with pkgs; [ terminus_font ];
   };
 
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   programs.zsh.enable = true;
@@ -94,7 +86,7 @@
     description = "Mori Zen";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   hardware.bluetooth.enable = true;
@@ -110,10 +102,8 @@
   };
 
   home-manager = {
-  extraSpecialArgs = { inherit inputs ; };
-  users = {
-    "zen" = import ./desktop.nix;
-    };
+    extraSpecialArgs = { inherit inputs; };
+    users = { "zen" = import ./hyprland.nix; };
   };
 
   hardware.opengl = {
@@ -125,6 +115,8 @@
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
+    powerManagement.enable = true;
+    forceFullCompositionPipeline = true;
     nvidiaSettings = true;
   };
 
