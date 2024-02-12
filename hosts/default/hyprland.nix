@@ -19,9 +19,7 @@
 
   home.username = "zen";
   home.homeDirectory = "/home/zen";
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   home.stateVersion = "24.05";
   gtk = {
