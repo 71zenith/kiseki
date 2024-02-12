@@ -26,6 +26,7 @@
       qa = "stash apply";
       qc = "stash clear";
       p = "push -v";
+      pf = "push -v --force";
       d = "diff";
       dc = "diff --cached";
       b = "rebase";

@@ -86,108 +86,107 @@ in {
       };
     };
     style = ''
-                * {
-                  font-family: MonaspiceRn Nerd Font;
-                  font-size: 18px;
-                  border: none;
-                  border-radius: 0;
-                  min-height: 0;
-                }
+      * {
+        font-family: MonaspiceRn Nerd Font;
+        font-size: 18px;
+        border: none;
+        border-radius: 0;
+        min-height: 0;
+      }
 
-                window#waybar {
-                  background-color: rgba(16, 16, 16, 0.8);
-      	    color: #${palette.base03};
-                  transition-property: background-color;
-                  transition-duration: 0.1s;
-                }
+      window#waybar {
+        background-color: rgba(16, 16, 16, 0.8);
+      	color: #${palette.base03};
+          transition-property: background-color;
+          transition-duration: 0.1s;
+        }
+      window#waybar.hidden {
+        opacity: 0.1;
+      }
+      #window {
+        color: #${palette.base03};
+      }
+      #clock,
+      #mpris, 
+      #network,
+      #tray,
+      #workspaces,
+      #pulseaudio#muted
+      #network#disconnected
+      #pulseaudio {
+        color: #${palette.base05};
+        border-radius: 6px;
+        padding: 2px 10px;
+        background-color: #${palette.base00};
+        border-radius: 8px;
 
-                window#waybar.hidden {
-                  opacity: 0.1;
-                }
+        margin-left: 10px;
+        margin-right: 10px;
 
-                #window {
-                  color: #${palette.base03};
-                }
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      #workspaces button {
+        color: #${palette.base04};
+        box-shadow: inset 0 -3px transparent;
 
-                #clock,
-                #mpris, 
-      	  #network,
-                #tray,
-      	  #workspaces,
-      	  #pulseaudio {
-                  color: #${palette.base05};
-                  border-radius: 6px;
-                  padding: 2px 10px;
-                  background-color: #${palette.base00};
-                  border-radius: 8px;
+        padding-right: 7px;
+        padding-left: 7px;
 
-                  margin-left: 10px;
-                  margin-right: 10px;
+        transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+      }
+      #workspaces button.active {
+        color: #${palette.base0B};
+        padding-left: 7px;
+        padding-right: 7px;
+        transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+      }
 
-                  margin-top: 5px;
-                  margin-bottom: 5px;
-                }
-                #workspaces button {
-                  color: #${palette.base04};
-                  box-shadow: inset 0 -3px transparent;
+      #pulseaudio {
+        color: #${palette.base0D};
+      }
+      #pulseaudio.muted {
+        color: #${palette.base0A};
+      }
+      #network {
+        color: #${palette.base0F};
+      }
+      #network.disconnected {
+        color: #${palette.base0A};
+      }
+      @keyframes blink {
+        to {
+          background-color: rgba(30, 34, 42, 0.5);
+          color: #${palette.base07};
+        }
+      }
+      #clock.time {
+        color: #${palette.base0E};
+      }
+      #clock.date {
+        color: #${palette.base08};
+      }
+      tooltip {
+        border-radius: 15px;
+        padding: 15px;
+        background-color: #${palette.base01};
+      }
 
-                  padding-right: 7px;
-                  padding-left: 7px;
+      tooltip label {
+        padding: 5px;
+      }
 
-                  transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-                }
-                #workspaces button.active {
-                  color: #${palette.base0B};
-                  padding-left: 7px;
-                  padding-right: 7px;
-                  transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-                }
+      #tray > .passive {
+        -gtk-icon-effect: dim;
+      }
 
-                #pulseaudio {
-                  color: #${palette.base0D};
-                }
-                #pulseaudio.muted {
-                  color: #${palette.base0A};
-                }
-                #network {
-                  color: #${palette.base0F};
-                }
-                #network.disconnected {
-                  color: #${palette.base0A};
-                }
-                @keyframes blink {
-                  to {
-                    background-color: rgba(30, 34, 42, 0.5);
-                    color: #${palette.base07};
-                  }
-                }
-                #clock.time {
-                  color: #${palette.base0E};
-                }
-                #clock.date {
-                  color: #${palette.base08};
-                }
-                tooltip {
-                  border-radius: 15px;
-                  padding: 15px;
-                  background-color: #${palette.base01};
-                }
-
-                tooltip label {
-                  padding: 5px;
-                }
-
-                #tray > .passive {
-                  -gtk-icon-effect: dim;
-                }
-
-                #tray > .needs-attention {
-                  -gtk-icon-effect: highlight;
-                  background-color: #${palette.base0A};
-                }
-                #mpris {
-                  color: #${palette.base09};
-                }
+      #tray > .needs-attention {
+        -gtk-icon-effect: highlight;
+        background-color: #${palette.base0A};
+      }
+      #mpris {
+        color: #${palette.base09};
+      }
     '';
   };
 }
