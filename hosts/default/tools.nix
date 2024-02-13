@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, ... }:
 let inherit (config.colorScheme) palette;
 in {
 
@@ -77,11 +77,17 @@ in {
       package = pkgs.rofi-wayland;
       plugins = with pkgs; [ rofi-emoji rofi-calc ];
       extraConfig = {
-        modi = "drun,window";
+        modi = "drun,window,calc,emoji";
         sidebar-mode = true;
         show-icons = true;
+        kb-remove-char-back = "BackSpace";
+        kb-remove-to-eol = "Control+x";
+        kb-accept-entry = "Control+m,Return,KP_Enter";
         kb-mode-next = "Control+l";
         kb-mode-previous = "Control+h";
+        kb-row-up = "Control+k";
+        kb-row-down = "Control+j";
+        kb-mode-complete = "Control+p";
       };
     };
   };
