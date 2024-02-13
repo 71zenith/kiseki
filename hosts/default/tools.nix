@@ -79,15 +79,20 @@ in {
       extraConfig = {
         modi = "drun,window,calc,emoji";
         sidebar-mode = true;
+        terminal = "footclient";
         show-icons = true;
         kb-remove-char-back = "BackSpace";
-        kb-remove-to-eol = "Control+x";
         kb-accept-entry = "Control+m,Return,KP_Enter";
         kb-mode-next = "Control+l";
         kb-mode-previous = "Control+h";
-        kb-row-up = "Control+k";
-        kb-row-down = "Control+j";
-        kb-mode-complete = "Control+p";
+        kb-row-up = "Control+k,Up";
+        kb-row-down = "Control+j,Down";
+        kb-row-left = "Control+u";
+        kb-row-right = "Control+d";
+        kb-remove-char-forward = "";
+        kb-remove-to-sol = "";
+        kb-remove-to-eol = "";
+        kb-mode-complete = "";
       };
     };
   };

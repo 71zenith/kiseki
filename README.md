@@ -29,12 +29,12 @@ previous iterations are in [resources](./resources/).
 
 ## Programs Used
 - [Hyprland](https://github.com/hyprwm/Hyprland) - compositor
-- [nvim](https://github.com/neovim/neovim) - text editor
+- [neovim](https://github.com/neovim/neovim) - text editor
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
 - [btop](https://github.com/aristocratos/btop) - resource monitor
 - [zathura](https://pwmt.org/projects/zathura/) - pdf/epub viewer
-- [mpv](https://github.com/mpv-player/mpv) - goated media player
+- [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
 - [zsh](http://www.zsh.org/) - shell
 - [rofi](https://github.com/davatorium/rofi) - custom launcher
 - [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
