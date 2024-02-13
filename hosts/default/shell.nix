@@ -15,6 +15,7 @@
         pm = "pulsemixer";
         g = "git";
         rm = "rm -Ivr";
+        v = "nvim";
         mv = "mv -iv";
         cp = "cp -ivr";
         c = "clear";

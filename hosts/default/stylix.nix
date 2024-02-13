@@ -1,6 +1,6 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, lib, config, ... }:
+let inherit (config.colorScheme) palette;
+in {
   stylix = {
     polarity = "dark";
     image = ../../resources/blue-blossom.jpg;
