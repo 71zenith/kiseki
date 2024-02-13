@@ -149,6 +149,7 @@
         "$mod1,Print, exec,grimblast --notify copy screen"
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
+        "$mod2, e, exec, emacs"
         "$mod2, p, exec, rofi -show calc"
         "$mod1, p, exec, rofi -show drun"
         "$mod1, o, exec, rofi -show emoji"

@@ -47,6 +47,8 @@
     nsxiv
     zathura
     zip
+    openssl
+    imagemagick
     unzip
     rar
     unrar

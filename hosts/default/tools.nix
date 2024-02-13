@@ -1,4 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: 
+let inherit (config.colorScheme) palette;
+in {
+
+  stylix.targets.zathura.enable = false;
   programs = {
     btop = {
       enable = true;
@@ -8,13 +12,38 @@
         vim_keys = true;
       };
     };
+    emacs = {
+      enable = true;
+      package = pkgs.emacs29;
+    };
 
     zathura = {
       enable = true;
       options = {
         selection-clipboard = "clipboard";
         recolor = "true";
+        recolor-keephue = "true";
         font = "Open Sans 14";
+        completion-bg = "#${palette.base02}";
+        completion-fg = "#${palette.base0C}";
+        completion-highlight-bg = "#${palette.base0C}";
+        completion-highlight-fg = "#${palette.base02}";
+        default-fg = "#${palette.base01}";
+        highlight-active-color = "#${palette.base0D}";
+        highlight-color = "#${palette.base0A}";
+        index-active-bg = "#${palette.base0D}";
+        inputbar-bg = "#${palette.base00}";
+        inputbar-fg = "#${palette.base04}";
+        notification-bg = "#${palette.base09}";
+        notification-error-bg = "#${palette.base08}";
+        notification-error-fg = "#${palette.base00}";
+        notification-fg = "#${palette.base00}";
+        notification-warning-bg = "#${palette.base08}";
+        notification-warning-fg = "#${palette.base00}";
+        recolor-darkcolor = "#${palette.base06}";
+        statusbar-bg = "#${palette.base01}";
+        default-bg = "rgba(0,0,0,0.7)";
+        recolor-lightcolor = "rgba(256,256,256,0)";
       };
       mappings = {
         i = "recolor";
