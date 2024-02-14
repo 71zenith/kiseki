@@ -72,7 +72,6 @@
         "wl-paste --type text --watch cliphist store &"
         "swww img ~/nix/resources/blue-blossom.jpg &"
         "pkill waybar; waybar &"
-        "hyprctl dispatch exec 'footclient -T spotify_player spotify_player'"
       ];
       windowrule = [
         "workspace special silent,title:^(*otify*)$"
@@ -147,6 +146,7 @@
       ];
       bind = [
         "$mod1,Print, exec,grimblast --notify copy screen"
+        "$mod4, o, exec, grimblast save area - | tesseract stdin - 2>/dev/null | wl-copy"
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
         "$mod2, e, exec, emacs"

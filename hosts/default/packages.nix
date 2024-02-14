@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  ani-cli = pkgs.callPackage 
+    ../../modules/nix-os/ani-cli.nix {};
+in
+{
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
@@ -9,6 +14,7 @@
     xwayland
     yt-dlp
     duf
+    tesseract
     wl-clipboard
     cliphist
     heroic
