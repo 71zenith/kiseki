@@ -59,6 +59,10 @@ in {
           key_sequence = "H";
         }
         {
+          command = "PageSelectPreviousOrScrollUp";
+          key_sequence = "C-u";
+        }
+        {
           command = "PageSelectNextOrScrollDown";
           key_sequence = "C-d";
         }
