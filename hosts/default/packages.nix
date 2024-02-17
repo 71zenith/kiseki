@@ -10,6 +10,8 @@ in
     eza
     steam
     steam-run
+    ffmpeg
+    libsixel
     anime4k
     xwayland
     yt-dlp
@@ -17,6 +19,7 @@ in
     tesseract
     wl-clipboard
     cliphist
+    shfmt
     heroic
     du-dust
     zoxide
