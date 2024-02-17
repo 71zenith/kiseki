@@ -77,7 +77,7 @@ in {
       package = pkgs.rofi-wayland;
       plugins = with pkgs; [ rofi-emoji rofi-calc ];
       extraConfig = {
-        modi = "drun,window,calc,emoji";
+        modi = "drun,window,calc,emoji,run";
         sidebar-mode = true;
         terminal = "footclient";
         show-icons = true;
