@@ -23,7 +23,7 @@ in {
     nixfmt
     fd
     ani-cli
-    nodePackages_latest.bash-language-server
+    gcc
     protonup-qt
     gnome.nautilus
     libnotify
