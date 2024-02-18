@@ -1,9 +1,6 @@
 { pkgs, inputs, ... }:
-let
-  ani-cli = pkgs.callPackage 
-    ../../modules/nix-os/ani-cli.nix {};
-in
-{
+let ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix { };
+in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
@@ -26,6 +23,7 @@ in
     nixfmt
     fd
     ani-cli
+    nodePackages_latest.bash-language-server
     protonup-qt
     gnome.nautilus
     libnotify
@@ -61,7 +59,6 @@ in
     unzip
     rar
     unrar
-    neofetch
     zsh-powerlevel10k
     git
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast

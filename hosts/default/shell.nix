@@ -13,6 +13,7 @@
         up = "sudo nixos-rebuild switch --flake ~/nix#default";
         del = "sudo nix-collect-garbage --delete-old";
         pm = "pulsemixer";
+        cat = "bat -p -P";
         g = "git";
         rm = "rm -Ivr";
         v = "nvim";
@@ -36,7 +37,9 @@
       enableZshIntegration = true;
     };
 
-    bat = { enable = true; };
+    bat = {
+      enable = true;
+    };
 
     eza = {
       enable = true;
