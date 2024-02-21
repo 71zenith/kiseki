@@ -8,8 +8,10 @@ in {
     steam
     steam-run
     ffmpeg
+    gamescope
     libsixel
     anime4k
+    rsync
     xwayland
     yt-dlp
     duf
@@ -53,10 +55,12 @@ in {
     mpv
     nsxiv
     zathura
+    python3
     zip
     openssl
     imagemagick
     unzip
+    qemu
     rar
     unrar
     zsh-powerlevel10k

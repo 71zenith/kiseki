@@ -124,6 +124,7 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
+  hardware.opentabletdriver.enable = true;
 
   system.stateVersion = "24.05";
 }
