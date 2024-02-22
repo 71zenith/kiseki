@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
-
-{
+let fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix { };
+in {
   imports = [
     ./hardware.nix
     ./packages.nix
@@ -53,7 +53,8 @@
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
+    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-fluent ];
+    fcitx5.waylandFrontend = true;
   };
 
   i18n.extraLocaleSettings = {
@@ -124,7 +125,7 @@
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
-  hardware.opentabletdriver.enable = true;
+  #hardware.opentabletdriver.enable = true;
 
   system.stateVersion = "24.05";
 }
