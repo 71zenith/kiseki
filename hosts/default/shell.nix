@@ -5,7 +5,14 @@
       enableAutosuggestions = true;
       enableCompletion = true;
       initExtra =
-        "bindkey '^H' backward-delete-char;bindkey '^?' backward-delete-char;source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme; [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh";
+      ''
+      zstyle ':completion:*' menu select
+      bindkey '^[[Z' reverse-menu-complete
+      bindkey '^?' backward-delete-char
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      '';
       syntaxHighlighting = { enable = true; };
       historySubstringSearch = { enable = true; };
       history.size = 10000000;
