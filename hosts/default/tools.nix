@@ -94,6 +94,14 @@ in {
         kb-remove-to-eol = "";
         kb-mode-complete = "";
       };
+      theme = let inherit (config.lib.formats.rasi) mkLiteral;
+      in {
+        "*" = {
+          padding = 2;
+          spacing = 4;
+        };
+        "#element-icon" = { size = 26; };
+      };
     };
   };
   services.mako = {
