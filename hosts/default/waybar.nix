@@ -111,6 +111,7 @@ in {
       #network,
       #tray,
       #pulseaudio,
+      #pulseaudio#muted,
       #workspaces,
       #network#disconnected {
         color: #${palette.base05};

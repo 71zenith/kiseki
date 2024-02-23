@@ -56,6 +56,6 @@ previous iterations are in [resources](./resources/).
 ## Standardised Config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
 - [iosevka-comfy](https://github.com/protesilaos/iosevka-comfy) - monospace font
-- [open-sans](https://fonts.google.com/specimen/Open+Sans) - "everything else" font
-- [noto-sans-cjk](https://fonts.google.com/specimen/Noto+Sans+jP) - "everything else" font for weebs
+- google-sans - "everything else" font
+- [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
