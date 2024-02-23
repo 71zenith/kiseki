@@ -96,7 +96,7 @@ in {
 
       window#waybar {
         background-color: rgba(16, 16, 16, 0.8);
-      	color: #${palette.base03};
+      	color: #${palette.base04};
           transition-property: background-color;
           transition-duration: 0.1s;
         }
@@ -104,24 +104,23 @@ in {
         opacity: 0.1;
       }
       #window {
-        color: #${palette.base03};
+        color: #${palette.base04};
       }
       #clock,
       #mpris, 
       #network,
       #tray,
+      #pulseaudio,
       #workspaces,
-      #pulseaudio#muted
-      #network#disconnected
-      #pulseaudio {
+      #network#disconnected {
         color: #${palette.base05};
         border-radius: 6px;
         padding: 2px 10px;
         background-color: #${palette.base00};
         border-radius: 8px;
 
-        margin-left: 10px;
-        margin-right: 10px;
+        margin-left: 6px;
+        margin-right: 6px;
 
         margin-top: 5px;
         margin-bottom: 5px;

@@ -3,7 +3,7 @@ let inherit (config.colorScheme) palette;
 in {
   stylix = {
     polarity = "dark";
-    image = ../../resources/blue-blossom.jpg;
+    image = ../../resources/wallpapers/blue-blossom.jpg;
     base16Scheme = {
       base00 = "161616";
       base01 = "262626";
@@ -46,7 +46,6 @@ in {
         terminal = 16;
       };
     };
-
     opacity.terminal = 0.9;
     cursor = {
       package = pkgs.phinger-cursors;

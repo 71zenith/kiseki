@@ -107,6 +107,7 @@ in {
   services.mako = {
     enable = true;
     defaultTimeout = 5000;
+    maxIconSize = 128;
     borderSize = 3;
     width = 330;
     height = 200;

@@ -68,7 +68,7 @@
         "swww init"
         "blueman-applet &"
         "wl-paste --type text --watch cliphist store &"
-        "swww img ~/nix/resources/blue-blossom.jpg &"
+        "swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 1"
         "pkill waybar; waybar &"
       ];
       windowrule = [
@@ -144,13 +144,14 @@
       ];
       bind = [
         "$mod1,Print, exec,grimblast --notify copy screen"
-        "$mod4, o, exec, grimblast save area - | tesseract stdin - 2>/dev/null | wl-copy"
+        "$mod2, o, exec, grimblast save area - | tesseract stdin - 2>/dev/null | wl-copy"
         "$mod2, f, exec, firefox"
         "$mod1, return, exec, footclient"
         "$mod2, e, exec, emacs"
         "$mod2, p, exec, rofi -show calc"
         "$mod1, p, exec, rofi -show drun"
         "$mod1, o, exec, rofi -show emoji"
+        "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
         "$mod4, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
         "$mod1, q, killactive,"
@@ -168,12 +169,8 @@
         "$mod2, j, resizeactive, 0 40"
         "$mod2, k, resizeactive, 0 -40"
 
-        "$mod4 SHIFT, l, swapnext"
-        "$mod4 SHIFT, h, swapnext,prev"
-
-        "$mod4, 49, togglegroup,"
-        "$mod4, tab, changegroupactive,"
-        "$mod4 SHIFT, tab, changegroupactive,b"
+        "$mod3 SHIFT, l, swapnext"
+        "$mod3 SHIFT, h, swapnext,prev"
 
         "$mod3, return, movetoworkspace, special"
         "$mod2, return, togglespecialworkspace,"
