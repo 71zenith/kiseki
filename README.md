@@ -13,14 +13,15 @@
 This contains the nix flakes to build an identical copy of my system
 
 
-![](./resources/screenshot3.png)
+![](./resources/screenshot4.png)
 
 previous iterations are in [resources](./resources/).
+wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just odoriko backgrounds*
 
 ## NIX Components
 - [flakes](https://nixos.wiki/wiki/Flakes)
 - [home-manager](https://github.com/nix-community/home-manager) - manage dots
-- [stylix](https://github.com/danth/stylix) - auto theme 
+- [stylix](https://github.com/danth/stylix) - auto theme
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
 - [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
 - [nur](https://github.com/nix-community/NUR) - nix user repository
@@ -42,6 +43,7 @@ previous iterations are in [resources](./resources/).
 - [fcitx5](https://github.com/fcitx/fcitx5) - japanese input
 - [mako](https://github.com/emersion/mako) - notification daemon
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
+- [ani-cli](https://github.com/pystardust/ani-cli) - anime tool
 
 
 ## Rusty Tools Used
