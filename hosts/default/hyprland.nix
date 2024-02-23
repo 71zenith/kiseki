@@ -169,11 +169,12 @@
         "$mod2, j, resizeactive, 0 40"
         "$mod2, k, resizeactive, 0 -40"
 
-        "$mod3 SHIFT, l, swapnext"
-        "$mod3 SHIFT, h, swapnext,prev"
+        "$mod3, l, swapnext"
+        "$mod3, h, swapnext,prev"
 
         "$mod3, return, movetoworkspace, special"
         "$mod2, return, togglespecialworkspace,"
+        "$mod4, return, togglespecialworkspace, pop"
       ] ++ (builtins.concatLists (builtins.genList (x:
         let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
         in [
