@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }:
 let ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix { };
+    umeboshi = pkgs.callPackage ../../modules/nix-os/umeboshi.nix { };
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -71,8 +72,7 @@ in {
   fonts.packages = with pkgs; [
     terminus_font
     noto-fonts-color-emoji
-    noto-fonts-cjk-sans
-    open-sans
+    umeboshi
     iosevka-comfy.comfy
     (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];

@@ -1,5 +1,5 @@
-{ pkgs, lib, config, ... }:
-let inherit (config.colorScheme) palette;
+{ pkgs, ... }:
+let google-sans = pkgs.callPackage ../../modules/nix-os/google-sans.nix { };
 in {
   stylix = {
     polarity = "dark";
@@ -24,12 +24,12 @@ in {
     };
     fonts = {
       serif = {
-        package = pkgs.open-sans;
-        name = "Open Sans";
+        package = google-sans;
+        name = "Google Sans";
       };
       sansSerif = {
-        package = pkgs.open-sans;
-        name = "Open Sans";
+        package = google-sans;
+        name = "Google Sans";
       };
       monospace = {
         package = pkgs.iosevka-comfy.comfy;
@@ -40,7 +40,7 @@ in {
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 12;
+        applications = 13;
         desktop = 12;
         popups = 14;
         terminal = 16;

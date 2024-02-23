@@ -23,7 +23,7 @@ in {
         selection-clipboard = "clipboard";
         recolor = "true";
         recolor-keephue = "true";
-        font = "Open Sans 14";
+        font = "Google Sans 14";
         completion-bg = "#${palette.base02}";
         completion-fg = "#${palette.base0C}";
         completion-highlight-bg = "#${palette.base0C}";
