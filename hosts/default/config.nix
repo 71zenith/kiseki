@@ -34,6 +34,7 @@ in {
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
 
   networking.hostName = "izanagi";
   networking.wireless.enable = false;
@@ -81,6 +82,7 @@ in {
   };
 
   programs.zsh.enable = true;
+  programs.gamemode.enable = true;
 
   users.users.zen = {
     isNormalUser = true;
