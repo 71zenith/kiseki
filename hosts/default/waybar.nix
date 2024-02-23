@@ -126,6 +126,15 @@ in {
         margin-bottom: 5px;
       }
       #workspaces button {
+        color: #${palette.base0C};
+        box-shadow: inset 0 -3px transparent;
+
+        padding-right: 7px;
+        padding-left: 7px;
+
+        transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+      }
+      #workspaces button.empty {
         color: #${palette.base04};
         box-shadow: inset 0 -3px transparent;
 
