@@ -42,6 +42,7 @@ in {
     curl
     firefox
     mako
+    nodePackages_latest.bash-language-server
     nil
     xdg-utils
     aria2
@@ -60,6 +61,11 @@ in {
     zip
     openssl
     imagemagick
+    enchant
+    cargo
+    rustc
+    rust-analyzer
+    rustfmt
     unzip
     qemu
     rar

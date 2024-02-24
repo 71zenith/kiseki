@@ -31,6 +31,7 @@
       shellAliases = {
         up = "sudo nixos-rebuild switch --flake ~/nix#default";
         del = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+        et = "emacs --batch -l org --eval '(org-babel-tangle-file)'";
         pm = "pulsemixer";
         cat = "bat -p -P";
         g = "git";
