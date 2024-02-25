@@ -17,6 +17,7 @@ in {
     yt-dlp
     duf
     tesseract
+    emacs-lsp-booster
     wl-clipboard
     cliphist
     shfmt
