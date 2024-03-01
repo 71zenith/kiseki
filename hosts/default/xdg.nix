@@ -5,13 +5,15 @@
       enable = true;
       defaultApplications = let
         browser = [ "firefox.desktop" ];
-        editor = [ "nvim.desktop" ];
+        editor = [ "emacs.desktop" ];
         player = [ "mpv.desktop" ];
         viewer = [ "nsxiv.desktop" ];
         reader = [ "zathura.desktop" ];
       in {
         "application/json" = browser;
         "application/pdf" = reader;
+        "application/epub" = reader;
+        "application/epub+zip" = reader;
 
         "text/html" = browser;
         "text/xml" = browser;

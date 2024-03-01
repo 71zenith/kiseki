@@ -12,6 +12,7 @@
       bindkey '^?' backward-delete-char
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      eval "$(direnv hook zsh)"
       '';
       syntaxHighlighting = { enable = true; };
       historySubstringSearch = { enable = true; };
@@ -31,7 +32,6 @@
       shellAliases = {
         up = "sudo nixos-rebuild switch --flake ~/nix#default";
         del = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
-        et = "emacs --batch -l org --eval '(org-babel-tangle-file)'";
         pm = "pulsemixer";
         cat = "bat -p -P";
         g = "git";
