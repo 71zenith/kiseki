@@ -17,6 +17,12 @@ in {
       package = pkgs.emacs29-pgtk;
     };
 
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+      nix-direnv.enable = true;
+    };
+
     zathura = {
       enable = true;
       options = {

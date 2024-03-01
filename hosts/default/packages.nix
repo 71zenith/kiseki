@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }:
 let ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix { };
-    umeboshi = pkgs.callPackage ../../modules/nix-os/umeboshi.nix { };
+umeboshi = pkgs.callPackage ../../modules/nix-os/umeboshi.nix { };
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -20,7 +20,7 @@ in {
     emacs-lsp-booster
     wl-clipboard
     cliphist
-    shfmt
+    openssl
     heroic
     du-dust
     zoxide
@@ -60,13 +60,7 @@ in {
     zathura
     python3
     zip
-    openssl
     imagemagick
-    enchant
-    cargo
-    rustc
-    rust-analyzer
-    rustfmt
     unzip
     qemu
     rar

@@ -25,6 +25,8 @@
     bindings = {
       "l" = "seek 5";
       "h" = "seek -5";
+      "a" = "add chapter -1";
+      "d" = "add chapter 1";
       "k" = "seek 60";
       "j" = "seek -60";
       "shift+s" = "script-binding crop-screenshot";

@@ -121,6 +121,9 @@ in {
     forceFullCompositionPipeline = true;
     nvidiaSettings = true;
   };
+  programs.nix-ld = {
+    enable = true;
+  };
 
   xdg.portal = {
     enable = true;
