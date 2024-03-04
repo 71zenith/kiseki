@@ -8,8 +8,8 @@ stdenvNoCC.mkDerivation {
   version = "0.1";
 
   src = fetchzip {
-    url = "http://font.xxenxx.net/zip/umeboshifont.zip";
-    hash = "sha256-A5K5RmDTNOoLDW+o7dAbFAG9k/E3R7nPhX+TRG/Sqf0=";
+    url = "https://github.com/71zenith/umeboshi/archive/refs/tags/v1.0.zip";
+    hash = "sha256-vry5OCtkvRqiVNZzXxPEnwUSI6T4hO+I3Wd28kPQ6NA=";
     stripRoot = false;
   };
 

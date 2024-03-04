@@ -83,12 +83,16 @@ in {
 
   programs.zsh.enable = true;
   programs.gamemode.enable = true;
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
 
   users.users.zen = {
     isNormalUser = true;
     description = "Mori Zen";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
   };
 
   hardware.bluetooth.enable = true;
@@ -121,9 +125,10 @@ in {
     forceFullCompositionPipeline = true;
     nvidiaSettings = true;
   };
-  programs.nix-ld = {
-    enable = true;
-  };
+  programs.nix-ld = { enable = true; };
+
+  #virtualisation.libvirtd.enable = true;
+  #programs.virt-manager.enable = true;
 
   xdg.portal = {
     enable = true;
