@@ -14,7 +14,12 @@
   ];
 
   programs.home-manager.enable = true;
-
+  dconf.settings = {
+    "org/virt-manager/virt-manager/connections" = {
+      autoconnect = [ "qemu:///system" ];
+      uris = [ "qemu:///system" ];
+    };
+  };
   colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 
   home.username = "zen";

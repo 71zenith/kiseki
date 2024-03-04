@@ -1,15 +1,13 @@
 { pkgs, inputs, ... }:
-let ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix { };
-umeboshi = pkgs.callPackage ../../modules/nix-os/umeboshi.nix { };
+let
+  ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix { };
+  umeboshi = pkgs.callPackage ../../modules/nix-os/umeboshi.nix { };
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
-    eza
-    steam
     steam-run
     ffmpeg
-    gamescope
     libsixel
     anime4k
     rsync
@@ -23,7 +21,6 @@ in {
     heroic
     du-dust
     zoxide
-    nixfmt
     fd
     ani-cli
     gcc
@@ -35,44 +32,30 @@ in {
     spotify-player
     gtk3
     dbus
-    fzf
     ripgrep
     wget
-    bat
     curl
     firefox
-    mako
-    nodePackages_latest.bash-language-server
-    nil
     xdg-utils
     aria2
     nitch
-    btop
     calibre
     swww
     pulsemixer
-    foot
-    waybar
     blueman
-    mpv
     nsxiv
-    zathura
     python3
     zip
     imagemagick
     unzip
     qemu
-    rar
-    unrar
     zsh-powerlevel10k
-    git
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
   ];
 
   fonts.packages = with pkgs; [
-    terminus_font
-    noto-fonts-color-emoji
     umeboshi
+    noto-fonts-color-emoji
     iosevka-comfy.comfy
     (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];
