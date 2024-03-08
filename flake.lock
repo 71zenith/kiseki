@@ -567,6 +567,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-stable": {
+      "locked": {
+        "lastModified": 1709309926,
+        "narHash": "sha256-VZFBtXGVD9LWTecGi6eXrE0hJ/mVB3zGUlHImUs2Qak=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "79baff8812a0d68e24a836df0a364c678089e2c7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1658161305,
@@ -691,6 +707,7 @@
         "hyprland-contrib": "hyprland-contrib",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_3",
+        "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
         "nur": "nur",
         "stylix": "stylix"
