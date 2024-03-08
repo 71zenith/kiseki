@@ -12,6 +12,7 @@
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         export DIRENV_LOG_FORMAT=
         eval "$(direnv hook zsh)"
+        eval "$(spotify_player generate zsh)"
       '';
       syntaxHighlighting = { enable = true; };
       historySubstringSearch = { enable = true; };

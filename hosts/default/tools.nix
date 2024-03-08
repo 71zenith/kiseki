@@ -76,6 +76,17 @@ in {
       };
     };
 
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        manager = {
+          ratio = [1 3 3];
+          show_hidden = true;
+        };
+      };
+    };
+
     rofi = {
       enable = true;
       cycle = true;

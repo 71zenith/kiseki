@@ -1,5 +1,5 @@
 { pkgs, ... }:
-let google-sans = pkgs.callPackage ../../modules/nix-os/google-sans.nix { };
+let fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix { };
 in {
   stylix = {
     polarity = "dark";
@@ -24,11 +24,11 @@ in {
     };
     fonts = {
       serif = {
-        package = google-sans;
+        package = fonts;
         name = "Google Sans";
       };
       sansSerif = {
-        package = google-sans;
+        package = fonts;
         name = "Google Sans";
       };
       monospace = {
