@@ -10,7 +10,7 @@
   </a>
 </p>
 
-This contains the nix flakes to build an identical copy of my system
+This contains the nix flakes to build an identical copy of my system.
 
 
 ![](./resources/screenshot4.png)
@@ -21,22 +21,24 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 ## NIX Components
 - [flakes](https://nixos.wiki/wiki/Flakes)
 - [home-manager](https://github.com/nix-community/home-manager) - manage dots
-- [stylix](https://github.com/danth/stylix) - auto theme
+- [stylix](https://github.com/danth/stylix) - auto themer
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
 - [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
 - [nur](https://github.com/nix-community/NUR) - nix user repository
 
 
-
 ## Programs Used
 - [Hyprland](https://github.com/hyprwm/Hyprland) - compositor
-- [neovim](https://github.com/neovim/neovim) - text editor
+- [emacs](https://www.gnu.org/emacs) - main editor
+- [neovim](https://github.com/neovim/neovim) - fallback text editor
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
-- [btop](https://github.com/aristocratos/btop) - resource monitor
+- [yazi](https://github.com/sxyazi/yazi) - tui file manager
+- [btop](https://github.com/aristocratos/btop) - resources monitor
 - [zathura](https://pwmt.org/projects/zathura/) - pdf/epub viewer
 - [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
 - [zsh](http://www.zsh.org/) - shell
+- [direnv](https://github.com/nix-community/nix-direnv) - env switcher
 - [rofi](https://github.com/davatorium/rofi) - custom launcher
 - [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
 - [calibre](https://github.com/kovidgoyal/calibre) - ebook manager
@@ -58,6 +60,6 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 ## Standardised Config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
 - [iosevka-comfy](https://github.com/protesilaos/iosevka-comfy) - monospace font
-- google-sans - "everything else" font
+- [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
