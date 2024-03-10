@@ -67,6 +67,7 @@ in {
           scrollback-up-page = "Control+u";
           scrollback-down-page = "Control+d";
           scrollback-up-line = "Mod1+k";
+          #pipe-command-output = "[sh -c 'cat - | wl-copy'] Control+Shift+g";
           scrollback-down-line = "Mod1+j";
         };
         cursor = {

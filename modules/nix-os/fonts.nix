@@ -5,17 +5,17 @@
 
 stdenvNoCC.mkDerivation {
   pname = "fonts";
-  version = "1";
+  version = "3";
 
   src = fetchzip {
-    url = "https://github.com/71zenith/fonts/archive/refs/tags/1.zip";
-    hash = "sha256-R+PlIjkqGvcyMopi4Yl5kGTeo2Tes35ZKxwYDruI7dA=";
+    url = "https://github.com/71zenith/fonts/archive/refs/tags/3.zip";
     stripRoot = false;
+    hash = "sha256-eHYpOqe/ptnB1ICIVRTcSswSLC+O4Vp6jqDx7QPMBZ8=";
   };
 
   installPhase = ''
     mkdir -p $out/share/fonts
-    install -Dm444 fonts-1/* $out/share/fonts/
+    install -Dm444 fonts-3/* $out/share/fonts/
   '';
   meta = with lib; {
     description = "Collection of fonts";
