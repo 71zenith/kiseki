@@ -58,7 +58,7 @@
         rainbow-delimiters.enable = true;
         cmp = {
           enable = true;
-          extraOptions = {
+          settings = {
             sources = [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
