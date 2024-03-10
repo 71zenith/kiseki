@@ -58,6 +58,7 @@ in {
     fonts
     noto-fonts-color-emoji
     iosevka-comfy.comfy
+    (nerdfonts.override { fonts = [ "Monaspace" ]; })
   ];
 
   programs.hyprland.enable = true;

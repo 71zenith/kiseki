@@ -5,12 +5,32 @@
       enableAutosuggestions = true;
       enableCompletion = true;
       initExtra = ''
-        zstyle ':completion:*' menu select
-        bindkey '^[[Z' reverse-menu-complete
-        bindkey '^?' backward-delete-char
-        zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        export DIRENV_LOG_FORMAT=
+      precmd() {
+        print -Pn "\e]133;A\e\\"
+      }
+      function precmd {
+        if ! builtin zle; then
+        print -n "\e]133;D\e\\"
+        fi
+      }
+      function osc7-pwd() {
+        emulate -L zsh # also sets localoptions for us
+        setopt extendedglob
+        local LC_ALL=C
+      }
+      function chpwd-osc7-pwd() {
+        (( ZSH_SUBSHELL )) || osc7-pwd
+      }
+      add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+      function preexec {
+        print -n "\e]133;C\e\\"
+      }
+      zstyle ':completion:*' menu select
+      bindkey '^[[Z' reverse-menu-complete
+      bindkey '^?' backward-delete-char
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      export DIRENV_LOG_FORMAT=
         eval "$(direnv hook zsh)"
         eval "$(spotify_player generate zsh)"
       '';

@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 let fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix { };
 in {
   imports = [
