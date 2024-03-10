@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 let inherit (config.colorScheme) palette;
 in {
-
   stylix.targets.zathura.enable = false;
   programs = {
     btop = {
@@ -11,6 +10,7 @@ in {
         vim_keys = true;
       };
     };
+
     emacs = {
       enable = true;
       package = pkgs.emacs29-pgtk;

@@ -83,10 +83,6 @@ in {
 
   programs.zsh.enable = true;
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
-
   programs.steam = {
     enable = true;
     gamescopeSession.enable = true;
@@ -130,6 +126,9 @@ in {
     nvidiaSettings = true;
   };
   programs.nix-ld = { enable = true; };
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   #virtualisation.libvirtd.enable = true;
   #programs.virt-manager.enable = true;

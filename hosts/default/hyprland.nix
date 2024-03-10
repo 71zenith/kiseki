@@ -25,6 +25,8 @@
   home.username = "zen";
   home.homeDirectory = "/home/zen";
   home.sessionVariables = { EDITOR = "nvim"; };
+  nixpkgs.config = import ./nixpkgs.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
   home.stateVersion = "24.05";
   gtk = {
