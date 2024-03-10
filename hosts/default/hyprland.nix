@@ -24,7 +24,7 @@
 
   home.username = "zen";
   home.homeDirectory = "/home/zen";
-  home.sessionVariables = { EDITOR = "nvim"; };
+  home.sessionVariables = { EDITOR = "emacs -nw"; };
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 

@@ -51,13 +51,12 @@
       ];
       shellAliases = {
         up = "sudo nixos-rebuild switch --flake ~/nix#default";
-        del =
-          "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+        del = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
         pm = "pulsemixer";
         cat = "bat -p -P";
         g = "git";
         rm = "rm -Ivr";
-        v = "nvim";
+        v = "emacs -nw";
         mv = "mv -iv";
         cp = "cp -ivr";
         c = "clear";
