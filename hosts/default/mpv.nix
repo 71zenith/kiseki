@@ -6,12 +6,17 @@
       osd-bar = "no";
       profile = "gpu-hq";
       vo = "gpu";
+      loop-file = "inf";
+      hwdec = "vaapi";
+      gpu-context = "wayland";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       save-position-on-quit = "yes";
       video-sync = "display-resample";
       interpolation = "yes";
       tscale = "oversample";
+      slang = "en,eng";
+      alang = "ja,jp,jpn,en,eng";
       image-display-duration = "inf";
       osd-font = "Iosevka Comfy";
 
