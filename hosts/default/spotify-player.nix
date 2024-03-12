@@ -7,7 +7,7 @@ in {
     enable = true;
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";
-      # copy_command = '' { command = "wl-copy"; args = []; } '';
+      copy_command = { command = "wl-copy"; args = []; };
       client_port = 8080;
       tracks_playback_limit = 5;
       track_table_item_max_len = 32;
@@ -17,7 +17,7 @@ in {
       default_device = "ur-mom";
       theme = "oxocarbon";
       playback_window_position = "Bottom";
-      liked_icon = "";
+      liked_icon = " ";
       border_type = "Hidden";
       progress_bar_type = "Rectangle";
       cover_img_scale = 2.4;
