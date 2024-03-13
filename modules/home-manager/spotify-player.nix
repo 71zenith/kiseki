@@ -1,8 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
   cfg = config.programs.spotify-player;
-  tomlFormat = pkgs.formats.toml { };
+  tomlFormat = pkgs.formats.toml {};
 in {
   options.programs.spotify-player = {
     enable = mkEnableOption "spotify-player";
@@ -16,24 +20,25 @@ in {
 
     settings = mkOption {
       type = tomlFormat.type;
-      default = { };
+      default = {};
     };
     keymaps = mkOption {
       type = tomlFormat.type;
-      default = { };
+      default = {};
     };
   };
   config = mkIf cfg.enable {
     xdg.configFile = let
       settings = {
-        "spotify-player/app.toml" = mkIf (cfg.settings != { }) {
+        "spotify-player/app.toml" = mkIf (cfg.settings != {}) {
           source = tomlFormat.generate "spotify-player-config" cfg.settings;
         };
-        "spotify-player/keymap.toml" = mkIf (cfg.keymaps != { }) {
+        "spotify-player/keymap.toml" = mkIf (cfg.keymaps != {}) {
           source =
             tomlFormat.generate "spotify-player-keymaps-config" cfg.keymaps;
         };
       };
-    in settings;
+    in
+      settings;
   };
 }

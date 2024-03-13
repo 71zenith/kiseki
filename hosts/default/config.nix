@@ -1,5 +1,10 @@
-{ config, pkgs, inputs, ... }:
-let fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix { };
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
+  fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
   imports = [
     ./hardware.nix
@@ -10,7 +15,7 @@ in {
 
   nix = {
     settings.auto-optimise-store = true;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = ["nix-command" "flakes"];
     gc = {
       automatic = true;
       dates = "weekly";
@@ -18,7 +23,7 @@ in {
     };
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      dates = ["weekly"];
     };
   };
   services.greetd = {
@@ -41,20 +46,24 @@ in {
 
   networking.networkmanager.enable = true;
 
-  security.sudo.extraRules = [{
-    users = [ "zen" ];
-    commands = [{
-      command = "ALL";
-      options = [ "NOPASSWD" ];
-    }];
-  }];
+  security.sudo.extraRules = [
+    {
+      users = ["zen"];
+      commands = [
+        {
+          command = "ALL";
+          options = ["NOPASSWD"];
+        }
+      ];
+    }
+  ];
 
   time.timeZone = "Asia/Kolkata";
 
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-fluent ];
+    fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-gtk fcitx5-fluent];
     fcitx5.waylandFrontend = true;
   };
 
@@ -73,7 +82,7 @@ in {
   console = {
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-122n.psf.gz";
-    packages = with pkgs; [ terminus_font ];
+    packages = with pkgs; [terminus_font];
   };
 
   services.xserver.xkb = {
@@ -92,7 +101,7 @@ in {
     isNormalUser = true;
     description = "Mori Zen";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
   };
 
   hardware.bluetooth.enable = true;
@@ -108,8 +117,8 @@ in {
   };
 
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = { "zen" = import ./hyprland.nix; };
+    extraSpecialArgs = {inherit inputs;};
+    users = {"zen" = import ./hyprland.nix;};
   };
 
   hardware.opengl = {
@@ -117,7 +126,7 @@ in {
     driSupport = true;
     driSupport32Bit = true;
   };
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = ["nvidia"];
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -125,7 +134,7 @@ in {
     forceFullCompositionPipeline = true;
     nvidiaSettings = true;
   };
-  programs.nix-ld = { enable = true; };
+  programs.nix-ld = {enable = true;};
   nixpkgs.config = {
     allowUnfree = true;
   };
@@ -136,7 +145,7 @@ in {
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
   #hardware.opentabletdriver.enable = true;
 

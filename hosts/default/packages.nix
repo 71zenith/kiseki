@@ -1,8 +1,11 @@
-{ pkgs, inputs, ... }:
-let
-  ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix { };
-  fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix { };
-  spotify-player = pkgs.callPackage ../../modules/nix-os/spotify-player.nix { };
+{
+  pkgs,
+  inputs,
+  ...
+}: let
+  ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix {};
+  fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix {};
+  spotify-player = pkgs.callPackage ../../modules/nix-os/spotify-player.nix {};
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -58,7 +61,7 @@ in {
     fonts
     noto-fonts-color-emoji
     iosevka-comfy.comfy
-    (nerdfonts.override { fonts = [ "Monaspace" ]; })
+    (nerdfonts.override {fonts = ["Monaspace"];})
   ];
 
   programs.hyprland.enable = true;

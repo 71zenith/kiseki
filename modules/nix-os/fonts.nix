@@ -1,8 +1,8 @@
-{ lib
-, stdenvNoCC
-, fetchzip
+{
+  lib,
+  stdenvNoCC,
+  fetchzip,
 }:
-
 stdenvNoCC.mkDerivation {
   pname = "fonts";
   version = "3";
@@ -21,6 +21,6 @@ stdenvNoCC.mkDerivation {
     description = "Collection of fonts";
     homepage = "http://github.com/71zenith/fonts";
     platforms = platforms.unix;
-    maintainers = with maintainers; [ zen ];
+    maintainers = with maintainers; [zen];
   };
 }

@@ -1,13 +1,16 @@
-{ config, ... }:
-let inherit (config.colorScheme) palette;
+{config, ...}: let
+  inherit (config.colorScheme) palette;
 in {
-  imports = [ ../../modules/home-manager/spotify-player.nix ];
+  imports = [../../modules/home-manager/spotify-player.nix];
 
   programs.spotify-player = {
     enable = true;
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";
-      copy_command = { command = "wl-copy"; args = []; };
+      copy_command = {
+        command = "wl-copy";
+        args = [];
+      };
       client_port = 8080;
       tracks_playback_limit = 5;
       track_table_item_max_len = 32;
