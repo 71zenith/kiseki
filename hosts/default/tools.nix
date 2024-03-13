@@ -1,5 +1,9 @@
-{ pkgs, config, ... }:
-let inherit (config.colorScheme) palette;
+{
+  pkgs,
+  config,
+  ...
+}: let
+  inherit (config.colorScheme) palette;
 in {
   stylix.targets.zathura.enable = false;
   programs = {
@@ -61,8 +65,8 @@ in {
     foot = {
       enable = true;
       settings = {
-        main = { pad = "10x10"; };
-        mouse = { hide-when-typing = "no"; };
+        main = {pad = "10x10";};
+        mouse = {hide-when-typing = "no";};
         key-bindings = {
           scrollback-up-page = "Control+u";
           scrollback-down-page = "Control+d";
@@ -92,7 +96,7 @@ in {
       enable = true;
       cycle = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs; [ rofi-emoji rofi-calc ];
+      plugins = with pkgs; [rofi-emoji rofi-calc];
       extraConfig = {
         modi = "drun,window,calc,emoji,run";
         sidebar-mode = true;
@@ -111,13 +115,14 @@ in {
         kb-remove-to-eol = "";
         kb-mode-complete = "";
       };
-      theme = let inherit (config.lib.formats.rasi) mkLiteral;
+      theme = let
+        inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
           padding = 2;
           spacing = 4;
         };
-        "#element-icon" = { size = 26; };
+        "#element-icon" = {size = 26;};
       };
     };
   };

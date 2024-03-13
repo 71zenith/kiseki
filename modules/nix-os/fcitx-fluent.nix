@@ -1,8 +1,8 @@
-{ stdenvNoCC
-, fetchFromGitHub
-, lib
+{
+  stdenvNoCC,
+  fetchFromGitHub,
+  lib,
 }:
-
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "fcitx5-fluentdark";
   version = "v0.4.0";
@@ -38,7 +38,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = with lib; {
     description = "Fcitx5 theme based on Fluent Dark Colors";
     homepage = "https://github.com/Reverier-Xu/FluentDark-fcitx5";
-    maintainers = with maintainers; [ zen ];
+    maintainers = with maintainers; [zen];
     platforms = platforms.all;
   };
 })

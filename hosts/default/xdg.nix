@@ -1,14 +1,14 @@
-{ config, ... }: {
+{config, ...}: {
   xdg = {
     enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = let
-        browser = [ "firefox.desktop" ];
-        editor = [ "emacs.desktop" ];
-        player = [ "mpv.desktop" ];
-        viewer = [ "nsxiv.desktop" ];
-        reader = [ "zathura.desktop" ];
+        browser = ["firefox.desktop"];
+        editor = ["emacs.desktop"];
+        player = ["mpv.desktop"];
+        viewer = ["nsxiv.desktop"];
+        reader = ["zathura.desktop"];
       in {
         "application/json" = browser;
         "application/pdf" = reader;

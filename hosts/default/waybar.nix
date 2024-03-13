@@ -1,6 +1,5 @@
-{ config, ... }:
-
-let inherit (config.colorScheme) palette;
+{config, ...}: let
+  inherit (config.colorScheme) palette;
 in {
   programs.waybar = {
     enable = true;
@@ -8,10 +7,9 @@ in {
       mainBar = {
         height = 15;
         layer = "top";
-        modules-left = [ "hyprland/workspaces" ];
-        modules-center = [ "mpris" ];
-        modules-right =
-          [ "network" "pulseaudio" "clock#date" "clock#time" "tray" ];
+        modules-left = ["hyprland/workspaces"];
+        modules-center = ["mpris"];
+        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -31,21 +29,21 @@ in {
             "special" = "・";
           };
           persistent-workspaces = {
-            "1" = [ ];
-            "2" = [ ];
-            "3" = [ ];
-            "4" = [ ];
-            "5" = [ ];
-            "6" = [ ];
-            "7" = [ ];
-            "8" = [ ];
-            "9" = [ ];
-            "10" = [ ];
+            "1" = [];
+            "2" = [];
+            "3" = [];
+            "4" = [];
+            "5" = [];
+            "6" = [];
+            "7" = [];
+            "8" = [];
+            "9" = [];
+            "10" = [];
           };
         };
-        "hyprland/window" = { max-length = 200; };
-        "tray" = { spacing = 10; };
-        "clock#time" = { format = "{:%H:%M}"; };
+        "hyprland/window" = {max-length = 200;};
+        "tray" = {spacing = 10;};
+        "clock#time" = {format = "{:%H:%M}";};
         "clock#date" = {
           format = "{:%a %d %b}";
           tooltip-format = "<tt><big>{calendar}</big></tt>";
@@ -107,7 +105,7 @@ in {
         color: #${palette.base04};
       }
       #clock,
-      #mpris, 
+      #mpris,
       #network,
       #tray,
       #pulseaudio,

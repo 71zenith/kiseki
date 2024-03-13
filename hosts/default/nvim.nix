@@ -1,5 +1,5 @@
-{ inputs, ... }: {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+{inputs, ...}: {
+  imports = [inputs.nixvim.homeManagerModules.nixvim];
   programs = {
     nixvim = {
       enable = true;
@@ -28,7 +28,7 @@
         barbecue.enable = true;
         lsp = {
           enable = true;
-          servers = { nil_ls.enable = true; };
+          servers = {nil_ls.enable = true;};
         };
         indent-blankline.enable = true;
         leap.enable = true;
@@ -59,12 +59,12 @@
         cmp = {
           enable = true;
           settings = {
-            sources = [ { name = "nvim_lsp"; } { name = "path"; } { name = "buffer"; } ];
+            sources = [{name = "nvim_lsp";} {name = "path";} {name = "buffer";}];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
-             function(args)
-               require('luasnip').lsp_expand(args.body)
-             end
+              function(args)
+                require('luasnip').lsp_expand(args.body)
+              end
             '';
             mapping = {
               "<C-Space>" = "cmp.mapping.complete()";
@@ -79,7 +79,7 @@
         };
         telescope = {
           enable = true;
-          extensionConfig.ui-select = { };
+          extensionConfig.ui-select = {};
           extensions.frecency.enable = true;
           extensions.fzf-native.enable = true;
           extensions.file_browser = {

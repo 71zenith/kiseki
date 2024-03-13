@@ -1,6 +1,8 @@
-{ pkgs, inputs, ... }:
-
 {
+  pkgs,
+  inputs,
+  ...
+}: {
   imports = [
     ./tools.nix
     ./mpv.nix
@@ -16,15 +18,15 @@
   programs.home-manager.enable = true;
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
-      autoconnect = [ "qemu:///system" ];
-      uris = [ "qemu:///system" ];
+      autoconnect = ["qemu:///system"];
+      uris = ["qemu:///system"];
     };
   };
   colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 
   home.username = "zen";
   home.homeDirectory = "/home/zen";
-  home.sessionVariables = { EDITOR = "emacs -nw"; };
+  home.sessionVariables = {EDITOR = "emacs -nw";};
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
@@ -42,7 +44,7 @@
     gtk.enable = true;
   };
 
-  qt = { enable = true; };
+  qt = {enable = true;};
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -67,8 +69,7 @@
       "$mod2" = "ALTSHIFT";
       "$mod3" = "ALTCONTROL";
       "$mod4" = "SUPER";
-      "$screenshotarea" =
-        "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
+      "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
         "foot --server &"
@@ -138,8 +139,7 @@
           "specialWorkspace, 1, 2, pace, slidevert"
         ];
       };
-      bindm =
-        [ "$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow" ];
+      bindm = ["$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow"];
       binde = [
         ",Print, exec,grimblast --notify copy area"
         ",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
@@ -149,46 +149,49 @@
         ",XF86AudioPrev, exec, playerctl previous --player=spotify_player"
         ",XF86AudioPlay, exec, playerctl play-pause"
       ];
-      bind = [
-        "$mod1,Print, exec,grimblast --notify copy screen"
-        "$mod2, o, exec, grimblast save area - | tesseract stdin - 2>/dev/null | wl-copy"
-        "$mod2, f, exec, firefox"
-        "$mod1, return, exec, footclient"
-        "$mod2, e, exec, emacs"
-        "$mod1, e, exec, emacsclient --create-frame"
-        "$mod2, p, exec, rofi -show calc"
-        "$mod1, p, exec, rofi -show drun"
-        "$mod1, o, exec, rofi -show emoji"
-        "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
-        "$mod4, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      bind =
+        [
+          "$mod1,Print, exec,grimblast --notify copy screen"
+          "$mod2, o, exec, grimblast save area - | tesseract stdin - 2>/dev/null | wl-copy"
+          "$mod2, f, exec, firefox"
+          "$mod1, return, exec, footclient"
+          "$mod2, e, exec, emacs"
+          "$mod1, e, exec, emacsclient --create-frame"
+          "$mod2, p, exec, rofi -show calc"
+          "$mod1, p, exec, rofi -show drun"
+          "$mod1, o, exec, rofi -show emoji"
+          "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
+          "$mod4, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        "$mod1, q, killactive,"
-        "$mod1, t, fullscreen,"
-        "$mod2, q, exit,"
-        "$mod2, s, togglefloating,"
+          "$mod1, q, killactive,"
+          "$mod1, t, fullscreen,"
+          "$mod2, q, exit,"
+          "$mod2, s, togglefloating,"
 
-        "$mod1, l, cyclenext,"
-        "$mod1, h, cyclenext,prev"
-        "$mod2, Tab, cyclenext,"
-        "$mod1, Tab, cyclenext,prev"
+          "$mod1, l, cyclenext,"
+          "$mod1, h, cyclenext,prev"
+          "$mod2, Tab, cyclenext,"
+          "$mod1, Tab, cyclenext,prev"
 
-        "$mod2, l, resizeactive, 40 0"
-        "$mod2, h, resizeactive, -40 0"
-        "$mod2, j, resizeactive, 0 40"
-        "$mod2, k, resizeactive, 0 -40"
+          "$mod2, l, resizeactive, 40 0"
+          "$mod2, h, resizeactive, -40 0"
+          "$mod2, j, resizeactive, 0 40"
+          "$mod2, k, resizeactive, 0 -40"
 
-        "$mod3, l, swapnext"
-        "$mod3, h, swapnext,prev"
+          "$mod3, l, swapnext"
+          "$mod3, h, swapnext,prev"
 
-        "$mod3, return, movetoworkspace, special"
-        "$mod2, return, togglespecialworkspace,"
-        "$mod4, return, togglespecialworkspace, pop"
-      ] ++ (builtins.concatLists (builtins.genList (x:
-        let ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-        in [
-          "$mod1, ${ws}, workspace, ${toString (x + 1)}"
-          "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-        ]) 10));
+          "$mod3, return, movetoworkspace, special"
+          "$mod2, return, togglespecialworkspace,"
+          "$mod4, return, togglespecialworkspace, pop"
+        ]
+        ++ (builtins.concatLists (builtins.genList (x: let
+            ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+          in [
+            "$mod1, ${ws}, workspace, ${toString (x + 1)}"
+            "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+          ])
+          10));
     };
   };
 }

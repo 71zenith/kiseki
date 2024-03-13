@@ -1,5 +1,5 @@
-{ pkgs, ... }:
-let fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix { };
+{pkgs, ...}: let
+  fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix {};
 in {
   stylix = {
     polarity = "dark";

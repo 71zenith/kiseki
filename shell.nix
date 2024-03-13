@@ -4,7 +4,7 @@ in
   pkgs.mkShell {
     buildInputs = with pkgs; [
       nil
-      nixfmt
+      alejandra
       python311Packages.epc
       python311Packages.orjson
       python311Packages.sexpdata
@@ -14,6 +14,6 @@ in
       python311Packages.rapidfuzz
     ];
     shellHook = ''
-    echo "initiating nix lsp..."
+      echo "initiating nix lsp..."
     '';
   }
