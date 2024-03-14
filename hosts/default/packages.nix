@@ -18,7 +18,6 @@ in {
     xwayland
     yt-dlp
     duf
-    tesseract
     wl-clipboard
     cliphist
     openssl
@@ -58,13 +57,9 @@ in {
   ];
 
   fonts.packages = with pkgs; [
-    fonts
-    noto-fonts-color-emoji
-    iosevka-comfy.comfy
-    (nerdfonts.override {fonts = ["Monaspace"];})
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
   programs.hyprland.enable = true;
-  programs.hyprland.package =
-    inputs.hyprland.packages."${pkgs.system}".hyprland;
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 }
