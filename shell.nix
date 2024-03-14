@@ -5,6 +5,7 @@ in
     buildInputs = with pkgs; [
       nil
       alejandra
+      lolcat
       python311Packages.epc
       python311Packages.orjson
       python311Packages.sexpdata
@@ -14,6 +15,6 @@ in
       python311Packages.rapidfuzz
     ];
     shellHook = ''
-      echo "initiating nix lsp..."
+      echo "initiating nix lsp..." | lolcat
     '';
   }
