@@ -94,7 +94,7 @@ in {
 
       window#waybar {
         background-color: rgba(16, 16, 16, 0.8);
-      	color: #${palette.base04};
+        color: #${palette.base04};
           transition-property: background-color;
           transition-duration: 0.1s;
         }

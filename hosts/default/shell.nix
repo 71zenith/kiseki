@@ -28,11 +28,17 @@
         zstyle ':completion:*' menu select
         bindkey '^[[Z' reverse-menu-complete
         bindkey '^?' backward-delete-char
+        bindkey -M vicmd 'k' history-substring-search-up
+        bindkey -M vicmd 'j' history-substring-search-down
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         export DIRENV_LOG_FORMAT=
-          eval "$(direnv hook zsh)"
-          eval "$(spotify_player generate zsh)"
+        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=cyan,fg=white,bold'
+        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
+        export HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_TIMEOUT=5
+        export HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=yes
+        eval "$(direnv hook zsh)"
+        eval "$(spotify_player generate zsh)"
       '';
       syntaxHighlighting = {enable = true;};
       historySubstringSearch = {enable = true;};
@@ -47,6 +53,11 @@
           name = "zsh-powerlevel10k";
           src = pkgs.zsh-powerlevel10k;
           file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "zsh-history-substring-search";
+          src = pkgs.zsh-history-substring-search;
+          file = "share/zsh-history-substring-search/zsh-history-substring-search.zsh";
         }
       ];
       shellAliases = {
@@ -118,13 +129,13 @@
           dir                       # current directory
           vcs                       # git status
           prompt_char               # prompt symbol
-        )
+                    )
 
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
           command_execution_time    # previous command duration
           virtualenv                # python virtual environment
           context                   # user@host
-        )
+                                                     )
 
         typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
         typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=  # no surrounding whitespace
