@@ -2,7 +2,6 @@
   inherit (config.colorScheme) palette;
 in {
   imports = [../../modules/home-manager/spotify-player.nix];
-
   programs.spotify-player = {
     enable = true;
     settings = {
