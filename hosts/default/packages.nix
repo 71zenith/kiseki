@@ -4,7 +4,6 @@
   ...
 }: let
   ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix {};
-  fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix {};
   spotify-player = pkgs.callPackage ../../modules/nix-os/spotify-player.nix {};
 in {
   nixpkgs.config.allowUnfree = true;

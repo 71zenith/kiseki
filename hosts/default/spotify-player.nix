@@ -23,7 +23,7 @@ in {
       liked_icon = " ";
       border_type = "Hidden";
       progress_bar_type = "Rectangle";
-      cover_img_scale = 2.4;
+      cover_img_scale = 2.3;
       device = {
         name = "ur mom";
         device_type = "speaker";

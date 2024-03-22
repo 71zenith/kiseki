@@ -95,10 +95,10 @@ in {
     rofi = {
       enable = true;
       cycle = true;
-      package = pkgs.rofi;
+      package = pkgs.rofi-wayland;
       plugins = with pkgs; [rofi-emoji rofi-calc];
       extraConfig = {
-        modi = "drun,calc,emoji,run";
+        modi = "drun,run";
         sidebar-mode = true;
         terminal = "footclient";
         show-icons = true;
