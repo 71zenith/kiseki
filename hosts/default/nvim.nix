@@ -23,7 +23,7 @@
           enable = true;
           direction = "float";
         };
-        comment-nvim.enable = true;
+        comment.enable = true;
         lsp-format.enable = true;
         barbecue.enable = true;
         lsp = {

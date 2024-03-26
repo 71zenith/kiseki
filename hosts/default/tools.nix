@@ -98,7 +98,7 @@ in {
       package = pkgs.rofi-wayland;
       plugins = with pkgs; [rofi-emoji rofi-calc];
       extraConfig = {
-        modi = "drun,run";
+        modi = "drun,window,run";
         sidebar-mode = true;
         terminal = "footclient";
         show-icons = true;

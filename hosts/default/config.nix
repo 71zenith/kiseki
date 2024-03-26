@@ -1,5 +1,4 @@
 {
-  config,
   pkgs,
   inputs,
   ...
@@ -127,6 +126,7 @@ in {
     driSupport32Bit = true;
   };
   services.xserver.videoDrivers = ["nvidia"];
+
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -134,6 +134,9 @@ in {
     forceFullCompositionPipeline = true;
     nvidiaSettings = true;
   };
+
+
+  hardware.cpu.amd.updateMicrocode = true;
   programs.nix-ld = {enable = true;};
   nixpkgs.config = {
     allowUnfree = true;
