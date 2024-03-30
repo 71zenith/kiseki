@@ -5,38 +5,33 @@
       autosuggestion.enable = true;
       enableCompletion = true;
       initExtra = ''
-        precmd() {
+        function precmd() {
           print -Pn "\e]133;A\e\\"
-        }
-        function precmd {
           if ! builtin zle; then
           print -n "\e]133;D\e\\"
           fi
         }
         function preexec {
           print -n "\e]133;C\e\\"
-        }
-        function preexec {
           print -n '\e[5 q'
         }
         function osc7-pwd() {
           emulate -L zsh # also sets localoptions for us
           setopt extendedglob
           local LC_ALL=C
+          printf '\e]7;file://%s%s\e\' $HOST ''${PWD//(#m)([^@-Za-z&-;_~])/%''${(l:2::0:)$(([##16]#MATCH))}}
         }
         function chpwd-osc7-pwd() {
           (( ZSH_SUBSHELL )) || osc7-pwd
         }
         add-zsh-hook -Uz chpwd chpwd-osc7-pwd
-        function preexec {
-          print -n "\e]133;C\e\\"
-        }
         zstyle ':completion:*' menu select
         bindkey '^[[Z' reverse-menu-complete
         bindkey '^?' backward-delete-char
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         export DIRENV_LOG_FORMAT=
+        export PROMPT_EOL_MARK='󱞥'
         eval "$(direnv hook zsh)"
         eval "$(spotify_player generate zsh)"
       '';
@@ -121,22 +116,22 @@
         local white='#F1F1F0'
 
         typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-          dir                       # current directory
-          vcs                       # git status
-          prompt_char               # prompt symbol
-                    )
+          dir
+          vcs
+          prompt_char
+        )
 
         typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-          command_execution_time    # previous command duration
-          virtualenv                # python virtual environment
-          context                   # user@host
-                                                     )
+          command_execution_time
+          virtualenv
+          context
+        )
 
-        typeset -g POWERLEVEL9K_BACKGROUND=                            # transparent background
-        typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=  # no surrounding whitespace
-        typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '  # separate segments with a space
-        typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=        # no end-of-line symbol
-        typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=           # no segment icons
+        typeset -g POWERLEVEL9K_BACKGROUND=
+        typeset -g POWERLEVEL9K_{LEFT,RIGHT}_{LEFT,RIGHT}_WHITESPACE=
+        typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SUBSEGMENT_SEPARATOR=' '
+        typeset -g POWERLEVEL9K_{LEFT,RIGHT}_SEGMENT_SEPARATOR=
+        typeset -g POWERLEVEL9K_VISUAL_IDENTIFIER_EXPANSION=
 
         typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 
@@ -157,11 +152,11 @@
         typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{$grey}%n@%m%f"
         typeset -g POWERLEVEL9K_CONTEXT_{DEFAULT,SUDO}_CONTENT_EXPANSION=
 
-        typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=5
-        typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=0
+        typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=2
+        typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=1
         typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
         typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=$yellow
-        typeset -g POWERLEVEL9K_VCS_FOREGROUND=$grey
+        typeset -g POWERLEVEL9K_jCS_FOREGROUND=$grey
 
         typeset -g POWERLEVEL9K_VCS_LOADING_TEXT=
 
@@ -182,7 +177,7 @@
         typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
         typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
 
-        typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
+        typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=no
 
         typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
         typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
