@@ -73,7 +73,7 @@
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
         "foot --server &"
-        "swww init"
+        "swww-daemon --format xrgb"
         "blueman-applet &"
         "wl-paste --type text --watch cliphist store &"
         "swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 1"
@@ -135,6 +135,7 @@
           "windows, 1, 3, overshot"
           "windowsOut, 1, 3, smoothIn"
           "windowsMove, 1, 3, default"
+          "layers, 1, 3, pace, slide"
           "workspaces, 1, 2, default"
           "specialWorkspace, 1, 2, pace, slidevert"
         ];
