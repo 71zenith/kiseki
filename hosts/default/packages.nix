@@ -44,6 +44,7 @@ in {
     swww
     pulsemixer
     blueman
+    qbittorrent
     nsxiv
     python3
     zip
