@@ -25,6 +25,9 @@
           (( ZSH_SUBSHELL )) || osc7-pwd
         }
         add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+        cmd_to_clip () { wl-copy <<< $BUFFER }
+        zle -N cmd_to_clip
+        bindkey '^F' cmd_to_clip
         zstyle ':completion:*' menu select
         bindkey '^[[Z' reverse-menu-complete
         bindkey '^?' backward-delete-char
