@@ -69,14 +69,14 @@
       "$mod2" = "ALTSHIFT";
       "$mod3" = "ALTCONTROL";
       "$mod4" = "SUPER";
-      "$screenshotarea" = "hyprctl keyword animation 'fadeOut,0,0,default'; grimblast --notify copy area; hyprctl keyword animation 'fadeOut,1,4,default'";
+      "$walldir" = builtins.toString ../../resources/wallpapers;
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
         "foot --server &"
         "swww-daemon --format xrgb"
         "blueman-applet &"
         "wl-paste --type text --watch cliphist store &"
-        "swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 1"
+        "swww img $(fd . $walldir | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 1"
         "pkill waybar; waybar &"
       ];
       windowrule = [
@@ -153,16 +153,14 @@
       bind =
         [
           "$mod1,Print, exec,grimblast --notify copy screen"
-          "$mod2, o, exec, grimblast save area - | tesseract stdin - 2>/dev/null | wl-copy"
           "$mod2, f, exec, firefox"
           "$mod1, return, exec, footclient"
           "$mod2, e, exec, emacs"
           "$mod1, e, exec, emacsclient --create-frame"
-          "$mod2, p, exec, rofi -show calc"
           "$mod1, p, exec, rofi -show drun"
-          "$mod1, o, exec, rofi -show emoji"
-          "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
-          "$mod4, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+          "$mod4, o, exec, wl-paste | cut -d \& -f1 | xargs mpv"
+          "$mod2, i, exec, swww img $(fd . $walldir | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
+          "$mod4, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"
