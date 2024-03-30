@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   config,
   ...
 }: let
@@ -64,6 +65,7 @@ in {
 
     foot = {
       enable = true;
+      package = inputs.nixpkgs-wayland.packages.${pkgs.system}.foot;
       settings = {
         main = {pad = "10x10";};
         mouse = {hide-when-typing = "no";};
@@ -71,7 +73,7 @@ in {
           scrollback-up-page = "Control+u";
           scrollback-down-page = "Control+d";
           scrollback-up-line = "Mod1+k";
-          #pipe-command-output = "[sh -c 'cat - | wl-copy'] Control+Shift+g";
+          pipe-command-output = "[sh -c 'cat - | wl-copy'] Control+Shift+g";
           scrollback-down-line = "Mod1+j";
         };
         cursor = {
