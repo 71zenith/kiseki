@@ -135,9 +135,9 @@
           "windows, 1, 3, overshot"
           "windowsOut, 1, 3, smoothIn"
           "windowsMove, 1, 3, default"
-          "layers, 1, 3, pace, slide"
           "workspaces, 1, 2, default"
-          "specialWorkspace, 1, 2, pace, slidevert"
+          "layers, 1, 3, pace, slide"
+          "specialWorkspace, 1, 3, pace, slidevert"
         ];
       };
       bindm = ["$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow"];
