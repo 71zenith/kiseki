@@ -16,6 +16,9 @@
         function preexec {
           print -n "\e]133;C\e\\"
         }
+        function preexec {
+          print -n '\e[5 q'
+        }
         function osc7-pwd() {
           emulate -L zsh # also sets localoptions for us
           setopt extendedglob
