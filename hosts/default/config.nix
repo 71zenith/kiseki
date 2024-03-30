@@ -135,7 +135,6 @@ in {
     nvidiaSettings = true;
   };
 
-
   hardware.cpu.amd.updateMicrocode = true;
   programs.nix-ld = {enable = true;};
   nixpkgs.config = {
