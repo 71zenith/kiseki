@@ -6,7 +6,7 @@
       colorschemes.oxocarbon.enable = true;
       globals.mapleader = " ";
       clipboard.providers.wl-copy.enable = true;
-      options = {
+      opts = {
         number = true;
         relativenumber = false;
         shiftwidth = 2;
