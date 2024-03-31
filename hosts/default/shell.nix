@@ -88,6 +88,7 @@
       enableZshIntegration = true;
       git = true;
       icons = true;
+      extraOptions = ["--hyperlink"];
     };
 
     fzf = {

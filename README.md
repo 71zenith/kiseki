@@ -19,7 +19,7 @@ previous iterations are in [resources](./resources/).
 wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just odoriko backgrounds*
 
 ## NIX Components
-- [flakes](https://nixos.wiki/wiki/Flakes)
+- [flakes](https://nixos.wiki/wiki/Flakes) - channel manager
 - [home-manager](https://github.com/nix-community/home-manager) - manage dots
 - [stylix](https://github.com/danth/stylix) - auto themer
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
@@ -38,7 +38,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 - [zathura](https://pwmt.org/projects/zathura/) - pdf/epub viewer
 - [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
 - [zsh](http://www.zsh.org/) - shell
-- [direnv](https://github.com/nix-community/nix-direnv) - env switcher
+- [direnv](https://github.com/nix-community/nix-direnv) - auto env switcher
 - [rofi](https://github.com/davatorium/rofi) - custom launcher
 - [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
 - [calibre](https://github.com/kovidgoyal/calibre) - ebook manager
