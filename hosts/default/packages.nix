@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: let
   ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix {};
@@ -52,6 +53,7 @@ in {
     unzip
     qemu
     zsh-powerlevel10k
+    config.nur.repos.mic92.hello-nur
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
   ];
 
