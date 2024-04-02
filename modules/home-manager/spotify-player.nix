@@ -3,42 +3,53 @@
   lib,
   pkgs,
   ...
-}:
-with lib; let
+}: let
+  inherit
+    (lib)
+    mkEnableOption
+    mkPackageOption
+    mkOption
+    types
+    literalExpression
+    mkIf
+    ;
   cfg = config.programs.spotify-player;
   tomlFormat = pkgs.formats.toml {};
 in {
+  meta.maintainers = with lib.hm.maintainers; [zen];
   options.programs.spotify-player = {
     enable = mkEnableOption "spotify-player";
 
-    package = mkOption {
-      type = types.package;
-      default = pkgs.spotify-player;
-      defaultText = literalExpression "pkgs.spotify-player";
-      description = "The package to use for spotify-player.";
-    };
+    package = mkPackageOption pkgs "spotify-player" {};
 
     settings = mkOption {
       type = tomlFormat.type;
       default = {};
     };
+    themes = mkOption {
+      type = types.listOf tomlFormat.type;
+      default = [];
+    };
     keymaps = mkOption {
-      type = tomlFormat.type;
-      default = {};
+      type = types.listOf tomlFormat.type;
+      default = [];
     };
   };
   config = mkIf cfg.enable {
-    xdg.configFile = let
-      settings = {
-        "spotify-player/app.toml" = mkIf (cfg.settings != {}) {
-          source = tomlFormat.generate "spotify-player-config" cfg.settings;
-        };
-        "spotify-player/keymap.toml" = mkIf (cfg.keymaps != {}) {
-          source =
-            tomlFormat.generate "spotify-player-keymaps-config" cfg.keymaps;
+    home.packages = [cfg.package];
+
+    xdg.configFile = {
+      "spotify-player/app.toml" = mkIf (cfg.settings != {}) {
+        source = tomlFormat.generate "spotify-player-app" cfg.settings;
+      };
+      "spotify-player/theme.toml" = mkIf (cfg.themes != []) {
+        source = tomlFormat.generate "spotify-player-theme" {inherit (cfg) themes;};
+      };
+      "spotify-player/keymap.toml" = mkIf (cfg.keymaps != []) {
+        source = tomlFormat.generate "spotify-player-keymap" {
+          inherit (cfg) keymaps;
         };
       };
-    in
-      settings;
+    };
   };
 }

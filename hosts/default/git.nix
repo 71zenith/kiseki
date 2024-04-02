@@ -1,3 +1,4 @@
+{lib , ...}:
 {
   programs.git = {
     enable = true;
@@ -33,6 +34,10 @@
       ba = "rebase --abort";
       bc = "rebase --continue";
       cl = "clone";
+    };
+    url = {
+      "https://github.com/".insteadOf = "github:";
+      "ssh://git@github.com/".pushInsteadOf = "github:";
     };
   };
 }
