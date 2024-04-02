@@ -93,40 +93,6 @@ in {
         };
       };
     };
-
-    rofi = {
-      enable = true;
-      cycle = true;
-      package = pkgs.rofi-wayland;
-      plugins = with pkgs; [rofi-emoji rofi-calc];
-      extraConfig = {
-        modi = "drun,window,run";
-        sidebar-mode = true;
-        terminal = "footclient";
-        show-icons = true;
-        kb-remove-char-back = "BackSpace";
-        kb-accept-entry = "Control+m,Return,KP_Enter";
-        kb-mode-next = "Control+l";
-        kb-mode-previous = "Control+h";
-        kb-row-up = "Control+k,Up";
-        kb-row-down = "Control+j,Down";
-        kb-row-left = "Control+u";
-        kb-row-right = "Control+d";
-        kb-remove-char-forward = "";
-        kb-remove-to-sol = "";
-        kb-remove-to-eol = "";
-        kb-mode-complete = "";
-      };
-      theme = let
-        inherit (config.lib.formats.rasi) mkLiteral;
-      in {
-        "*" = {
-          padding = 2;
-          spacing = 4;
-        };
-        "#element-icon" = {size = 26;};
-      };
-    };
   };
   services.mako = {
     enable = true;
