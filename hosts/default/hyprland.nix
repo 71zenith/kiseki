@@ -1,8 +1,11 @@
 {
   pkgs,
   inputs,
+  config,
   ...
-}: {
+}: let
+  inherit (config.colorScheme) palette;
+in {
   imports = [
     ./tools.nix
     ./mpv.nix
@@ -10,6 +13,7 @@
     ./waybar.nix
     ./nvim.nix
     ./git.nix
+    ./rofi.nix
     ./xdg.nix
     ./spotify-player.nix
     inputs.nix-colors.homeManagerModules.default
@@ -37,6 +41,14 @@
       name = "Zafiro-icons-Dark";
       package = pkgs.zafiro-icons;
     };
+  };
+  xresources.properties = {
+    "bar.background" = "#${palette.base02}";
+    "bar.foreground" = "#${palette.base0B}";
+    "bar.font" = "Google Sans-13";
+    "window.foreground" = "#${palette.base04}";
+    "window.background" = "#${palette.base02}";
+    "mark.background" = "#${palette.base0A}";
   };
 
   home.pointerCursor = {
