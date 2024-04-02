@@ -1,4 +1,3 @@
-{lib , ...}:
 {
   programs.git = {
     enable = true;
@@ -35,9 +34,19 @@
       bc = "rebase --continue";
       cl = "clone";
     };
-    url = {
-      "https://github.com/".insteadOf = "github:";
-      "ssh://git@github.com/".pushInsteadOf = "github:";
+    difftastic = {
+      enable = true;
+      background = "dark";
+      display = "inline";
+    };
+    extraConfig = {
+      core = {
+        whitespace = "trailing-space,space-before-tab";
+      };
+      url = {
+        "https://github.com/".insteadOf = "github:";
+        "ssh://git@github.com/".pushInsteadOf = "github:";
+      };
     };
   };
 }

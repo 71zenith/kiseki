@@ -121,13 +121,13 @@ in {
         preserve_split = true;
       };
       misc = {
-        enable_swallow = "true";
-        disable_hyprland_logo = "true";
+        enable_swallow = true;
+        disable_hyprland_logo = true;
         swallow_regex = "^(footclient).*$";
       };
       decoration = {
-        rounding = 0;
-        drop_shadow = "true";
+        rounding = 8;
+        drop_shadow = false;
       };
       general = {
         gaps_in = 5;
@@ -135,7 +135,7 @@ in {
         border_size = 3;
       };
       animations = {
-        enabled = "true";
+        enabled = true;
         bezier = [
           "overshot, 0.35, 0.9, 0.1, 1.05"
           "smoothOut, 0.36, 0, 0.66, -0.56"
@@ -153,7 +153,7 @@ in {
         ];
       };
       bindm = ["$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow"];
-      binde = [
+      bindel = [
         ",Print, exec,grimblast --notify copy area"
         ",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
         ",XF86AudioLowerVolume, exec, pulsemixer --change-volume -5"
@@ -162,47 +162,48 @@ in {
         ",XF86AudioPrev, exec, playerctl previous --player=spotify_player"
         ",XF86AudioPlay, exec, playerctl play-pause"
       ];
-      bind =
-        [
-          "$mod1,Print, exec,grimblast --notify copy screen"
-          "$mod2, f, exec, firefox"
-          "$mod1, return, exec, footclient"
-          "$mod2, e, exec, emacs"
-          "$mod1, e, exec, emacsclient --create-frame"
-          "$mod1, p, exec, rofi -show drun"
-          "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
-          "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
-          "$mod4, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      binde = [
+        "$mod2, l, resizeactive, 40 0"
+        "$mod2, h, resizeactive, -40 0"
+        "$mod2, j, resizeactive, 0 40"
+        "$mod2, k, resizeactive, 0 -40"
+      ];
+      bind = [
+        "$mod1,Print, exec,grimblast --notify copy screen"
+        "$mod2, f, exec, firefox"
+        "$mod1, return, exec, footclient"
+        "$mod2, e, exec, emacs"
+        "$mod1, e, exec, emacsclient --create-frame"
+        "$mod1, p, exec, rofi -show drun"
+        "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
+        "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
+        "$mod4, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-          "$mod1, q, killactive,"
-          "$mod1, t, fullscreen,"
-          "$mod2, q, exit,"
-          "$mod2, s, togglefloating,"
+        "$mod1, q, killactive,"
+        "$mod1, t, fullscreen,"
+        "$mod2, q, exit,"
+        "$mod2, s, togglefloating,"
 
-          "$mod1, l, cyclenext,"
-          "$mod1, h, cyclenext,prev"
-          "$mod2, Tab, cyclenext,"
-          "$mod1, Tab, cyclenext,prev"
+        "$mod1, l, cyclenext,"
+        "$mod1, h, cyclenext,prev"
+        "$mod2, Tab, cyclenext,"
+        "$mod2, Tab, bringactivetotop,"
+        "$mod1, Tab, cyclenext,prev"
+        "$mod1, Tab, bringactivetotop,"
+        "$mod3, l, swapnext"
+        "$mod3, h, swapnext,prev"
 
-          "$mod2, l, resizeactive, 40 0"
-          "$mod2, h, resizeactive, -40 0"
-          "$mod2, j, resizeactive, 0 40"
-          "$mod2, k, resizeactive, 0 -40"
-
-          "$mod3, l, swapnext"
-          "$mod3, h, swapnext,prev"
-
-          "$mod3, return, movetoworkspace, special"
-          "$mod2, return, togglespecialworkspace,"
-          "$mod4, return, togglespecialworkspace, pop"
-        ]
-        ++ (builtins.concatLists (builtins.genList (x: let
-            ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-          in [
-            "$mod1, ${ws}, workspace, ${toString (x + 1)}"
-            "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-          ])
-          10));
+        "$mod3, return, movetoworkspace, special"
+        "$mod2, return, togglespecialworkspace,"
+        "$mod4, return, togglespecialworkspace, pop"
+      ]
+      ++ (builtins.concatLists (builtins.genList (x: let
+        ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+      in [
+        "$mod1, ${ws}, workspace, ${toString (x + 1)}"
+        "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+      ])
+      10));
     };
   };
 }
