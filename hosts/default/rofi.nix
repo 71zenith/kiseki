@@ -1,5 +1,8 @@
-{config,pkgs, ...}:
 {
+  config,
+  pkgs,
+  ...
+}: {
   stylix.targets.rofi.enable = false;
   programs.rofi = {
     enable = true;
@@ -40,7 +43,7 @@
         background = mkLiteral "#${palette.base00}";
         background-alt = mkLiteral "#${palette.base01}";
         foreground = mkLiteral "#${palette.base06}";
-        selected = mkLiteral "#${palette.base08}";
+        selected = mkLiteral "#${palette.base0E}";
         active = mkLiteral "#${palette.base0B}";
         urgent = mkLiteral "#${palette.base0D}";
       };
@@ -67,7 +70,7 @@
         children = mkLiteral "[inputbar,listbox]";
       };
       "listbox" = {
-        spacing = mkLiteral "10px";
+        spacing = mkLiteral "5px";
         padding = mkLiteral "10px";
         background-color = mkLiteral "transparent";
         orientation = mkLiteral "vertical";
@@ -78,7 +81,7 @@
         spacing = mkLiteral "10px";
         padding = mkLiteral "60px 40px";
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url('~/nix/resources/wallpapers/oxocarbon.png',width)";
+        background-image = mkLiteral "url('~/nix/resources/wallpapers/blue-blossom.jpg',width)";
         text-color = mkLiteral "@foreground";
         orientation = mkLiteral "horizontal";
         children = mkLiteral "[textbox-prompt-colon, entry, dummy, mode-switcher]";
@@ -137,14 +140,14 @@
         reverse = false;
         fixed-height = true;
         fixed-columns = true;
-        spacing = mkLiteral "10px";
+        spacing = mkLiteral "5px";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
         cursor = mkLiteral "default";
       };
       "element" = {
         enabled = true;
-        spacing = mkLiteral "10px";
+        spacing = mkLiteral "7px";
         padding = mkLiteral "4px";
         border-radius = mkLiteral "100%";
         background-color = mkLiteral "transparent";

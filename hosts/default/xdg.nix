@@ -5,10 +5,11 @@
       enable = true;
       defaultApplications = let
         browser = ["firefox.desktop"];
+        fileManager = ["nautilus.desktop"];
         editor = ["emacs.desktop"];
         player = ["mpv.desktop"];
         viewer = ["nsxiv.desktop"];
-        reader = ["zathura.desktop"];
+        reader = ["org.pwmt.zathura.desktop"];
       in {
         "application/json" = browser;
         "application/pdf" = reader;
@@ -35,6 +36,8 @@
         "x-scheme-handler/http" = browser;
         "x-scheme-handler/https" = browser;
 
+        "inode/directory" = fileManager;
+
         "audio/*" = player;
         "video/*" = player;
         "image/*" = viewer;
@@ -47,16 +50,14 @@
     userDirs = {
       enable = true;
       createDirectories = true;
-      extraConfig = {
-        XDG_DOWNLOAD_DIR = "${config.home.homeDirectory}/dl";
-        XDG_DOCUMENTS_DIR = "${config.home.homeDirectory}/dox";
-        XDG_DESKTOP_DIR = "${config.home.homeDirectory}/dl";
-        XDG_VIDEOS_DIR = "${config.home.homeDirectory}/vid";
-        XDG_PICTURES_DIR = "${config.home.homeDirectory}/pix";
-        XDG_MUSIC_DIR = "${config.home.homeDirectory}/dl";
-        XDG_TEMPLATES_DIR = "${config.home.homeDirectory}/dl";
-        XDG_PUBLIC_DIR = "${config.home.homeDirectory}/dl";
-      };
+      download = "${config.home.homeDirectory}/dl";
+      documents = "${config.home.homeDirectory}/dl/dox";
+      desktop = "${config.home.homeDirectory}/dl/desk";
+      videos = "${config.home.homeDirectory}/dl/vid";
+      pictures = "${config.home.homeDirectory}/pix";
+      music = "${config.home.homeDirectory}/dl/music";
+      templates = "${config.home.homeDirectory}/.local/share/templates";
+      publicShare = "${config.home.homeDirectory}/.local/share/public";
     };
     mime.enable = true;
   };

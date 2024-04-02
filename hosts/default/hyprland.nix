@@ -73,7 +73,8 @@ in {
         "MOZ_WEBRENDER,1"
         "_JAVA_AWT_WM_NONREPARENTING,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "QT_QPA_PLATFORM,wayland"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "DISABLE_QT5_COMPAT,0"
         "SDL_VIDEODRIVER,wayland"
         "GDK_BACKEND,wayland"
       ];
