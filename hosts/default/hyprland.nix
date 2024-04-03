@@ -126,7 +126,7 @@ in {
         swallow_regex = "^(footclient).*$";
       };
       decoration = {
-        rounding = 8;
+        rounding = 10;
         drop_shadow = false;
       };
       general = {
@@ -153,6 +153,7 @@ in {
         ];
       };
       bindm = ["$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow"];
+      bindr = ["SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"];
       bindel = [
         ",Print, exec,grimblast --notify copy area"
         ",XF86AudioRaiseVolume, exec, pulsemixer --change-volume +5"
@@ -174,7 +175,6 @@ in {
         "$mod1, return, exec, footclient"
         "$mod2, e, exec, emacs"
         "$mod1, e, exec, emacsclient --create-frame"
-        "$mod1, p, exec, rofi -show drun"
         "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
         "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
         "$mod4, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"

@@ -27,9 +27,9 @@
       kb-remove-to-eol = "";
       kb-mode-complete = "";
       display-drun = "";
-      display-run = "";
+      display-run = "";
       display-calc = "󰃬";
-      display-window = "";
+      display-window = "";
       display-filebrowser = "";
       drun-display-format = "{name}";
       window-format = "{w} · {c} · {t}";
@@ -43,7 +43,8 @@
         background = mkLiteral "#${palette.base00}";
         background-alt = mkLiteral "#${palette.base01}";
         foreground = mkLiteral "#${palette.base06}";
-        selected = mkLiteral "#${palette.base0E}";
+        foreground-alt = mkLiteral "#${palette.base02}";
+        selected = mkLiteral "#${palette.base0C}";
         active = mkLiteral "#${palette.base0B}";
         urgent = mkLiteral "#${palette.base0D}";
       };
@@ -89,8 +90,8 @@
       "textbox-prompt-colon" = {
         enabled = true;
         expand = false;
-        str = "";
-        padding = mkLiteral "12px 15px";
+        str = "";
+        padding = mkLiteral "12px 16px";
         border-radius = mkLiteral "100%";
         background-color = mkLiteral "@background-alt";
         text-color = mkLiteral "inherit";
@@ -105,7 +106,7 @@
         text-color = mkLiteral "inherit";
         cursor = mkLiteral "text";
         placeholder = "Search";
-        placeholder-color = mkLiteral "inherit";
+        placeholder-color = mkLiteral "@foreground-alt";
       };
       "dummy" = {
         expand = false;
@@ -168,7 +169,7 @@
       };
       "element selected.normal" = {
         background-color = mkLiteral "@selected";
-        text-color = mkLiteral "@foreground";
+        text-color = mkLiteral "@background";
       };
       "element selected.urgent" = {
         background-color = mkLiteral "@urgent";
