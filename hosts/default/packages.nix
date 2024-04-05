@@ -52,6 +52,7 @@ in {
     imagemagick
     unzip
     qemu
+    openmw
     zsh-powerlevel10k
     config.nur.repos.mic92.hello-nur
     inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
