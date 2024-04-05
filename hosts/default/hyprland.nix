@@ -169,41 +169,42 @@ in {
         "$mod2, j, resizeactive, 0 40"
         "$mod2, k, resizeactive, 0 -40"
       ];
-      bind = [
-        "$mod1,Print, exec,grimblast --notify copy screen"
-        "$mod2, f, exec, firefox"
-        "$mod1, return, exec, footclient"
-        "$mod2, e, exec, emacs"
-        "$mod1, e, exec, emacsclient --create-frame"
-        "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
-        "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
-        "$mod4, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
+      bind =
+        [
+          "$mod1,Print, exec,grimblast --notify copy screen"
+          "$mod2, f, exec, firefox"
+          "$mod1, return, exec, footclient"
+          "$mod2, e, exec, emacs"
+          "$mod1, e, exec, emacsclient --create-frame"
+          "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
+          "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
+          "$mod4, v, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 
-        "$mod1, q, killactive,"
-        "$mod1, t, fullscreen,"
-        "$mod2, q, exit,"
-        "$mod2, s, togglefloating,"
+          "$mod1, q, killactive,"
+          "$mod1, t, fullscreen,"
+          "$mod2, q, exit,"
+          "$mod2, s, togglefloating,"
 
-        "$mod1, l, cyclenext,"
-        "$mod1, h, cyclenext,prev"
-        "$mod2, Tab, cyclenext,"
-        "$mod2, Tab, bringactivetotop,"
-        "$mod1, Tab, cyclenext,prev"
-        "$mod1, Tab, bringactivetotop,"
-        "$mod3, l, swapnext"
-        "$mod3, h, swapnext,prev"
+          "$mod1, l, cyclenext,"
+          "$mod1, h, cyclenext,prev"
+          "$mod2, Tab, cyclenext,"
+          "$mod2, Tab, bringactivetotop,"
+          "$mod1, Tab, cyclenext,prev"
+          "$mod1, Tab, bringactivetotop,"
+          "$mod3, l, swapnext"
+          "$mod3, h, swapnext,prev"
 
-        "$mod3, return, movetoworkspace, special"
-        "$mod2, return, togglespecialworkspace,"
-        "$mod4, return, togglespecialworkspace, pop"
-      ]
-      ++ (builtins.concatLists (builtins.genList (x: let
-        ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
-      in [
-        "$mod1, ${ws}, workspace, ${toString (x + 1)}"
-        "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
-      ])
-      10));
+          "$mod3, return, movetoworkspace, special"
+          "$mod2, return, togglespecialworkspace,"
+          "$mod4, return, togglespecialworkspace, pop"
+        ]
+        ++ (builtins.concatLists (builtins.genList (x: let
+            ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+          in [
+            "$mod1, ${ws}, workspace, ${toString (x + 1)}"
+            "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
+          ])
+          10));
     };
   };
 }
