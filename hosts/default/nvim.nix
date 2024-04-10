@@ -1,4 +1,8 @@
-{inputs, pkgs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
   programs = {
     nixvim = {
@@ -7,9 +11,12 @@
         mapleader = " ";
         neovide_cursor_animation_length = 0.025;
         neovide_cursor_vfx_mode = "railgun";
-        neovide_background_color = "#1e1e2ed9";
         neovide_refresh_rate = 75;
-        neovide_transparency = 0.0;
+        neovide_padding_bottom = 10;
+        neovide_padding_top = 10;
+        neovide_padding_right = 10;
+        neovide_padding_left = 10;
+        neovide_transparency = 0.90;
       };
       clipboard.providers.wl-copy.enable = true;
       enableMan = false;
@@ -22,8 +29,16 @@
         autoindent = true;
         wrap = false;
         ignorecase = true;
+        autochdir = true;
+        smarttab = true;
+        backup = true;
+        showmode = false;
+        mouse = "a";
+        autoread = true;
         smartcase = true;
         cursorline = true;
+        scrolloff = 5;
+        sidescrolloff = 5;
         termguicolors = true;
         background = "dark";
         signcolumn = "yes";
@@ -33,7 +48,7 @@
         swapfile = false;
         clipboard = "unnamedplus";
       };
-      extraPlugins = with pkgs; [ vimPlugins.oxocarbon-nvim ];
+      extraPlugins = with pkgs.vimPlugins; [oxocarbon-nvim];
       colorscheme = "oxocarbon";
       plugins = {
         nix.enable = true;
@@ -48,10 +63,22 @@
         };
         comment.enable = true;
         todo-comments.enable = true;
-        barbecue.enable = true;
+        barbecue = {
+          enable = true;
+          leadCustomSection = ''
+            function()
+              return { { " ", "WinBar" } }
+            end,
+          '';
+        };
         lsp = {
           enable = true;
-          servers = {nil_ls.enable = true;};
+          servers = {
+            nil_ls.enable = true;
+          };
+        };
+        conjure = {
+          enable = true;
         };
         indent-blankline.enable = true;
         flash.enable = true;
@@ -62,25 +89,27 @@
           theme = "dashboard";
         };
         trouble.enable = true;
-        diffview.enable = true;
         direnv.enable = true;
         zen-mode.enable = true;
         neo-tree.enable = true;
-        auto-save.enable = true;
+        auto-session.enable = true;
         cmp-buffer.enable = true;
         cmp-nvim-lsp.enable = true;
         lastplace.enable = true;
         better-escape.enable = true;
         lspkind.enable = true;
         friendly-snippets.enable = true;
+        lsp-format.enable = true;
         none-ls = {
           enable = true;
+          enableLspFormat = true;
           sources = {
-            formatting = {
-              alejandra.enable = true;
-            };
+            code_actions = {statix.enable = true;};
+            formatting = {alejandra.enable = true;};
+            diagnostics = {deadnix.enable = true;};
           };
         };
+        surround.enable = true;
         noice.enable = true;
         neorg.enable = true;
         neogit.enable = true;
@@ -90,7 +119,6 @@
         cmp_luasnip.enable = true;
         which-key.enable = true;
         fidget.enable = true;
-        ts-context-commentstring.enable = true;
         treesitter.enable = true;
         rainbow-delimiters.enable = true;
         cmp = {
@@ -110,7 +138,9 @@
               "<C-f>" = "cmp.mapping.scroll_docs(4)";
               "<CR>" = "cmp.mapping.confirm({ select = true })";
               "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             };
           };
         };
@@ -118,12 +148,19 @@
           enable = true;
           keymaps = {
             "<leader>ff" = "fd";
+            "<leader>fh" = "oldfiles";
             "<leader>fs" = "lsp_document_symbols";
             "<leader>fg" = "live_grep";
           };
         };
       };
       keymaps = [
+        {
+          key = "<leader>ft";
+          mode = "n";
+          action = "<CMD>Telescope<NL>";
+          options.desc = "Open Telescope";
+        }
         {
           key = "<leader>o";
           mode = "n";
@@ -134,7 +171,7 @@
           key = "<leader>n";
           mode = ["n" "t"];
           action = "<CMD>ToggleTerm<NL>";
-          options.desc = "Toggle Term";
+          options.desc = "Toggle Terminal";
         }
         {
           key = "<leader>sv";
@@ -181,12 +218,17 @@
         {
           key = "<Tab>";
           mode = "n";
-          action = "<CMD>:tabn<NL>";
+          action = "<CMD>:bnext<NL>";
+        }
+        {
+          key = "<leader><leader>";
+          mode = "n";
+          action = ":";
         }
         {
           key = "<S-Tab>";
           mode = "n";
-          action = "<CMD>:tabp<NL>";
+          action = "<CMD>:bprevious<NL>";
         }
       ];
     };
