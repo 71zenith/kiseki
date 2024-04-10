@@ -54,8 +54,8 @@
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default
-        ./hosts/default/config.nix
         my-caches
+        ./hosts/default/config.nix
       ];
     };
   };
