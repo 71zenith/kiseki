@@ -74,7 +74,6 @@
         autowrite = true;
         pumheight = 10;
         updatetime = 200;
-        writebackup = true;
         showbreak = "⤷ ";
       };
       extraPlugins = with pkgs.vimPlugins; [oxocarbon-nvim];
@@ -104,6 +103,8 @@
           enable = true;
           servers = {
             nil_ls.enable = true;
+            clojure-lsp.enable = true;
+            bashls.enable = true;
           };
         };
         conjure = {
@@ -156,7 +157,7 @@
         neogit.enable = true;
         lualine = {
           enable = true;
-          extensions = ["neo-tree" "trouble" "quickfix" "aerial" "man" "toggleterm"];
+          extensions = ["neo-tree" "trouble" "quickfix" "man" "toggleterm"];
         };
         luasnip.enable = true;
         cmp_luasnip.enable = true;
@@ -214,8 +215,14 @@
         {
           key = "<leader>gr";
           mode = "n";
-          action = "<CMD>IncRename<NL>";
+          action = "<CMD>IncRename <NL>";
           options.desc = "Rename symbol";
+        }
+        {
+          key = "<leader>gl";
+          mode = "n";
+          action = "<CMD>TroubleToggle<NL>";
+          options.desc = "Trouble";
         }
         {
           key = "<leader>gi";
@@ -278,6 +285,12 @@
           options.desc = "Open Neogit";
         }
         {
+          key = "<leader>hS";
+          mode = "n";
+          action = "<CMD>Gitsigns stage_buffer<NL>";
+          options.desc = "Stage Buffer";
+        }
+        {
           key = "<leader>hs";
           mode = "n";
           action = "<CMD>Gitsigns stage_hunk<NL>";
@@ -310,7 +323,7 @@
         {
           key = "<leader>wc";
           mode = "n";
-          action = "<CMD>close<NL>";
+          action = "<CMD>close!<NL>";
           options.desc = "Close current split";
         }
         {
@@ -340,7 +353,7 @@
         {
           key = "<leader>wk";
           mode = "n";
-          action = "<CMD>bd<NL>";
+          action = "<CMD>bd!<NL>";
           options.desc = "Close current tab";
         }
         {
