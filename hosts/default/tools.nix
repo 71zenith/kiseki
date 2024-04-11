@@ -7,6 +7,7 @@
   inherit (config.colorScheme) palette;
 in {
   stylix.targets.zathura.enable = false;
+  stylix.targets.vim.enable = false;
   programs = {
     btop = {
       enable = true;
