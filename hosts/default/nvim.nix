@@ -48,7 +48,6 @@
           fold = " ";
           msgsep = "─";
         };
-        backup = true;
         showmode = false;
         wildmode = ["longest" "list" "full"];
         mouse = "a";
@@ -105,6 +104,8 @@
             nil_ls.enable = true;
             clojure-lsp.enable = true;
             bashls.enable = true;
+            pyright.enable = true;
+            ruff-lsp.enable = true;
           };
         };
         conjure = {
@@ -139,9 +140,15 @@
           enable = true;
           enableLspFormat = true;
           sources = {
-            code_actions = {statix.enable = true;};
+            code_actions = {
+              statix.enable = true;
+              gitsigns.enable = true;
+            };
             formatting = {alejandra.enable = true;};
-            diagnostics = {deadnix.enable = true;};
+            diagnostics = {
+              deadnix.enable = true;
+              statix.enable = true;
+            };
           };
         };
         noice = {
@@ -179,12 +186,13 @@
             mapping = {
               "<C-Space>" = "cmp.mapping.complete()";
               "<C-d>" = "cmp.mapping.scroll_docs(-4)";
-              "<C-e>" = "cmp.mapping.close()";
               "<C-f>" = "cmp.mapping.scroll_docs(4)";
+              "<C-h>" = "cmp.mapping.close()";
               "<CR>" = "cmp.mapping.confirm({ select = true })";
-              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<C-l>" = "cmp.mapping.confirm({ select = true })";
+              "<C-k>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-              "<Tab>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<C-j>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
               "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             };
           };
@@ -215,7 +223,7 @@
         {
           key = "<leader>gr";
           mode = "n";
-          action = "<CMD>IncRename <NL>";
+          action = "<CMD>IncRename <CR>";
           options.desc = "Rename symbol";
         }
         {
@@ -231,16 +239,34 @@
           options.desc = "Goto Implementations";
         }
         {
+          key = "<leader>gd";
+          mode = "n";
+          action = "<CMD>Telescope lsp_definitions<NL>";
+          options.desc = "Goto Definitions";
+        }
+        {
           key = "<leader>gh";
           mode = "n";
           action = "<CMD>Telescope lsp_references<NL>";
           options.desc = "List References";
         }
         {
-          key = "<leader>gd";
+          key = "<leader>gr";
           mode = "n";
-          action = "<CMD>Telescope lsp_definitions<NL>";
-          options.desc = "Goto Definitions";
+          action = "<CMD>IncRename <CR>";
+          options.desc = "Rename symbol";
+        }
+        {
+          key = "K";
+          mode = "x";
+          action = ":move '<-2<CR>gv-gv";
+          options.desc = "Move selected lines up";
+        }
+        {
+          key = "J";
+          mode = "x";
+          action = ":move '>+1<CR>gv-gv";
+          options.desc = "Move selected lines down";
         }
         {
           key = "<leader>fg";
@@ -249,7 +275,7 @@
           options.desc = "Live grep";
         }
         {
-          key = "<leader>fr";
+          key = "<leader>fh";
           mode = "n";
           action = "<CMD>Telescope registers<NL>";
           options.desc = "Registers";
@@ -441,8 +467,8 @@
           options.desc = "Resize pane down";
         }
         {
-          key = "<C-BS>";
-          mode = "n";
+          key = "<C-h>";
+          mode = ["n" "i"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
         }
