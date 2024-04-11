@@ -200,10 +200,40 @@
           options.desc = "Open Telescope";
         }
         {
-          key = "<leader>ls";
+          key = "<leader>gs";
           mode = "n";
           action = "<CMD>Telescope lsp_document_symbols<NL>";
           options.desc = "Document Symbols";
+        }
+        {
+          key = "<leader>gS";
+          mode = "n";
+          action = "<CMD>Telescope lsp_dynamic_workspace_symbols<NL>";
+          options.desc = "Workspace Symbols";
+        }
+        {
+          key = "<leader>gr";
+          mode = "n";
+          action = "<CMD>IncRename<NL>";
+          options.desc = "Rename symbol";
+        }
+        {
+          key = "<leader>gi";
+          mode = "n";
+          action = "<CMD>Telescope lsp_implementations<NL>";
+          options.desc = "Goto Implementations";
+        }
+        {
+          key = "<leader>gh";
+          mode = "n";
+          action = "<CMD>Telescope lsp_references<NL>";
+          options.desc = "List References";
+        }
+        {
+          key = "<leader>gd";
+          mode = "n";
+          action = "<CMD>Telescope lsp_definitions<NL>";
+          options.desc = "Goto Definitions";
         }
         {
           key = "<leader>fg";

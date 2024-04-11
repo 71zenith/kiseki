@@ -175,6 +175,7 @@ in {
           "$mod2, f, exec, firefox"
           "$mod1, return, exec, footclient"
           "$mod2, e, exec, emacs"
+          "$mod2, v, exec, neovide"
           "$mod1, e, exec, emacsclient --create-frame"
           "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
           "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
