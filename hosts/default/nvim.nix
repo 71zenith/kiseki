@@ -17,23 +17,6 @@
         neovide_padding_right = 10;
         neovide_padding_left = 10;
         neovide_transparency = 0.90;
-        fillchars = {
-          eob = " ";
-          vert = " ";
-          horiz = " ";
-          diff = "╱";
-          foldclose = "";
-          foldopen = "";
-          fold = " ";
-          msgsep = "─";
-        };
-        listchars = {
-          tab = " ──";
-          trail = "·";
-          nbsp = "␣";
-          precedes = "«";
-          extends = "»";
-        };
       };
       clipboard.providers.wl-copy.enable = true;
       enableMan = false;
@@ -48,8 +31,23 @@
         ignorecase = true;
         autochdir = true;
         smarttab = true;
-        listchars = "listchars";
-        fillchars = "fillchars";
+        listchars = {
+          tab = " ──";
+          trail = "·";
+          nbsp = "␣";
+          precedes = "«";
+          extends = "»";
+        };
+        fillchars = {
+          eob = " ";
+          vert = " ";
+          horiz = " ";
+          diff = "╱";
+          foldclose = "";
+          foldopen = "";
+          fold = " ";
+          msgsep = "─";
+        };
         backup = true;
         showmode = false;
         wildmode = ["longest" "list" "full"];
@@ -125,8 +123,8 @@
           theme = "dashboard";
         };
         trouble.enable = true;
+        inc-rename.enable = true;
         direnv.enable = true;
-        zen-mode.enable = true;
         neo-tree.enable = true;
         auto-session.enable = true;
         cmp-buffer.enable = true;
@@ -145,9 +143,21 @@
             diagnostics = {deadnix.enable = true;};
           };
         };
-        noice.enable = true;
+        noice = {
+          enable = true;
+          presets = {
+            bottom_search = true;
+            command_palette = true;
+            long_message_to_split = true;
+            inc_rename = true;
+            lsp_doc_border = true;
+          };
+        };
         neogit.enable = true;
-        lualine.enable = true;
+        lualine = {
+          enable = true;
+          extensions = ["neo-tree" "trouble" "quickfix" "aerial" "man" "toggleterm"];
+        };
         luasnip.enable = true;
         cmp_luasnip.enable = true;
         nvim-lightbulb.enable = true;
@@ -200,6 +210,12 @@
           mode = "n";
           action = "<CMD>Telescope live_grep<NL>";
           options.desc = "Live grep";
+        }
+        {
+          key = "<leader>fr";
+          mode = "n";
+          action = "<CMD>Telescope registers<NL>";
+          options.desc = "Registers";
         }
         {
           key = "<leader>fh";
@@ -262,7 +278,7 @@
           options.desc = "Split window vertically";
         }
         {
-          key = "<leader>wk";
+          key = "<leader>wc";
           mode = "n";
           action = "<CMD>close<NL>";
           options.desc = "Close current split";
@@ -292,7 +308,7 @@
           options.desc = "Increment number";
         }
         {
-          key = "<leader>tc";
+          key = "<leader>wk";
           mode = "n";
           action = "<CMD>bd<NL>";
           options.desc = "Close current tab";
@@ -334,7 +350,55 @@
           options.desc = "Save Buffer";
         }
         {
-          key = "<C-H>";
+          key = "<C-h>";
+          mode = "n";
+          action = "<C-w>h";
+          options.desc = "Navigate to pane left";
+        }
+        {
+          key = "<C-l>";
+          mode = "n";
+          action = "<C-w>l";
+          options.desc = "Navigate to pane right";
+        }
+        {
+          key = "<C-k>";
+          mode = "n";
+          action = "<C-w>k";
+          options.desc = "Navigate to pane up";
+        }
+        {
+          key = "<C-j>";
+          mode = "n";
+          action = "<C-w>j";
+          options.desc = "Navigate to pane down";
+        }
+        {
+          key = "<C-S-l>";
+          mode = "n";
+          action = "<CMD>:vertical resize +2<NL>";
+          options.desc = "Resize pane right";
+        }
+        {
+          key = "<C-S-h>";
+          mode = "n";
+          action = "<CMD>:vertical resize -2<NL>";
+          options.desc = "Resize pane left";
+        }
+        {
+          key = "<C-S-k>";
+          mode = "n";
+          action = "<CMD>:resize +2<NL>";
+          options.desc = "Resize pane up";
+        }
+        {
+          key = "<C-S-j>";
+          mode = "n";
+          action = "<CMD>:resize -2<NL>";
+          options.desc = "Resize pane down";
+        }
+        {
+          key = "<C-BS>";
           mode = "n";
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
