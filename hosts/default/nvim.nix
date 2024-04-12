@@ -171,16 +171,16 @@
         };
         noice = {
           enable = true;
-          lsp = {
-            override = {
-              "cmp.entry.get_documentation" = true;
-            };
+          lsp.override = {
+            "cmp.entry.get_documentation" = true;
+            "vim.lsp.util.convert_input_to_markdown_lines" = true;
+            "vim.lsp.util.stylize_markdown" = true;
           };
           presets = {
             bottom_search = true;
             command_palette = true;
             long_message_to_split = true;
-            lsp_doc_border = true;
+            lsp_doc_border = false;
           };
         };
         neogit.enable = true;
@@ -199,7 +199,6 @@
         luasnip.enable = true;
         cmp_luasnip.enable = true;
         which-key.enable = true;
-        fidget.enable = true;
         treesitter = {
           enable = true;
           incrementalSelection = {
@@ -360,6 +359,7 @@
         };
         telescope = {
           enable = true;
+          extensions.fzf-native.enable = true;
           settings = {
             defaults = {
               mappings = {
@@ -408,10 +408,10 @@
           options.desc = "Workspace Symbols";
         }
         {
-          key = "<leader>gD";
+          key = "<leader>ga";
           mode = "n";
-          action = "<CMD>TroubleToggle document_diagnostics<NL>";
-          options.desc = "Trouble Diagnostics";
+          action = "<CMD>lua vim.lsp.buf.code_action()<NL>";
+          options.desc = "Show Code Actions";
         }
         {
           key = "<leader>gr";
