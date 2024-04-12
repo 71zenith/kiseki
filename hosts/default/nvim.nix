@@ -84,6 +84,8 @@
         nix.enable = true;
         barbar = {
           enable = true;
+          autoHide = true;
+          sidebarFiletypes = {"neo-tree" = {event = "BufWipeout";};};
         };
         nvim-autopairs = {
           enable = true;
@@ -153,6 +155,7 @@
           };
         };
         cmp-buffer.enable = true;
+        diffview.enable = true;
         cmp-spell.enable = true;
         cmp-nvim-lsp.enable = true;
         surround.enable = true;
@@ -179,7 +182,6 @@
           views = {
             cmdline_popup.border.style = "single";
             cmdline_popupmenu.border.style = "single";
-            hover.opts.render = "markdown";
           };
           presets = {
             bottom_search = true;
@@ -191,7 +193,7 @@
         neogit.enable = true;
         lualine = {
           enable = true;
-          extensions = ["neo-tree" "trouble" "quickfix" "man" "toggleterm"];
+          disabledFiletypes.statusline = ["alpha" "toggleterm" "neo-tree" "trouble"];
           sectionSeparators = {
             left = "";
             right = "";
@@ -200,6 +202,7 @@
             left = "";
             right = "";
           };
+          sections = {lualine_x = [{name = "filetype";}];};
         };
         luasnip.enable = true;
         cmp_luasnip.enable = true;
@@ -270,8 +273,22 @@
                 query = "@function.inner";
                 desc = "Select inner part of a function";
               };
+              "am" = {
+                query = "@call.outer";
+                desc = "Select outer part of a method";
+              };
+              "im" = {
+                query = "@call.inner";
+                desc = "Select inner part of a method";
+              };
             };
           };
+          # swap = {
+          #   enable = true;
+          #   swapNext = {
+          #     "<leader>"
+          #   }
+          # }
           move = {
             enable = true;
             setJumps = true;
@@ -279,6 +296,10 @@
               "]f" = {
                 query = "@function.outer";
                 desc = "Next function call start";
+              };
+              "]m" = {
+                query = "@call.outer";
+                desc = "Next method call start";
               };
               "]l" = {
                 query = "@loop.outer";
@@ -294,6 +315,10 @@
                 query = "@function.outer";
                 desc = "Previous function call start";
               };
+              "[m" = {
+                query = "@call.outer";
+                desc = "Previous method call start";
+              };
               "[l" = {
                 query = "@loop.outer";
                 desc = "Previous loop start";
@@ -308,7 +333,10 @@
                 query = "@function.outer";
                 desc = "Previous function call end";
               };
-
+              "[M" = {
+                query = "@call.outer";
+                desc = "Previous method call end";
+              };
               "[L" = {
                 query = "@loop.outer";
                 desc = "Previous loop end";
@@ -319,6 +347,10 @@
               };
             };
             gotoNextEnd = {
+              "]M" = {
+                query = "@call.outer";
+                desc = "Next method call end";
+              };
               "]F" = {
                 query = "@function.outer";
                 desc = "Next function call end";
@@ -339,7 +371,7 @@
         cmp = {
           enable = true;
           settings = {
-            sources = [{name = "luasnip";} {name = "spell";} {name = "nvim_lsp";} {name = "path";} {name = "buffer";}];
+            sources = [{name = "nvim_lsp";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
@@ -678,9 +710,15 @@
           options.desc = "Next Buffer";
         }
         {
-          key = "<leader><r>";
+          key = "<leader>rs";
+          mode = ["v" "n"];
+          action = "<CMD>SnipClose<NL>";
+          options.desc = "Close Code Output";
+        }
+        {
+          key = "<leader>rr";
           mode = ["n" "v"];
-          action = "<CMD>SnipRun<NL>";
+          action = "<CMD>:lua require'sniprun'.run('v')<NL>";
           options.desc = "Run Code";
         }
         {
