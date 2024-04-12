@@ -239,20 +239,12 @@
                 desc = "Select inner part of a parameter";
               };
               "af" = {
-                query = "@call.outer";
+                query = "@function.outer";
                 desc = "Select outer part of a function";
               };
               "if" = {
-                query = "@call.inner";
-                desc = "Select inner part of a function";
-              };
-              "am" = {
-                query = "@function.outer";
-                desc = "Select outer part of a method";
-              };
-              "im" = {
                 query = "@function.inner";
-                desc = "Select inner part of a method";
+                desc = "Select inner part of a function";
               };
             };
           };
@@ -261,12 +253,8 @@
             setJumps = true;
             gotoNextStart = {
               "]f" = {
-                query = "@call.outer";
-                desc = "Next function call start";
-              };
-              "]m" = {
                 query = "@function.outer";
-                desc = "Next method call start";
+                desc = "Next function call start";
               };
               "]l" = {
                 query = "@loop.outer";
@@ -279,12 +267,8 @@
             };
             gotoPreviousStart = {
               "[f" = {
-                query = "@call.outer";
-                desc = "Previous function call start";
-              };
-              "[m" = {
                 query = "@function.outer";
-                desc = "Previous method call start";
+                desc = "Previous function call start";
               };
               "[l" = {
                 query = "@loop.outer";
@@ -297,13 +281,10 @@
             };
             gotoPreviousEnd = {
               "[F" = {
-                query = "@call.outer";
+                query = "@function.outer";
                 desc = "Previous function call end";
               };
-              "[M" = {
-                query = "@function.outer";
-                desc = "Previous method call end";
-              };
+
               "[L" = {
                 query = "@loop.outer";
                 desc = "Previous loop end";
@@ -315,12 +296,8 @@
             };
             gotoNextEnd = {
               "]F" = {
-                query = "@call.outer";
-                desc = "Next function call end";
-              };
-              "]M" = {
                 query = "@function.outer";
-                desc = "Next method call end";
+                desc = "Next function call end";
               };
               "]L" = {
                 query = "@loop.outer";
@@ -385,10 +362,16 @@
       };
       keymaps = [
         {
-          key = "<leader>ft";
+          key = "<leader>fo";
           mode = "n";
           action = "<CMD>Telescope<NL>";
           options.desc = "Open Telescope";
+        }
+        {
+          key = "<leader>ft";
+          mode = "n";
+          action = "<CMD>TodoTelescope<NL>";
+          options.desc = "TODO Telescope";
         }
         {
           key = "<leader>gs";
@@ -403,16 +386,22 @@
           options.desc = "Workspace Symbols";
         }
         {
+          key = "<leader>gD";
+          mode = "n";
+          action = "<CMD>TroubleToggle document_diagnostics<NL>";
+          options.desc = "Trouble Diagnostics";
+        }
+        {
           key = "<leader>gr";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.rename()<NL>";
           options.desc = "Rename symbol";
         }
         {
-          key = "<leader>gl";
+          key = "<leader>gg";
           mode = "n";
           action = "<CMD>TroubleToggle<NL>";
-          options.desc = "Trouble";
+          options.desc = "Trouble Toggle";
         }
         {
           key = "K";
@@ -527,13 +516,13 @@
         {
           key = "]g";
           mode = "n";
-          action = "<CMD>require('gitsigns').navhunk('prev')()<CR>";
+          action = "<CMD>Gitsigns prev_hunk<CR>";
           options.desc = "Previous Git Hunk";
         }
         {
           key = "[g";
           mode = "n";
-          action = "<CMD>require('gitsigns').navhunk('next')()<CR>";
+          action = "<CMD>Gitsigns next_hunk<CR>";
           options.desc = "Next Git Hunk";
         }
         {
@@ -713,25 +702,25 @@
         {
           key = "[t";
           mode = "n";
-          action = "<CMD>require('todo-comments').jump_previous()<CR>";
+          action = ":function() require('todo-comments').jump_previous() end";
           options.desc = "Previous TODO Comment";
         }
         {
           key = "]t";
           mode = "n";
-          action = "<CMD>require('todo-comments').jump_next()<CR>";
+          action = ":function() require('todo-comments').jump_next() end";
           options.desc = "Next TODO Comment";
         }
         {
           key = ",";
           mode = ["n" "x" "o"];
-          action = "<CMD>require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite()<CR>";
+          action = ":function() require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite()<CR> end";
           options.desc = ", with treesitter";
         }
         {
           key = ";";
           mode = ["n" "x" "o"];
-          action = "<CMD>require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move()<CR>";
+          action = ":function() require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move()<CR> end";
           options.desc = "; with treesitter";
         }
       ];

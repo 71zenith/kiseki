@@ -92,6 +92,8 @@ in {
         "pkill waybar; waybar &"
       ];
       windowrule = [
+        "tile, class:neovide"
+        "maximize, neovide"
         "workspace special silent,title:^(*otify*)$"
         "float, file_progress"
         "float, confirm"
