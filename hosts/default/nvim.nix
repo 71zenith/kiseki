@@ -69,6 +69,8 @@
         list = true;
         formatoptions = "jcroqlnt";
         conceallevel = 0;
+        spell = true;
+        spelllang = ["en_us"];
         concealcursor = "nc";
         autowrite = true;
         pumheight = 10;
@@ -79,7 +81,7 @@
       colorscheme = "oxocarbon";
       plugins = {
         nix.enable = true;
-        bufferline.enable = true;
+        barbar.enable = true;
         nvim-autopairs = {
           enable = true;
           checkTs = true;
@@ -108,9 +110,6 @@
             ruff-lsp.enable = true;
           };
         };
-        conjure = {
-          enable = true;
-        };
         flash.enable = true;
         gitsigns = {
           enable = true;
@@ -128,8 +127,8 @@
         inc-rename.enable = true;
         direnv.enable = true;
         neo-tree.enable = true;
-        auto-session.enable = true;
         cmp-buffer.enable = true;
+        cmp-spell.enable = true;
         cmp-nvim-lsp.enable = true;
         lastplace.enable = true;
         better-escape.enable = true;
@@ -140,13 +139,8 @@
           enable = true;
           enableLspFormat = true;
           sources = {
-            code_actions = {
-              statix.enable = true;
-              gitsigns.enable = true;
-            };
             formatting = {alejandra.enable = true;};
             diagnostics = {
-              deadnix.enable = true;
               statix.enable = true;
             };
           };
@@ -165,18 +159,153 @@
         lualine = {
           enable = true;
           extensions = ["neo-tree" "trouble" "quickfix" "man" "toggleterm"];
+          sectionSeparators = {
+            left = "";
+            right = "";
+          };
+          componentSeparators = {
+            left = "";
+            right = "";
+          };
         };
         luasnip.enable = true;
         cmp_luasnip.enable = true;
-        nvim-lightbulb.enable = true;
         which-key.enable = true;
         fidget.enable = true;
-        treesitter.enable = true;
+        treesitter = {
+          enable = true;
+          incrementalSelection = {
+            enable = true;
+            keymaps = {
+              initSelection = "<C-SPACE>";
+              nodeIncremental = "<C-SPACE>";
+              nodeDecremental = "<BS>";
+            };
+          };
+        };
+        treesitter-textobjects = {
+          enable = true;
+          lspInterop.enable = true;
+          select = {
+            lookahead = true;
+            keymaps = {
+              "a=" = {
+                query = "@assignment.outer";
+                desc = "Select outer part of an assignment";
+              };
+              "i=" = {
+                query = "@assignment.outer";
+                desc = "Select outer part of an assignment";
+              };
+              "l=" = {
+                query = "@assignment.lhs";
+                desc = "Select left hand side of an assignment";
+              };
+              "r=" = {
+                query = "@assignment.rhs";
+                desc = "Select right hand side of an assignment";
+              };
+              "ai" = {
+                query = "@conditional.outer";
+                desc = "Select outer part of a conditional";
+              };
+              "ii" = {
+                query = "@conditional.inner";
+                desc = "Select inner part of a conditional";
+              };
+              "il" = {
+                query = "@loop.inner";
+                desc = "Select inner part of a loop";
+              };
+              "al" = {
+                query = "@loop.outer";
+                desc = "Select outer part of a loop";
+              };
+              "aa" = {
+                query = "@parameter.outer";
+                desc = "Select outer part of a parameter";
+              };
+              "ia" = {
+                query = "@parameter.inner";
+                desc = "Select inner part of a parameter";
+              };
+              "af" = {
+                query = "@function.outer";
+                desc = "Select outer part of a function";
+              };
+              "if" = {
+                query = "@function.inner";
+                desc = "Select inner part of a function";
+              };
+            };
+          };
+          move = {
+            enable = true;
+            setJumps = false;
+            gotoNextStart = {
+              "]f" = {
+                query = "@function.outer";
+                desc = "Next function call start";
+              };
+              "]l" = {
+                query = "@loop.outer";
+                desc = "Next loop start";
+              };
+              "]i" = {
+                query = "@conditional.outer";
+                desc = "Next conditional start";
+              };
+            };
+            gotoPreviousStart = {
+              "[f" = {
+                query = "@function.outer";
+                desc = "Previous function call start";
+              };
+              "[l" = {
+                query = "@loop.outer";
+                desc = "Previous loop start";
+              };
+              "[i" = {
+                query = "@conditional.outer";
+                desc = "Previous conditional start";
+              };
+            };
+            gotoPreviousEnd = {
+              "[F" = {
+                query = "@function.outer";
+                desc = "Previous function call end";
+              };
+              "[L" = {
+                query = "@loop.outer";
+                desc = "Previous loop end";
+              };
+              "[I" = {
+                query = "@conditional.outer";
+                desc = "Previous conditional end";
+              };
+            };
+            gotoNextEnd = {
+              "]F" = {
+                query = "@function.outer";
+                desc = "Next function call end";
+              };
+              "]L" = {
+                query = "@loop.outer";
+                desc = "Next loop end";
+              };
+              "]I" = {
+                query = "@conditional.outer";
+                desc = "Next conditional end";
+              };
+            };
+          };
+        };
         rainbow-delimiters.enable = true;
+        sniprun.enable = true;
         cmp = {
           enable = true;
           settings = {
-            sources = [{name = "nvim_lsp";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
+            sources = [{name = "nvim_lsp";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
@@ -199,6 +328,26 @@
         };
         telescope = {
           enable = true;
+          settings = {
+            defaults = {
+              mappings = {
+                i = {
+                  "<C-j>" = {
+                    __raw = "require('telescope.actions').move_selection_next";
+                  };
+                  "<C-h>" = {
+                    __raw = "require('telescope.actions').select_horizontal";
+                  };
+                  "<C-l>" = {
+                    __raw = "require('telescope.actions').select_horizontal";
+                  };
+                  "<C-k>" = {
+                    __raw = "require('telescope.actions').move_selection_previous";
+                  };
+                };
+              };
+            };
+          };
         };
       };
       keymaps = [
@@ -223,7 +372,7 @@
         {
           key = "<leader>gr";
           mode = "n";
-          action = "<CMD>IncRename <CR>";
+          action = ":IncRename ";
           options.desc = "Rename symbol";
         }
         {
@@ -231,6 +380,12 @@
           mode = "n";
           action = "<CMD>TroubleToggle<NL>";
           options.desc = "Trouble";
+        }
+        {
+          key = "K";
+          mode = "n";
+          action = "<CMD>lua vim.lsp.buf.hover()<NL>";
+          options.desc = "Show Hover Docs";
         }
         {
           key = "<leader>gi";
@@ -253,7 +408,7 @@
         {
           key = "<leader>gr";
           mode = "n";
-          action = "<CMD>IncRename <CR>";
+          action = ":IncRename ";
           options.desc = "Rename symbol";
         }
         {
@@ -263,10 +418,42 @@
           options.desc = "Move selected lines up";
         }
         {
+          key = "==";
+          mode = "n";
+          action = "gg<S-v>G";
+          options.desc = "Select All";
+        }
+        {
+          key = "N";
+          mode = "n";
+          action = "Nzzzv";
+        }
+        {
+          key = "n";
+          mode = "n";
+          action = "nzzzv";
+        }
+        {
+          key = "<C-u>";
+          mode = "n";
+          action = "<C-u>zz";
+        }
+        {
+          key = "<C-d>";
+          mode = "n";
+          action = "<C-d>zz";
+        }
+        {
           key = "J";
           mode = "x";
           action = ":move '>+1<CR>gv-gv";
           options.desc = "Move selected lines down";
+        }
+        {
+          key = "<leader>fc";
+          mode = "n";
+          action = "<CMD>Telescope grep_string<NL>";
+          options.desc = "Find string under cursor";
         }
         {
           key = "<leader>fg";
@@ -281,10 +468,16 @@
           options.desc = "Registers";
         }
         {
-          key = "<leader>fh";
+          key = "<leader>fr";
           mode = "n";
           action = "<CMD>Telescope oldfiles<NL>";
           options.desc = "Recent Files";
+        }
+        {
+          key = "<leader>fu";
+          mode = "n";
+          action = "<CMD>Telescope colorscheme<NL>";
+          options.desc = "Change colorscheme";
         }
         {
           key = "<leader>ff";
@@ -389,10 +582,16 @@
           options.desc = "Next Buffer";
         }
         {
+          key = "<leader><r>";
+          mode = ["n" "v"];
+          action = "<CMD>SnipRun<NL>";
+          options.desc = "Run Code";
+        }
+        {
           key = "<leader><leader>";
-          mode = "n";
+          mode = ["n" "v"];
           action = ":";
-          options.desc = "Open M-x";
+          options.desc = "Open CmdLine";
         }
         {
           key = "<S-Tab>";
@@ -471,6 +670,18 @@
           mode = ["n" "i"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
+        }
+        {
+          key = ",";
+          mode = ["n" "x" "o"];
+          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite";
+          options.desc = ", with treesitter";
+        }
+        {
+          key = ";";
+          mode = ["n" "x" "o"];
+          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move";
+          options.desc = "; with treesitter";
         }
       ];
     };
