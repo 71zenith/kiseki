@@ -202,7 +202,50 @@
             left = "";
             right = "";
           };
-          sections = {lualine_x = [{name = "filetype";}];};
+          sections = {
+            lualine_a = [
+              {
+                name = "mode";
+                fmt = ''
+                  function()
+                    return " "
+                  end
+                '';
+              }
+            ];
+            lualine_b = [
+              {
+                name = "branch";
+                icon = "";
+              }
+              {name = "diff";}
+              {name = "diagnostics";}
+            ];
+            lualine_x = [
+              {
+                name = "encoding";
+                icon = "";
+                fmt = ''
+                  function()
+                      local msg = ""
+                      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                      local clients = vim.lsp.get_active_clients()
+                      if next(clients) == nil then
+                        return msg
+                      end
+                      for _, client in ipairs(clients) do
+                        local filetypes = client.config.filetypes
+                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                          msg = msg .. client.name .. " "
+                        end
+                      end
+                      return msg:sub(1,-2)
+                    end
+                '';
+              }
+              {name = "filetype";}
+            ];
+          };
         };
         luasnip.enable = true;
         cmp_luasnip.enable = true;
@@ -220,7 +263,15 @@
         };
         treesitter-textobjects = {
           enable = true;
-          lspInterop.enable = true;
+          lspInterop = {
+            enable = true;
+            peekDefinitionCode = {
+              "<leader>gd" = {
+                query = "@function.outer";
+                desc = "Hover definition";
+              };
+            };
+          };
           select = {
             enable = true;
             lookahead = true;
@@ -283,12 +334,15 @@
               };
             };
           };
-          # swap = {
-          #   enable = true;
-          #   swapNext = {
-          #     "<leader>"
-          #   }
-          # }
+          swap = {
+            enable = true;
+            swapNext = {
+              "<leader>af" = "@function.outer";
+            };
+            swapPrevious = {
+              "<leader>bf" = "@function.outer";
+            };
+          };
           move = {
             enable = true;
             setJumps = true;
@@ -499,7 +553,7 @@
           options.desc = "Goto implementations";
         }
         {
-          key = "<leader>gd";
+          key = "<leader>gD";
           mode = "n";
           action = "<CMD>Telescope lsp_definitions<NL>";
           options.desc = "Goto definitions";
