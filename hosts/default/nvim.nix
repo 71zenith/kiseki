@@ -12,6 +12,7 @@
         neovide_cursor_animation_length = 0.025;
         neovide_cursor_vfx_mode = "railgun";
         neovide_refresh_rate = 75;
+        neovide_input_ime = true;
         neovide_padding_bottom = 10;
         neovide_padding_top = 10;
         neovide_padding_right = 10;
@@ -83,7 +84,6 @@
         nix.enable = true;
         barbar = {
           enable = true;
-          sidebarFiletypes = {"neo-tree" = {event = "BufWipeout";};};
         };
         nvim-autopairs = {
           enable = true;
@@ -175,6 +175,11 @@
             "cmp.entry.get_documentation" = true;
             "vim.lsp.util.convert_input_to_markdown_lines" = true;
             "vim.lsp.util.stylize_markdown" = true;
+          };
+          views = {
+            cmdline_popup.border.style = "single";
+            cmdline_popupmenu.border.style = "single";
+            hover.opts.render = "markdown";
           };
           presets = {
             bottom_search = true;
@@ -399,19 +404,19 @@
           key = "<leader>gs";
           mode = "n";
           action = "<CMD>Telescope lsp_document_symbols<NL>";
-          options.desc = "Document Symbols";
+          options.desc = "Document symbols";
         }
         {
           key = "<leader>gw";
           mode = "n";
           action = "<CMD>Telescope lsp_workspace_symbols<NL>";
-          options.desc = "Workspace Symbols";
+          options.desc = "Workspace symbols";
         }
         {
           key = "<leader>ga";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.code_action()<NL>";
-          options.desc = "Show Code Actions";
+          options.desc = "Show code actions";
         }
         {
           key = "<leader>gr";
@@ -426,28 +431,52 @@
           options.desc = "Trouble Toggle";
         }
         {
+          key = "<leader>gy";
+          mode = "n";
+          action = "<CMD>Telescope lsp_type_definitions<NL>";
+          options.desc = "Show type definitions";
+        }
+        {
+          key = "<C-k>";
+          mode = "n";
+          action = "<CMD>lua vim.lsp.buf.signature_help()<NL>";
+          options.desc = "Show signature help";
+        }
+        {
           key = "K";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.hover()<NL>";
-          options.desc = "Show Hover Docs";
+          options.desc = "Show hover docs";
+        }
+        {
+          key = "[d";
+          mode = "n";
+          action = "<CMD>lua vim.diagnostic.goto_prev()<NL>";
+          options.desc = "Goto prev diagnostic";
+        }
+        {
+          key = "]d";
+          mode = "n";
+          action = "<CMD>lua vim.diagnostic.goto_next()<NL>";
+          options.desc = "Goto next diagnostic";
         }
         {
           key = "<leader>gi";
           mode = "n";
           action = "<CMD>Telescope lsp_implementations<NL>";
-          options.desc = "Goto Implementations";
+          options.desc = "Goto implementations";
         }
         {
           key = "<leader>gd";
           mode = "n";
           action = "<CMD>Telescope lsp_definitions<NL>";
-          options.desc = "Goto Definitions";
+          options.desc = "Goto definitions";
         }
         {
           key = "<leader>gh";
           mode = "n";
           action = "<CMD>Telescope lsp_references<NL>";
-          options.desc = "List References";
+          options.desc = "List references";
         }
         {
           key = "K";
@@ -463,23 +492,28 @@
         }
         {
           key = "N";
-          mode = "n";
+          mode = ["n" "x" "o"];
           action = "Nzzzv";
         }
         {
           key = "n";
-          mode = "n";
+          mode = ["n" "x" "o"];
           action = "nzzzv";
         }
         {
           key = "<C-u>";
-          mode = "n";
+          mode = ["n" "x" "o"];
           action = "<C-u>zz";
         }
         {
           key = "<C-d>";
           mode = "n";
           action = "<C-d>zz";
+        }
+        {
+          key = "p";
+          mode = "v";
+          action = "P";
         }
         {
           key = "J";
@@ -522,6 +556,12 @@
           mode = "n";
           action = "<CMD>Telescope projects<NL>";
           options.desc = "Find Projects";
+        }
+        {
+          key = "<leader>fl";
+          mode = "n";
+          action = "<CMD>Telescope git_files<NL>";
+          options.desc = "Git Files";
         }
         {
           key = "<leader>ff";
@@ -634,7 +674,7 @@
         {
           key = "<Tab>";
           mode = "n";
-          action = "<CMD>:bnext<NL>";
+          action = "<CMD>bnext<NL>";
           options.desc = "Next Buffer";
         }
         {
@@ -652,25 +692,25 @@
         {
           key = "<S-Tab>";
           mode = "n";
-          action = "<CMD>:bprevious<NL>";
+          action = "<CMD>bprevious<NL>";
           options.desc = "Previous Buffer";
         }
         {
           key = "<ESC>";
           mode = "n";
-          action = "<CMD>:noh<NL>";
+          action = "<CMD>noh<NL>";
           options.desc = "Clear Highlights";
         }
         {
           key = "<leader>K";
           mode = "n";
-          action = "<CMD>:qa<NL>";
+          action = "<CMD>qa<NL>";
           options.desc = "Quit";
         }
         {
           key = "<leader>s";
           mode = "n";
-          action = "<CMD>:w<NL>";
+          action = "<CMD>w<NL>";
           options.desc = "Save Buffer";
         }
         {
@@ -700,25 +740,25 @@
         {
           key = "<C-S-l>";
           mode = "n";
-          action = "<CMD>:vertical resize +2<NL>";
+          action = "<CMD>vertical resize +2<NL>";
           options.desc = "Resize pane right";
         }
         {
           key = "<C-S-h>";
           mode = "n";
-          action = "<CMD>:vertical resize -2<NL>";
+          action = "<CMD>vertical resize -2<NL>";
           options.desc = "Resize pane left";
         }
         {
           key = "<C-S-k>";
           mode = "n";
-          action = "<CMD>:resize +2<NL>";
+          action = "<CMD>resize +2<NL>";
           options.desc = "Resize pane up";
         }
         {
           key = "<C-S-j>";
           mode = "n";
-          action = "<CMD>:resize -2<NL>";
+          action = "<CMD>resize -2<NL>";
           options.desc = "Resize pane down";
         }
         {
