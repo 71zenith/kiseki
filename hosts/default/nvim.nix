@@ -95,7 +95,6 @@
         };
         comment.enable = true;
         persistence.enable = true;
-        diffview.enable = true;
         todo-comments.enable = true;
         project-nvim = {
           enable = true;
@@ -156,6 +155,7 @@
         cmp-buffer.enable = true;
         cmp-spell.enable = true;
         cmp-nvim-lsp.enable = true;
+        surround.enable = true;
         lastplace.enable = true;
         better-escape.enable = true;
         lspkind.enable = true;
@@ -740,6 +740,18 @@
           key = "<C-k>";
           mode = "c";
           action = "<C-p>";
+        }
+        {
+          key = "<leader>ld";
+          mode = "n";
+          action = "<cmd>lua require('persistence').load()<cr>";
+          options.desc = "Load Previous session in CWD";
+        }
+        {
+          key = "<leader>ll";
+          mode = "n";
+          action = "<cmd>lua require('persistence').load({ last = true })<cr>";
+          options.desc = "Load Previous session";
         }
         {
           key = "<C-BS>";
