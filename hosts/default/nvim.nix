@@ -54,8 +54,8 @@
         autoread = true;
         smartcase = true;
         cursorline = true;
-        scrolloff = 5;
-        sidescrolloff = 5;
+        scrolloff = 10;
+        sidescrolloff = 10;
         termguicolors = true;
         background = "dark";
         signcolumn = "yes";
@@ -102,6 +102,13 @@
         };
         lsp = {
           enable = true;
+          preConfig = ''
+            local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+            for type, icon in pairs(signs) do
+              local hl = "DiagnosticSign" .. type
+              vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+            end
+          '';
           servers = {
             nil_ls.enable = true;
             clojure-lsp.enable = true;
@@ -140,9 +147,7 @@
           enableLspFormat = true;
           sources = {
             formatting = {alejandra.enable = true;};
-            diagnostics = {
-              statix.enable = true;
-            };
+            diagnostics = {statix.enable = true;};
           };
         };
         noice = {
@@ -241,7 +246,7 @@
           };
           move = {
             enable = true;
-            setJumps = false;
+            setJumps = true;
             gotoNextStart = {
               "]f" = {
                 query = "@function.outer";
@@ -666,21 +671,33 @@
           options.desc = "Resize pane down";
         }
         {
-          key = "<C-h>";
+          key = "<C-BS>";
           mode = ["n" "i"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
         }
         {
+          key = "[t";
+          mode = "n";
+          action = "require('todo-comments').jump_previous()";
+          options.desc = "Previous TODO Comment";
+        }
+        {
+          key = "]t";
+          mode = "n";
+          action = "require('todo-comments').jump_next()";
+          options.desc = "Next TODO Comment";
+        }
+        {
           key = ",";
           mode = ["n" "x" "o"];
-          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite";
+          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite()";
           options.desc = ", with treesitter";
         }
         {
           key = ";";
           mode = ["n" "x" "o"];
-          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move";
+          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move()";
           options.desc = "; with treesitter";
         }
       ];
