@@ -92,6 +92,11 @@
         };
         comment.enable = true;
         todo-comments.enable = true;
+        project-nvim = {
+          enable = true;
+          enableTelescope = true;
+          showHidden = true;
+        };
         barbecue = {
           enable = true;
           leadCustomSection = ''
@@ -331,8 +336,10 @@
               "<C-l>" = "cmp.mapping.confirm({ select = true })";
               "<C-k>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
+              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<C-j>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
               "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<TAB>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
             };
           };
         };
@@ -346,10 +353,10 @@
                     __raw = "require('telescope.actions').move_selection_next";
                   };
                   "<C-h>" = {
-                    __raw = "require('telescope.actions').select_horizontal";
+                    __raw = "require('telescope.actions').close";
                   };
                   "<C-l>" = {
-                    __raw = "require('telescope.actions').select_horizontal";
+                    __raw = "require('telescope.actions').select_default";
                   };
                   "<C-k>" = {
                     __raw = "require('telescope.actions').move_selection_previous";
@@ -496,6 +503,12 @@
           options.desc = "Change colorscheme";
         }
         {
+          key = "<leader>fp";
+          mode = "n";
+          action = "<CMD>Telescope projects<NL>";
+          options.desc = "Find Projects";
+        }
+        {
           key = "<leader>ff";
           mode = "n";
           action = "<CMD>Telescope fd<NL>";
@@ -516,13 +529,13 @@
         {
           key = "]g";
           mode = "n";
-          action = "<CMD>Gitsigns prev_hunk<CR>";
+          action = "<CMD>Gitsigns prev_hunk<NL>";
           options.desc = "Previous Git Hunk";
         }
         {
           key = "[g";
           mode = "n";
-          action = "<CMD>Gitsigns next_hunk<CR>";
+          action = "<CMD>Gitsigns next_hunk<NL>";
           options.desc = "Next Git Hunk";
         }
         {
@@ -698,30 +711,6 @@
           mode = ["n" "i"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
-        }
-        {
-          key = "[t";
-          mode = "n";
-          action = ":function() require('todo-comments').jump_previous() end";
-          options.desc = "Previous TODO Comment";
-        }
-        {
-          key = "]t";
-          mode = "n";
-          action = ":function() require('todo-comments').jump_next() end";
-          options.desc = "Next TODO Comment";
-        }
-        {
-          key = ",";
-          mode = ["n" "x" "o"];
-          action = ":function() require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite()<CR> end";
-          options.desc = ", with treesitter";
-        }
-        {
-          key = ";";
-          mode = ["n" "x" "o"];
-          action = ":function() require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move()<CR> end";
-          options.desc = "; with treesitter";
         }
       ];
     };
