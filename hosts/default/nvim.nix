@@ -54,7 +54,7 @@
         autoread = true;
         smartcase = true;
         cursorline = true;
-        scrolloff = 10;
+        scrolloff = 999;
         sidescrolloff = 10;
         termguicolors = true;
         background = "dark";
@@ -77,7 +77,7 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [oxocarbon-nvim];
+      extraPlugins = with pkgs.vimPlugins; [oxocarbon-nvim dressing-nvim];
       colorscheme = "oxocarbon";
       plugins = {
         nix.enable = true;
@@ -131,7 +131,6 @@
           theme = "dashboard";
         };
         trouble.enable = true;
-        inc-rename.enable = true;
         direnv.enable = true;
         neo-tree.enable = true;
         cmp-buffer.enable = true;
@@ -152,11 +151,15 @@
         };
         noice = {
           enable = true;
+          lsp = {
+            override = {
+              "cmp.entry.get_documentation" = true;
+            };
+          };
           presets = {
             bottom_search = true;
             command_palette = true;
             long_message_to_split = true;
-            inc_rename = true;
             lsp_doc_border = true;
           };
         };
@@ -192,6 +195,7 @@
           enable = true;
           lspInterop.enable = true;
           select = {
+            enable = true;
             lookahead = true;
             keymaps = {
               "a=" = {
@@ -235,12 +239,20 @@
                 desc = "Select inner part of a parameter";
               };
               "af" = {
-                query = "@function.outer";
+                query = "@call.outer";
                 desc = "Select outer part of a function";
               };
               "if" = {
-                query = "@function.inner";
+                query = "@call.inner";
                 desc = "Select inner part of a function";
+              };
+              "am" = {
+                query = "@function.outer";
+                desc = "Select outer part of a method";
+              };
+              "im" = {
+                query = "@function.inner";
+                desc = "Select inner part of a method";
               };
             };
           };
@@ -249,8 +261,12 @@
             setJumps = true;
             gotoNextStart = {
               "]f" = {
-                query = "@function.outer";
+                query = "@call.outer";
                 desc = "Next function call start";
+              };
+              "]m" = {
+                query = "@function.outer";
+                desc = "Next method call start";
               };
               "]l" = {
                 query = "@loop.outer";
@@ -263,8 +279,12 @@
             };
             gotoPreviousStart = {
               "[f" = {
-                query = "@function.outer";
+                query = "@call.outer";
                 desc = "Previous function call start";
+              };
+              "[m" = {
+                query = "@function.outer";
+                desc = "Previous method call start";
               };
               "[l" = {
                 query = "@loop.outer";
@@ -277,8 +297,12 @@
             };
             gotoPreviousEnd = {
               "[F" = {
-                query = "@function.outer";
+                query = "@call.outer";
                 desc = "Previous function call end";
+              };
+              "[M" = {
+                query = "@function.outer";
+                desc = "Previous method call end";
               };
               "[L" = {
                 query = "@loop.outer";
@@ -291,8 +315,12 @@
             };
             gotoNextEnd = {
               "]F" = {
-                query = "@function.outer";
+                query = "@call.outer";
                 desc = "Next function call end";
+              };
+              "]M" = {
+                query = "@function.outer";
+                desc = "Next method call end";
               };
               "]L" = {
                 query = "@loop.outer";
@@ -369,15 +397,15 @@
           options.desc = "Document Symbols";
         }
         {
-          key = "<leader>gS";
+          key = "<leader>gw";
           mode = "n";
-          action = "<CMD>Telescope lsp_dynamic_workspace_symbols<NL>";
+          action = "<CMD>Telescope lsp_workspace_symbols<NL>";
           options.desc = "Workspace Symbols";
         }
         {
           key = "<leader>gr";
           mode = "n";
-          action = ":IncRename ";
+          action = "<CMD>lua vim.lsp.buf.rename()<NL>";
           options.desc = "Rename symbol";
         }
         {
@@ -409,12 +437,6 @@
           mode = "n";
           action = "<CMD>Telescope lsp_references<NL>";
           options.desc = "List References";
-        }
-        {
-          key = "<leader>gr";
-          mode = "n";
-          action = ":IncRename ";
-          options.desc = "Rename symbol";
         }
         {
           key = "K";
@@ -451,8 +473,8 @@
         {
           key = "J";
           mode = "x";
-          action = ":move '>+1<CR>gv-gv";
           options.desc = "Move selected lines down";
+          action = ":move '>+1<CR>gv-gv";
         }
         {
           key = "<leader>fc";
@@ -500,7 +522,19 @@
           key = "<leader>n";
           mode = ["n" "t"];
           action = "<CMD>ToggleTerm<NL>";
-          options.desc = "Toggle Terminal";
+          options.desc = "Open Terminal";
+        }
+        {
+          key = "]g";
+          mode = "n";
+          action = "<CMD>require('gitsigns').navhunk('prev')()<CR>";
+          options.desc = "Previous Git Hunk";
+        }
+        {
+          key = "[g";
+          mode = "n";
+          action = "<CMD>require('gitsigns').navhunk('next')()<CR>";
+          options.desc = "Next Git Hunk";
         }
         {
           key = "<leader>hh";
@@ -679,25 +713,25 @@
         {
           key = "[t";
           mode = "n";
-          action = "require('todo-comments').jump_previous()";
+          action = "<CMD>require('todo-comments').jump_previous()<CR>";
           options.desc = "Previous TODO Comment";
         }
         {
           key = "]t";
           mode = "n";
-          action = "require('todo-comments').jump_next()";
+          action = "<CMD>require('todo-comments').jump_next()<CR>";
           options.desc = "Next TODO Comment";
         }
         {
           key = ",";
           mode = ["n" "x" "o"];
-          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite()";
+          action = "<CMD>require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move_opposite()<CR>";
           options.desc = ", with treesitter";
         }
         {
           key = ";";
           mode = ["n" "x" "o"];
-          action = "require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move()";
+          action = "<CMD>require('nvim-treesitter.textobjects.repeatable_move').repeat_move.repeat_last_move()<CR>";
           options.desc = "; with treesitter";
         }
       ];
