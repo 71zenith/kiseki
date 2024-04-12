@@ -81,7 +81,10 @@
       colorscheme = "oxocarbon";
       plugins = {
         nix.enable = true;
-        barbar.enable = true;
+        barbar = {
+          enable = true;
+          sidebarFiletypes = {"neo-tree" = {event = "BufWipeout";};};
+        };
         nvim-autopairs = {
           enable = true;
           checkTs = true;
@@ -91,6 +94,8 @@
           direction = "float";
         };
         comment.enable = true;
+        persistence.enable = true;
+        diffview.enable = true;
         todo-comments.enable = true;
         project-nvim = {
           enable = true;
@@ -137,7 +142,17 @@
         };
         trouble.enable = true;
         direnv.enable = true;
-        neo-tree.enable = true;
+        neo-tree = {
+          enable = true;
+          window.width = 30;
+          eventHandlers = {
+            file_opened = ''
+              function(file_path)
+                require("neo-tree").close_all()
+              end
+            '';
+          };
+        };
         cmp-buffer.enable = true;
         cmp-spell.enable = true;
         cmp-nvim-lsp.enable = true;
@@ -320,7 +335,7 @@
         cmp = {
           enable = true;
           settings = {
-            sources = [{name = "nvim_lsp";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
+            sources = [{name = "luasnip";} {name = "spell";} {name = "nvim_lsp";} {name = "path";} {name = "buffer";}];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
@@ -517,7 +532,7 @@
         {
           key = "<leader>o";
           mode = "n";
-          action = "<CMD>Neotree float toggle<NL>";
+          action = "<CMD>Neotree left toggle<NL>";
           options.desc = "Open NeoTree";
         }
         {
@@ -707,8 +722,28 @@
           options.desc = "Resize pane down";
         }
         {
+          key = "<C-j>";
+          mode = "c";
+          action = "<C-n>";
+        }
+        {
+          key = "<C-l>";
+          mode = "c";
+          action = "<CR>";
+        }
+        {
+          key = "<C-h>";
+          mode = "c";
+          action = "<Esc>";
+        }
+        {
+          key = "<C-k>";
+          mode = "c";
+          action = "<C-p>";
+        }
+        {
           key = "<C-BS>";
-          mode = ["n" "i"];
+          mode = ["n" "i" "c"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
         }
