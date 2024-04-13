@@ -146,6 +146,15 @@
         neo-tree = {
           enable = true;
           window.width = 30;
+          filesystem.filteredItems = {
+            hideDotfiles = false;
+            hideGitignored = true;
+            hideHidden = false;
+          };
+          filesystem.window.mappings = {
+            h = "close_node";
+            l = "open";
+          };
           eventHandlers = {
             file_opened = ''
               function(file_path)
