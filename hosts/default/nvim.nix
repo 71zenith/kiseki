@@ -197,7 +197,7 @@
                 position = "center";
               };
               type = "text";
-              val = "The way out is through.";
+              val = "Built with Nix";
             }
           ];
         };
