@@ -141,6 +141,10 @@
           };
         };
         cursorline.enable = true;
+        harpoon = {
+          enable = true;
+          enableTelescope = true;
+        };
         alpha = {
           enable = true;
           layout = [
@@ -944,6 +948,30 @@
           key = "<C-k>";
           mode = "c";
           action = "<C-p>";
+        }
+        {
+          key = "<leader>jo";
+          mode = "n";
+          action = "<cmd>lua require('harpoon.mark').add_file()<cr>";
+          options.desc = "Add file to harpoon";
+        }
+        {
+          key = "<leader>ja";
+          mode = "n";
+          action = "<cmd>lua require('harpoon.ui').nav_prev()<cr>";
+          options.desc = "Harpoon prev";
+        }
+        {
+          key = "<leader>js";
+          mode = "n";
+          action = "<cmd>lua require('harpoon.ui').nav_next()<cr>";
+          options.desc = "Harpoon next";
+        }
+        {
+          key = "<leader>jj";
+          mode = "n";
+          action = "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>";
+          options.desc = "Harpoon menu";
         }
         {
           key = "<leader>ld";
