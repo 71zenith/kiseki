@@ -9,6 +9,10 @@
       enable = true;
       luaLoader.enable = true;
       colorschemes.oxocarbon.enable = true;
+      extraConfigLuaPre = ''
+        local tele = require("telescope.actions")
+        local flash = require("flash")
+      '';
       globals = {
         mapleader = " ";
         neovide_cursor_animation_length = 0.025;
@@ -32,7 +36,6 @@
         autoindent = true;
         autoread = true;
         history = 10000;
-        lazyredraw = true;
         cindent = true;
         wrap = false;
         ignorecase = true;
@@ -89,7 +92,6 @@
         barbar = {
           enable = true;
           autoHide = true;
-          sidebarFiletypes = {"neo-tree" = {event = "BufWipeout";};};
         };
         nvim-autopairs = {
           enable = true;
@@ -99,8 +101,8 @@
           enable = true;
           direction = "float";
         };
+        nvim-bqf.enable = true;
         comment.enable = true;
-        persistence.enable = true;
         todo-comments.enable = true;
         project-nvim = {
           enable = true;
@@ -197,31 +199,23 @@
                 position = "center";
               };
               type = "text";
-              val = "Built with Nix";
+              val = "let's all love lain";
             }
           ];
         };
         trouble.enable = true;
         direnv.enable = true;
-        neo-tree = {
+        oil = {
           enable = true;
-          window.width = 25;
-          filesystem.filteredItems = {
-            hideDotfiles = false;
-            hideGitignored = true;
-            hideHidden = false;
-          };
-          filesystem.window.mappings = {
-            h = "close_node";
-            H = "navigate_up";
-            l = "open";
-          };
-          eventHandlers = {
-            file_opened = ''
-              function(file_path)
-                require("neo-tree").close_all()
-              end
-            '';
+          settings = {
+            keymaps = {
+              "H" = "actions.parent";
+              "Q" = "actions.close";
+              "L" = "actions.select";
+            };
+            view_options = {
+              show_hidden = true;
+            };
           };
         };
         cmp-buffer.enable = true;
@@ -263,7 +257,7 @@
         neogit.enable = true;
         lualine = {
           enable = true;
-          disabledFiletypes.statusline = ["alpha" "toggleterm" "neo-tree" "trouble"];
+          disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble"];
           sectionSeparators = {
             left = "";
             right = "";
@@ -526,16 +520,16 @@
               mappings = {
                 i = {
                   "<C-j>" = {
-                    __raw = "require('telescope.actions').move_selection_next";
+                    __raw = "tele.move_selection_next";
                   };
                   "<C-h>" = {
-                    __raw = "require('telescope.actions').close";
+                    __raw = "tele.close";
                   };
                   "<C-l>" = {
-                    __raw = "require('telescope.actions').select_default";
+                    __raw = "tele.select_default";
                   };
                   "<C-k>" = {
-                    __raw = "require('telescope.actions').move_selection_previous";
+                    __raw = "tele.move_selection_previous";
                   };
                 };
               };
@@ -690,6 +684,12 @@
           options.desc = "Live grep";
         }
         {
+          key = "<leader>fg";
+          mode = "n";
+          action = "<CMD>Telescope live_grep<NL>";
+          options.desc = "Live grep";
+        }
+        {
           key = "<leader>fh";
           mode = "n";
           action = "<CMD>Telescope registers<NL>";
@@ -728,8 +728,8 @@
         {
           key = "<leader>o";
           mode = "n";
-          action = "<CMD>Neotree left toggle<NL>";
-          options.desc = "Open NeoTree";
+          action = "<CMD>lua require('oil').toggle_float()<NL>";
+          options.desc = "Open Oil";
         }
         {
           key = "<leader>n";
@@ -974,20 +974,14 @@
           options.desc = "Harpoon menu";
         }
         {
-          key = "<leader>ld";
+          key = "<leader>al";
           mode = "n";
-          action = "<cmd>lua require('persistence').load()<cr>";
-          options.desc = "Load Previous session in CWD";
-        }
-        {
-          key = "<leader>ll";
-          mode = "n";
-          action = "<cmd>lua require('persistence').load({ last = true })<cr>";
-          options.desc = "Load Previous session";
+          action = "<cmd>lua require('flash').jump({search = {mode = 'search' , max_length = 0},label = {after = {0,0}},pattern = '^'})<cr>";
+          options.desc = "Jump to line";
         }
         {
           key = "<C-BS>";
-          mode = ["n" "i" "c"];
+          mode = ["n" "i" "c" "t" "v" "o" "s"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
         }
