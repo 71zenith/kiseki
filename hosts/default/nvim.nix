@@ -93,7 +93,7 @@
         };
         nvim-autopairs = {
           enable = true;
-          checkTs = true;
+          settings.check_ts = true;
         };
         toggleterm = {
           enable = true;
@@ -189,7 +189,7 @@
             }
             {
               opts = {
-                hl = "Keyword";
+                hl = "Todo";
                 position = "center";
               };
               type = "text";
