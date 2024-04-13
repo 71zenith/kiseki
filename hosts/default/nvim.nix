@@ -7,6 +7,7 @@
   programs = {
     nixvim = {
       enable = true;
+      luaLoader.enable = true;
       globals = {
         mapleader = " ";
         neovide_cursor_animation_length = 0.025;
@@ -28,6 +29,10 @@
         tabstop = 2;
         expandtab = true;
         autoindent = true;
+        autoread = true;
+        history = 10000;
+        lazyredraw = true;
+        cindent = true;
         wrap = false;
         ignorecase = true;
         autochdir = true;
@@ -52,7 +57,6 @@
         showmode = false;
         wildmode = ["longest" "list" "full"];
         mouse = "a";
-        autoread = true;
         smartcase = true;
         cursorline = true;
         scrolloff = 999;
@@ -139,10 +143,61 @@
         cursorline.enable = true;
         alpha = {
           enable = true;
-          theme = "dashboard";
+          layout = [
+            {
+              type = "padding";
+              val = 4;
+            }
+            {
+              opts = {
+                hl = "Type";
+                position = "center";
+              };
+              type = "text";
+              val = [
+                "                 ______"
+                "                /     /\\"
+                "               /     /##\\"
+                "              /     /####\\"
+                "             /     /######\\"
+                "            /     /########\\"
+                "           /     /##########\\"
+                "          /     /#####/\\#####\\"
+                "         /     /#####/++\\#####\\"
+                "        /     /#####/++++\\#####\\"
+                "       /     /#####/\\+++++\\#####\\"
+                "      /     /#####/  \\+++++\\#####\\"
+                "     /     /#####/    \\+++++\\#####\\"
+                "    /     /#####/      \\+++++\\#####\\"
+                "   /     /#####/        \\+++++\\#####\\"
+                "  /     /#####/__________\\+++++\\#####\\"
+                " /                        \\+++++\\#####\\"
+                "/__________________________\\+++++\\####/"
+                "\\+++++++++++++++++++++++++++++++++\\##/"
+                " \\+++++++++++++++++++++++++++++++++\\/"
+                "  ``````````````````````````````````"
+                ""
+              ];
+            }
+            {
+              type = "padding";
+              val = 4;
+            }
+            {
+              type = "button";
+              val = "█";
+            }
+            {
+              opts = {
+                hl = "Keyword";
+                position = "center";
+              };
+              type = "text";
+              val = "The way out is through.";
+            }
+          ];
         };
         trouble.enable = true;
-        codeium-nvim.enable = true;
         direnv.enable = true;
         neo-tree = {
           enable = true;
@@ -172,11 +227,7 @@
         surround.enable = true;
         lastplace.enable = true;
         better-escape.enable = true;
-        lspkind = {
-          enable = true;
-          symbolMap = {Codeium = "";};
-          preset = "default";
-        };
+        lspkind.enable = true;
         friendly-snippets.enable = true;
         lsp-format.enable = true;
         none-ls = {
@@ -440,7 +491,7 @@
         cmp = {
           enable = true;
           settings = {
-            sources = [{name = "nvim_lsp";} {name = "codeium";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
+            sources = [{name = "nvim_lsp";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
@@ -785,10 +836,16 @@
           options.desc = "Close Code Output";
         }
         {
+          key = "<leader>ra";
+          mode = "n";
+          action = "<CMD>SnipRun<NL>";
+          options.desc = "Run Code";
+        }
+        {
           key = "<leader>rr";
           mode = ["n" "v"];
           action = "<CMD>:lua require'sniprun'.run('v')<NL>";
-          options.desc = "Run Code";
+          options.desc = "Run Code Selection";
         }
         {
           key = "<leader><leader>";
