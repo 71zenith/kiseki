@@ -8,6 +8,7 @@
     nixvim = {
       enable = true;
       luaLoader.enable = true;
+      colorschemes.oxocarbon.enable = true;
       globals = {
         mapleader = " ";
         neovide_cursor_animation_length = 0.025;
@@ -82,8 +83,7 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [oxocarbon-nvim dressing-nvim];
-      colorscheme = "oxocarbon";
+      extraPlugins = with pkgs.vimPlugins; [dressing-nvim];
       plugins = {
         nix.enable = true;
         barbar = {
@@ -205,7 +205,7 @@
         direnv.enable = true;
         neo-tree = {
           enable = true;
-          window.width = 30;
+          window.width = 25;
           filesystem.filteredItems = {
             hideDotfiles = false;
             hideGitignored = true;
@@ -708,16 +708,16 @@
           options.desc = "Change colorscheme";
         }
         {
-          key = "<leader>fp";
+          key = "<leader>pf";
+          mode = "n";
+          action = "<CMD>Telescope git_files<NL>";
+          options.desc = "Find file in project";
+        }
+        {
+          key = "<leader>pp";
           mode = "n";
           action = "<CMD>Telescope projects<NL>";
           options.desc = "Find Projects";
-        }
-        {
-          key = "<leader>fl";
-          mode = "n";
-          action = "<CMD>Telescope git_files<NL>";
-          options.desc = "Git Files";
         }
         {
           key = "<leader>ff";
@@ -757,13 +757,13 @@
         }
         {
           key = "<leader>hS";
-          mode = "n";
+          mode = ["v" "n"];
           action = "<CMD>Gitsigns stage_buffer<NL>";
           options.desc = "Stage Buffer";
         }
         {
           key = "<leader>hs";
-          mode = "n";
+          mode = ["v" "n"];
           action = "<CMD>Gitsigns stage_hunk<NL>";
           options.desc = "Stage Hunk";
         }
