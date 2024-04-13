@@ -142,6 +142,7 @@
           theme = "dashboard";
         };
         trouble.enable = true;
+        codeium-nvim.enable = true;
         direnv.enable = true;
         neo-tree = {
           enable = true;
@@ -171,7 +172,11 @@
         surround.enable = true;
         lastplace.enable = true;
         better-escape.enable = true;
-        lspkind.enable = true;
+        lspkind = {
+          enable = true;
+          symbolMap = {Codeium = "";};
+          preset = "default";
+        };
         friendly-snippets.enable = true;
         lsp-format.enable = true;
         none-ls = {
@@ -435,7 +440,7 @@
         cmp = {
           enable = true;
           settings = {
-            sources = [{name = "nvim_lsp";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
+            sources = [{name = "nvim_lsp";} {name = "codeium";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
