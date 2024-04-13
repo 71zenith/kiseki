@@ -153,6 +153,7 @@
           };
           filesystem.window.mappings = {
             h = "close_node";
+            H = "navigate_up";
             l = "open";
           };
           eventHandlers = {
