@@ -23,7 +23,6 @@
         neovide_padding_right = 8;
         neovide_padding_left = 8;
         neovide_transparency = 0.90;
-        undotree_WindowLayout = 3;
         undotree_DiffAutoOpen = 0;
       };
       clipboard.providers.wl-copy.enable = true;
@@ -524,7 +523,6 @@
             };
           };
         };
-        yanky.enable = true;
         telescope = {
           enable = true;
           extensions.frecency.enable = true;
