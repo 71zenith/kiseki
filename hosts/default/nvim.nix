@@ -12,6 +12,14 @@
       extraConfigLuaPre = ''
         local tele = require("telescope.actions")
       '';
+      extraConfigLuaPost = ''
+        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+        local cmp = require('cmp')
+        cmp.event:on(
+          'confirm_done',
+          cmp_autopairs.on_confirm_done()
+        )
+      '';
       globals = {
         mapleader = " ";
         neovide_cursor_animation_length = 0.025;
@@ -23,17 +31,21 @@
         neovide_padding_right = 8;
         neovide_padding_left = 8;
         neovide_transparency = 0.90;
-        undotree_DiffAutoOpen = 0;
       };
       clipboard.providers.wl-copy.enable = true;
       enableMan = false;
       opts = {
         number = true;
         relativenumber = false;
+        completeopt = "menu,menuone,noselect";
         shiftwidth = 2;
         tabstop = 2;
+        confirm = true;
+        grepformat = "%f:%l:%c:%m";
+        grepprg = "rg --vimgrep";
         expandtab = true;
         autoindent = true;
+        laststatus = 3;
         autoread = true;
         history = 10000;
         cindent = true;
@@ -59,9 +71,11 @@
           msgsep = "─";
         };
         showmode = false;
-        wildmode = ["longest" "list" "full"];
+        wildmode = "longest:full,full";
         mouse = "a";
         smartcase = true;
+        smartindent = true;
+        winminwidth = 5;
         cursorline = true;
         scrolloff = 999;
         sidescrolloff = 10;
@@ -83,6 +97,8 @@
         concealcursor = "nc";
         autowrite = true;
         pumheight = 10;
+        pumblend = 10;
+        shiftround = true;
         updatetime = 200;
         showbreak = "⤷ ";
       };
@@ -101,7 +117,7 @@
         };
         toggleterm = {
           enable = true;
-          direction = "float";
+          settings.direction = "float";
         };
         nvim-bqf.enable = true;
         comment.enable = true;
@@ -142,9 +158,6 @@
             current_line_blame = true;
             linehl = true;
           };
-        };
-        undotree = {
-          enable = true;
         };
         cursorline.enable = true;
         harpoon.enable = true;
@@ -258,7 +271,7 @@
         neogit.enable = true;
         lualine = {
           enable = true;
-          disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble"];
+          disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble" "undotree"];
           sectionSeparators = {
             left = "";
             right = "";
@@ -500,7 +513,28 @@
         cmp = {
           enable = true;
           settings = {
-            sources = [{name = "nvim_lsp";} {name = "spell";} {name = "luasnip";} {name = "path";} {name = "buffer";}];
+            sources = [
+              {
+                name = "nvim_lsp";
+                keyword_length = 2;
+              }
+              {
+                name = "luasnip";
+                keyword_length = 1;
+              }
+              {
+                name = "spell";
+                keyword_length = 4;
+              }
+              {
+                name = "path";
+                keyword_length = 3;
+              }
+              {
+                name = "buffer";
+                keyword_length = 3;
+              }
+            ];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
@@ -523,6 +557,7 @@
             };
           };
         };
+
         telescope = {
           enable = true;
           extensions.frecency.enable = true;
@@ -586,13 +621,13 @@
           options.desc = "Show type definitions";
         }
         {
-          key = "<leader>lk";
+          key = "<leader>ll";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.signature_help()<CR>";
           options.desc = "Show signature help";
         }
         {
-          key = "K";
+          key = "<leader>lk";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.hover()<CR>";
           options.desc = "Show hover docs";
@@ -629,8 +664,32 @@
         }
         {
           key = "K";
+          mode = "n";
+          action = "<CMD>m .-2<cr>==";
+          options.desc = "Move up";
+        }
+        {
+          key = "J";
+          mode = "n";
+          action = "<CMD>m .+1<cr>==";
+          options.desc = "Move down";
+        }
+        {
+          key = "<C-j>";
+          mode = "i";
+          action = "<ESC><CMD>m .+1<cr>==gi";
+          options.desc = "Move down";
+        }
+        {
+          key = "<C-k>";
+          mode = "i";
+          action = "<ESC><CMD>m .-2<cr>==gi";
+          options.desc = "Move up";
+        }
+        {
+          key = "K";
           mode = ["x" "v"];
-          action = ":move '<-2<CR>gv-gv";
+          action = ":move '<-2<CR>gv=gv";
           options.desc = "Move selected lines up";
         }
         {
@@ -638,6 +697,22 @@
           mode = "n";
           action = "gg<S-v>G";
           options.desc = "Select all";
+        }
+        {
+          key = "<leader>au";
+          mode = "n";
+          action = "vim.show_pos";
+          options.desc = "Inspect pos";
+        }
+        {
+          key = "<";
+          mode = "v";
+          action = "<gv";
+        }
+        {
+          key = ">";
+          mode = "v";
+          action = ">gv";
         }
         {
           key = "N";
@@ -665,6 +740,30 @@
           action = "P";
         }
         {
+          key = "<Up>";
+          mode = ["n" "x"];
+          action = "v:count == 0 ? 'gk' : 'k'";
+          options = {expr = true;};
+        }
+        {
+          key = "<Down>";
+          mode = ["n" "x"];
+          action = "v:count == 0 ? 'gj' : 'j'";
+          options = {expr = true;};
+        }
+        {
+          key = "k";
+          mode = ["n" "x"];
+          action = "v:count == 0 ? 'gk' : 'k'";
+          options = {expr = true;};
+        }
+        {
+          key = "j";
+          mode = ["n" "x"];
+          action = "v:count == 0 ? 'gj' : 'j'";
+          options = {expr = true;};
+        }
+        {
           key = "J";
           mode = "n";
           action = "mzJ`z";
@@ -673,7 +772,7 @@
           key = "J";
           mode = ["x" "v"];
           options.desc = "Move selected lines down";
-          action = ":move '>+1<CR>gv-gv";
+          action = ":move '>+1<CR>gv=gv";
         }
         {
           key = "<leader>fc";
@@ -844,10 +943,40 @@
           options.desc = "Close current tab";
         }
         {
+          key = "<leader>wb";
+          mode = "n";
+          action = "<CMD>e #<CR>";
+          options.desc = "Switch to other buffer";
+        }
+        {
+          key = "[b";
+          mode = "n";
+          action = "<CMD>bprevious<CR>";
+          options.desc = "Previous buffer";
+        }
+        {
+          key = "]b";
+          mode = "n";
+          action = "<CMD>bnext<CR>";
+          options.desc = "Next buffer";
+        }
+        {
           key = "<Tab>";
           mode = "n";
           action = "<CMD>bnext<CR>";
           options.desc = "Next buffer";
+        }
+        {
+          key = "]T";
+          mode = "n";
+          action = "<CMD>lua require('todo-comments').jump_next()<CR>";
+          options.desc = "Next TODO";
+        }
+        {
+          key = "[T";
+          mode = "n";
+          action = "<CMD>lua require('todo-comments').jump_prev()<CR>";
+          options.desc = "Prev TODO";
         }
         {
           key = "<leader>rs";
@@ -922,25 +1051,25 @@
           options.desc = "Navigate to pane down";
         }
         {
-          key = "<C-S-l>";
+          key = "<C-Right>";
           mode = "n";
           action = "<CMD>vertical resize +2<CR>";
           options.desc = "Resize pane right";
         }
         {
-          key = "<C-S-h>";
+          key = "<C-Left>";
           mode = "n";
           action = "<CMD>vertical resize -2<CR>";
           options.desc = "Resize pane left";
         }
         {
-          key = "<C-S-k>";
+          key = "<C-Up>";
           mode = "n";
           action = "<CMD>resize +2<CR>";
           options.desc = "Resize pane up";
         }
         {
-          key = "<C-S-j>";
+          key = "<C-Down>";
           mode = "n";
           action = "<CMD>resize -2<CR>";
           options.desc = "Resize pane down";
@@ -958,7 +1087,7 @@
         {
           key = "<C-h>";
           mode = "c";
-          action = "<Esc>";
+          action = "<ESC>";
         }
         {
           key = "<C-k>";
@@ -982,6 +1111,18 @@
           mode = "n";
           action = "<CMD>lua require('harpoon.ui').nav_next()<CR>";
           options.desc = "Harpoon next";
+        }
+        {
+          key = "]q";
+          mode = "n";
+          action = "<CMD>cnext<CR>";
+          options.desc = "Next quickfix";
+        }
+        {
+          key = "[q";
+          mode = "n";
+          action = "<CMD>cprev<CR>";
+          options.desc = "Prev quickfix";
         }
         {
           key = "<leader>jj";
@@ -1012,12 +1153,6 @@
           mode = "n";
           action = "<CMD>HopWord<CR>";
           options.desc = "Jump to word";
-        }
-        {
-          key = "<leader>u";
-          mode = "n";
-          action = "<CMD>UndotreeToggle<CR>";
-          options.desc = "Undo tree toggle";
         }
         {
           key = "<leader>.";
