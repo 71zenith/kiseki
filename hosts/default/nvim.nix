@@ -138,11 +138,9 @@
             linehl = true;
           };
         };
+        undotree.enable = true;
         cursorline.enable = true;
-        harpoon = {
-          enable = true;
-          enableTelescope = true;
-        };
+        harpoon.enable = true;
         alpha = {
           enable = true;
           layout = [
@@ -974,10 +972,22 @@
           options.desc = "Harpoon menu";
         }
         {
-          key = "<leader>aw";
+          key = "<leader>ap";
           mode = "n";
-          action = "<CMD>HopWord<CR>";
-          options.desc = "Jump to word";
+          action = "<CMD>HopPattern<CR>";
+          options.desc = "Jump to pattern";
+        }
+        {
+          key = "<leader>aa";
+          mode = "n";
+          action = "<CMD>HopPatternCurrentLine<CR>";
+          options.desc = "Jump to pattern in current line";
+        }
+        {
+          key = "<leader>as";
+          mode = "n";
+          action = "<CMD>HopCamelCaseCurrentLine<CR>";
+          options.desc = "Jump to word in current line";
         }
         {
           key = "<leader>aw";

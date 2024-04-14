@@ -60,7 +60,6 @@ in {
   ];
 
   fonts.packages = with pkgs; [
-    iosevka-bin
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 

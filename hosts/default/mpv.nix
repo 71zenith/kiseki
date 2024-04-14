@@ -18,7 +18,7 @@
       slang = "en,eng";
       alang = "ja,jp,jpn,en,eng";
       image-display-duration = "inf";
-      osd-font = "Iosevka Comfy";
+      osd-font = "Iosevka Term Medium";
       cache = "yes";
       demuxer-max-bytes = "1000MiB";
       demuxer-max-back-bytes = "50MiB";

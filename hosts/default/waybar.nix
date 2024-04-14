@@ -85,7 +85,7 @@ in {
     };
     style = ''
       * {
-        font-family: Iosevka Comfy;
+        font-family: Iosevka Term Medium;
         font-size: 18px;
         border: none;
         border-radius: 0;
