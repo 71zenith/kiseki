@@ -268,7 +268,19 @@
             lsp_doc_border = false;
           };
         };
-        neogit.enable = true;
+        neogit = {
+          enable = true;
+          settings = {
+            integrations.diffview = true;
+            integrations.telescope = true;
+            commit_editor.kind = "floating";
+            commit_popup.kind = "floating";
+            preview_buffer.kind = "floating";
+            popup.kind = "floating";
+            log_view.kind = "floating";
+            description_editor.kind = "floating";
+          };
+        };
         lualine = {
           enable = true;
           disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble" "undotree"];
@@ -591,6 +603,12 @@
           options.desc = "[O]pen Telescope";
         }
         {
+          key = "<leader>lw";
+          mode = "n";
+          action = "<CMD>Telescope lsp_workspace_symbols<CR>";
+          options.desc = "[W]orkspace symbols";
+        }
+        {
           key = "<leader>ls";
           mode = "n";
           action = "<CMD>Telescope lsp_document_symbols<CR>";
@@ -657,10 +675,10 @@
           options.desc = "Goto [d]efinitions";
         }
         {
-          key = "<leader>lw";
+          key = "<leader>le";
           mode = "n";
           action = "<CMD>Telescope lsp_references<CR>";
-          options.desc = "List references";
+          options.desc = "List r[e]ferences";
         }
         {
           key = "<C-j>";
@@ -815,7 +833,7 @@
           key = "<leader>t";
           mode = ["n" "t"];
           action = "<CMD>2ToggleTerm direction=tab name=tab <CR>";
-          options.desc = "Open terminal as tab";
+          options.desc = "Open terminal as [t]ab";
         }
         {
           key = "<leader>n";
