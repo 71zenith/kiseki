@@ -10,7 +10,6 @@
     mkPackageOption
     mkOption
     types
-    literalExpression
     mkIf
     ;
   cfg = config.programs.spotify-player;
