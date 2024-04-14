@@ -19,25 +19,6 @@
           'confirm_done',
           cmp_autopairs.on_confirm_done()
         )
-        require("cmp").setup({
-          window = {
-            completion = {
-              col_offset = 0,
-              side_padding = 0,
-            },
-          },
-          formatting = {
-            fields = { "kind", "abbr", "menu" },
-            format = function(entry, vim_item)
-            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-            local strings = vim.split(kind.kind, "%s", { trimempty = true })
-            kind.kind = " " .. (strings[1] or "") .. " "
-            kind.menu = "    (" .. (strings[2] or "") .. ")"
-
-            return kind
-            end,
-          },
-          })
       '';
       globals = {
         mapleader = " ";
@@ -607,37 +588,37 @@
           key = "<leader>fo";
           mode = "n";
           action = "<CMD>Telescope<CR>";
-          options.desc = "Open Telescope";
+          options.desc = "[O]pen Telescope";
         }
         {
           key = "<leader>ls";
           mode = "n";
           action = "<CMD>Telescope lsp_document_symbols<CR>";
-          options.desc = "Document symbols";
+          options.desc = "Document [s]ymbols";
         }
         {
           key = "<leader>la";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.code_action()<CR>";
-          options.desc = "Show code actions";
+          options.desc = "Show code [a]ctions";
         }
         {
           key = "<leader>lr";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.rename()<CR>";
-          options.desc = "Rename symbol";
+          options.desc = "[R]ename symbol";
         }
         {
           key = "<leader>lg";
           mode = "n";
           action = "<CMD>TroubleToggle<CR>";
-          options.desc = "Trouble toggle";
+          options.desc = "Trouble to[g]gle";
         }
         {
           key = "<leader>lt";
           mode = "n";
           action = "<CMD>Telescope lsp_type_definitions<CR>";
-          options.desc = "Show type definitions";
+          options.desc = "Show [t]ype definitions";
         }
         {
           key = "<leader>ll";
@@ -646,7 +627,7 @@
           options.desc = "Show signature help";
         }
         {
-          key = "k";
+          key = "K";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.hover()<CR>";
           options.desc = "Show hover docs";
@@ -667,13 +648,13 @@
           key = "<leader>li";
           mode = "n";
           action = "<CMD>Telescope lsp_implementations<CR>";
-          options.desc = "Goto implementations";
+          options.desc = "Goto [i]mplementations";
         }
         {
           key = "<leader>lD";
           mode = "n";
           action = "<CMD>Telescope lsp_definitions<CR>";
-          options.desc = "Goto definitions";
+          options.desc = "Goto [d]efinitions";
         }
         {
           key = "<leader>lw";
@@ -704,12 +685,6 @@
           mode = "n";
           action = "gg<S-v>G";
           options.desc = "Select all";
-        }
-        {
-          key = "<leader>au";
-          mode = "n";
-          action = "vim.show_pos";
-          options.desc = "Inspect pos";
         }
         {
           key = "<";
@@ -780,25 +755,25 @@
           key = "<leader>fc";
           mode = "n";
           action = "<CMD>Telescope grep_string<CR>";
-          options.desc = "Find string under cursor";
+          options.desc = "Find string under [c]ursor";
         }
         {
           key = "<leader>fg";
           mode = "n";
           action = "<CMD>Telescope live_grep<CR>";
-          options.desc = "Live grep";
+          options.desc = "Live [g]rep";
         }
         {
           key = "<leader>fe";
           mode = "n";
           action = "<CMD>Telescope frecency<CR>";
-          options.desc = "Frecency files";
+          options.desc = "Fr[e]cency files";
         }
         {
           key = "<leader>fr";
           mode = "n";
           action = "<CMD>Telescope oldfiles<CR>";
-          options.desc = "Recent files";
+          options.desc = "[R]ecent files";
         }
         {
           key = "<leader>fu";
@@ -810,37 +785,43 @@
           key = "<leader>pf";
           mode = "n";
           action = "<CMD>Telescope git_files<CR>";
-          options.desc = "Find file in project";
+          options.desc = "Find [f]ile in project";
         }
         {
           key = "<leader>pp";
           mode = "n";
           action = "<CMD>Telescope projects<CR>";
-          options.desc = "Find projects";
+          options.desc = "Find [p]rojects";
         }
         {
           key = "<leader>ff";
           mode = "n";
           action = "<CMD>Telescope fd<CR>";
-          options.desc = "Find files";
+          options.desc = "Find [f]iles";
         }
         {
           key = "<leader>fn";
           mode = "n";
           action = "<CMD>ene<CR>";
-          options.desc = "New file";
+          options.desc = "[N]ew file";
         }
         {
           key = "<leader>o";
           mode = "n";
           action = "<CMD>lua require('oil').toggle_float()<CR>";
-          options.desc = "Open oil";
+          options.desc = "Open [o]il";
+        }
+        {
+          key = "<leader>t";
+          mode = ["n" "t"];
+          action = "<CMD>2ToggleTerm direction=tab name=tab <CR>";
+          options.desc = "Open terminal as tab";
         }
         {
           key = "<leader>n";
           mode = ["n" "t"];
-          action = "<CMD>ToggleTerm<CR>";
-          options.desc = "Open terminal";
+          action = "<CMD>1ToggleTerm direction=float name=はい <CR>";
+          options.desc = "Open termi[n]al";
         }
         {
           key = "]g";
@@ -858,7 +839,7 @@
           key = "<leader>gg";
           mode = "n";
           action = "<CMD>Neogit<CR>";
-          options.desc = "Open Neogit";
+          options.desc = "Open Neo[g]it";
         }
         {
           key = "<leader>gS";
@@ -870,41 +851,53 @@
           key = "<leader>gs";
           mode = ["v" "n"];
           action = "<CMD>Gitsigns stage_hunk<CR>";
-          options.desc = "Stage hunk";
+          options.desc = "[S]tage hunk";
         }
         {
           key = "<leader>gu";
           mode = "n";
           action = "<CMD>Gitsigns undo_stage_hunk<CR>";
-          options.desc = "Unstage hunk";
+          options.desc = "[U]nstage hunk";
         }
         {
           key = "<leader>gp";
           mode = "n";
           action = "<CMD>Gitsigns preview_hunk<CR>";
-          options.desc = "Preview hunk";
+          options.desc = "[P]review hunk";
         }
         {
           key = "<leader>gr";
           mode = "n";
           action = "<CMD>Gitsigns reset_hunk<CR>";
-          options.desc = "Reset hunk";
+          options.desc = "[R]eset hunk";
         }
         {
           key = "<leader>wv";
           mode = "n";
           action = "<C-w>v";
-          options.desc = "Split window vertically";
+          options.desc = "Split window [v]ertically";
+        }
+        {
+          key = "[t";
+          mode = ["n" "t"];
+          action = "<CMD>tabp<CR>";
+          options.desc = "Previous tab";
+        }
+        {
+          key = "]t";
+          mode = ["n" "t"];
+          action = "<CMD>tabn<CR>";
+          options.desc = "Next tab";
         }
         {
           key = "<leader>wd";
-          mode = "n";
+          mode = ["n" "t"];
           action = "<CMD>tabp<CR>";
           options.desc = "Previous tab";
         }
         {
           key = "<leader>wa";
-          mode = "n";
+          mode = ["n" "t"];
           action = "<CMD>tabn<CR>";
           options.desc = "Next tab";
         }
@@ -912,19 +905,19 @@
           key = "<leader>wc";
           mode = "n";
           action = "<CMD>close!<CR>";
-          options.desc = "Close current split";
+          options.desc = "Close [c]urrent split";
         }
         {
           key = "<leader>wh";
           mode = "n";
           action = "<C-w>s";
-          options.desc = "Split window horizontally";
+          options.desc = "Split window [h]orizontally";
         }
         {
           key = "<leader>wn";
           mode = "n";
           action = "<CMD>tabnew<CR>";
-          options.desc = "Open new tab";
+          options.desc = "Open [n]ew tab";
         }
         {
           key = "<leader>-";
@@ -1008,13 +1001,13 @@
           key = "<S-Tab>";
           mode = "n";
           action = "<CMD>bprevious<CR>";
-          options.desc = "Previous Buffer";
+          options.desc = "Previous buffer";
         }
         {
           key = "<ESC>";
           mode = "n";
           action = "<CMD>noh<CR>";
-          options.desc = "Clear Highlights";
+          options.desc = "Clear highlights";
         }
         {
           key = "<leader>K";
@@ -1136,7 +1129,7 @@
           key = "<leader>ap";
           mode = "n";
           action = "<CMD>HopPattern<CR>";
-          options.desc = "Jump to pattern";
+          options.desc = "Jump to [p]attern";
         }
         {
           key = "<leader>aa";
@@ -1154,7 +1147,7 @@
           key = "<leader>aw";
           mode = "n";
           action = "<CMD>HopWord<CR>";
-          options.desc = "Jump to word";
+          options.desc = "Jump to [w]ord";
         }
         {
           key = "<leader>.";
