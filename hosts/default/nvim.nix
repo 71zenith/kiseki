@@ -19,6 +19,25 @@
           'confirm_done',
           cmp_autopairs.on_confirm_done()
         )
+        require("cmp").setup({
+          window = {
+            completion = {
+              col_offset = 0,
+              side_padding = 0,
+            },
+          },
+          formatting = {
+            fields = { "kind", "abbr", "menu" },
+            format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+            return kind
+            end,
+          },
+          })
       '';
       globals = {
         mapleader = " ";
@@ -131,7 +150,7 @@
           enable = true;
           leadCustomSection = ''
             function()
-              return { { " ", "WinBar" } }
+            return { { " ", "WinBar" } }
             end,
           '';
         };
@@ -140,8 +159,8 @@
           preConfig = ''
             local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
             for type, icon in pairs(signs) do
-              local hl = "DiagnosticSign" .. type
-              vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+            local hl = "DiagnosticSign" .. type
+            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
           '';
           servers = {
@@ -286,7 +305,7 @@
                 name = "mode";
                 fmt = ''
                   function()
-                    return " "
+                  return " "
                   end
                 '';
               }
@@ -305,20 +324,20 @@
                 icon = "";
                 fmt = ''
                   function()
-                      local msg = ""
-                      local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                      local clients = vim.lsp.get_active_clients()
-                      if next(clients) == nil then
-                        return msg
-                      end
-                      for _, client in ipairs(clients) do
-                        local filetypes = client.config.filetypes
-                        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                          msg = msg .. client.name .. " "
-                        end
-                      end
-                      return msg:sub(1,-2)
-                    end
+                  local msg = ""
+                  local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                  local clients = vim.lsp.get_active_clients()
+                  if next(clients) == nil then
+                  return msg
+                  end
+                  for _, client in ipairs(clients) do
+                  local filetypes = client.config.filetypes
+                  if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                  msg = msg .. client.name .. " "
+                  end
+                  end
+                  return msg:sub(1,-2)
+                  end
                 '';
               }
               {name = "filetype";}
@@ -538,7 +557,7 @@
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
-                require('luasnip').lsp_expand(args.body)
+              require('luasnip').lsp_expand(args.body)
               end
             '';
             mapping = {
@@ -627,7 +646,7 @@
           options.desc = "Show signature help";
         }
         {
-          key = "<leader>lk";
+          key = "k";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.hover()<CR>";
           options.desc = "Show hover docs";
@@ -661,18 +680,6 @@
           mode = "n";
           action = "<CMD>Telescope lsp_references<CR>";
           options.desc = "List references";
-        }
-        {
-          key = "K";
-          mode = "n";
-          action = "<CMD>m .-2<cr>==";
-          options.desc = "Move up";
-        }
-        {
-          key = "J";
-          mode = "n";
-          action = "<CMD>m .+1<cr>==";
-          options.desc = "Move down";
         }
         {
           key = "<C-j>";
@@ -762,11 +769,6 @@
           mode = ["n" "x"];
           action = "v:count == 0 ? 'gj' : 'j'";
           options = {expr = true;};
-        }
-        {
-          key = "J";
-          mode = "n";
-          action = "mzJ`z";
         }
         {
           key = "J";
