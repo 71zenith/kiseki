@@ -6,6 +6,7 @@
 }: let
   inherit (config.colorScheme) palette;
 in {
+  imports = [../../modules/home-manager/neovide.nix];
   stylix.targets.zathura.enable = false;
   stylix.targets.vim.enable = false;
   programs = {
@@ -14,6 +15,17 @@ in {
       settings = {
         theme_background = false;
         vim_keys = true;
+      };
+    };
+
+    neovide = {
+      enable = true;
+      settings = {
+        srgb = true;
+        font = {
+          normal = ["Iosevka Term Medium"];
+          size = 21;
+        };
       };
     };
 

@@ -93,7 +93,10 @@
           autoHide = true;
         };
         hop.enable = true;
-        nvim-autopairs.enable = true;
+        nvim-autopairs = {
+          enable = true;
+          settings.check_ts = true;
+        };
         toggleterm = {
           enable = true;
           direction = "float";
