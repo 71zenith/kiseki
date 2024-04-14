@@ -29,8 +29,8 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 
 ## Programs Used
 - [Hyprland](https://github.com/hyprwm/Hyprland) - compositor
-- [emacs](https://www.gnu.org/emacs) - main editor
-- [neovim](https://github.com/neovim/neovim) - fallback text editor
+- [emacs](https://www.gnu.org/emacs) - secondary main editor
+- [neovim](https://github.com/neovim/neovim) - primary main text editor
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
 - [yazi](https://github.com/sxyazi/yazi) - tui file manager
@@ -59,7 +59,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 
 ## Standardised Config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [iosevka-comfy](https://github.com/protesilaos/iosevka-comfy) - monospace font
+- [iosevka](https://github.com/be5invis/Iosevka) - monospace font
 - [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies

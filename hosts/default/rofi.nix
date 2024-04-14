@@ -39,7 +39,7 @@
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        font = "Iosevka Comfy 14";
+        font = "Iosevka Term Medium 14";
         background = mkLiteral "#${palette.base00}";
         background-alt = mkLiteral "#${palette.base01}";
         foreground = mkLiteral "#${palette.base06}";

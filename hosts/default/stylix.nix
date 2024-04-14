@@ -32,8 +32,8 @@ in {
         name = "Google Sans";
       };
       monospace = {
-        package = pkgs.iosevka-comfy.comfy;
-        name = "Iosevka Comfy";
+        package = pkgs.iosevka-bin;
+        name = "Iosevka Term Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
