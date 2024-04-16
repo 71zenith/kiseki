@@ -23,13 +23,14 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
   outputs = {
     self,
     nixpkgs,
     ...
   } @ inputs: let
-    my-caches = {
+    caches = {
       nix.settings = {
         substituters = [
           "https://nix-community.cachix.org"
@@ -54,7 +55,7 @@
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default
-        my-caches
+        caches
         ./hosts/default/config.nix
       ];
     };

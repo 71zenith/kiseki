@@ -11,14 +11,14 @@
       colorschemes.oxocarbon.enable = true;
       extraConfigLuaPre = ''
         local tele = require("telescope.actions")
+        vim.api.nvim_set_hl(0, 'Comment', { italic=true })
       '';
       extraConfigLuaPost = ''
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
         cmp.event:on(
           'confirm_done',
-          cmp_autopairs.on_confirm_done()
-        )
+          cmp_autopairs.on_confirm_done())
       '';
       globals = {
         mapleader = " ";
@@ -48,6 +48,7 @@
         laststatus = 3;
         autoread = true;
         history = 10000;
+        timeoutlen = 200;
         cindent = true;
         wrap = false;
         ignorecase = true;
@@ -102,7 +103,7 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [dressing-nvim];
+      extraPlugins = with pkgs.vimPlugins; [satellite-nvim dressing-nvim];
       plugins = {
         nix.enable = true;
         barbar = {
@@ -111,6 +112,7 @@
           focusOnClose = {__raw = "'previous'";};
         };
         hop.enable = true;
+        flash.enable = true;
         nvim-autopairs = {
           enable = true;
           settings.check_ts = true;
@@ -176,7 +178,6 @@
               type = "text";
               val = [
                 "⠀⠀⡜⡁⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿"
-                "⠀⠀⣿⢷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠄"
                 "⠀⠀⢻⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇"
                 "⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⣿⡟⠀⢸⣿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇"
                 "⠀⠀⢸⡿⣿⣿⣿⣿⣿⣿⣿⣿⡟⢸⡿⡇⠀⢸⡿⢸⣿⡟⣿⣿⣿⣿⣿⣿⡏⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃"
@@ -195,8 +196,7 @@
                 "⠀⠀⢀⡤⠒⣉⣀⣾⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⣠⣾⣿⣿⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⣄⠑⣄"
                 "⢀⣀⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⣴⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠈⢢⡀"
                 "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣼⠙"
-                "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆"
-                "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠈⠉⢀⣨⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣢"
+                "⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⠈⠉⢀⣨⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣢"
               ];
             }
             {
@@ -283,7 +283,7 @@
         };
         lualine = {
           enable = true;
-          disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble" "undotree"];
+          disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble"];
           sectionSeparators = {
             left = "";
             right = "";
@@ -350,6 +350,15 @@
             "<leader>j" = "HARPOON";
           };
         };
+        spider = {
+          enable = true;
+          keymaps.motions = {
+            b = "b";
+            e = "e";
+            ge = "ge";
+            w = "w";
+          };
+        };
         treesitter = {
           enable = true;
           incrementalSelection = {
@@ -358,6 +367,7 @@
               initSelection = "<C-SPACE>";
               nodeIncremental = "<C-SPACE>";
               nodeDecremental = "<BS>";
+              scopeIncremental = "<C-Esc>";
             };
           };
         };
@@ -368,7 +378,7 @@
             peekDefinitionCode = {
               "<leader>ld" = {
                 query = "@function.outer";
-                desc = "Hover definition";
+                desc = "Hover [d]efinition";
               };
             };
           };
@@ -696,7 +706,7 @@
           key = "K";
           mode = ["x" "v"];
           action = ":move '<-2<CR>gv=gv";
-          options.desc = "Move selected lines up";
+          options.desc = "Move up";
         }
         {
           key = "==";
@@ -766,7 +776,7 @@
         {
           key = "J";
           mode = ["x" "v"];
-          options.desc = "Move selected lines down";
+          options.desc = "Move down";
           action = ":move '>+1<CR>gv=gv";
         }
         {
@@ -860,10 +870,16 @@
           options.desc = "Open Neo[g]it";
         }
         {
+          key = "<leader>gd";
+          mode = "n";
+          action = "<CMD>Gitsigns toggle_deleted<CR>";
+          options.desc = "Toggle deleted";
+        }
+        {
           key = "<leader>gS";
           mode = ["v" "n"];
           action = "<CMD>Gitsigns stage_buffer<CR>";
-          options.desc = "Stage buffer";
+          options.desc = "[S]tage buffer";
         }
         {
           key = "<leader>gs";
@@ -1154,6 +1170,12 @@
           mode = "n";
           action = "<CMD>HopPatternCurrentLine<CR>";
           options.desc = "Jump to pattern in current line";
+        }
+        {
+          key = "<leader>al";
+          mode = "n";
+          action = "<CMD>HopLineStart<CR>";
+          options.desc = "Jump to [l]ine";
         }
         {
           key = "<leader>as";

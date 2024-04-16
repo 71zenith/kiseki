@@ -52,7 +52,6 @@ in {
     imagemagick
     unzip
     qemu
-    neovide
     openmw
     zsh-powerlevel10k
     config.nur.repos.mic92.hello-nur
