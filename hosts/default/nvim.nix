@@ -367,7 +367,6 @@
               initSelection = "<C-SPACE>";
               nodeIncremental = "<C-SPACE>";
               nodeDecremental = "<BS>";
-              scopeIncremental = "<C-Esc>";
             };
           };
         };
@@ -649,10 +648,10 @@
           options.desc = "Show [t]ype definitions";
         }
         {
-          key = "<leader>ll";
+          key = "<leader>lh";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.signature_help()<CR>";
-          options.desc = "Show signature help";
+          options.desc = "Show signature [h]elp";
         }
         {
           key = "K";
