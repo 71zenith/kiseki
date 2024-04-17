@@ -22,6 +22,7 @@
       '';
       globals = {
         mapleader = " ";
+        localmapleader = " ";
         neovide_cursor_animation_length = 0.025;
         neovide_cursor_vfx_mode = "railgun";
         neovide_refresh_rate = 75;
@@ -48,7 +49,8 @@
         laststatus = 3;
         autoread = true;
         history = 10000;
-        timeoutlen = 200;
+        timeoutlen = 300;
+        inccommand = "split";
         cindent = true;
         wrap = false;
         ignorecase = true;
@@ -93,7 +95,7 @@
         list = true;
         formatoptions = "jcroqlnt";
         conceallevel = 0;
-        spell = true;
+        # spell = true;
         spelllang = ["en_us"];
         concealcursor = "nc";
         autowrite = true;
@@ -103,7 +105,7 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [satellite-nvim dressing-nvim];
+      extraPlugins = with pkgs.vimPlugins; [dressing-nvim];
       plugins = {
         nix.enable = true;
         barbar = {
@@ -159,6 +161,15 @@
           settings = {
             current_line_blame = true;
             linehl = true;
+          };
+        };
+        spider = {
+          enable = true;
+          keymaps.motions = {
+            b = "b";
+            e = "e";
+            ge = "ge";
+            w = "w";
           };
         };
         cursorline.enable = true;
@@ -217,7 +228,6 @@
             }
           ];
         };
-        trouble.enable = true;
         direnv.enable = true;
         oil = {
           enable = true;
@@ -234,7 +244,7 @@
         };
         cmp-buffer.enable = true;
         diffview.enable = true;
-        cmp-spell.enable = true;
+        # cmp-spell.enable = true;
         cmp-nvim-lsp.enable = true;
         surround.enable = true;
         lastplace.enable = true;
@@ -348,15 +358,6 @@
             "<leader>w" = "WINDOW";
             "<leader>r" = "SNIPRUN";
             "<leader>j" = "HARPOON";
-          };
-        };
-        spider = {
-          enable = true;
-          keymaps.motions = {
-            b = "b";
-            e = "e";
-            ge = "ge";
-            w = "w";
           };
         };
         treesitter = {
@@ -543,10 +544,10 @@
                 name = "luasnip";
                 keyword_length = 1;
               }
-              {
-                name = "spell";
-                keyword_length = 4;
-              }
+              # {
+              #   name = "spell";
+              #   keyword_length = 4;
+              # }
               {
                 name = "path";
                 keyword_length = 3;
@@ -578,7 +579,6 @@
             };
           };
         };
-
         telescope = {
           enable = true;
           extensions.frecency.enable = true;
@@ -638,8 +638,8 @@
         {
           key = "<leader>lg";
           mode = "n";
-          action = "<CMD>TroubleToggle<CR>";
-          options.desc = "Trouble to[g]gle";
+          action = "<CMD>lua vim.diagnostic.setloclist()<CR>";
+          options.desc = "Dia[g]nostics loclist";
         }
         {
           key = "<leader>lt";
@@ -660,6 +660,12 @@
           options.desc = "Show hover docs";
         }
         {
+          key = "<leader>lD";
+          mode = "n";
+          action = "<CMD>lua vim.diagnostic.open_float()<CR>";
+          options.desc = "Hover [d]iagnostics";
+        }
+        {
           key = "[d";
           mode = "n";
           action = "<CMD>lua vim.diagnostic.goto_prev()<CR>";
@@ -678,16 +684,22 @@
           options.desc = "Goto [i]mplementations";
         }
         {
-          key = "<leader>lD";
-          mode = "n";
-          action = "<CMD>Telescope lsp_definitions<CR>";
-          options.desc = "Goto [d]efinitions";
-        }
-        {
           key = "<leader>le";
           mode = "n";
           action = "<CMD>Telescope lsp_references<CR>";
           options.desc = "List r[e]ferences";
+        }
+        {
+          key = "<C-k>";
+          mode = "n";
+          action = "<cmd>m .-2<cr>==";
+          options.desc = "Move up";
+        }
+        {
+          key = "<C-j>";
+          mode = "n";
+          action = "<cmd>m .+1<cr>==";
+          options.desc = "Move down";
         }
         {
           key = "<C-j>";
@@ -821,6 +833,12 @@
           options.desc = "Find [p]rojects";
         }
         {
+          key = "<leader>fp";
+          mode = "n";
+          action = "<CMD>Telescope git_files<CR>";
+          options.desc = "Project files";
+        }
+        {
           key = "<leader>ff";
           mode = "n";
           action = "<CMD>Telescope fd<CR>";
@@ -900,7 +918,7 @@
         }
         {
           key = "<leader>gr";
-          mode = "n";
+          mode = ["v" "n"];
           action = "<CMD>Gitsigns reset_hunk<CR>";
           options.desc = "[R]eset hunk";
         }
