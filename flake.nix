@@ -50,14 +50,14 @@
       inherit system;
     };
   in {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.izanagi = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default
         caches
-        ./hosts/default/config.nix
+        ./hosts/izanagi/config.nix
       ];
     };
   };

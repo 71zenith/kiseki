@@ -54,7 +54,7 @@
         }
       ];
       shellAliases = {
-        up = "sudo nixos-rebuild switch --flake ~/nix#default";
+        up = "sudo nixos-rebuild switch --flake ~/nix#izanagi";
         del = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
         pm = "pulsemixer";
         cat = "bat -p -P";

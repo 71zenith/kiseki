@@ -145,7 +145,7 @@
             end
           '';
           servers = {
-            nixd.enable = true;
+            nil_ls.enable = true;
             clojure-lsp.enable = true;
             bashls.enable = true;
             pyright.enable = true;
