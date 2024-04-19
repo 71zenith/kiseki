@@ -19,6 +19,8 @@ in {
     duf
     wl-clipboard
     cliphist
+    nix-output-monitor
+    nvd
     openssl
     heroic
     du-dust

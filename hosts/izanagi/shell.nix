@@ -54,8 +54,10 @@
         }
       ];
       shellAliases = {
-        up = "sudo nixos-rebuild switch --flake ~/nix#izanagi";
-        del = "sudo nix-collect-garbage --delete-old && nix-collect-garbage --delete-old";
+        nv = "nvim";
+        up = "nh os switch";
+        del = "nh clean all";
+        fl = "nom flake";
         pm = "pulsemixer";
         cat = "bat -p -P";
         g = "git";
