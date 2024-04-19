@@ -51,12 +51,12 @@
       "CTRL+0" = ''
         no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"'';
     };
-    scripts = [
-      pkgs.mpvScripts.mpris
-      pkgs.mpvScripts.autoload
-      pkgs.mpvScripts.uosc
-      pkgs.mpvScripts.thumbfast
-      pkgs.mpvScripts.sponsorblock
+    scripts = with pkgs.mpvScripts; [
+      mpris
+      autoload
+      uosc
+      thumbfast
+      sponsorblock
     ];
   };
 }

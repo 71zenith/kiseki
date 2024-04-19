@@ -25,6 +25,7 @@ in {
       dates = ["weekly"];
     };
   };
+
   services.greetd = {
     enable = true;
     settings = rec {
@@ -36,14 +37,17 @@ in {
     };
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_xanmod;
+  };
 
-  networking.hostName = "izanagi";
-  networking.wireless.enable = false;
-
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "izanagi";
+    wireless.enable = false;
+    useNetworkd = true;
+  };
 
   security.sudo.extraRules = [
     {
@@ -58,24 +62,24 @@ in {
   ];
 
   time.timeZone = "Asia/Kolkata";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-gtk fcitx5-fluent];
-    fcitx5.waylandFrontend = true;
-  };
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    inputMethod = {
+      enabled = "fcitx5";
+      fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-gtk fcitx5-fluent];
+      fcitx5.waylandFrontend = true;
+    };
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_IN";
+      LC_IDENTIFICATION = "en_IN";
+      LC_MEASUREMENT = "en_IN";
+      LC_MONETARY = "en_IN";
+      LC_NAME = "en_IN";
+      LC_NUMERIC = "en_IN";
+      LC_PAPER = "en_IN";
+      LC_TELEPHONE = "en_IN";
+      LC_TIME = "en_IN";
+    };
   };
 
   console = {
@@ -100,7 +104,7 @@ in {
     isNormalUser = true;
     description = "Mori Zen";
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "libvirtd"];
+    extraGroups = ["wheel" "libvirtd"];
   };
 
   hardware.bluetooth.enable = true;
@@ -117,7 +121,7 @@ in {
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
-    users = {"zen" = import ./hyprland.nix;};
+    users = {"zen" = import ./home.nix;};
   };
 
   hardware.opengl = {
@@ -136,10 +140,11 @@ in {
   };
 
   hardware.cpu.amd.updateMicrocode = true;
-  programs.nix-ld = {enable = true;};
   nixpkgs.config = {
     allowUnfree = true;
   };
+
+  programs.nix-ld.enable = true;
 
   #virtualisation.libvirtd.enable = true;
   #programs.virt-manager.enable = true;
@@ -149,6 +154,7 @@ in {
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
+
   #hardware.opentabletdriver.enable = true;
 
   system.stateVersion = "24.05";

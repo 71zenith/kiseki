@@ -1,63 +1,4 @@
 {
-  pkgs,
-  inputs,
-  config,
-  ...
-}: let
-  inherit (config.colorScheme) palette;
-in {
-  imports = [
-    ./tools.nix
-    ./mpv.nix
-    ./shell.nix
-    ./waybar.nix
-    ./nvim.nix
-    ./git.nix
-    ./rofi.nix
-    ./xdg.nix
-    ./spotify-player.nix
-    inputs.nix-colors.homeManagerModules.default
-  ];
-
-  programs.home-manager.enable = true;
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
-    };
-  };
-  colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
-
-  home.username = "zen";
-  home.homeDirectory = "/home/zen";
-  home.sessionVariables = {EDITOR = "emacs -nw";};
-  nixpkgs.config = import ./nixpkgs.nix;
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-
-  home.stateVersion = "24.05";
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Zafiro-icons-Dark";
-      package = pkgs.zafiro-icons;
-    };
-  };
-  xresources.properties = {
-    "bar.background" = "#${palette.base02}";
-    "bar.foreground" = "#${palette.base0B}";
-    "bar.font" = "Google Sans-13";
-    "window.foreground" = "#${palette.base04}";
-    "window.background" = "#${palette.base02}";
-    "mark.background" = "#${palette.base0A}";
-  };
-
-  home.pointerCursor = {
-    x11.enable = true;
-    gtk.enable = true;
-  };
-
-  qt = {enable = true;};
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -74,6 +15,8 @@ in {
         "_JAVA_AWT_WM_NONREPARENTING,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORM,wayland;xcb"
+        "QT_QPA_PLATFORMTHEME,qt5ct"
         "DISABLE_QT5_COMPAT,0"
         "SDL_VIDEODRIVER,wayland"
         "GDK_BACKEND,wayland"
