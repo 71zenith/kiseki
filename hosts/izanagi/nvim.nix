@@ -14,7 +14,6 @@
         vim.api.nvim_set_hl(0, 'Comment', { italic=true })
       '';
       extraConfigLuaPost = ''
-        require('tabby.tabline').use_preset('tab_only')
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
         cmp.event:on(
@@ -106,7 +105,7 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [dressing-nvim tabby-nvim];
+      extraPlugins = with pkgs.vimPlugins; [dressing-nvim];
       plugins = {
         nix.enable = true;
         hop.enable = true;
@@ -114,6 +113,11 @@
         nvim-autopairs = {
           enable = true;
           settings.check_ts = true;
+        };
+        barbar = {
+          enable = true;
+          autoHide = true;
+          focusOnClose = {__raw = "'previous'";};
         };
         toggleterm = {
           enable = true;

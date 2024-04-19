@@ -100,6 +100,11 @@ in {
     gamescopeSession.enable = true;
   };
 
+  programs.nh = {
+    enable = true;
+    flake = "/home/zen/nix";
+  };
+
   users.users.zen = {
     isNormalUser = true;
     description = "Mori Zen";
