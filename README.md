@@ -4,16 +4,16 @@
     <a href="https://nixos.org/">
         <img src="https://img.shields.io/badge/NixOS-24.05-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
     <a href="https://github.com/nix-community/home-manager">
-        <img src="https://img.shields.io/static/v1?label=Home%20Manager&message=:3&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=3ddbd9"></a>
+        <img src="https://img.shields.io/static/v1?label=Home%20Manager&message=:3&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=33b1ff"></a>
     <a href="https://nixos.wiki/wiki/Flakes">
-        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=so good&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=78a9ff"></a>
+        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=so good&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=08bdba"></a>
   </a>
 </p>
 
 This contains the nix flakes to build an identical copy of my system.
 
 
-![](./resources/screenshot4.png)
+![](./resources/screenshot5.png)
 
 previous iterations are in [resources](./resources/).
 wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just odoriko backgrounds*
@@ -25,12 +25,15 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
 - [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
 - [nur](https://github.com/nix-community/NUR) - nix user repository
+- [nh](https://github.com/viperML/nh) - nix helper
+- [nix-output-monitor](https://github.com/maralorn/nix-output-monitor) - better nix commands
 
 
 ## Programs Used
 - [Hyprland](https://github.com/hyprwm/Hyprland) - compositor
-- [emacs](https://www.gnu.org/emacs) - secondary main editor
+- [emacs](https://www.gnu.org/emacs) - secondary main text editor
 - [neovim](https://github.com/neovim/neovim) - primary main text editor
+- [neovide](https://github.com/neovide/neovide) - neovim gui
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
 - [yazi](https://github.com/sxyazi/yazi) - tui file manager

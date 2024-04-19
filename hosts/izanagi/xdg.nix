@@ -6,7 +6,7 @@
       defaultApplications = let
         browser = ["firefox.desktop"];
         fileManager = ["nautilus.desktop"];
-        editor = ["nvim.desktop"];
+        editor = ["neovide.desktop"];
         player = ["mpv.desktop"];
         viewer = ["nsxiv.desktop"];
         reader = ["org.pwmt.zathura.desktop"];
