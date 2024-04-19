@@ -14,11 +14,12 @@
         vim.api.nvim_set_hl(0, 'Comment', { italic=true })
       '';
       extraConfigLuaPost = ''
+        require('tabby.tabline').use_preset('tab_only')
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
         cmp.event:on(
           'confirm_done',
-          cmp_autopairs.on_confirm_done())
+            cmp_autopairs.on_confirm_done())
       '';
       globals = {
         mapleader = " ";
@@ -105,14 +106,9 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [dressing-nvim];
+      extraPlugins = with pkgs.vimPlugins; [dressing-nvim tabby-nvim];
       plugins = {
         nix.enable = true;
-        barbar = {
-          enable = true;
-          autoHide = true;
-          focusOnClose = {__raw = "'previous'";};
-        };
         hop.enable = true;
         flash.enable = true;
         nvim-autopairs = {
@@ -149,7 +145,7 @@
             end
           '';
           servers = {
-            nil_ls.enable = true;
+            nixd.enable = true;
             clojure-lsp.enable = true;
             bashls.enable = true;
             pyright.enable = true;
@@ -165,6 +161,7 @@
         };
         spider = {
           enable = true;
+          skipInsignificantPunctuation = true;
           keymaps.motions = {
             b = "b";
             e = "e";
@@ -1007,12 +1004,6 @@
           options.desc = "Next buffer";
         }
         {
-          key = "<Tab>";
-          mode = "n";
-          action = "<CMD>bnext<CR>";
-          options.desc = "Next buffer";
-        }
-        {
           key = "]T";
           mode = "n";
           action = "<CMD>lua require('todo-comments').jump_next()<CR>";
@@ -1047,12 +1038,6 @@
           mode = ["n" "v"];
           action = ":";
           options.desc = "Open cmdline";
-        }
-        {
-          key = "<S-Tab>";
-          mode = "n";
-          action = "<CMD>bprevious<CR>";
-          options.desc = "Previous buffer";
         }
         {
           key = "<ESC>";
