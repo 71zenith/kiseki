@@ -38,8 +38,8 @@
         eval "$(direnv hook zsh)"
         eval "$(spotify_player generate zsh)"
       '';
-      syntaxHighlighting = {enable = true;};
-      historySubstringSearch = {enable = true;};
+      syntaxHighlighting.enable = true;
+      historySubstringSearch.enable = true;
       history.size = 10000000;
       plugins = [
         {
@@ -51,6 +51,11 @@
           name = "zsh-powerlevel10k";
           src = pkgs.zsh-powerlevel10k;
           file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+        }
+        {
+          name = "vi-mode";
+          src = pkgs.zsh-vi-mode;
+          file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
       ];
       shellAliases = {
@@ -75,7 +80,6 @@
         ko = "pkill";
       };
       autocd = true;
-      defaultKeymap = "viins";
     };
 
     zoxide = {
@@ -83,7 +87,7 @@
       enableZshIntegration = true;
     };
 
-    bat = {enable = true;};
+    bat.enable = true;
 
     eza = {
       enable = true;
