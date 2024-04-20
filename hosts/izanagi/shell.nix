@@ -166,7 +166,8 @@
         typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=1
         typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FORMAT='d h m s'
         typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=$yellow
-        typeset -g POWERLEVEL9K_jCS_FOREGROUND=$grey
+
+        typeset -g POWERLEVEL9K_VCS_FOREGROUND=$grey
 
         typeset -g POWERLEVEL9K_VCS_LOADING_TEXT=
 
@@ -186,18 +187,18 @@
         typeset -g POWERLEVEL9K_TIME_FOREGROUND=$grey
         typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
         typeset -g POWERLEVEL9K_TIME_UPDATE_ON_COMMAND=false
-
-        typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=no
-
+        typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
         typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
         typeset -g POWERLEVEL9K_DISABLE_HOT_RELOAD=true
+
         (( ! $+functions[p10k] )) || p10k reload
-      }
+        }
 
-      typeset -g POWERLEVEL9K_CONFIG_FILE=''${''${(%):-%x}:a}
+        typeset -g POWERLEVEL9K_CONFIG_FILE=''${''${(%):-%x}:a}
 
-      (( ''${#p10k_config_opts} )) && setopt ''${p10k_config_opts[@]}
-      'builtin' 'unset' 'p10k_config_opts'
+        (( ''${#p10k_config_opts} )) && setopt ''${p10k_config_opts[@]}
+        'builtin' 'unset' 'p10k_config_opts'
     '';
   };
 }
