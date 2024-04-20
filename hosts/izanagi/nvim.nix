@@ -860,8 +860,8 @@
         {
           key = "<leader>t";
           mode = ["n" "t"];
-          action = "<CMD>2ToggleTerm direction=tab name=tab <CR>";
-          options.desc = "Open terminal as [t]ab";
+          action = "<CMD>2ToggleTerm direction=horizontal name=はい <CR>";
+          options.desc = "Open terminal as horizon[t]al";
         }
         {
           key = "<leader>n";
