@@ -152,6 +152,7 @@
             nil_ls.enable = true;
             clojure-lsp.enable = true;
             bashls.enable = true;
+            zls.enable = true;
             pyright.enable = true;
             ruff-lsp.enable = true;
           };
