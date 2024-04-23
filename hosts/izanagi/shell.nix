@@ -62,7 +62,7 @@
         nv = "nvim";
         up = "nh os switch";
         del = "nh clean all";
-        fl = "nom flake";
+        fl = "nix flake";
         pm = "pulsemixer";
         cat = "bat -p -P";
         g = "git";
