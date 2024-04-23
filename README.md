@@ -37,6 +37,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
 - [yazi](https://github.com/sxyazi/yazi) - tui file manager
+- [zellij](https://github.com/zellij-org/zellij/) - terminal session manager
 - [btop](https://github.com/aristocratos/btop) - resources monitor
 - [zathura](https://pwmt.org/projects/zathura/) - pdf/epub viewer
 - [mpv](https://github.com/mpv-player/mpv) - media player(da goat)

@@ -63,6 +63,7 @@
         up = "nh os switch";
         del = "nh clean all --nogcroots";
         fl = "nix flake";
+        zj = "zellij";
         pm = "pulsemixer";
         cat = "bat -p -P";
         g = "git";
