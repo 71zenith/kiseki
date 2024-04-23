@@ -46,6 +46,7 @@ in {
     calibre
     swww
     pulsemixer
+    mgba
     blueman
     qbittorrent
     nsxiv

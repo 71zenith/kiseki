@@ -119,10 +119,6 @@
           autoHide = true;
           focusOnClose = {__raw = "'previous'";};
         };
-        toggleterm = {
-          enable = true;
-          settings.direction = "float";
-        };
         nvim-bqf.enable = true;
         comment.enable = true;
         todo-comments.enable = true;
@@ -165,7 +161,7 @@
           };
         };
         spider = {
-          enable = true;
+          enable = false;
           skipInsignificantPunctuation = true;
           keymaps.motions = {
             b = "b";
@@ -252,8 +248,8 @@
         lastplace.enable = true;
         better-escape.enable = true;
         lspkind.enable = true;
-        friendly-snippets.enable = true;
         lsp-format.enable = true;
+        friendly-snippets.enable = true;
         none-ls = {
           enable = true;
           enableLspFormat = true;
@@ -295,7 +291,7 @@
         };
         lualine = {
           enable = true;
-          disabledFiletypes.statusline = ["alpha" "toggleterm" "trouble"];
+          disabledFiletypes.statusline = ["alpha" "trouble" "telescope" "oil"];
           sectionSeparators = {
             left = "";
             right = "";
@@ -857,18 +853,6 @@
           mode = "n";
           action = "<CMD>lua require('oil').toggle_float()<CR>";
           options.desc = "Open [o]il";
-        }
-        {
-          key = "<leader>t";
-          mode = ["n" "t"];
-          action = "<CMD>2ToggleTerm direction=horizontal name=はい <CR>";
-          options.desc = "Open terminal as horizon[t]al";
-        }
-        {
-          key = "<leader>n";
-          mode = ["n" "t"];
-          action = "<CMD>1ToggleTerm direction=float name=はい <CR>";
-          options.desc = "Open termi[n]al";
         }
         {
           key = "]g";
