@@ -7,8 +7,11 @@
   inherit (config.colorScheme) palette;
 in {
   imports = [../../modules/home-manager/neovide.nix];
-  stylix.targets.zathura.enable = false;
-  stylix.targets.vim.enable = false;
+  stylix.targets = {
+    zathura.enable = false;
+    zellij.enable = false;
+    vim.enable = false;
+  };
   programs = {
     btop = {
       enable = true;
@@ -19,14 +22,30 @@ in {
     };
 
     zellij = {
-      enable = false;
-      enableZshIntegration = true;
+      enable = true;
+      enableZshIntegration = false;
       settings = {
         simplified_ui = true;
         pane_frames = false;
         default_layout = "compact";
         hide_session_name = true;
-        plugins = ["tab-bar" "status-bar" "compact-bar" "session-manager" "filepicker" "welcome-screen"];
+        plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
+        theme = "oxocarbon";
+        themes = {
+          oxocarbon = {
+            fg = "#${palette.base08}";
+            bg = "#${palette.base01}";
+            green = "#${palette.base0D}";
+            orange = "#${palette.base0C}";
+            red = "#${palette.base0A}";
+            yellow = "#${palette.base07}";
+            blue = "#${palette.base0B}";
+            magenta = "#${palette.base09}";
+            cyan = "#${palette.base0F}";
+            white = "#${palette.base09}";
+            black = "#${palette.base01}";
+          };
+        };
       };
     };
 
