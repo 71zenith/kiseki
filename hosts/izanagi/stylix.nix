@@ -7,7 +7,7 @@
 in {
   stylix = {
     polarity = "dark";
-    image = ../../resources/wallpapers/blue-blossom.jpg;
+    image = ../../resources/wallpapers/oxocarbon.png;
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
     fonts = {
       serif = {
@@ -30,10 +30,10 @@ in {
         applications = 13;
         desktop = 12;
         popups = 14;
-        terminal = 16;
+        terminal = 15;
       };
     };
-    opacity.terminal = 0.9;
+    opacity.terminal = 0.85;
     cursor = {
       package = pkgs.phinger-cursors;
       name = "phinger-cursors-light";

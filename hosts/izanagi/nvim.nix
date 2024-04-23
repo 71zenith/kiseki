@@ -326,7 +326,7 @@
             lualine_x = [
               {
                 name = "encoding";
-                icon = "";
+                icon = "";
                 fmt = ''
                   function()
                   local msg = ""

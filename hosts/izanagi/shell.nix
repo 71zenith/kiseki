@@ -61,7 +61,7 @@
       shellAliases = {
         nv = "nvim";
         up = "nh os switch";
-        del = "nh clean all";
+        del = "nh clean all --nogcroots";
         fl = "nix flake";
         pm = "pulsemixer";
         cat = "bat -p -P";

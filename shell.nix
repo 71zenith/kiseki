@@ -6,15 +6,8 @@ in
       nil
       alejandra
       lolcat
-      python311Packages.epc
-      python311Packages.orjson
-      python311Packages.sexpdata
-      python311Packages.six
-      python311Packages.setuptools
-      python311Packages.paramiko
-      python311Packages.rapidfuzz
     ];
     shellHook = ''
-      echo "initiating nix lsp..." | lolcat
+      echo "initiating nix tooling..." | lolcat
     '';
   }

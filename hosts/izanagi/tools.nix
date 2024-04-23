@@ -18,6 +18,18 @@ in {
       };
     };
 
+    zellij = {
+      enable = false;
+      enableZshIntegration = true;
+      settings = {
+        simplified_ui = true;
+        pane_frames = false;
+        default_layout = "compact";
+        hide_session_name = true;
+        plugins = ["tab-bar" "status-bar" "compact-bar" "session-manager" "filepicker" "welcome-screen"];
+      };
+    };
+
     neovide = {
       enable = true;
       settings = {
