@@ -10,6 +10,7 @@
       luaLoader.enable = true;
       colorschemes.oxocarbon.enable = true;
       extraConfigLuaPre = ''
+        local luasnip = require("luasnip")
         local tele = require("telescope.actions")
         vim.api.nvim_set_hl(0, 'Comment', { italic=true })
       '';
@@ -563,10 +564,30 @@
               "<C-l>" = "cmp.mapping.confirm({ select = true })";
               "<C-k>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
-              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<C-j>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
               "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-              "<TAB>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<TAB>" = ''
+                  cmp.mapping(function(fallback)
+                  if cmp.visible() then
+                    cmp.select_next_item()
+                  elseif luasnip.locally_jumpable(1) then
+                    luasnip.jump(1)
+                  else
+                    fallback()
+                  end
+                end, { "i", "s" })
+              '';
+              "<S-TAB>" = ''
+                  cmp.mapping(function(fallback)
+                  if cmp.visible() then
+                    cmp.select_prev_item()
+                  elseif luasnip.locally_jumpable(-1) then
+                    luasnip.jump(-1)
+                  else
+                    fallback()
+                  end
+                end, { "i", "s" })
+              '';
             };
           };
         };
