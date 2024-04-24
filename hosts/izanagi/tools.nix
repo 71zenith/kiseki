@@ -109,7 +109,6 @@ in {
 
     foot = {
       enable = true;
-      package = inputs.nixpkgs-wayland.packages.${pkgs.system}.foot;
       settings = {
         main = {pad = "10x10";};
         mouse = {hide-when-typing = "no";};

@@ -148,7 +148,11 @@
             nil_ls.enable = true;
             clojure-lsp.enable = true;
             bashls.enable = true;
-            rust-analyzer.enable = true;
+            rust-analyzer = {
+              enable = true;
+              installCargo = false;
+              installRustc = false;
+            };
             pyright.enable = true;
             ruff-lsp.enable = true;
           };
