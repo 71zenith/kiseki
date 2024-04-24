@@ -95,7 +95,6 @@
         list = true;
         formatoptions = "jcroqlnt";
         conceallevel = 0;
-        # spell = true;
         spelllang = ["en_us"];
         concealcursor = "nc";
         autowrite = true;
@@ -150,8 +149,8 @@
             bashls.enable = true;
             rust-analyzer = {
               enable = true;
-              installCargo = false;
-              installRustc = false;
+              installCargo = true;
+              installRustc = true;
             };
             pyright.enable = true;
             ruff-lsp.enable = true;
@@ -246,7 +245,6 @@
         };
         cmp-buffer.enable = true;
         diffview.enable = true;
-        # cmp-spell.enable = true;
         cmp-nvim-lsp.enable = true;
         surround.enable = true;
         lastplace.enable = true;
@@ -350,7 +348,6 @@
           };
         };
         luasnip.enable = true;
-        cmp_luasnip.enable = true;
         which-key = {
           enable = true;
           registrations = {
@@ -393,14 +390,14 @@
                 desc = "Select outer part of an assignment";
               };
               "i=" = {
-                query = "@assignment.outer";
-                desc = "Select outer part of an assignment";
+                query = "@assignment.inner";
+                desc = "Select inner part of an assignment";
               };
-              "l=" = {
+              "ll" = {
                 query = "@assignment.lhs";
                 desc = "Select left hand side of an assignment";
               };
-              "r=" = {
+              "rl" = {
                 query = "@assignment.rhs";
                 desc = "Select right hand side of an assignment";
               };
@@ -540,19 +537,11 @@
             sources = [
               {
                 name = "nvim_lsp";
-                keyword_length = 2;
-              }
-              {
-                name = "luasnip";
                 keyword_length = 1;
               }
-              # {
-              #   name = "spell";
-              #   keyword_length = 4;
-              # }
               {
                 name = "path";
-                keyword_length = 3;
+                keyword_length = 4;
               }
               {
                 name = "buffer";
@@ -678,6 +667,12 @@
           mode = "n";
           action = "<CMD>lua vim.diagnostic.goto_next()<CR>";
           options.desc = "Goto next diagnostic";
+        }
+        {
+          key = "<leader>ln";
+          mode = "n";
+          action = "<CMD>Telescope diagnostics<CR>";
+          options.desc = "List diagnostics";
         }
         {
           key = "<leader>li";
@@ -877,6 +872,12 @@
           options.desc = "Open Neo[g]it";
         }
         {
+          key = "<leader>gR";
+          mode = "n";
+          action = "<CMD>Gitsigns reset_buffer<CR>";
+          options.desc = "Reset buffer";
+        }
+        {
           key = "<leader>gd";
           mode = "n";
           action = "<CMD>Gitsigns toggle_deleted<CR>";
@@ -890,7 +891,7 @@
         }
         {
           key = "<leader>gs";
-          mode = ["v" "n"];
+          mode = "n";
           action = "<CMD>Gitsigns stage_hunk<CR>";
           options.desc = "[S]tage hunk";
         }
