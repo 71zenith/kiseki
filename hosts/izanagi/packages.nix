@@ -59,7 +59,7 @@ in {
     openmw
     zsh-powerlevel10k
     config.nur.repos.mic92.hello-nur
-    inputs.hyprland-contrib.packages."${pkgs.system}".grimblast
+    grimblast
   ];
 
   fonts.packages = with pkgs; [
