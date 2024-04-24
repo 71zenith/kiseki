@@ -28,6 +28,7 @@ in {
         simplified_ui = true;
         pane_frames = false;
         default_layout = "compact";
+        copy_on_select = false;
         hide_session_name = true;
         plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
         theme = "oxocarbon";

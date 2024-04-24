@@ -1,12 +1,4 @@
-{inputs, ...}: {
-  imports = [inputs.hyprlock.homeManagerModules.hyprlock];
-  programs.hyprlock = {
-    enable = false;
-    general = {
-      disable_loading_bar = true;
-    };
-    backgrounds = [{path = "/home/zen/nix/resources/wallpapers/yuya-yoshioka.jpg";}];
-  };
+{
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
