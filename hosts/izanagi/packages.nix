@@ -47,6 +47,7 @@ in {
     swww
     pulsemixer
     mgba
+    desmume
     blueman
     qbittorrent
     nsxiv
