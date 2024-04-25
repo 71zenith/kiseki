@@ -49,7 +49,7 @@ in {
           tooltip-format = "<tt><big>{calendar}</big></tt>";
         };
         "network" = {
-          format-ethernet = "{bandwidthUpBits} {bandwidthDownBytes}";
+          format-ethernet = "{bandwidthUpBytes} {bandwidthDownBytes}";
           min-width = 20;
           fixed-width = 20;
           interface = "enp7s0";
