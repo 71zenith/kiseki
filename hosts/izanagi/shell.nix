@@ -4,6 +4,7 @@
       enable = true;
       autosuggestion.enable = true;
       enableCompletion = true;
+      defaultKeymap = "viins";
       initExtra = ''
         function precmd() {
           print -Pn "\e]133;A\e\\"
