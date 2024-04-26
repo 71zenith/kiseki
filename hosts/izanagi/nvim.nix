@@ -135,6 +135,13 @@
             end,
           '';
         };
+        dap = {
+          enable = true;
+          extensions.dap-ui.enable = true;
+          adapters.executables.gdb = {
+            command = "gdb";
+          };
+        };
         lsp = {
           enable = true;
           preConfig = ''
@@ -162,16 +169,6 @@
           settings = {
             current_line_blame = true;
             linehl = true;
-          };
-        };
-        spider = {
-          enable = false;
-          skipInsignificantPunctuation = true;
-          keymaps.motions = {
-            b = "b";
-            e = "e";
-            ge = "ge";
-            w = "w";
           };
         };
         cursorline.enable = true;
@@ -354,9 +351,9 @@
           registrations = {
             "<leader>f" = "FILES";
             "<leader>l" = "LSP";
+            "<leader>d" = "DAP";
             "<leader>g" = "GIT";
             "<leader>w" = "WINDOW";
-            "<leader>r" = "SNIPRUN";
             "<leader>j" = "HARPOON";
           };
         };
@@ -531,7 +528,6 @@
           };
         };
         rainbow-delimiters.enable = true;
-        sniprun.enable = true;
         cmp = {
           enable = true;
           settings = {
@@ -700,6 +696,18 @@
           mode = "n";
           action = "<CMD>Telescope lsp_implementations<CR>";
           options.desc = "Goto [i]mplementations";
+        }
+        {
+          key = "<leader>dc";
+          mode = "n";
+          action = "<CMD>DapContinue<CR>";
+          options.desc = "Continue DAP";
+        }
+        {
+          key = "<leader>dt";
+          mode = "n";
+          action = "<CMD>DapToggleBreakpoint<CR>";
+          options.desc = "Toggle breakpoint";
         }
         {
           key = "<leader>le";
@@ -1035,18 +1043,6 @@
           mode = ["v" "n"];
           action = "<CMD>SnipClose<CR>";
           options.desc = "Close code output";
-        }
-        {
-          key = "<leader>ra";
-          mode = "n";
-          action = "<CMD>SnipRun<CR>";
-          options.desc = "Run code";
-        }
-        {
-          key = "<leader>rr";
-          mode = ["n" "v"];
-          action = "<CMD>:lua require'sniprun'.run('v')<CR>";
-          options.desc = "Run selected code";
         }
         {
           key = "<leader><leader>";
