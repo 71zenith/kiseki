@@ -1,13 +1,8 @@
-let
-  pkgs = import <nixpkgs> {};
-in
-  pkgs.mkShell {
-    buildInputs = with pkgs; [
-      nil
-      alejandra
-      lolcat
-    ];
-    shellHook = ''
-      echo "initiating nix tooling..." | lolcat
-    '';
-  }
+{pkgs ? import <nixpkgs> {}}:
+pkgs.mkShell {
+  nativeBuildInputs = with pkgs; [lolcat alejandra];
+
+  shellHook = ''
+    echo "initiating nix tooling..." | lolcat
+  '';
+}
