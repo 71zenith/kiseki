@@ -135,13 +135,6 @@
             end,
           '';
         };
-        dap = {
-          enable = true;
-          extensions.dap-ui.enable = true;
-          adapters.executables.gdb = {
-            command = "gdb";
-          };
-        };
         lsp = {
           enable = true;
           preConfig = ''

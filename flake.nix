@@ -29,6 +29,7 @@
   } @ inputs: let
     caches = {
       nix.settings = {
+        builders-use-substitutes = true;
         substituters = [
           "https://nix-community.cachix.org"
           "https://cache.nixos.org"
