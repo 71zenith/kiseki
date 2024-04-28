@@ -1,8 +1,13 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   inherit (config.colorScheme) palette;
 in {
   programs.spotify-player = {
     enable = true;
+    package = pkgs.callPackage ../../modules/nix-os/spotify-player.nix {};
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";
       client_port = 8080;

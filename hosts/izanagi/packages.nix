@@ -5,7 +5,6 @@
   ...
 }: let
   ani-cli = pkgs.callPackage ../../modules/nix-os/ani-cli.nix {};
-  spotify-player = pkgs.callPackage ../../modules/nix-os/spotify-player.nix {};
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -34,7 +33,6 @@ in {
     libnotify
     libsForQt5.qt5.qtwayland
     playerctl
-    spotify-player
     gtk3
     dbus
     ripgrep
