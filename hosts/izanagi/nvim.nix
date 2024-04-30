@@ -438,9 +438,11 @@
             enable = true;
             swapNext = {
               "<leader>af" = "@function.outer";
+              "<leader>ap" = "@parameter.inner";
             };
             swapPrevious = {
               "<leader>bf" = "@function.outer";
+              "<leader>bp" = "@parameter.inner";
             };
           };
           move = {
