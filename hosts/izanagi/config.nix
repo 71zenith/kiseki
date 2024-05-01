@@ -38,10 +38,16 @@ in {
   };
 
   boot = {
-    loader.systemd-boot.enable = true;
+    loader.systemd-boot = {
+      enable = true;
+      consoleMode = "auto";
+    };
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_xanmod;
   };
+
+  # calibre drive detection
+  services.udisks2.enable = true;
 
   networking = {
     hostName = "izanagi";

@@ -50,6 +50,7 @@ in {
       };
     };
 
+    helix.enable = true;
     neovide = {
       enable = true;
       settings = {
