@@ -2,7 +2,17 @@
   inputs,
   pkgs,
   ...
-}: {
+}: let
+  lualine-so-fancy = pkgs.vimUtils.buildVimPlugin {
+    name = "lualine-so-fancy";
+    src = pkgs.fetchFromGitHub {
+      owner = "meuter";
+      repo = "lualine-so-fancy.nvim";
+      rev = "21284504fed2776668fdea8743a528774de5d2e1";
+      hash = "sha256-JMz3Dv3poGoYQU+iq/jtgyHECZLx+6mLCvqUex/a0SY=";
+    };
+  };
+in {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
   programs = {
     nixvim = {
@@ -105,7 +115,7 @@
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [dressing-nvim];
+      extraPlugins = with pkgs.vimPlugins; [dressing-nvim lualine-so-fancy];
       plugins = {
         nix.enable = true;
         hop.enable = true;
@@ -295,46 +305,22 @@
           };
           sections = {
             lualine_a = [
-              {
-                name = "mode";
-                fmt = ''
-                  function()
-                  return " "
-                  end
-                '';
-              }
+              {name = "fancy_mode";}
             ];
             lualine_b = [
-              {
-                name = "branch";
-                icon = "";
-              }
-              {name = "diff";}
-              {name = "diagnostics";}
+              {name = "fancy_branch";}
+              {name = "fancy_diff";}
+              {name = "fancy_diagnostics";}
+            ];
+            lualine_y = [
+              {name = "fancy_filetype";}
             ];
             lualine_x = [
-              {
-                name = "encoding";
-                icon = "";
-                fmt = ''
-                  function()
-                  local msg = ""
-                  local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-                  local clients = vim.lsp.get_active_clients()
-                  if next(clients) == nil then
-                  return msg
-                  end
-                  for _, client in ipairs(clients) do
-                  local filetypes = client.config.filetypes
-                  if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-                  msg = msg .. client.name .. " "
-                  end
-                  end
-                  return msg:sub(1,-2)
-                  end
-                '';
-              }
-              {name = "filetype";}
+              {name = "fancy_macro";}
+              {name = "fancy_lsp_servers";}
+            ];
+            lualine_z = [
+              {name = "fancy_location";}
             ];
           };
         };
@@ -344,7 +330,6 @@
           registrations = {
             "<leader>f" = "FILES";
             "<leader>l" = "LSP";
-            "<leader>d" = "DAP";
             "<leader>g" = "GIT";
             "<leader>w" = "WINDOW";
             "<leader>j" = "HARPOON";
@@ -691,18 +676,6 @@
           mode = "n";
           action = "<CMD>Telescope lsp_implementations<CR>";
           options.desc = "Goto [i]mplementations";
-        }
-        {
-          key = "<leader>dc";
-          mode = "n";
-          action = "<CMD>DapContinue<CR>";
-          options.desc = "Continue DAP";
-        }
-        {
-          key = "<leader>dt";
-          mode = "n";
-          action = "<CMD>DapToggleBreakpoint<CR>";
-          options.desc = "Toggle breakpoint";
         }
         {
           key = "<leader>le";
