@@ -1,6 +1,9 @@
-{config, ...}: let
-  inherit (config.colorScheme) palette;
-in {
+{
+  stylix.targets.waybar = {
+    enableLeftBackColors = false;
+    enableRightBackColors = false;
+    enableCenterBackColors = false;
+  };
   programs.waybar = {
     enable = true;
     settings = {
@@ -94,7 +97,7 @@ in {
 
       window#waybar {
         background-color: rgba(16, 16, 16, 0.8);
-        color: #${palette.base04};
+        color: @base04;
           transition-property: background-color;
           transition-duration: 0.1s;
         }
@@ -102,20 +105,20 @@ in {
         opacity: 0.1;
       }
       #window {
-        color: #${palette.base04};
+        color: @base04;
       }
       #clock,
       #mpris,
       #network,
       #tray,
       #pulseaudio,
-      #pulseaudio#muted,
+      #pulseaudio.muted,
       #workspaces,
-      #network#disconnected {
-        color: #${palette.base05};
+      #network.disconnected {
+        color: @base05;
         border-radius: 6px;
         padding: 2px 10px;
-        background-color: #${palette.base00};
+        background-color: @base00;
         border-radius: 8px;
 
         margin-left: 6px;
@@ -125,7 +128,7 @@ in {
         margin-bottom: 5px;
       }
       #workspaces button {
-        color: #${palette.base0C};
+        color: @base0C;
         box-shadow: inset 0 -3px transparent;
 
         padding-right: 7px;
@@ -134,7 +137,7 @@ in {
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.empty {
-        color: #${palette.base04};
+        color: @base04;
         box-shadow: inset 0 -3px transparent;
 
         padding-right: 7px;
@@ -143,40 +146,40 @@ in {
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.active {
-        color: #${palette.base0B};
+        color: @base0B;
         padding-left: 7px;
         padding-right: 7px;
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
 
       #pulseaudio {
-        color: #${palette.base0D};
+        color: @base0D;
       }
       #pulseaudio.muted {
-        color: #${palette.base0A};
+        color: @base0A;
       }
       #network {
-        color: #${palette.base0F};
+        color: @base0F;
       }
       #network.disconnected {
-        color: #${palette.base0A};
+        color: @base0A;
       }
       @keyframes blink {
         to {
           background-color: rgba(30, 34, 42, 0.5);
-          color: #${palette.base07};
+          color: @base07;
         }
       }
       #clock.time {
-        color: #${palette.base0E};
+        color: @base0E;
       }
       #clock.date {
-        color: #${palette.base08};
+        color: @base08;
       }
       tooltip {
         border-radius: 15px;
         padding: 15px;
-        background-color: #${palette.base01};
+        background-color: @base01;
       }
 
       tooltip label {
@@ -189,10 +192,10 @@ in {
 
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
-        background-color: #${palette.base0A};
+        background-color: @base0A;
       }
       #mpris {
-        color: #${palette.base09};
+        color: @base09;
       }
     '';
   };
