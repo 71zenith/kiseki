@@ -13,7 +13,7 @@
 This contains the nix flakes to build an identical copy of my system.
 
 
-![](./resources/screenshot5.png)
+![](./resources/screenshot6.png)
 
 previous iterations are in [resources](./resources/).
 wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just odoriko backgrounds*

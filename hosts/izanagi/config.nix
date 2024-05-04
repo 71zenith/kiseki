@@ -48,6 +48,9 @@
     # calibre drive detection
     udisks2.enable = true;
 
+    # nautilus trash support
+    gvfs.enable = true;
+
     xserver.xkb = {
       layout = "us";
       variant = "";
