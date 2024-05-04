@@ -24,28 +24,46 @@
     };
   };
 
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
-        user = "zen";
-      };
-      default_session = initial_session;
-    };
-  };
-
   boot = {
     loader.systemd-boot = {
       enable = true;
-      consoleMode = "auto";
+      consoleMode = "max";
     };
     loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_xanmod;
   };
 
-  # calibre drive detection
-  services.udisks2.enable = true;
+  services = {
+    greetd = {
+      enable = true;
+      settings = rec {
+        initial_session = {
+          command = "${pkgs.hyprland}/bin/Hyprland";
+          user = "zen";
+        };
+        default_session = initial_session;
+      };
+    };
+
+    # calibre drive detection
+    udisks2.enable = true;
+
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
+    };
+
+    blueman.enable = true;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    };
+
+    xserver.videoDrivers = ["nvidia"];
+  };
 
   networking = {
     hostName = "izanagi";
@@ -87,21 +105,18 @@
     packages = with pkgs; [terminus_font];
   };
 
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
-  };
+  programs = {
+    zsh.enable = true;
 
-  programs.zsh.enable = true;
+    steam = {
+      enable = true;
+      gamescopeSession.enable = true;
+    };
 
-  programs.steam = {
-    enable = true;
-    gamescopeSession.enable = true;
-  };
+    nh.enable = true;
+    nh.flake = "/home/zen/nix";
 
-  programs.nh = {
-    enable = true;
-    flake = "/home/zen/nix";
+    nix-ld.enable = true;
   };
 
   users.users.zen = {
@@ -111,47 +126,39 @@
     extraGroups = ["wheel" "libvirtd"];
   };
 
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-
   sound.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-  };
 
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
     users = {"zen" = import ./home.nix;};
   };
 
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-  };
-  services.xserver.videoDrivers = ["nvidia"];
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
 
-  hardware.nvidia = {
-    modesetting.enable = true;
-    open = true;
-    powerManagement.enable = true;
-    forceFullCompositionPipeline = true;
-    nvidiaSettings = true;
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+    };
+
+    nvidia = {
+      modesetting.enable = true;
+      open = true;
+      powerManagement.enable = true;
+      forceFullCompositionPipeline = true;
+      nvidiaSettings = true;
+    };
+
+    cpu.amd.updateMicrocode = true;
   };
 
-  hardware.cpu.amd.updateMicrocode = true;
   nixpkgs.config = {
     allowUnfree = true;
   };
-
-  programs.nix-ld.enable = true;
-
-  #virtualisation.libvirtd.enable = true;
-  #programs.virt-manager.enable = true;
 
   xdg.portal = {
     enable = true;
@@ -160,6 +167,8 @@
   };
 
   #hardware.opentabletdriver.enable = true;
+  #virtualisation.libvirtd.enable = true;
+  #programs.virt-manager.enable = true;
 
   system.stateVersion = "24.05";
 }

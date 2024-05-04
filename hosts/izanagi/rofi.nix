@@ -27,11 +27,11 @@
       kb-remove-to-eol = "";
       kb-mode-complete = "";
       display-drun = "";
-      display-run = "";
+      display-run = "";
       display-calc = "󰃬";
-      display-window = "";
+      display-window = "";
       display-filebrowser = "";
-      drun-display-format = "{name}";
+      drun-display-format = "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
       window-format = "{w} · {c} · {t}";
     };
     theme = let
@@ -41,6 +41,7 @@
       "*" = {
         font = "Iosevka Term Medium 14";
         background = mkLiteral "#${palette.base00}";
+        border = mkLiteral "#${palette.base01}";
         background-alt = mkLiteral "#${palette.base01}";
         foreground = mkLiteral "#${palette.base06}";
         foreground-alt = mkLiteral "#${palette.base02}";
@@ -57,70 +58,74 @@
         x-offset = mkLiteral "0px";
         y-offset = mkLiteral "0px";
         enabled = mkLiteral "true";
-        border-radius = mkLiteral "20px";
-        border = mkLiteral "4px";
-        border-color = mkLiteral "#${palette.base00}";
+        border-radius = mkLiteral "10px";
+        border = mkLiteral "0px solid";
+        border-color = mkLiteral "@border";
         cursor = "default";
         background-color = mkLiteral "@background";
       };
       "mainbox" = {
         enabled = true;
         spacing = mkLiteral "0px";
+        margin = mkLiteral "0px";
+        padding = mkLiteral "0px";
+        border = mkLiteral "0px solid";
+        border-radius = mkLiteral "0px 0px 0px 0px";
+        border-color = mkLiteral "@border";
         background-color = mkLiteral "transparent";
-        orientation = mkLiteral "vertical";
-        children = mkLiteral "[inputbar,listbox]";
-      };
-      "listbox" = {
-        spacing = mkLiteral "5px";
-        padding = mkLiteral "10px";
-        background-color = mkLiteral "transparent";
-        orientation = mkLiteral "vertical";
-        children = mkLiteral "[message,listview]";
+        children = mkLiteral "[inputbar,listview]";
       };
       "inputbar" = {
         enabled = true;
-        spacing = mkLiteral "10px";
-        padding = mkLiteral "60px 40px";
-        background-color = mkLiteral "transparent";
+        spacing = mkLiteral "0px";
+        margin = mkLiteral "0px";
+        padding = mkLiteral "0px";
+        border = mkLiteral "0px 0px 1px 0px";
+        border-radius = mkLiteral "0px";
+        border-color = mkLiteral "@border";
+        background-color = mkLiteral "@background";
         text-color = mkLiteral "@foreground";
-        orientation = mkLiteral "horizontal";
-        children = mkLiteral "[textbox-prompt-colon, entry, dummy, mode-switcher]";
+        children = mkLiteral "[prompt,entry]";
+      };
+      "prompt" = {
+        enabled = true;
+        padding = mkLiteral "15px";
+        border = mkLiteral "0px 1px 0px 0px";
+        border-radius = mkLiteral "0px";
+        border-color = mkLiteral "@background-alt";
+        background-color = mkLiteral "inherit";
+        text-color = mkLiteral "inherit";
       };
       "textbox-prompt-colon" = {
         enabled = true;
         expand = false;
-        str = "";
-        padding = mkLiteral "12px 16px";
-        border-radius = mkLiteral "100%";
-        background-color = mkLiteral "@background-alt";
+        str = "::";
+        background-color = mkLiteral "inherit";
         text-color = mkLiteral "inherit";
       };
       "entry" = {
         enabled = true;
-        expand = true;
-        width = mkLiteral "250px";
-        padding = mkLiteral "12px 16px";
-        border-radius = mkLiteral "100%";
-        background-color = mkLiteral "@background-alt";
+        padding = mkLiteral "15px";
+        background-color = mkLiteral "inherit";
         text-color = mkLiteral "inherit";
         cursor = mkLiteral "text";
-        placeholder = "Search";
-        placeholder-color = mkLiteral "@foreground-alt";
-      };
-      "dummy" = {
-        expand = false;
-        background-color = mkLiteral "transparent";
+        placeholder-color = mkLiteral "inherit";
       };
       "mode-switcher" = {
         enabled = true;
         spacing = mkLiteral "10px";
+        margin = mkLiteral "0px";
+        padding = mkLiteral "0px";
+        border = mkLiteral "0px solid";
+        border-radious = mkLiteral "0px";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
       };
       "button" = {
-        width = mkLiteral "45px";
-        padding = mkLiteral "12px";
-        border-radius = mkLiteral "100%";
+        padding = mkLiteral "10px";
+        border-radius = mkLiteral "0px";
+        border = mkLiteral "0px solid";
+        border-color = mkLiteral "@border";
         background-color = mkLiteral "@background-alt";
         text-color = mkLiteral "inherit";
         cursor = mkLiteral "pointer";
@@ -132,7 +137,7 @@
       "listview" = {
         enabled = true;
         columns = 1;
-        lines = 10;
+        lines = 12;
         cycle = true;
         dynamic = true;
         scrollbar = false;
@@ -140,16 +145,24 @@
         reverse = false;
         fixed-height = true;
         fixed-columns = true;
-        spacing = mkLiteral "5px";
+        spacing = mkLiteral "0px";
+        margin = mkLiteral "0px";
+        padding = mkLiteral "0px";
+        border = mkLiteral "0px solid";
+        border-radius = mkLiteral "0px";
+        border-color = mkLiteral "@border";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
         cursor = mkLiteral "default";
       };
       "element" = {
         enabled = true;
-        spacing = mkLiteral "7px";
-        padding = mkLiteral "4px";
-        border-radius = mkLiteral "100%";
+        spacing = mkLiteral "10px";
+        margin = mkLiteral "0px";
+        padding = mkLiteral "8px 15px";
+        border = mkLiteral "0px 0px 1px 0px";
+        border-radius = mkLiteral "0px";
+        border-color = mkLiteral "@border";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
         cursor = mkLiteral "pointer";
@@ -191,18 +204,35 @@
         vertical-align = mkLiteral "0.5";
         horizontal-align = mkLiteral "0.0";
       };
-      "message" = {background-color = mkLiteral "transparent";};
+      "message" = {
+        enabled = true;
+        margin = mkLiteral "0px";
+        padding = mkLiteral "8px 15px";
+        border = mkLiteral "0px solid";
+        border-radius = mkLiteral "0px 0px 0px 0px";
+        border-color = mkLiteral "@border";
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "@foreground";
+      };
       "textbox" = {
-        padding = mkLiteral "12px";
-        border-radius = mkLiteral "100%";
+        padding = mkLiteral "10px";
+        border = mkLiteral "0px solid";
+        border-radius = mkLiteral "0px";
+        border-color = mkLiteral "@border";
         background-color = mkLiteral "@background-alt";
         text-color = mkLiteral "@foreground";
         vertical-align = mkLiteral "0.5";
         horizontal-align = mkLiteral "0.0";
+        highlight = mkLiteral "none";
+        placeholder-color = mkLiteral "@foreground-alt";
+        blink = true;
+        markup = true;
       };
       "error-message" = {
-        padding = mkLiteral "12px";
-        border-radius = mkLiteral "20px";
+        padding = mkLiteral "0px";
+        border = mkLiteral "0px solid";
+        border-color = mkLiteral "@border";
+        border-radius = mkLiteral "0px";
         background-color = mkLiteral "@background";
         text-color = mkLiteral "@foreground";
       };
