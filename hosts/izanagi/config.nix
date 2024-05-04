@@ -2,9 +2,7 @@
   pkgs,
   inputs,
   ...
-}: let
-  fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
-in {
+}: {
   imports = [
     ./hardware.nix
     ./packages.nix
@@ -70,11 +68,6 @@ in {
   time.timeZone = "Asia/Kolkata";
   i18n = {
     defaultLocale = "en_US.UTF-8";
-    inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-gtk fcitx5-fluent];
-      fcitx5.waylandFrontend = true;
-    };
     extraLocaleSettings = {
       LC_ADDRESS = "en_IN";
       LC_IDENTIFICATION = "en_IN";

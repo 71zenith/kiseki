@@ -82,7 +82,6 @@
         spacing = mkLiteral "10px";
         padding = mkLiteral "60px 40px";
         background-color = mkLiteral "transparent";
-        background-image = mkLiteral "url('~/nix/resources/wallpapers/blue-blossom.jpg',width)";
         text-color = mkLiteral "@foreground";
         orientation = mkLiteral "horizontal";
         children = mkLiteral "[textbox-prompt-colon, entry, dummy, mode-switcher]";

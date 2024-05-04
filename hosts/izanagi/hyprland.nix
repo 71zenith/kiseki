@@ -15,8 +15,6 @@
         "_JAVA_AWT_WM_NONREPARENTING,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_QPA_PLATFORM,wayland;xcb"
-        "QT_QPA_PLATFORMTHEME,qt5ct"
         "DISABLE_QT5_COMPAT,0"
         "SDL_VIDEODRIVER,wayland"
         "GDK_BACKEND,wayland"

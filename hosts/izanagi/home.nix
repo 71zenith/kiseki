@@ -47,7 +47,12 @@ in {
   nixpkgs.config = import ./nixpkgs.nix;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
-  qt = {enable = true;};
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "breeze";
+  };
+
   gtk = {
     enable = true;
     iconTheme = {
