@@ -77,8 +77,7 @@ assert lib.assertOneOf "withAudioBackend" withAudioBackend ["" "alsa" "pulseaudi
     buildNoDefaultFeatures = true;
 
     buildFeatures =
-      []
-      ++ lib.optionals (withAudioBackend != "") ["${withAudioBackend}-backend"]
+      lib.optionals (withAudioBackend != "") ["${withAudioBackend}-backend"]
       ++ lib.optionals withMediaControl ["media-control"]
       ++ lib.optionals withImage ["image"]
       ++ lib.optionals withLyrics ["lyric-finder"]

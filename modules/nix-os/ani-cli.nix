@@ -35,8 +35,7 @@ assert withMpv || withVlc || withIina;
     nativeBuildInputs = [makeWrapper];
     runtimeDependencies = let
       player =
-        []
-        ++ lib.optional withMpv mpv
+        lib.optional withMpv mpv
         ++ lib.optional withVlc vlc
         ++ lib.optional withIina iina;
     in
