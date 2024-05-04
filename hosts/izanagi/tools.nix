@@ -148,6 +148,8 @@ in {
     defaultTimeout = 5000;
     maxIconSize = 128;
     borderSize = 3;
+    borderRadius = 10;
+    padding = "10";
     width = 330;
     height = 200;
   };
