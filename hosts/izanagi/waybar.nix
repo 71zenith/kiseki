@@ -88,8 +88,7 @@
     };
     style = ''
       * {
-        font-family: Iosevka Term Medium;
-        font-size: 18px;
+        font-size: 18.5px;
         border: none;
         border-radius: 0;
         min-height: 0;
