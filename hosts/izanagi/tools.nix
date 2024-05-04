@@ -60,7 +60,7 @@ in {
       settings = {
         srgb = true;
         font = {
-          normal = ["Iosevka Term Medium"];
+          normal = ["${config.stylix.fonts.monospace.name}"];
           size = 21;
         };
       };
@@ -83,7 +83,7 @@ in {
         selection-clipboard = "clipboard";
         recolor = "true";
         recolor-keephue = "true";
-        font = "Google Sans 14";
+        font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.popups}";
         completion-bg = "#${palette.base02}";
         completion-fg = "#${palette.base0C}";
         completion-highlight-bg = "#${palette.base0C}";
