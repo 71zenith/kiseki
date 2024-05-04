@@ -39,7 +39,7 @@
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        font = "Iosevka Term Medium 14";
+        font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.applications}";
         background = mkLiteral "#${palette.base00}";
         border = mkLiteral "#${palette.base01}";
         background-alt = mkLiteral "#${palette.base01}";
@@ -59,7 +59,7 @@
         y-offset = mkLiteral "0px";
         enabled = mkLiteral "true";
         border-radius = mkLiteral "10px";
-        border = mkLiteral "0px solid";
+        border = mkLiteral "2px solid";
         border-color = mkLiteral "@border";
         cursor = "default";
         background-color = mkLiteral "@background";
@@ -189,7 +189,7 @@
       };
       "element selected.active" = {
         background-color = mkLiteral "@urgent";
-        text-color = mkLiteral "@active";
+        text-color = mkLiteral "@background-alt";
       };
       "element-icon" = {
         background-color = mkLiteral "transparent";
