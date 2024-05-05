@@ -115,7 +115,6 @@
       #workspaces,
       #network.disconnected {
         color: @base05;
-        border-radius: 6px;
         padding: 2px 10px;
         background-color: @base00;
         border-radius: 8px;
