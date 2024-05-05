@@ -1,10 +1,9 @@
 {
   pkgs,
-  inputs,
   config,
   ...
 }: let
-  inherit (config.colorScheme) palette;
+  inherit (config.stylix.base16Scheme) palette;
 in {
   imports = [
     ./tools.nix
@@ -17,7 +16,6 @@ in {
     ./xdg.nix
     ./spotify-player.nix
     ./hyprland.nix
-    inputs.nix-colors.homeManagerModules.default
   ];
 
   programs.home-manager.enable = true;
@@ -28,8 +26,6 @@ in {
       uris = ["qemu:///system"];
     };
   };
-
-  colorScheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
 
   home = {
     username = "zen";
