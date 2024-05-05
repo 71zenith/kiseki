@@ -91,7 +91,7 @@
           "windowsOut, 1, 3, smoothIn"
           "windowsMove, 1, 3, default"
           "workspaces, 1, 2, default"
-          "layers, 1, 3, pace, slide"
+          "layers, 1, 2, pace, slide"
           "specialWorkspace, 1, 3, pace, slidevert"
         ];
       };
@@ -122,7 +122,7 @@
           "$mod1, e, exec, emacsclient --create-frame"
           "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
           "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
-          "$mod4, v, exec, cliphist list | rofi -dmenu -i | cliphist decode | wl-copy"
+          "$mod1, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"

@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: let
+{config, ...}: let
   inherit (config.colorScheme) palette;
 in {
   programs.spotify-player = {
@@ -77,7 +73,7 @@ in {
         name = "oxocarbon";
         palette = {
           black = "#${palette.base00}";
-          foreground = "#${palette.base08}";
+          foreground = "#${palette.base03}";
           bright_black = "#${palette.base01}";
           yellow = "#${palette.base02}";
           green = "#${palette.base03}";
@@ -91,29 +87,29 @@ in {
           bright_blue = "#${palette.base0B}";
           red = "#${palette.base0C}";
           bright_green = "#${palette.base0D}";
-          magenta = "#${palette.base0E}";
+          magenta = "#${palette.base07}";
           bright_magenta = "#${palette.base0F}";
         };
         component_style = {
           block_title = {
-            fg = "Magenta";
+            fg = "BrightGreen";
             modifiers = ["Italic" "Bold"];
           };
           playback_track = {
             fg = "BrightMagenta";
-            modifiers = ["Bold" "Italic"];
+            modifiers = ["Italic"];
           };
           playback_album = {
             fg = "BrightRed";
-            modifiers = ["Bold" "Italic"];
+            modifiers = ["Italic"];
           };
           playback_artists = {
             fg = "BrightCyan";
-            modifiers = ["Bold"];
+            modifiers = [];
           };
           playback_metadata = {
             fg = "BrightBlue";
-            modifiers = ["Bold"];
+            modifiers = [];
           };
           playback_progress_bar = {
             fg = "BrightGreen";
@@ -129,7 +125,7 @@ in {
           };
           table_header = {
             fg = "Blue";
-            modifiers = ["Italic"];
+            modifiers = ["Bold"];
           };
           border = {fg = "BrightYellow";};
           selection = {
