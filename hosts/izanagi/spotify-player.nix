@@ -1,5 +1,5 @@
 {config, ...}: let
-  inherit (config.colorScheme) palette;
+  inherit (config.stylix.base16Scheme) palette;
 in {
   programs.spotify-player = {
     enable = true;

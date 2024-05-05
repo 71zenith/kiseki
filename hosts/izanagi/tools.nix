@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  inherit (config.colorScheme) palette;
+  inherit (config.stylix.base16Scheme) palette;
   fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
   imports = [../../modules/home-manager/neovide.nix];

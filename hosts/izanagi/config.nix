@@ -132,6 +132,7 @@
   sound.enable = true;
 
   home-manager = {
+    backupFileExtension = "backup";
     extraSpecialArgs = {inherit inputs;};
     users = {"zen" = import ./home.nix;};
   };

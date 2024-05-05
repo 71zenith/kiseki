@@ -35,7 +35,7 @@
       window-format = "{w} · {c} · {t}";
     };
     theme = let
-      inherit (config.colorScheme) palette;
+      inherit (config.stylix.base16Scheme) palette;
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
