@@ -4,18 +4,22 @@
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
-  fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
+  # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
   imports = [../../modules/home-manager/neovide.nix];
+
   stylix.targets = {
     zathura.enable = false;
     zellij.enable = false;
     vim.enable = false;
   };
-  i18n.inputMethod = {
-    enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-gtk fcitx5-fluent];
-  };
+
+  # TODO: downgrade the package below 5.1.9
+  # i18n.inputMethod = {
+  #   enabled = "fcitx5";
+  #   fcitx5.addons = with pkgs; [fcitx5-mozc fcitx5-gtk fcitx5-fluent];
+  # };
+
   programs = {
     btop = {
       enable = true;
@@ -54,7 +58,6 @@ in {
       };
     };
 
-    helix.enable = true;
     neovide = {
       enable = true;
       settings = {
@@ -127,7 +130,7 @@ in {
         };
         cursor = {
           style = "beam";
-          color = "282a36 f8f8f2";
+          color = "${palette.base0E} ${palette.base06}";
         };
       };
     };

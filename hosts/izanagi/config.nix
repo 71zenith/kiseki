@@ -2,12 +2,13 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+  myUserName = "zen";
+in {
   imports = [
     ./hardware.nix
     ./packages.nix
     ./stylix.nix
-    inputs.home-manager.nixosModules.default
   ];
 
   nix = {
@@ -39,16 +40,16 @@
       settings = rec {
         initial_session = {
           command = "${pkgs.hyprland}/bin/Hyprland";
-          user = "zen";
+          user = "${myUserName}";
         };
         default_session = initial_session;
       };
     };
 
-    # calibre drive detection
+    # NOTE: calibre drive detection
     udisks2.enable = true;
 
-    # nautilus trash support
+    # NOTE: nautilus trash support
     gvfs.enable = true;
 
     xserver.xkb = {
@@ -76,7 +77,7 @@
 
   security.sudo.extraRules = [
     {
-      users = ["zen"];
+      users = ["${myUserName}"];
       commands = [
         {
           command = "ALL";
@@ -117,12 +118,12 @@
     };
 
     nh.enable = true;
-    nh.flake = "/home/zen/nix";
+    nh.flake = "/home/${myUserName}/nix";
 
     nix-ld.enable = true;
   };
 
-  users.users.zen = {
+  users.users.${myUserName} = {
     isNormalUser = true;
     description = "Mori Zen";
     shell = pkgs.zsh;
@@ -133,8 +134,11 @@
 
   home-manager = {
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit inputs;};
-    users = {"zen" = import ./home.nix;};
+    extraSpecialArgs = {
+      inherit inputs;
+      inherit myUserName;
+    };
+    users = {"${myUserName}" = import ./home.nix;};
   };
 
   hardware = {
@@ -171,8 +175,10 @@
   };
 
   #hardware.opentabletdriver.enable = true;
-  #virtualisation.libvirtd.enable = true;
-  #programs.virt-manager.enable = true;
+
+  # NOTE: QEMU Setup
+  # virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
 
   system.stateVersion = "24.05";
 }

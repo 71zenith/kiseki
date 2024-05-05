@@ -8,9 +8,17 @@
     enable = true;
     cycle = true;
     package = pkgs.rofi-wayland;
-    plugins = with pkgs; [rofi-emoji rofi-calc];
+    plugins = with pkgs; [
+      # HACK: temporary fix until ABI update
+      (rofi-emoji.override {
+        rofi-unwrapped = rofi-wayland-unwrapped;
+      })
+      (rofi-calc.override {
+        rofi-unwrapped = rofi-wayland-unwrapped;
+      })
+    ];
     extraConfig = {
-      modi = "drun,window,run";
+      modi = "drun,window,calc,emoji,run";
       sidebar-mode = true;
       terminal = "footclient";
       show-icons = true;
