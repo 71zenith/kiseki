@@ -3,14 +3,12 @@
 <p align="center">
     <a href="https://nixos.org/">
         <img src="https://img.shields.io/badge/NixOS-24.05-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
-    <a href="https://github.com/nix-community/home-manager">
-        <img src="https://img.shields.io/static/v1?label=Home%20Manager&message=:3&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=33b1ff"></a>
-    <a href="https://nixos.wiki/wiki/Flakes">
-        <img src="https://img.shields.io/static/v1?label=Nix Flakes&message=so good&style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=08bdba"></a>
+    <img src="https://img.shields.io/github/last-commit/71zenith/nix-dots?style=for-the-badge&labelColor=dde1e6&color=161616"/>
+    <img src="https://img.shields.io/github/repo-size/71zenith/nix-dots?style=for-the-badge&labelColor=dde1e6&color=161616"/>
   </a>
 </p>
 
-This contains the nix flakes to build an identical copy of my system.
+This repo contains the nix flakes to build an identical copy of my system.
 
 
 ![](./resources/screenshot6.png)
@@ -36,12 +34,13 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 - [neovide](https://github.com/neovide/neovide) - neovim gui
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
+- [nautilus](https://gitlab.gnome.org/GNOME/nautilus) - gui file manager
 - [yazi](https://github.com/sxyazi/yazi) - tui file manager
-- [zellij](https://github.com/zellij-org/zellij/) - terminal session manager
-- [btop](https://github.com/aristocratos/btop) - resources monitor
-- [zathura](https://pwmt.org/projects/zathura/) - pdf/epub viewer
+- [zellij](https://github.com/zellij-org/zellij) - terminal multiplexer/session manager
+- [btop](https://github.com/aristocratos/btop) - resource monitor
+- [zathura](https://pwmt.org/projects/zathura) - pdf/epub viewer
 - [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
-- [zsh](http://www.zsh.org/) - shell
+- [zsh](http://www.zsh.org) - shell
 - [direnv](https://github.com/nix-community/nix-direnv) - auto env switcher
 - [rofi](https://github.com/davatorium/rofi) - custom launcher
 - [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
