@@ -54,7 +54,7 @@
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default
         caches
-        ./hosts/izanagi/config.nix
+        ./hosts/izanagi/nixos/config.nix
       ];
     };
   };
