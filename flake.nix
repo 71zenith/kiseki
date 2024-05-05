@@ -44,10 +44,6 @@
         ];
       };
     };
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
   in {
     nixosConfigurations.izanagi = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};

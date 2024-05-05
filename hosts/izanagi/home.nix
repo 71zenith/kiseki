@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  myUserName,
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
@@ -18,8 +19,6 @@ in {
     ./hyprland.nix
   ];
 
-  programs.home-manager.enable = true;
-
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];
@@ -28,8 +27,8 @@ in {
   };
 
   home = {
-    username = "zen";
-    homeDirectory = "/home/zen";
+    username = "${myUserName}";
+    homeDirectory = "/home/${myUserName}";
     sessionVariables = {EDITOR = "nvim";};
 
     stateVersion = "24.05";
