@@ -12,6 +12,7 @@ in {
     steam-run
     ffmpeg
     libsixel
+    sops
     anime4k
     rsync
     xwayland
