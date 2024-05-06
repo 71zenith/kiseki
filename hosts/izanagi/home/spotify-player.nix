@@ -1,9 +1,11 @@
 {config, ...}: let
   inherit (config.stylix.base16Scheme) palette;
 in {
+  disabledModules = ["programs/spotify-player.nix"];
+  imports = [../../../modules/home-manager/spotify-player.nix];
   programs.spotify-player = {
     enable = true;
-    # package = pkgs.callPackage ../../modules/nix-os/spotify-player.nix {};
+    enableZshIntegration = true;
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";
       client_port = 8080;
