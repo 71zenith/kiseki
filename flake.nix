@@ -10,12 +10,16 @@
       inputs.home-manager.follows = "home-manager";
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
@@ -46,17 +50,15 @@
         ];
       };
     };
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-    };
   in {
     nixosConfigurations.izanagi = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default
+        inputs.sops-nix.nixosModules.sops
         caches
         ./hosts/izanagi/nixos/config.nix
       ];

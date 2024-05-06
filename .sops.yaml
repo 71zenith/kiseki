@@ -1,0 +1,7 @@
+keys:
+  - &zen age15s6yzdcqkknkele2lw77utgze3cul8vzt9jmtvquu26mckcutslsdpm6x4
+creation_rules:
+  - path_regex: secrets/[^/]+\.yaml$
+    key_groups:
+    - age:
+      - *zen

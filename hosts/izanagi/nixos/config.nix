@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   inputs,
   ...
 }: let
@@ -10,6 +11,29 @@ in {
     ./packages.nix
     ./stylix.nix
   ];
+
+  sops = {
+    defaultSopsFile = ../../../secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+    age.sshKeyPaths = ["/home/${myUserName}/.ssh/id_ed25519"];
+    secrets = {
+      root_pass.neededForUsers = true;
+      user_pass.neededForUsers = true;
+      # username = {};
+      # auth_data = {};
+      # auth_type = {};
+    };
+    # templates."credentials.json" = {
+    #   path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
+    #   owner = "${myUserName}";
+    #   content = ''
+    #     {
+    #       "username": "${config.sops.placeholder.username}",
+    #       "auth_type": "${config.sops.placeholder.auth_type}",
+    #     }
+    #   '';
+    # };
+  };
 
   nix = {
     settings.auto-optimise-store = true;
@@ -123,11 +147,17 @@ in {
     nix-ld.enable = true;
   };
 
-  users.users.${myUserName} = {
-    isNormalUser = true;
-    description = "Mori Zen";
-    shell = pkgs.zsh;
-    extraGroups = ["wheel" "libvirtd"];
+  users.users = {
+    root = {
+      hashedPasswordFile = config.sops.secrets.root_pass.path;
+    };
+    ${myUserName} = {
+      isNormalUser = true;
+      description = "Mori Zen";
+      shell = pkgs.zsh;
+      hashedPasswordFile = config.sops.secrets.user_pass.path;
+      extraGroups = ["wheel" "libvirtd"];
+    };
   };
 
   sound.enable = true;

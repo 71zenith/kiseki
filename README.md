@@ -24,6 +24,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 - [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
 - [nur](https://github.com/nix-community/NUR) - nix user repository
 - [nh](https://github.com/viperML/nh) - nix helper
+- [sops-nix](https://github.com/Mic92/sops-nix) - secrets manager
 - [nix-output-monitor](https://github.com/maralorn/nix-output-monitor) - better nix commands
 
 
