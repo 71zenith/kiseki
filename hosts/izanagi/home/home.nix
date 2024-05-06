@@ -9,7 +9,7 @@ in {
   imports = [
     ./tools.nix
     ./mpv.nix
-    ./shell.nix
+    ./zsh.nix
     ./waybar.nix
     ./nvim.nix
     ./git.nix
@@ -19,6 +19,7 @@ in {
     ./hyprland.nix
   ];
 
+  # NOTE: virt-manager fix
   dconf.settings = {
     "org/virt-manager/virt-manager/connections" = {
       autoconnect = ["qemu:///system"];

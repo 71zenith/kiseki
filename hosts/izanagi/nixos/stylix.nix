@@ -3,11 +3,11 @@
   inputs,
   ...
 }: let
-  fonts = pkgs.callPackage ../../modules/nix-os/fonts.nix {};
+  fonts = pkgs.callPackage ../../../modules/nix-os/fonts.nix {};
 in {
   stylix = {
     polarity = "dark";
-    image = ../../resources/wallpapers/oxocarbon.png;
+    image = ../../../resources/wallpapers/oxocarbon.png;
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
     fonts = {
       serif = {

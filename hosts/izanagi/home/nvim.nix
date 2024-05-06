@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: let
+  # HACK: manually defining till official package
   lualine-so-fancy = pkgs.vimUtils.buildVimPlugin {
     name = "lualine-so-fancy";
     src = pkgs.fetchFromGitHub {

@@ -6,7 +6,7 @@
   inherit (config.stylix.base16Scheme) palette;
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
-  imports = [../../modules/home-manager/neovide.nix];
+  imports = [../../../modules/home-manager/neovide.nix];
 
   stylix.targets = {
     zathura.enable = false;
@@ -130,7 +130,7 @@ in {
         };
         cursor = {
           style = "beam";
-          color = "${palette.base02} ${palette.base06}";
+          color = "${palette.base03} ${palette.base05}";
         };
       };
     };

@@ -138,7 +138,7 @@ in {
       inherit inputs;
       inherit myUserName;
     };
-    users = {"${myUserName}" = import ./home/home.nix;};
+    users = {"${myUserName}" = import ../home/home.nix;};
   };
 
   hardware = {
@@ -174,9 +174,10 @@ in {
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  #hardware.opentabletdriver.enable = true;
+  # NOTE: wacom fix
+  # hardware.opentabletdriver.enable = true;
 
-  # NOTE: QEMU Setup
+  # NOTE: virt-manager setup
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 
