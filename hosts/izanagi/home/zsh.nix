@@ -35,7 +35,6 @@
         bindkey '^?' backward-delete-char
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
-        eval "$(spotify_player generate zsh)"
       '';
       syntaxHighlighting.enable = true;
       historySubstringSearch.enable = true;
