@@ -54,6 +54,7 @@ in {
     python3
     zip
     imagemagick
+    snes9x-gtk
     unzip
     qemu
     openmw
