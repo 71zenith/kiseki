@@ -19,20 +19,22 @@ in {
     secrets = {
       root_pass.neededForUsers = true;
       user_pass.neededForUsers = true;
-      # username = {};
-      # auth_data = {};
-      # auth_type = {};
+      username = {};
+      auth_type = {};
+      auth_data = {};
     };
-    # templates."credentials.json" = {
-    #   path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
-    #   owner = "${myUserName}";
-    #   content = ''
-    #     {
-    #       "username": "${config.sops.placeholder.username}",
-    #       "auth_type": "${config.sops.placeholder.auth_type}",
-    #     }
-    #   '';
-    # };
+    # TODO: move to home-manager after #529 is merged
+    templates."credentials.json" = {
+      owner = "${myUserName}";
+      content = ''
+        {
+          "username": "${config.sops.placeholder.username}",
+          "auth_type": ${config.sops.placeholder.auth_type},
+          "auth_data": "${config.sops.placeholder.auth_data}"
+        }
+      '';
+      path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
+    };
   };
 
   nix = {
