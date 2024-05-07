@@ -46,8 +46,8 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style.name = "breeze";
+    platformTheme.name = "gtk";
+    style.name = "adwaita";
   };
 
   gtk = {

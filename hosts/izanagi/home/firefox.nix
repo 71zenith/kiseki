@@ -257,13 +257,17 @@ in {
             "Home Manager" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@hm"];
-              url = [
+              urls = [
                 {
-                  template = "https://mipmip.github.io/home-manager-option-search/";
+                  template = "https://home-manager-options.extranix.com";
                   params = [
                     {
                       name = "query";
                       value = "{searchTerms}";
+                    }
+                    {
+                      name = "release";
+                      value = "master";
                     }
                   ];
                 }
