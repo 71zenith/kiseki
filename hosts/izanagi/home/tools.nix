@@ -38,21 +38,25 @@ in {
         default_layout = "compact";
         copy_on_select = false;
         hide_session_name = true;
+        ui.pane_frames = {
+          rounded_corners = true;
+          hide_session_name = true;
+        };
         plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
         theme = "oxocarbon";
         themes = {
-          oxocarbon = {
-            fg = "#${palette.base08}";
-            bg = "#${palette.base01}";
-            green = "#${palette.base0D}";
-            orange = "#${palette.base0C}";
-            red = "#${palette.base0A}";
-            yellow = "#${palette.base07}";
-            blue = "#${palette.base0B}";
-            magenta = "#${palette.base09}";
-            cyan = "#${palette.base0F}";
-            white = "#${palette.base09}";
-            black = "#${palette.base01}";
+          oxocarbon = with palette; {
+            fg = "#${base08}";
+            bg = "#${base01}";
+            green = "#${base0D}";
+            orange = "#${base0C}";
+            red = "#${base0A}";
+            yellow = "#${base07}";
+            blue = "#${base0B}";
+            magenta = "#${base09}";
+            cyan = "#${base0F}";
+            white = "#${base09}";
+            black = "#${base01}";
           };
         };
       };
@@ -82,29 +86,29 @@ in {
 
     zathura = {
       enable = true;
-      options = {
+      options = with palette; {
         selection-clipboard = "clipboard";
         recolor = "true";
         recolor-keephue = "true";
         font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.popups}";
-        completion-bg = "#${palette.base02}";
-        completion-fg = "#${palette.base0C}";
-        completion-highlight-bg = "#${palette.base0C}";
-        completion-highlight-fg = "#${palette.base02}";
-        default-fg = "#${palette.base01}";
-        highlight-active-color = "#${palette.base0D}";
-        highlight-color = "#${palette.base0A}";
-        index-active-bg = "#${palette.base0D}";
-        inputbar-bg = "#${palette.base00}";
-        inputbar-fg = "#${palette.base04}";
-        notification-bg = "#${palette.base09}";
-        notification-error-bg = "#${palette.base08}";
-        notification-error-fg = "#${palette.base00}";
-        notification-fg = "#${palette.base00}";
-        notification-warning-bg = "#${palette.base08}";
-        notification-warning-fg = "#${palette.base00}";
-        recolor-darkcolor = "#${palette.base06}";
-        statusbar-bg = "#${palette.base01}";
+        completion-bg = "#${base02}";
+        completion-fg = "#${base0C}";
+        completion-highlight-bg = "#${base0C}";
+        completion-highlight-fg = "#${base02}";
+        default-fg = "#${base01}";
+        highlight-active-color = "#${base0D}";
+        highlight-color = "#${base0A}";
+        index-active-bg = "#${base0D}";
+        inputbar-bg = "#${base00}";
+        inputbar-fg = "#${base04}";
+        notification-bg = "#${base09}";
+        notification-error-bg = "#${base08}";
+        notification-error-fg = "#${base00}";
+        notification-fg = "#${base00}";
+        notification-warning-bg = "#${base08}";
+        notification-warning-fg = "#${base00}";
+        recolor-darkcolor = "#${base06}";
+        statusbar-bg = "#${base01}";
         default-bg = "rgba(0,0,0,0.7)";
         recolor-lightcolor = "rgba(256,256,256,0)";
       };
