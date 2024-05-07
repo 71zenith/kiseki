@@ -70,13 +70,13 @@
         swallow_regex = "^(footclient).*$";
       };
       decoration = {
-        rounding = 10;
+        rounding = 12;
         drop_shadow = false;
       };
       general = {
-        gaps_in = 5;
-        gaps_out = 10;
-        border_size = 3;
+        gaps_in = 4;
+        gaps_out = 4;
+        border_size = 2;
       };
       animations = {
         enabled = true;
