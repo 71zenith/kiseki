@@ -93,8 +93,8 @@
         animation = [
           "fade, 1, 3, smoothIn"
           "windows, 1, 3, overshot"
-          "windowsOut, 1, 3, smoothIn"
-          "windowsMove, 1, 3, default"
+          "windowsOut, 1, 3, smoothOut"
+          "windowsMove, 1, 3, pace, slide"
           "workspaces, 1, 2, default"
           "layers, 1, 2, pace, slide"
           "specialWorkspace, 1, 3, pace, slidevert"
