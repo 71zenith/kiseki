@@ -58,12 +58,12 @@ in {
     };
   };
 
-  xresources.properties = {
-    "bar.background" = "#${palette.base02}";
-    "bar.foreground" = "#${palette.base0B}";
+  xresources.properties = with palette; {
+    "bar.background" = "#${base02}";
+    "bar.foreground" = "#${base0B}";
     "bar.font" = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.desktop}";
-    "window.foreground" = "#${palette.base04}";
-    "window.background" = "#${palette.base02}";
-    "mark.background" = "#${palette.base0A}";
+    "window.foreground" = "#${base04}";
+    "window.background" = "#${base02}";
+    "mark.background" = "#${base0A}";
   };
 }

@@ -32,8 +32,8 @@
         add-zsh-hook -Uz chpwd chpwd-osc7-pwd
         zstyle ':completion:*' menu select
         bindkey '^[[Z' reverse-menu-complete
-        bindkey '^?' backward-delete-char
-        bindkey '^H' backward-kill-word
+        bindkey "^?" autopair-delete
+        bindkey '^H' backward-delete-word
         setopt complete_in_word interactivecomments
         zstyle ':completion:*' verbose yes
         zstyle ':completion:*:*:default' force-list always

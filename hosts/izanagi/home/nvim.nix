@@ -352,7 +352,7 @@ in {
           lspInterop = {
             enable = true;
             peekDefinitionCode = {
-              "<leader>ld" = {
+              "gd" = {
                 query = "@function.outer";
                 desc = "Hover [d]efinition";
               };
@@ -418,17 +418,6 @@ in {
                 query = "@call.inner";
                 desc = "Select inner part of a method";
               };
-            };
-          };
-          swap = {
-            enable = true;
-            swapNext = {
-              "<leader>af" = "@function.outer";
-              "<leader>ap" = "@parameter.inner";
-            };
-            swapPrevious = {
-              "<leader>bf" = "@function.outer";
-              "<leader>bp" = "@parameter.inner";
             };
           };
           move = {
@@ -601,12 +590,6 @@ in {
           options.desc = "[O]pen Telescope";
         }
         {
-          key = "<leader>lw";
-          mode = "n";
-          action = "<CMD>Telescope lsp_workspace_symbols<CR>";
-          options.desc = "[W]orkspace symbols";
-        }
-        {
           key = "<leader>ls";
           mode = "n";
           action = "<CMD>Telescope lsp_document_symbols<CR>";
@@ -631,25 +614,13 @@ in {
           options.desc = "Dia[g]nostics loclist";
         }
         {
-          key = "<leader>lt";
-          mode = "n";
-          action = "<CMD>Telescope lsp_type_definitions<CR>";
-          options.desc = "Show [t]ype definitions";
-        }
-        {
-          key = "<leader>lh";
-          mode = "n";
-          action = "<CMD>lua vim.lsp.buf.signature_help()<CR>";
-          options.desc = "Show signature [h]elp";
-        }
-        {
           key = "K";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.hover()<CR>";
           options.desc = "Show hover docs";
         }
         {
-          key = "<leader>lD";
+          key = "<leader>ld";
           mode = "n";
           action = "<CMD>lua vim.diagnostic.open_float()<CR>";
           options.desc = "Hover [d]iagnostics";

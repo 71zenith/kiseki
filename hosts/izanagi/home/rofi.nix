@@ -47,16 +47,16 @@
       inherit (config.stylix.base16Scheme) palette;
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
-      "*" = {
+      "*" = with palette; {
         font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.applications}";
-        background = mkLiteral "#${palette.base00}";
-        border = mkLiteral "#${palette.base01}";
-        background-alt = mkLiteral "#${palette.base01}";
-        foreground = mkLiteral "#${palette.base06}";
-        foreground-alt = mkLiteral "#${palette.base02}";
-        selected = mkLiteral "#${palette.base0C}";
-        active = mkLiteral "#${palette.base0B}";
-        urgent = mkLiteral "#${palette.base0D}";
+        background = mkLiteral "#${base00}";
+        border = mkLiteral "#${base01}";
+        background-alt = mkLiteral "#${base01}";
+        foreground = mkLiteral "#${base06}";
+        foreground-alt = mkLiteral "#${base02}";
+        selected = mkLiteral "#${base0C}";
+        active = mkLiteral "#${base0B}";
+        urgent = mkLiteral "#${base0D}";
       };
       "window" = {
         transparency = "real";
