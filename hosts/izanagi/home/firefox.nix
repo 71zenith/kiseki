@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   myUserName,
   ...
 }: let
@@ -11,6 +12,9 @@
     hash = "sha256-eHocB5vC6Zjz7vsvGOTGazuaUybqigODEIJV9K/h134=";
   };
 in {
+  imports = [
+    inputs.nur.nixosModules.nur
+  ];
   programs.firefox = {
     enable = true;
 
@@ -19,7 +23,7 @@ in {
         id = 0;
         isDefault = true;
         name = "${myUserName}";
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions = with config.nur.repos.rycee.firefox-addons; [
           refined-github
           sponsorblock
           to-google-translate
@@ -30,7 +34,7 @@ in {
           search-by-image
           vimium
           ublock-origin
-          inputs.firefox-addons.packages.${pkgs.system}."10ten-ja-reader"
+          config.nur.repos.rycee.firefox-addons."10ten-ja-reader"
         ];
         settings = {
           "intl.accept_languages" = "en-US,en";
