@@ -57,7 +57,7 @@ in {
     snes9x-gtk
     unzip
     qemu
-    openmw
+    # openmw  NOTE: morrowind
     zsh-powerlevel10k
     config.nur.repos.mic92.hello-nur
     grimblast
