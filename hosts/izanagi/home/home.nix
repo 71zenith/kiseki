@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  inputs,
   myUserName,
   ...
 }: let
@@ -16,6 +15,7 @@ in {
     ./git.nix
     ./rofi.nix
     ./xdg.nix
+    ./firefox.nix
     ./spotify-player.nix
     ./hyprland.nix
   ];
