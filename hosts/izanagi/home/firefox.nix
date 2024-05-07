@@ -1,5 +1,7 @@
 {
   pkgs,
+  inputs,
+  config,
   myUserName,
   ...
 }: let
@@ -18,10 +20,24 @@ in {
         id = 0;
         isDefault = true;
         name = "${myUserName}";
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+          refined-github
+          sponsorblock
+          to-google-translate
+          foxyproxy-standard
+          i-dont-care-about-cookies
+          localcdn
+          privacy-badger
+          search-by-image
+          vimium
+          ublock-origin
+          inputs.firefox-addons.packages.${pkgs.system}."10ten-ja-reader"
+        ];
         settings = {
           "intl.accept_languages" = "en-US,en";
           "browser.startup.page" = 3;
           "browser.aboutConfig.showWarning" = false;
+          "browser.display.use_document_fonts" = 0;
           "browser.ctrlTab.sortByRecentlyUsed" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
           "browser.download.useDownloadDir" = false;
