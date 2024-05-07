@@ -182,7 +182,7 @@
       };
       "element normal.urgent" = {
         background-color = mkLiteral "@urgent";
-        text-color = mkLiteral "@foreground";
+        text-color = mkLiteral "@active";
       };
       "element normal.active" = {
         background-color = mkLiteral "@background";
