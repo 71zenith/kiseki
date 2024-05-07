@@ -130,7 +130,7 @@ in {
         };
         cursor = {
           style = "beam";
-          color = "${palette.base03} ${palette.base05}";
+          color = "${palette.base01} ${palette.base05}";
         };
       };
     };
