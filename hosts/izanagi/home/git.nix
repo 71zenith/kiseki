@@ -39,6 +39,13 @@
       background = "dark";
       display = "inline";
     };
+    ignores = [
+      "*~"
+      "*.swp"
+      "*result*"
+      ".direnv"
+      "tmp"
+    ];
     extraConfig = {
       core = {
         whitespace = "trailing-space,space-before-tab";
