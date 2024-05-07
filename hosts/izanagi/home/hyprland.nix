@@ -37,7 +37,6 @@
       windowrule = [
         "tile, class:neovide"
         "maximize, neovide"
-        "workspace special silent,title:^(*otify*)$"
         "float, file_progress"
         "float, confirm"
         "float, dialog"
@@ -50,9 +49,13 @@
         "float, title:Open File"
         "float, title:branchdialog"
       ];
+      layerrule = [
+        "noanim, selection"
+      ];
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
+        "tile, class:Nsxiv,xwayland:1"
       ];
       input = {
         kb_options = "caps:escape";
@@ -128,6 +131,7 @@
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"
+          "$mod2, t, fullscreen,1"
           "$mod2, q, exit,"
           "$mod2, s, togglefloating,"
 
