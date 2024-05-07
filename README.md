@@ -54,17 +54,17 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 
 
 ## Rusty Tools Used
-- [eza](https://github.com/eza-community/eza)
-- [duf](https://github.com/muesli/duf)
-- [zoxide](https://github.com/ajeetdsouza/zoxide)
-- [dust](https://github.com/bootandy/dust)
-- [fd](https://github.com/sharkdp/fd)
-- [rg](https://github.com/BurstSushi/ripgrep)
+- [eza](https://github.com/eza-community/eza) - ls alter
+- [duf](https://github.com/muesli/duf) - df alter
+- [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd
+- [dust](https://github.com/bootandy/dust) - du alter
+- [fd](https://github.com/sharkdp/fd) - find alter
+- [rg](https://github.com/BurstSushi/ripgrep) - grep alter
 
 
 ## Standardised Config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - theme
-- [iosevka](https://github.com/be5invis/Iosevka) - monospace font
+- [iosevka-comfy](https://github.com/be5invis/Iosevka) - monospace font
 - [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
