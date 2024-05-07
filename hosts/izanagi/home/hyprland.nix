@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -23,13 +23,14 @@
       "$mod2" = "ALTSHIFT";
       "$mod3" = "ALTCONTROL";
       "$mod4" = "SUPER";
+      "$setwall" = "swww img $(fd . ${inputs.self}/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
         "foot --server &"
         "swww-daemon --format xrgb"
         "blueman-applet &"
         "wl-paste --type text --watch cliphist store &"
-        "swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 1"
+        "$setwall &"
         "pkill waybar; waybar &"
       ];
       windowrule = [
@@ -121,8 +122,8 @@
           "$mod2, v, exec, neovide"
           "$mod1, e, exec, emacsclient --create-frame"
           "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
-          "$mod2, i, exec, swww img $(fd . ~/nix/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2"
-          "$mod1, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
+          "$mod2, i, exec, $setwall"
+          "$mod4, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"
@@ -140,7 +141,6 @@
 
           "$mod3, return, movetoworkspace, special"
           "$mod2, return, togglespecialworkspace,"
-          "$mod4, return, togglespecialworkspace, pop"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
             ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
