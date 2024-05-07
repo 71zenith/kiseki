@@ -36,6 +36,7 @@
       kb-mode-complete = "";
       display-drun = "";
       display-run = "";
+      display-emoji = "󰞅";
       display-calc = "󰃬";
       display-window = "";
       display-filebrowser = "";
@@ -81,7 +82,7 @@
         border-radius = mkLiteral "0px 0px 0px 0px";
         border-color = mkLiteral "@border";
         background-color = mkLiteral "transparent";
-        children = mkLiteral "[inputbar,listview]";
+        children = mkLiteral "[inputbar,message,listview]";
       };
       "inputbar" = {
         enabled = true;
