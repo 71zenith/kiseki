@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  config,
   myUserName,
   ...
 }: let
@@ -133,6 +132,11 @@ in {
                 url = "https://search.nixos.org/packages?channel=unstable";
               }
               {
+                name = "Noogle";
+                keyword = "ng";
+                url = "https://noogle.dev/";
+              }
+              {
                 name = "Nix Options";
                 keyword = "no";
                 url = "https://search.nixos.org/options?channel=unstable";
@@ -250,10 +254,20 @@ in {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@np"];
             };
-            "Home-Manager" = {
+            "Home Manager" = {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              urls = [{template = "https://rycee.gitlab.io/home-manager/options.html";}];
               definedAliases = ["@hm"];
+              url = [
+                {
+                  template = "https://mipmip.github.io/home-manager-option-search/";
+                  params = [
+                    {
+                      name = "query";
+                      value = "{searchTerms}";
+                    }
+                  ];
+                }
+              ];
             };
             "NixOS Options" = {
               urls = [
