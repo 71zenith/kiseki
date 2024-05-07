@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   myUserName,
   ...
 }: let

@@ -2,7 +2,10 @@
   inherit (config.stylix.base16Scheme) palette;
 in {
   disabledModules = ["programs/spotify-player.nix"];
-  imports = [../../../modules/home-manager/spotify-player.nix];
+  imports = [
+    ../../../modules/home-manager/spotify-player.nix
+  ];
+
   programs.spotify-player = {
     enable = true;
     enableZshIntegration = true;
