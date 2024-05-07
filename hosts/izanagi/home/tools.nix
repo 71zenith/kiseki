@@ -39,7 +39,6 @@ in {
         copy_on_select = false;
         hide_session_name = true;
         ui.pane_frames = {
-          rounded_corners = true;
           hide_session_name = true;
         };
         plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
@@ -57,6 +56,28 @@ in {
             cyan = "#${base0F}";
             white = "#${base09}";
             black = "#${base01}";
+          };
+        };
+        keybinds = {
+          unbind = [
+            "Ctrl o"
+            "Ctrl t"
+          ];
+          pane = {
+            "bind \"p\"" = {
+              SwitchFocus = [];
+              SwitchToMode = ["Normal"];
+            };
+          };
+          "shared_except \"session\" \"locked\"" = {
+            "bind \"Ctrl q\"" = {
+              SwitchToMode = ["Session"];
+            };
+          };
+          "shared_except \"tab\" \"locked\"" = {
+            "bind \"Ctrl w\"" = {
+              SwitchToMode = ["Tab"];
+            };
           };
         };
       };
