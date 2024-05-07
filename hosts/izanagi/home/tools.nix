@@ -119,7 +119,7 @@ in {
     foot = {
       enable = true;
       settings = {
-        main = {pad = "10x10";};
+        main = {pad = "7x7";};
         mouse = {hide-when-typing = "no";};
         key-bindings = {
           scrollback-up-page = "Control+u";

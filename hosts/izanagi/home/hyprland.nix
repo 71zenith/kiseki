@@ -16,6 +16,7 @@
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "QT_QPA_PLATFORM,wayland;xcb"
         "DISABLE_QT5_COMPAT,0"
+        "CALIBRE_USE_DARK_PALETTE,1"
         "SDL_VIDEODRIVER,wayland"
         "GDK_BACKEND,wayland"
       ];
