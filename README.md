@@ -29,7 +29,8 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 
 
 ## Programs Used
-- [Hyprland](https://github.com/hyprwm/Hyprland) - compositor
+- [hyprland](https://github.com/hyprwm/Hyprland) - compositor
+- [firefox](https://www.mozilla.org/en-US/firefox/) - web browser
 - [emacs](https://www.gnu.org/emacs) - secondary main text editor
 - [neovim](https://github.com/neovim/neovim) - primary main text editor
 - [neovide](https://github.com/neovide/neovide) - neovim gui
