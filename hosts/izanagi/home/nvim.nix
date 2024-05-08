@@ -13,6 +13,15 @@
       hash = "sha256-JMz3Dv3poGoYQU+iq/jtgyHECZLx+6mLCvqUex/a0SY=";
     };
   };
+  buffer-manager = pkgs.vimUtils.buildVimPlugin {
+    name = "buffer-manager";
+    src = pkgs.fetchFromGitHub {
+      owner = "j-morano";
+      repo = "buffer_manager.nvim";
+      rev = "fd36131b2b3e0f03fd6353ae2ffc88cf920b3bbb";
+      hash = "sha256-abe9ZGmL7U9rC+LxC3LO5/bOn8lHke1FCKO0V3TZGs0=";
+    };
+  };
 in {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
   programs = {
@@ -115,7 +124,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [dressing-nvim lualine-so-fancy];
+      extraPlugins = with pkgs.vimPlugins; [dressing-nvim lualine-so-fancy buffer-manager];
       plugins = {
         nix.enable = true;
         hop.enable = true;
@@ -127,11 +136,6 @@ in {
         nvim-bqf.enable = true;
         comment.enable = true;
         todo-comments.enable = true;
-        project-nvim = {
-          enable = true;
-          enableTelescope = true;
-          showHidden = true;
-        };
         barbecue = {
           enable = true;
           leadCustomSection = ''
@@ -650,6 +654,12 @@ in {
           options.desc = "List r[e]ferences";
         }
         {
+          key = "<leader>b";
+          mode = "n";
+          action = "<CMD>lua require('buffer_manager.ui').toggle_quick_menu()<CR>";
+          options.desc = "Popup buffers";
+        }
+        {
           key = "<C-k>";
           mode = "n";
           action = "<cmd>m .-2<cr>==";
@@ -779,18 +789,6 @@ in {
           mode = "n";
           action = "<CMD>Telescope colorscheme<CR>";
           options.desc = "Change colorscheme";
-        }
-        {
-          key = "<leader>pf";
-          mode = "n";
-          action = "<CMD>Telescope git_files<CR>";
-          options.desc = "Find [f]ile in project";
-        }
-        {
-          key = "<leader>pp";
-          mode = "n";
-          action = "<CMD>Telescope projects<CR>";
-          options.desc = "Find [p]rojects";
         }
         {
           key = "<leader>fp";
