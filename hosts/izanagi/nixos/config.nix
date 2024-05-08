@@ -60,6 +60,11 @@ in {
     kernelPackages = pkgs.linuxPackages_xanmod;
   };
 
+  documentation = {
+    enable = true;
+    dev.enable = true;
+  };
+
   services = {
     greetd = {
       enable = true;
