@@ -3,6 +3,6 @@ pkgs.mkShell {
   nativeBuildInputs = with pkgs; [lolcat];
   # NOTE: fancy welcome
   shellHook = ''
-    echo "initiating nix tooling..." | lolcat
+    echo "1337 h4x0ring..." | lolcat
   '';
 }
