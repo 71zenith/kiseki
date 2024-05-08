@@ -71,6 +71,11 @@ in {
               SwitchToMode = ["Normal"];
             };
           };
+          session = {
+            "bind \"Ctrl q\"" = {
+              SwitchToMode = ["Normal"];
+            };
+          };
           "shared_except \"session\" \"locked\"" = {
             "bind \"Ctrl q\"" = {
               SwitchToMode = ["Session"];
@@ -79,6 +84,16 @@ in {
           "shared_except \"tab\" \"locked\"" = {
             "bind \"Ctrl w\"" = {
               SwitchToMode = ["Tab"];
+            };
+          };
+          "shared_except \"locked\"" = {
+            "bind \"Alt j\"" = {
+              MoveFocusOrTab = ["Left"];
+            };
+          };
+          "shared_except \"locked\"" = {
+            "bind \"Alt k\"" = {
+              MoveFocusOrTab = ["Right"];
             };
           };
         };
@@ -177,7 +192,7 @@ in {
     enable = true;
     defaultTimeout = 5000;
     maxIconSize = 128;
-    borderSize = 2;
+    borderSize = 3;
     format = ''<span foreground="#${palette.base0B}"><b><i>%s</i></b></span>\n<span foreground="#${palette.base0C}">%b</span>'';
     borderRadius = 10;
     padding = "10";
