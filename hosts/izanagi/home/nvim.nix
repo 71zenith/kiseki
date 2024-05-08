@@ -23,7 +23,6 @@ in {
       extraConfigLuaPre = ''
         local luasnip = require("luasnip")
         local tele = require("telescope.actions")
-        vim.api.nvim_set_hl(0, 'Comment', { italic=true })
       '';
       extraConfigLuaPost = ''
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -124,11 +123,6 @@ in {
         nvim-autopairs = {
           enable = true;
           settings.check_ts = true;
-        };
-        barbar = {
-          enable = true;
-          autoHide = true;
-          focusOnClose = {__raw = "'previous'";};
         };
         nvim-bqf.enable = true;
         comment.enable = true;

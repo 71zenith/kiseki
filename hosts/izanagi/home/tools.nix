@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  inherit (config.stylix.base16Scheme) palette;
+  inherit (config.stylix.base16Scheme) palette slug;
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
   imports = [../../../modules/home-manager/neovide.nix];
@@ -26,6 +26,7 @@ in {
       settings = {
         theme_background = false;
         vim_keys = true;
+        rounded_corners = false;
       };
     };
 
@@ -38,17 +39,18 @@ in {
         default_layout = "compact";
         copy_on_select = false;
         hide_session_name = true;
+        session_serialization = false;
         ui.pane_frames = {
           hide_session_name = true;
         };
         plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
-        theme = "oxocarbon";
+        theme = "${slug}";
         themes = {
-          oxocarbon = with palette; {
+          ${slug} = with palette; {
             fg = "#${base08}";
             bg = "#${base01}";
             green = "#${base0D}";
-            orange = "#${base0C}";
+            orange = "#${base0A}";
             red = "#${base0A}";
             yellow = "#${base07}";
             blue = "#${base0B}";

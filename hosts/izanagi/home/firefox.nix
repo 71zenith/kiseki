@@ -32,7 +32,7 @@ in {
           localcdn
           privacy-badger
           search-by-image
-          vimium
+          vimium-c
           ublock-origin
           config.nur.repos.rycee.firefox-addons."10ten-ja-reader"
         ];

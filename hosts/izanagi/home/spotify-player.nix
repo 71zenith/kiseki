@@ -1,5 +1,5 @@
 {config, ...}: let
-  inherit (config.stylix.base16Scheme) palette;
+  inherit (config.stylix.base16Scheme) palette slug;
 in {
   disabledModules = ["programs/spotify-player.nix"];
   imports = [
@@ -18,7 +18,7 @@ in {
       pause_icon = " ";
       enable_media_control = true;
       default_device = "ur-mom";
-      theme = "oxocarbon";
+      theme = "${slug}";
       playback_window_position = "Bottom";
       liked_icon = " ";
       border_type = "Hidden";
@@ -75,7 +75,7 @@ in {
     ];
     themes = [
       {
-        name = "oxocarbon";
+        name = "${slug}";
         palette = with palette; {
           black = "#${base00}";
           foreground = "#${base03}";
