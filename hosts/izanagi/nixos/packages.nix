@@ -12,6 +12,7 @@ in {
     steam-run
     ffmpeg
     libsixel
+    nix-init
     sops
     anime4k
     rsync
