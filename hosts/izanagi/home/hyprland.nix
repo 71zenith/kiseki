@@ -74,13 +74,13 @@
         swallow_regex = "^(footclient).*$";
       };
       decoration = {
-        rounding = 12;
+        rounding = 10;
         drop_shadow = false;
       };
       general = {
         gaps_in = 4;
-        gaps_out = 4;
-        border_size = 2;
+        gaps_out = 10;
+        border_size = 3;
       };
       animations = {
         enabled = true;
@@ -128,6 +128,7 @@
           "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
           "$mod2, i, exec, $setwall"
           "$mod4, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
+          "$mod4, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"
