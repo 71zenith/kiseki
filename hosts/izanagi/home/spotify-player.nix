@@ -1,4 +1,9 @@
-{config, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
+  spotify-player = pkgs.callPackage ../../../modules/nix-os/spotify-player.nix {};
   inherit (config.stylix.base16Scheme) palette slug;
 in {
   disabledModules = ["programs/spotify-player.nix"];
@@ -8,6 +13,7 @@ in {
 
   programs.spotify-player = {
     enable = true;
+    package = spotify-player;
     enableZshIntegration = true;
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";
