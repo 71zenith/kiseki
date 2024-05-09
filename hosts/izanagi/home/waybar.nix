@@ -135,7 +135,7 @@
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.empty {
-        color: @base04;
+        color: @base03;
         box-shadow: inset 0 -3px transparent;
 
         padding-right: 7px;

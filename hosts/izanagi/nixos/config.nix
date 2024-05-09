@@ -70,7 +70,7 @@ in {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "${pkgs.hyprland}/bin/Hyprland";
+          command = "${inputs.hyprland.packages."${pkgs.system}".hyprland}/bin/Hyprland";
           user = "${myUserName}";
         };
         default_session = initial_session;
