@@ -1,4 +1,4 @@
-{
+{inputs, ...}: {
   stylix.targets.waybar = {
     enableLeftBackColors = false;
     enableRightBackColors = false;
@@ -8,7 +8,6 @@
     enable = true;
     settings = {
       mainBar = {
-        height = 15;
         layer = "top";
         modules-left = ["hyprland/workspaces"];
         modules-center = ["mpris"];
@@ -44,7 +43,6 @@
             "10" = [];
           };
         };
-        "hyprland/window" = {max-length = 200;};
         "tray" = {spacing = 10;};
         "clock#time" = {format = "{:%H:%M}";};
         "clock#date" = {
