@@ -90,8 +90,6 @@ in {
             "bind \"Alt j\"" = {
               MoveFocusOrTab = ["Left"];
             };
-          };
-          "shared_except \"locked\"" = {
             "bind \"Alt k\"" = {
               MoveFocusOrTab = ["Right"];
             };
