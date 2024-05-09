@@ -68,6 +68,4 @@ in {
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
 
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 }
