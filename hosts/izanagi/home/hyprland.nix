@@ -138,10 +138,10 @@
 
           "$mod1, l, cyclenext,"
           "$mod1, h, cyclenext,prev"
-          "$mod2, Tab, cyclenext,"
-          "$mod2, Tab, bringactivetotop,"
-          "$mod1, Tab, cyclenext,prev"
+          "$mod1, Tab, cyclenext,"
           "$mod1, Tab, bringactivetotop,"
+          "$mod2, Tab, bringactivetotop,"
+          "$mod2, Tab, cyclenext,prev"
           "$mod3, l, swapnext"
           "$mod3, h, swapnext,prev"
 

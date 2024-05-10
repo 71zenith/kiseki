@@ -1,4 +1,4 @@
-{inputs, ...}: {
+{
   stylix.targets.waybar = {
     enableLeftBackColors = false;
     enableRightBackColors = false;
