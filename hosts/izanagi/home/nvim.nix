@@ -127,7 +127,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with pkgs.vimPlugins; [dressing-nvim lualine-so-fancy buffer-manager];
+      extraPlugins = [lualine-so-fancy buffer-manager];
       plugins = {
         nix.enable = true;
         hop.enable = true;
@@ -147,6 +147,8 @@ in {
             end,
           '';
         };
+        dressing.enable = true;
+        neoscroll.enable = true;
         lsp = {
           enable = true;
           preConfig = ''
@@ -560,7 +562,10 @@ in {
         };
         telescope = {
           enable = true;
-          extensions.frecency.enable = true;
+          extensions = {
+            frecency.enable = true;
+            frecency.settings.db_validate_threshold = 50;
+          };
           settings = {
             defaults = {
               mappings = {
