@@ -44,6 +44,12 @@
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';
       syntaxHighlighting.enable = true;
+      # syntaxHighlighting.styles = {
+      #   double-hyphen-option = "fg=4,bold";
+      #   single-hyphen-option = "fg=4,bold";
+      #   alias = "fg=5,underline,bold";
+      #   default = "fg=6";
+      # };
       historySubstringSearch.enable = true;
       dotDir = ".config/zsh";
       history.path = "${config.xdg.dataHome}/zsh/zsh_history";
