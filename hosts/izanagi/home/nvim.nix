@@ -25,7 +25,7 @@
   };
 in {
   imports = [
-    ../../../modules/home-manager/neovide.nix
+    ../../../modules/hm/neovide.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
   programs = {

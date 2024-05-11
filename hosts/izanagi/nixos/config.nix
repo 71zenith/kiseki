@@ -2,6 +2,7 @@
   pkgs,
   config,
   inputs,
+  lib,
   ...
 }: let
   myUserName = "zen";
@@ -70,7 +71,7 @@ in {
       enable = true;
       settings = rec {
         initial_session = {
-          command = "${inputs.hyprland.packages."${pkgs.system}".hyprland}/bin/Hyprland";
+          command = "${lib.getExe config.programs.hyprland.package}";
           user = "${myUserName}";
         };
         default_session = initial_session;
@@ -134,12 +135,36 @@ in {
     };
   };
 
+  boot.kernel.sysctl = {
+    "kernel.sysrq" = 0;
+    "net.ipv4.icmp_ignore_bogus_error_responses" = 1;
+    "net.ipv4.conf.default.rp_filter" = 1;
+    "net.ipv4.conf.all.rp_filter" = 1;
+    "net.ipv4.conf.all.accept_source_route" = 0;
+    "net.ipv6.conf.all.accept_source_route" = 0;
+    "net.ipv4.conf.all.send_redirects" = 0;
+    "net.ipv4.conf.default.send_redirects" = 0;
+    "net.ipv4.conf.all.accept_redirects" = 0;
+    "net.ipv4.conf.default.accept_redirects" = 0;
+    "net.ipv4.conf.all.secure_redirects" = 0;
+    "net.ipv4.conf.default.secure_redirects" = 0;
+    "net.ipv6.conf.all.accept_redirects" = 0;
+    "net.ipv6.conf.default.accept_redirects" = 0;
+    "net.ipv4.tcp_syncookies" = 1;
+    "net.ipv4.tcp_rfc1337" = 1;
+    "net.ipv4.tcp_fastopen" = 3;
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.default_qdisc" = "cake";
+  };
+
   console = {
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-122n.psf.gz";
     packages = with pkgs; [terminus_font];
   };
 
+  # NOTE: for systemd completion
+  environment.pathsToLink = ["/share/zsh"];
   programs = {
     zsh.enable = true;
 
@@ -188,6 +213,11 @@ in {
       enable = true;
       driSupport = true;
       driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        libva
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
     };
 
     nvidia = {
@@ -203,12 +233,6 @@ in {
 
   nixpkgs.config = {
     allowUnfree = true;
-  };
-
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   # NOTE: wacom fix

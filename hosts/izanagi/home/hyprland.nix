@@ -129,6 +129,8 @@
           "$mod2, i, exec, $setwall"
           "$mod4, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
           "$mod4, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
+          "$mod4, p, exec, qbittorrent"
+          "$mod4, o, exec, wl-ocr"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"

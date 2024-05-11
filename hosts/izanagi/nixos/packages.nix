@@ -1,10 +1,10 @@
 {
   pkgs,
-  inputs,
   config,
+  inputs,
   ...
 }: let
-  ani-cli = pkgs.callPackage ../../../modules/nix-os/ani-cli.nix {};
+  ani-cli = pkgs.callPackage ../../../pkgs/ani-cli.nix {};
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
@@ -67,5 +67,5 @@ in {
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
-
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 }

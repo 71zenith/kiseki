@@ -3,12 +3,12 @@
   pkgs,
   ...
 }: let
-  spotify-player = pkgs.callPackage ../../../modules/nix-os/spotify-player.nix {};
+  spotify-player = pkgs.callPackage ../../../pkgs/spotify-player.nix {};
   inherit (config.stylix.base16Scheme) palette slug;
 in {
   disabledModules = ["programs/spotify-player.nix"];
   imports = [
-    ../../../modules/home-manager/spotify-player.nix
+    ../../../modules/hm/spotify-player.nix
   ];
 
   programs.spotify-player = {
