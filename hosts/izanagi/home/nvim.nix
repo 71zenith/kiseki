@@ -1,6 +1,7 @@
 {
   inputs,
   pkgs,
+  config,
   ...
 }: let
   # HACK: manually defining till official package
@@ -23,8 +24,21 @@
     };
   };
 in {
-  imports = [inputs.nixvim.homeManagerModules.nixvim];
+  imports = [
+    ../../../modules/home-manager/neovide.nix
+    inputs.nixvim.homeManagerModules.nixvim
+  ];
   programs = {
+    neovide = {
+      enable = true;
+      settings = {
+        srgb = true;
+        font = {
+          normal = ["${config.stylix.fonts.monospace.name}"];
+          size = 21;
+        };
+      };
+    };
     nixvim = {
       enable = true;
       luaLoader.enable = true;

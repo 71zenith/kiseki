@@ -39,6 +39,8 @@ in {
       x11.enable = true;
       gtk.enable = true;
     };
+    packages = with pkgs; [
+    ];
   };
 
   nixpkgs.config = import ./nixpkgs.nix;
@@ -46,7 +48,8 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk3";
+    platformTheme.name = "gtk";
+    style.name = "gtk2";
   };
 
   gtk = {
