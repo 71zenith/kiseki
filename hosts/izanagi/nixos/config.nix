@@ -200,7 +200,7 @@ in {
       inherit inputs;
       inherit myUserName;
     };
-    users = {"${myUserName}" = import ../home/home.nix;};
+    users = {"${myUserName}" = import ../hm/home.nix;};
   };
 
   hardware = {
