@@ -5,6 +5,7 @@
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
+  wl-ocr = pkgs.callPackage ../../../pkgs/wl-ocr.nix {};
 in {
   imports = [
     ./tools.nix
@@ -21,10 +22,13 @@ in {
   ];
 
   # NOTE: virt-manager fix
-  dconf.settings = {
-    "org/virt-manager/virt-manager/connections" = {
-      autoconnect = ["qemu:///system"];
-      uris = ["qemu:///system"];
+  dconf = {
+    enable = true;
+    settings = {
+      "org/virt-manager/virt-manager/connections" = {
+        autoconnect = ["qemu:///system"];
+        uris = ["qemu:///system"];
+      };
     };
   };
 
@@ -40,6 +44,7 @@ in {
       gtk.enable = true;
     };
     packages = with pkgs; [
+      wl-ocr
     ];
   };
 
@@ -56,6 +61,15 @@ in {
     iconTheme = {
       name = "Zafiro-icons-Dark";
       package = pkgs.zafiro-icons;
+    };
+  };
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config = {
+      hyprland.default = ["gtk" "hyprland"];
     };
   };
 

@@ -34,6 +34,8 @@
         bindkey '^[[Z' reverse-menu-complete
         bindkey "^?" autopair-delete
         bindkey '^H' backward-delete-word
+        bindkey "^[[1;5C" forward-word
+        bindkey "^[[1;5D" backward-word
         setopt complete_in_word interactivecomments
         zstyle ':completion:*' verbose yes
         zstyle ':completion:*:*:default' force-list always
@@ -41,15 +43,22 @@
         zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
         zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        zstyle ':completion:*' use-cache on
+        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+        _comp_options+=(globdots)
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';
-      syntaxHighlighting.enable = true;
-      # syntaxHighlighting.styles = {
-      #   double-hyphen-option = "fg=4,bold";
-      #   single-hyphen-option = "fg=4,bold";
-      #   alias = "fg=5,underline,bold";
-      #   default = "fg=6";
-      # };
+      syntaxHighlighting = {
+        enable = true;
+        highlighters = ["main" "brackets" "pattern"];
+        patterns = {"rm -rf *" = "fg=0,bg=3";};
+        styles = {
+          default = "fg=4";
+          double-hyphen-option = "fg=6";
+          single-hyphen-option = "fg=6";
+          assign = "fg=10,bold";
+        };
+      };
       historySubstringSearch.enable = true;
       dotDir = ".config/zsh";
       history.path = "${config.xdg.dataHome}/zsh/zsh_history";

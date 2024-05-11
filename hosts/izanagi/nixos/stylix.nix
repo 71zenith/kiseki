@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  fonts = pkgs.callPackage ../../../modules/nix-os/fonts.nix {};
+  fonts = pkgs.callPackage ../../../pkgs/fonts.nix {};
 in {
   stylix = {
     polarity = "dark";
