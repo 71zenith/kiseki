@@ -6,8 +6,6 @@
   inherit (config.stylix.base16Scheme) palette slug;
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
-  imports = [../../../modules/home-manager/neovide.nix];
-
   stylix.targets = {
     zathura.enable = false;
     zellij.enable = false;
@@ -94,17 +92,6 @@ in {
               MoveFocusOrTab = ["Right"];
             };
           };
-        };
-      };
-    };
-
-    neovide = {
-      enable = true;
-      settings = {
-        srgb = true;
-        font = {
-          normal = ["${config.stylix.fonts.monospace.name}"];
-          size = 21;
         };
       };
     };
