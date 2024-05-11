@@ -10,6 +10,13 @@
       enableCompletion = true;
       defaultKeymap = "viins";
       initExtra = ''
+        function oshi() {
+          if [ -z "$1" ]; then
+            cat - | curl -T - "https://oshi.at" 2>/dev/null | sed -n '3p' | cut -f1 -d' ' | wl-copy
+          else
+            curl -T "$1" "https://oshi.at" 2>/dev/null | sed -n '3p' | cut -f1 -d' ' | wl-copy
+          fi
+        }
         function precmd() {
           print -Pn "\e]133;A\e\\"
           if ! builtin zle; then
