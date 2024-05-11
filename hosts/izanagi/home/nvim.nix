@@ -148,7 +148,6 @@ in {
           '';
         };
         dressing.enable = true;
-        neoscroll.enable = true;
         lsp = {
           enable = true;
           preConfig = ''
