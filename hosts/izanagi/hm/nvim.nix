@@ -23,6 +23,24 @@
       hash = "sha256-abe9ZGmL7U9rC+LxC3LO5/bOn8lHke1FCKO0V3TZGs0=";
     };
   };
+  nvim-paredit = pkgs.vimUtils.buildVimPlugin {
+    name = "nvim-paredit";
+    src = pkgs.fetchFromGitHub {
+      owner = "julienvincent";
+      repo = "nvim-paredit";
+      rev = "8dd4ffd6ee0d798026f9ad6cf04344560207b9f1";
+      hash = "sha256-Zo40MOBSkLFSaK+x6iiNXhV9c/yNCi2jckl5VOpBDU8=";
+    };
+  };
+  img-clip = pkgs.vimUtils.buildVimPlugin {
+    name = "img-clip";
+    src = pkgs.fetchFromGitHub {
+      owner = "HakonHarnes";
+      repo = "img-clip.nvim";
+      rev = "c55f988972be0027316889c57ffe49f2bf8f67fd";
+      hash = "sha256-sl//iua0S4hdulopAjOOe7xh/iEuQeNRlNECxcc6rXk=";
+    };
+  };
 in {
   imports = [
     ../../../modules/hm/neovide.nix
@@ -42,6 +60,8 @@ in {
     nixvim = {
       enable = true;
       luaLoader.enable = true;
+      viAlias = true;
+      vimAlias = true;
       colorschemes.oxocarbon.enable = true;
       extraConfigLuaPre = ''
         local luasnip = require("luasnip")
@@ -141,7 +161,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = [lualine-so-fancy buffer-manager];
+      extraPlugins = [lualine-so-fancy buffer-manager img-clip nvim-paredit];
       plugins = {
         nix.enable = true;
         hop.enable = true;
@@ -248,6 +268,7 @@ in {
           ];
         };
         direnv.enable = true;
+        conjure.enable = true;
         oil = {
           enable = true;
           settings = {
@@ -368,7 +389,7 @@ in {
           lspInterop = {
             enable = true;
             peekDefinitionCode = {
-              "gd" = {
+              "gD" = {
                 query = "@function.outer";
                 desc = "Hover [d]efinition";
               };
