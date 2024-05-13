@@ -35,7 +35,6 @@ in {
   home = {
     username = "${myUserName}";
     homeDirectory = "/home/${myUserName}";
-    sessionVariables = {EDITOR = "nvim";};
 
     stateVersion = "24.05";
 

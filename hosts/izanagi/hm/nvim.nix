@@ -26,6 +26,7 @@ in {
       luaLoader.enable = true;
       viAlias = true;
       vimAlias = true;
+      defaultEditor = true;
       colorschemes.oxocarbon.enable = true;
       extraConfigLuaPre = ''
         local luasnip = require("luasnip")
