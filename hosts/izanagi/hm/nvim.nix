@@ -33,6 +33,10 @@ in {
         local tele = require("telescope.actions")
       '';
       extraConfigLuaPost = ''
+        require('orgmode').setup({
+          org_agenda_files = {'~/org/*'},
+          org_default_notes_file = '~/org/notes.org',
+        })
         require("buffer_manager").setup({
           focus_alternate_buffer = true,
         })
@@ -126,9 +130,10 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager];
+      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager orgmode org-bullets];
       plugins = {
         nix.enable = true;
+        headlines.enable = true;
         hop.enable = true;
         nvim-autopairs = {
           enable = true;
@@ -146,31 +151,31 @@ in {
           '';
         };
         flash.enable = true;
-        neorg = {
-          enable = true;
-          modules = {
-            "core.defaults" = {
-              __empty = null;
-            };
-            "core.concealer" = {
-              __empty = null;
-            };
-            "core.dirman" = {
-              config = {
-                workspaces = {
-                  notes = "~/notes";
-                };
-                default_workspace = "notes";
-              };
-            };
-            "core.completion" = {
-              config = {
-                engine = "nvim-cmp";
-                name = "Neorg";
-              };
-            };
-          };
-        };
+        # neorg = {
+        #   enable = true;
+        #   modules = {
+        #     "core.defaults" = {
+        #       __empty = null;
+        #     };
+        #     "core.concealer" = {
+        #       __empty = null;
+        #     };
+        #     "core.dirman" = {
+        #       config = {
+        #         workspaces = {
+        #           notes = "~/notes";
+        #         };
+        #         default_workspace = "notes";
+        #       };
+        #     };
+        #     "core.completion" = {
+        #       config = {
+        #         engine = "nvim-cmp";
+        #         name = "Neorg";
+        #       };
+        #     };
+        #   };
+        # };
         dressing.enable = true;
         lsp = {
           enable = true;
@@ -530,6 +535,10 @@ in {
             sources = [
               {
                 name = "nvim_lsp";
+                keyword_length = 1;
+              }
+              {
+                name = "orgmode";
                 keyword_length = 1;
               }
               {
