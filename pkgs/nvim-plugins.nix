@@ -1,9 +1,10 @@
 {pkgs, ...}: let
   build = pkgs.vimUtils.buildVimPlugin;
+  fetch = pkgs.fetchFromGitHub;
 in {
   lualine-so-fancy = build {
     name = "lualine-so-fancy";
-    src = pkgs.fetchFromGitHub {
+    src = fetch {
       owner = "meuter";
       repo = "lualine-so-fancy.nvim";
       rev = "21284504fed2776668fdea8743a528774de5d2e1";
@@ -12,7 +13,7 @@ in {
   };
   buffer-manager = build {
     name = "buffer-manager";
-    src = pkgs.fetchFromGitHub {
+    src = fetch {
       owner = "j-morano";
       repo = "buffer_manager.nvim";
       rev = "fd36131b2b3e0f03fd6353ae2ffc88cf920b3bbb";
@@ -21,7 +22,7 @@ in {
   };
   nvim-paredit = build {
     name = "nvim-paredit";
-    src = pkgs.fetchFromGitHub {
+    src = fetch {
       owner = "julienvincent";
       repo = "nvim-paredit";
       rev = "8dd4ffd6ee0d798026f9ad6cf04344560207b9f1";
@@ -30,7 +31,7 @@ in {
   };
   img-clip = build {
     name = "img-clip";
-    src = pkgs.fetchFromGitHub {
+    src = fetch {
       owner = "HakonHarnes";
       repo = "img-clip.nvim";
       rev = "c55f988972be0027316889c57ffe49f2bf8f67fd";
