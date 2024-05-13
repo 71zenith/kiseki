@@ -112,6 +112,9 @@
         ",XF86AudioNext, exec, playerctl next --player=spotify_player"
         ",XF86AudioPrev, exec, playerctl previous --player=spotify_player"
         ",XF86AudioPlay, exec, playerctl play-pause"
+        "$mod4, d, exec, playerctl next --player=spotify_player"
+        "$mod4, a, exec, playerctl previous --player=spotify_player"
+        "$mod4, s, exec, playerctl play-pause"
       ];
       binde = [
         "$mod2, l, resizeactive, 40 0"
