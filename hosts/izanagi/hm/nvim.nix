@@ -126,16 +126,14 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager img-clip nvim-paredit];
+      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager];
       plugins = {
         nix.enable = true;
         hop.enable = true;
-        flash.enable = false;
         nvim-autopairs = {
           enable = true;
           settings.check_ts = true;
         };
-        headlines.enable = true;
         nvim-bqf.enable = true;
         comment.enable = true;
         todo-comments.enable = true;
@@ -159,7 +157,6 @@ in {
           '';
           servers = {
             nil_ls.enable = true;
-            #clojure-lsp.enable = true;
             bashls.enable = true;
             rust-analyzer = {
               enable = true;
