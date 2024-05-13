@@ -44,7 +44,7 @@ in {
       '';
       globals = {
         mapleader = " ";
-        localmapleader = " ";
+        maplocalleader = ",";
         neovide_cursor_animation_length = 0.025;
         neovide_cursor_vfx_mode = "railgun";
         neovide_refresh_rate = 75;
@@ -126,15 +126,16 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins; [lualine-so-fancy buffer-manager img-clip nvim-paredit];
+      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager img-clip nvim-paredit];
       plugins = {
         nix.enable = true;
         hop.enable = true;
-        flash.enable = true;
+        flash.enable = false;
         nvim-autopairs = {
           enable = true;
           settings.check_ts = true;
         };
+        headlines.enable = true;
         nvim-bqf.enable = true;
         comment.enable = true;
         todo-comments.enable = true;
@@ -158,7 +159,7 @@ in {
           '';
           servers = {
             nil_ls.enable = true;
-            clojure-lsp.enable = true;
+            #clojure-lsp.enable = true;
             bashls.enable = true;
             rust-analyzer = {
               enable = true;
@@ -1152,6 +1153,56 @@ in {
           mode = ["n" "i" "c"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
+        }
+        {
+          key = "f";
+          action.__raw = ''
+            function()
+              require'hop'.hint_char1({
+                direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+                current_line_only = false,
+              })
+            end
+          '';
+          options.remap = true;
+        }
+        {
+          key = "F";
+          action.__raw = ''
+            function()
+              require'hop'.hint_char1({
+                direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+                current_line_only = false,
+              })
+            end
+          '';
+          options.remap = true;
+        }
+        {
+          key = "t";
+          action.__raw = ''
+            function()
+              require'hop'.hint_char1({
+                direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
+                current_line_only = false,
+                hint_offset = -1
+              })
+            end
+          '';
+          options.remap = true;
+        }
+        {
+          key = "T";
+          action.__raw = ''
+            function()
+              require'hop'.hint_char1({
+                direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
+                current_line_only = false,
+                hint_offset = 1
+              })
+            end
+          '';
+          options.remap = true;
         }
       ];
     };

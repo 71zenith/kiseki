@@ -305,6 +305,11 @@ in {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@nw"];
             };
+            "NixVim" = {
+              urls = [{template = "https://nix-community.github.io/nixvim/?search={searchTerms}";}];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@nv"];
+            };
             "YouTube" = {
               iconUpdateURL = "https://youtube.com/favicon.ico";
               updateInterval = 24 * 60 * 60 * 1000;

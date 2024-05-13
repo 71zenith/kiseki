@@ -20,6 +20,15 @@ in {
       hash = "sha256-abe9ZGmL7U9rC+LxC3LO5/bOn8lHke1FCKO0V3TZGs0=";
     };
   };
+  org-bullets = build {
+    name = "org-bullets";
+    src = fetch {
+      owner = "nvim-orgmode";
+      repo = "org-bullets.nvim";
+      rev = "3623e86e0fa6d07f45042f7207fc333c014bf167";
+      hash = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
+    };
+  };
   nvim-paredit = build {
     name = "nvim-paredit";
     src = fetch {
