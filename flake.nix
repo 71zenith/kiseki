@@ -34,6 +34,8 @@
     nixpkgs,
     ...
   } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {inherit system;};
     caches = {
       nix.settings = {
         builders-use-substitutes = true;
@@ -52,8 +54,13 @@
       };
     };
   in {
+    devShell.${system} = pkgs.mkShell {
+      packages = with pkgs; [lolcat];
+      shellHook = ''
+        echo "1337 h4x0ring..." | lolcat
+      '';
+    };
     nixosConfigurations.izanagi = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
         inputs.stylix.nixosModules.stylix
