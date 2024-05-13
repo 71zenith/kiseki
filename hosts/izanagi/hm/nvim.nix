@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  plugins = import ../../../pkgs/nvim-plugins.nix {inherit pkgs;};
+  plugins = import ../../../pkgs/plugins-nvim.nix {inherit pkgs;};
 in {
   imports = [
     ../../../modules/hm/neovide.nix
@@ -144,6 +144,32 @@ in {
             return { { " ", "WinBar" } }
             end,
           '';
+        };
+        flash.enable = true;
+        neorg = {
+          enable = true;
+          modules = {
+            "core.defaults" = {
+              __empty = null;
+            };
+            "core.concealer" = {
+              __empty = null;
+            };
+            "core.dirman" = {
+              config = {
+                workspaces = {
+                  notes = "~/notes";
+                };
+                default_workspace = "notes";
+              };
+            };
+            "core.completion" = {
+              config = {
+                engine = "nvim-cmp";
+                name = "Neorg";
+              };
+            };
+          };
         };
         dressing.enable = true;
         lsp = {
@@ -504,6 +530,10 @@ in {
             sources = [
               {
                 name = "nvim_lsp";
+                keyword_length = 1;
+              }
+              {
+                name = "neorg";
                 keyword_length = 1;
               }
               {
@@ -1150,56 +1180,6 @@ in {
           mode = ["n" "i" "c"];
           action = "<C-w>";
           options.desc = "Ctrl+Backspace to delete word";
-        }
-        {
-          key = "f";
-          action.__raw = ''
-            function()
-              require'hop'.hint_char1({
-                direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-                current_line_only = false,
-              })
-            end
-          '';
-          options.remap = true;
-        }
-        {
-          key = "F";
-          action.__raw = ''
-            function()
-              require'hop'.hint_char1({
-                direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-                current_line_only = false,
-              })
-            end
-          '';
-          options.remap = true;
-        }
-        {
-          key = "t";
-          action.__raw = ''
-            function()
-              require'hop'.hint_char1({
-                direction = require'hop.hint'.HintDirection.AFTER_CURSOR,
-                current_line_only = false,
-                hint_offset = -1
-              })
-            end
-          '';
-          options.remap = true;
-        }
-        {
-          key = "T";
-          action.__raw = ''
-            function()
-              require'hop'.hint_char1({
-                direction = require'hop.hint'.HintDirection.BEFORE_CURSOR,
-                current_line_only = false,
-                hint_offset = 1
-              })
-            end
-          '';
-          options.remap = true;
         }
       ];
     };
