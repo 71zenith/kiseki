@@ -152,8 +152,10 @@
           "$mod3, l, swapnext"
           "$mod3, h, swapnext,prev"
 
-          "$mod3, return, movetoworkspace, special"
+          "$mod3, return, movetoworkspacesilent, special"
+          "$mod4, return, movetoworkspacesilent, special:neorg"
           "$mod2, return, togglespecialworkspace,"
+          "$mod4, l, togglespecialworkspace, neorg"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
             ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));

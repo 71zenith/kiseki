@@ -44,7 +44,7 @@ in {
       '';
       globals = {
         mapleader = " ";
-        maplocalleader = " ";
+        maplocalleader = ";";
         neovide_cursor_animation_length = 0.025;
         neovide_cursor_vfx_mode = "railgun";
         neovide_refresh_rate = 75;
@@ -869,10 +869,10 @@ in {
           options.desc = "[N]ew file";
         }
         {
-          key = "<leader>p";
+          key = "<leader>o";
           mode = "n";
           action = "<CMD>lua require('oil').toggle_float()<CR>";
-          options.desc = "Open oil";
+          options.desc = "Open [o]il";
         }
         {
           key = "]g";
@@ -1187,6 +1187,36 @@ in {
           mode = "n";
           action = "<CMD>HopWord<CR>";
           options.desc = "Jump to [w]ord";
+        }
+        {
+          key = "<leader>ni";
+          mode = "n";
+          action = "<CMD>Neorg index<CR>";
+          options.desc = "Open Neorg index";
+        }
+        {
+          key = "<leader>nu";
+          mode = "n";
+          action = "<CMD>Neorg update-metadata<CR>";
+          options.desc = "Update Metadata";
+        }
+        {
+          key = "<leader>na";
+          mode = "n";
+          action = "<CMD>Neorg tangle current-file<CR>";
+          options.desc = "Tangle current file";
+        }
+        {
+          key = "<leader>nt";
+          mode = "n";
+          action = "<CMD>Neorg toc qflist<CR>";
+          options.desc = "Show TOC";
+        }
+        {
+          key = "<leader>nm";
+          mode = "n";
+          action = "<CMD>Neorg inject-metadata<CR>";
+          options.desc = "Insert Metadata";
         }
         {
           key = "<leader>.";
