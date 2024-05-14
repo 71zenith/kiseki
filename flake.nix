@@ -13,6 +13,10 @@
       url = "github:nvim-neorg/nixpkgs-neorg-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    prismlauncher = {
+      url = "github:julcioo/PrismLauncher-Cracked?ref=8.3-cracked";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.39.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -43,9 +47,11 @@
       nix.settings = {
         builders-use-substitutes = true;
         substituters = [
-          "https://nix-community.cachix.org"
-          "https://cache.nixos.org"
+          "https://cache.garnix.io"
+          "https://mirrors.ustc.edu.cn/nix-channels/store"
+          "https://mirrors.bfsu.edu.cn/nix-channels/store"
           "https://hyprland.cachix.org"
+          "https://cache.nixos.org"
           "https://nixpkgs-wayland.cachix.org"
         ];
         trusted-public-keys = [
@@ -53,6 +59,7 @@
           "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
           "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+          "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
         ];
       };
     };
