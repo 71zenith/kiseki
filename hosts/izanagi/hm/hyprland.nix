@@ -22,10 +22,10 @@
         "SDL_VIDEODRIVER,wayland"
         "GDK_BACKEND,wayland"
       ];
-      "$mod1" = "ALT";
-      "$mod2" = "ALTSHIFT";
-      "$mod3" = "ALTCONTROL";
-      "$mod4" = "SUPER";
+      "$mod1" = "SUPER";
+      "$mod2" = "SUPERSHIFT";
+      "$mod3" = "SUPERCONTROL";
+      "$mod4" = "ALT";
       "$setwall" = "swww img $(fd . ${inputs.self}/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
@@ -59,7 +59,7 @@
         "tile, class:Nsxiv,xwayland:1"
       ];
       input = {
-        kb_options = "caps:escape";
+        kb_options = "caps:escape,altwin:swap_lalt_lwin";
         repeat_rate = 60;
         repeat_delay = 250;
         force_no_accel = 1;
@@ -155,6 +155,8 @@
 
           "$mod2, 9, movetoworkspacesilent, special:spotify_player"
           "$mod2, 0, movetoworkspacesilent, special:neorg"
+          "$mod1, 9, togglespecialworkspace, spotify_player"
+          "$mod1, 0, togglespecialworkspace, neorg"
           "$mod2, return, togglespecialworkspace, spotify_player"
           "$mod3, return, togglespecialworkspace, neorg"
         ]

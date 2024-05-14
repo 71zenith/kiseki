@@ -84,14 +84,6 @@ in {
               SwitchToMode = ["Tab"];
             };
           };
-          "shared_except \"locked\"" = {
-            "bind \"Alt j\"" = {
-              MoveFocusOrTab = ["Left"];
-            };
-            "bind \"Alt k\"" = {
-              MoveFocusOrTab = ["Right"];
-            };
-          };
         };
       };
     };
