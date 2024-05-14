@@ -62,11 +62,11 @@ in {
     # openmw  NOTE: morrowind
     zsh-powerlevel10k
     config.nur.repos.mic92.hello-nur
+    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
     grimblast
   ];
-
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
   ];
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+  programs.hyprland.package = inputs.hyprland.packages.${pkgs.system}.hyprland;
 }
