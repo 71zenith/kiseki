@@ -29,12 +29,11 @@
       "$setwall" = "swww img $(fd . ${inputs.self}/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
+        "pgrep waybar || waybar &"
         "foot --server &"
         "swww-daemon --format xrgb"
-        "blueman-applet &"
         "wl-paste --type text --watch cliphist store &"
         "$setwall &"
-        "pkill waybar; waybar &"
       ];
       windowrule = [
         "tile, class:neovide"
@@ -73,7 +72,7 @@
       misc = {
         enable_swallow = true;
         disable_hyprland_logo = true;
-        swallow_regex = "^(footclient).*$";
+        swallow_regex = "^(foot).*$";
       };
       decoration = {
         rounding = 10;
@@ -115,6 +114,8 @@
         "$mod4, d, exec, playerctl next --player=spotify_player"
         "$mod4, a, exec, playerctl previous --player=spotify_player"
         "$mod4, s, exec, playerctl play-pause"
+        "$mod4, l, exec, playerctld shift up"
+        "$mod4, h, exec, playerctld shift down"
       ];
       binde = [
         "$mod2, l, resizeactive, 40 0"
@@ -152,10 +153,10 @@
           "$mod3, l, swapnext"
           "$mod3, h, swapnext,prev"
 
-          "$mod3, return, movetoworkspacesilent, special"
-          "$mod4, return, movetoworkspacesilent, special:neorg"
-          "$mod2, return, togglespecialworkspace,"
-          "$mod4, l, togglespecialworkspace, neorg"
+          "$mod2, 9, movetoworkspacesilent, special:spotify_player"
+          "$mod2, 0, movetoworkspacesilent, special:neorg"
+          "$mod2, return, togglespecialworkspace, spotify_player"
+          "$mod3, return, togglespecialworkspace, neorg"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
             ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
@@ -163,7 +164,7 @@
             "$mod1, ${ws}, workspace, ${toString (x + 1)}"
             "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"
           ])
-          10));
+          8));
     };
   };
 }
