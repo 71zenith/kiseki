@@ -1,4 +1,11 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: let
+  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
+in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -58,6 +65,10 @@
         "minsize 1 1, title:^()$,class:^(steam)$"
         "tile, class:Nsxiv,xwayland:1"
       ];
+      workspace = [
+        "special:spotify_player,on-created-empty:footclient spotify_player"
+        "special:neorg,on-created-empty:footclient nvim -c 'Neorg index'"
+      ];
       input = {
         kb_options = "caps:escape,altwin:swap_lalt_lwin";
         repeat_rate = 60;
@@ -114,8 +125,8 @@
         "$mod4, d, exec, playerctl next --player=spotify_player"
         "$mod4, a, exec, playerctl previous --player=spotify_player"
         "$mod4, s, exec, playerctl play-pause"
-        "$mod4, l, exec, playerctld shift up"
-        "$mod4, h, exec, playerctld shift down"
+        "$mod4, n, exec, playerctld shift up"
+        "$mod4, o, exec, playerctld shift down"
       ];
       binde = [
         "$mod2, l, resizeactive, 40 0"
@@ -125,23 +136,24 @@
       ];
       bind =
         [
-          "$mod1,Print, exec,grimblast --notify copy screen"
+          "$mod1, Print, exec, grimblast --notify copy screen"
           "$mod2, f, exec, firefox"
           "$mod1, return, exec, footclient"
           "$mod2, e, exec, emacs"
           "$mod2, v, exec, neovide"
           "$mod1, e, exec, emacsclient --create-frame"
-          "$mod4, o, exec, wl-paste | cut -d \\& -f1 | xargs mpv"
           "$mod2, i, exec, $setwall"
           "$mod4, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
           "$mod4, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
-          "$mod4, p, exec, qbittorrent"
-          "$mod4, o, exec, wl-ocr"
+          "$mod4, o, exec, ${scripts.wlOcr}"
+          "$mod4, p, exec, ${scripts.openMedia}"
+          "$mod4, i, exec, ${scripts.transLiner}"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"
           "$mod2, t, fullscreen,1"
           "$mod2, q, exit,"
+          "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
 
           "$mod1, l, cyclenext,"
