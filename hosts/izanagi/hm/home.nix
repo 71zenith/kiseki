@@ -6,7 +6,7 @@
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
-  wl-ocr = pkgs.callPackage ../../../pkgs/wl-ocr.nix {};
+  scripts = pkgs.callPackage ../../../pkgs/scripts.nix {};
 in {
   imports = [
     ./tools.nix
@@ -43,9 +43,6 @@ in {
       x11.enable = true;
       gtk.enable = true;
     };
-    packages = with pkgs; [
-      wl-ocr
-    ];
   };
 
   nixpkgs.config = import ./nixpkgs.nix;
