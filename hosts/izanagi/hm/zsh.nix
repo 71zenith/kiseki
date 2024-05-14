@@ -39,6 +39,7 @@
         add-zsh-hook -Uz chpwd chpwd-osc7-pwd
         zstyle ':completion:*' menu select
         bindkey '^[[Z' reverse-menu-complete
+        bindkey '^I' menu-complete
         bindkey "^?" autopair-delete
         bindkey '^H' backward-delete-word
         bindkey "^[[1;5C" forward-word

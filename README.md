@@ -52,8 +52,8 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers). *mostly just o
 - [fzf](https://github.com/junegunn/fzf) - fuzzy finder
 - [ani-cli](https://github.com/pystardust/ani-cli) - anime tool
 
-
 ## Rusty Tools Used
+
 - [eza](https://github.com/eza-community/eza) - ls alter
 - [duf](https://github.com/muesli/duf) - df alter
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd

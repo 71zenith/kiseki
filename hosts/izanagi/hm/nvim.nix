@@ -33,10 +33,6 @@ in {
         local tele = require("telescope.actions")
       '';
       extraConfigLuaPost = ''
-        require('orgmode').setup({
-          org_agenda_files = {'~/org/*'},
-          org_default_notes_file = '~/org/notes.org',
-        })
         require("buffer_manager").setup({
           focus_alternate_buffer = true,
         })
@@ -48,7 +44,7 @@ in {
       '';
       globals = {
         mapleader = " ";
-        maplocalleader = ",";
+        maplocalleader = " ";
         neovide_cursor_animation_length = 0.025;
         neovide_cursor_vfx_mode = "railgun";
         neovide_refresh_rate = 75;
@@ -75,6 +71,7 @@ in {
         laststatus = 3;
         autoread = true;
         history = 10000;
+        foldlevelstart = 99;
         timeoutlen = 300;
         inccommand = "split";
         cindent = true;
@@ -130,10 +127,23 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager orgmode org-bullets];
+      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager];
+      autoCmd = [
+        {
+          pattern = ["norg"];
+          event = ["FileType"];
+          callback = {
+            __raw = ''
+              function()
+                vim.opt_local.wrap = true
+                vim.opt_local.linebreak = true
+              end
+            '';
+          };
+        }
+      ];
       plugins = {
         nix.enable = true;
-        headlines.enable = true;
         hop.enable = true;
         nvim-autopairs = {
           enable = true;
@@ -151,31 +161,42 @@ in {
           '';
         };
         flash.enable = true;
-        # neorg = {
-        #   enable = true;
-        #   modules = {
-        #     "core.defaults" = {
-        #       __empty = null;
-        #     };
-        #     "core.concealer" = {
-        #       __empty = null;
-        #     };
-        #     "core.dirman" = {
-        #       config = {
-        #         workspaces = {
-        #           notes = "~/notes";
-        #         };
-        #         default_workspace = "notes";
-        #       };
-        #     };
-        #     "core.completion" = {
-        #       config = {
-        #         engine = "nvim-cmp";
-        #         name = "Neorg";
-        #       };
-        #     };
-        #   };
-        # };
+        neorg = {
+          enable = true;
+          modules = {
+            "core.defaults" = {
+              __empty = null;
+            };
+            "core.concealer" = {
+              __empty = null;
+            };
+            "core.keybinds" = {
+              config = {
+                hook = {
+                  __raw = ''
+                    function(keybinds)
+                      keybinds.remap_event("norg", "i", "<C-CR>", "core.itero.next-iteration")
+                    end,
+                  '';
+                };
+              };
+            };
+            "core.dirman" = {
+              config = {
+                workspaces = {
+                  notes = "~/notes";
+                };
+                default_workspace = "notes";
+              };
+            };
+            "core.completion" = {
+              config = {
+                engine = "nvim-cmp";
+                name = "Neorg";
+              };
+            };
+          };
+        };
         dressing.enable = true;
         lsp = {
           enable = true;
@@ -262,7 +283,6 @@ in {
           ];
         };
         direnv.enable = true;
-        conjure.enable = true;
         oil = {
           enable = true;
           settings = {
@@ -538,16 +558,12 @@ in {
                 keyword_length = 1;
               }
               {
-                name = "orgmode";
-                keyword_length = 1;
+                name = "path";
+                keyword_length = 4;
               }
               {
                 name = "neorg";
                 keyword_length = 1;
-              }
-              {
-                name = "path";
-                keyword_length = 4;
               }
               {
                 name = "buffer";
@@ -853,10 +869,10 @@ in {
           options.desc = "[N]ew file";
         }
         {
-          key = "<leader>o";
+          key = "<leader>p";
           mode = "n";
           action = "<CMD>lua require('oil').toggle_float()<CR>";
-          options.desc = "Open [o]il";
+          options.desc = "Open oil";
         }
         {
           key = "]g";
@@ -1013,12 +1029,6 @@ in {
           mode = "n";
           action = "<CMD>lua require('todo-comments').jump_prev()<CR>";
           options.desc = "Prev TODO";
-        }
-        {
-          key = "<leader>rs";
-          mode = ["v" "n"];
-          action = "<CMD>SnipClose<CR>";
-          options.desc = "Close code output";
         }
         {
           key = "<leader><leader>";
