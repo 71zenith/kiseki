@@ -231,6 +231,12 @@ in {
     cpu.amd.updateMicrocode = true;
   };
 
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  };
+
   nixpkgs.config = {
     allowUnfree = true;
   };

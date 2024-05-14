@@ -62,15 +62,6 @@ in {
     };
   };
 
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
-    config = {
-      hyprland.default = ["gtk" "hyprland"];
-    };
-  };
-
   xresources.properties = with palette; {
     "bar.background" = "#${base02}";
     "bar.foreground" = "#${base0B}";
