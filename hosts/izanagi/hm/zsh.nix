@@ -101,6 +101,7 @@
         nv = "nvim";
         up = "nh os switch";
         del = "nh clean all --nogcroots";
+        ts = "nix-shell -p";
         fl = "nix flake";
         zj = "zellij";
         pm = "pulsemixer";
