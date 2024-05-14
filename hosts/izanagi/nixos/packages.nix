@@ -13,6 +13,7 @@ in {
     ffmpeg
     libsixel
     nix-init
+    translate-shell
     sops
     anime4k
     rsync
