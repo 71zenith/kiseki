@@ -26,9 +26,8 @@
             "6" = "六";
             "7" = "七";
             "8" = "八";
-            "spotify_player" = "󰓇";
+            "music" = "";
             "neorg" = "";
-            "special" = "・";
           };
           persistent-workspaces = {
             "1" = [];
@@ -122,7 +121,7 @@
         margin-bottom: 5px;
       }
       #workspaces button {
-        color: @base07;
+        color: @base04;
         box-shadow: inset 0 -3px transparent;
 
         padding-right: 7px;
