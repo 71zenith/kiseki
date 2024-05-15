@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    neorg-overlay = {
+    neorg = {
       url = "github:nvim-neorg/nixpkgs-neorg-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };

@@ -616,7 +616,7 @@ in {
           enable = true;
           extensions = {
             frecency.enable = true;
-            frecency.settings.db_validate_threshold = 50;
+            frecency.settings.db_validate_threshold = 100;
           };
           settings = {
             defaults = {

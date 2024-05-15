@@ -66,8 +66,8 @@ in {
         "tile, class:Nsxiv,xwayland:1"
       ];
       workspace = [
-        "special:spotify_player,on-created-empty:footclient spotify_player"
-        "special:neorg,on-created-empty:footclient nvim -c 'Neorg index'"
+        "special:music,persistent:true,on-created-empty:footclient spotify_player"
+        "special:neorg,persistent:true,on-created-empty:footclient nvim -c 'Neorg index'"
       ];
       input = {
         kb_options = "caps:escape,altwin:swap_lalt_lwin";
@@ -126,7 +126,7 @@ in {
         "$mod4, a, exec, playerctl previous --player=spotify_player"
         "$mod4, s, exec, playerctl play-pause"
         "$mod4, n, exec, playerctld shift up"
-        "$mod4, o, exec, playerctld shift down"
+        "$mod4, m, exec, playerctld shift down"
       ];
       binde = [
         "$mod2, l, resizeactive, 40 0"
@@ -165,11 +165,11 @@ in {
           "$mod3, l, swapnext"
           "$mod3, h, swapnext,prev"
 
-          "$mod2, 9, movetoworkspacesilent, special:spotify_player"
+          "$mod2, 9, movetoworkspacesilent, special:music"
           "$mod2, 0, movetoworkspacesilent, special:neorg"
-          "$mod1, 9, togglespecialworkspace, spotify_player"
+          "$mod1, 9, togglespecialworkspace, music"
           "$mod1, 0, togglespecialworkspace, neorg"
-          "$mod2, return, togglespecialworkspace, spotify_player"
+          "$mod2, return, togglespecialworkspace, music"
           "$mod3, return, togglespecialworkspace, neorg"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
