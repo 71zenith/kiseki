@@ -26,6 +26,7 @@
         function preexec {
           print -n "\e]133;C\e\\"
           print -n '\e[5 q'
+          print -Pn "\e]0;''${(q)1}\e\\"
         }
         function osc7-pwd() {
           emulate -L zsh # also sets localoptions for us
