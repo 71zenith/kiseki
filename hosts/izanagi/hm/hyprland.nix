@@ -66,8 +66,8 @@ in {
         "tile, class:Nsxiv,xwayland:1"
       ];
       workspace = [
-        "special:music,persistent:true,on-created-empty:footclient spotify_player"
-        "special:neorg,persistent:true,on-created-empty:footclient nvim -c 'Neorg index'"
+        "special:music,on-created-empty:footclient -T spotify_player spotify_player"
+        "special:neorg,on-created-empty:footclient -T neorg nvim -c 'Neorg index'"
       ];
       input = {
         kb_options = "caps:escape,altwin:swap_lalt_lwin";
