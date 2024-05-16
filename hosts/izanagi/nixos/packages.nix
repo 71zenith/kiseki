@@ -55,6 +55,7 @@ in {
     nsxiv
     python3
     zip
+    #logseq # NOTE: NOTE
     imagemagick
     snes9x-gtk
     unzip

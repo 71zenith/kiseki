@@ -66,6 +66,16 @@ in {
     dev.enable = true;
   };
 
+  systemd.packages = [pkgs.cloudflare-warp];
+  systemd.services.warp-svc = {
+    enable = true;
+    after = ["network.target"];
+    wantedBy = ["multi-user.target"];
+    postStart = ''
+      sleep 5 && ${pkgs.cloudflare-warp}/bin/warp-cli --accept-tos registration new
+    '';
+  };
+
   services = {
     greetd = {
       enable = true;
