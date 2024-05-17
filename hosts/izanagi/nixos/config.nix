@@ -23,6 +23,9 @@ in {
       username = {};
       auth_type = {};
       auth_data = {};
+      vpn_private_jp = {};
+      vpn_private_us = {};
+      vpn_private_nl = {};
     };
     # TODO: move to home-manager after #529 is merged
     templates."credentials.json" = {
@@ -66,15 +69,61 @@ in {
     dev.enable = true;
   };
 
-  systemd.packages = [pkgs.cloudflare-warp];
-  systemd.services.warp-svc = {
-    enable = true;
-    after = ["network.target"];
-    wantedBy = ["multi-user.target"];
-    postStart = ''
-      sleep 5 && ${pkgs.cloudflare-warp}/bin/warp-cli --accept-tos registration new
-    '';
+  networking.wg-quick.interfaces = {
+    jp = {
+      autostart = false;
+      address = ["10.2.0.2/32"];
+      dns = ["10.2.0.1"];
+      privateKeyFile = config.sops.secrets.vpn_private_jp.path;
+      peers = [
+        {
+          publicKey = "5fFhuzIQPu8C4tySJuCJYg/13g75APFtMnqn3oeCpxk=";
+          allowedIPs = ["0.0.0.0/0"];
+          endpoint = "193.148.16.2:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+    us = {
+      autostart = false;
+      address = ["10.2.0.2/32"];
+      dns = ["10.2.0.1"];
+      privateKeyFile = config.sops.secrets.vpn_private_us.path;
+      peers = [
+        {
+          publicKey = "ksK3faRBQlFLul2FcKPphBR9LYR+6/FbP1etg0T2liA=";
+          allowedIPs = ["0.0.0.0/0"];
+          endpoint = "37.19.221.198:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
+    nl = {
+      autostart = false;
+      address = ["10.2.0.2/32"];
+      dns = ["10.2.0.1"];
+      privateKeyFile = config.sops.secrets.vpn_private_nl.path;
+      peers = [
+        {
+          publicKey = "jA3Pf5MWpHk8STrLXVPyM28aV3yAZgw9nEGoIFAyxiI=";
+          allowedIPs = ["0.0.0.0/0"];
+          endpoint = "185.177.124.190:51820";
+          persistentKeepalive = 25;
+        }
+      ];
+    };
   };
+
+  # HACK: Cloudflare warp (1.1.1.1) setup
+  # systemd.packages = [pkgs.cloudflare-warp];
+  # systemd.services.warp-svc = {
+  #   enable = true;
+  #   after = ["network.target"];
+  #   wantedBy = ["multi-user.target"];
+  #   postStart = ''
+  #     sleep 5 && ${pkgs.cloudflare-warp}/bin/warp-cli --accept-tos registration new
+  #   '';
+  # };
 
   services = {
     greetd = {
