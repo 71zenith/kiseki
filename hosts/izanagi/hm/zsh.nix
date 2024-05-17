@@ -47,7 +47,6 @@
         bindkey "^[[1;5D" backward-word
         setopt complete_in_word interactivecomments
         zstyle ':completion:*' verbose yes
-        zstyle ':completion:*:*:default' force-list always
         zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
         zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
         zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'

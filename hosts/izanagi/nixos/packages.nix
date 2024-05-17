@@ -8,63 +8,60 @@
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    neovim
-    steam-run
-    ffmpeg
-    libsixel
-    nix-init
-    translate-shell
-    sops
-    anime4k
-    rsync
-    xwayland
-    yt-dlp
-    duf
-    wl-clipboard
-    cliphist
-    nix-output-monitor
-    nvd
-    openssl
-    heroic
-    du-dust
-    zoxide
-    fd
     ani-cli
+    aria2
+    calibre
+    cliphist
+    config.nur.repos.mic92.hello-nur
+    curl
+    dbus
+    desmume
+    du-dust
+    duf
+    fd
+    ffmpeg
+    firefox
     gcc
-    protonup-qt
     gnome.nautilus
+    grimblast
+    gtk3
+    heroic
+    imagemagick
+    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
     libnotify
     libsForQt5.qt5.qtwayland
-    playerctl
-    gtk3
-    dbus
-    ripgrep
-    wget
-    curl
-    firefox
-    xdg-utils
-    aria2
-    nitch
-    calibre
-    swww
-    pulsemixer
+    libsixel
+    # logseq # NOTE: NOTES
     mgba
-    desmume
-    blueman
-    qbittorrent
+    neovim
+    nitch
+    nix-init
+    nix-output-monitor
     nsxiv
-    python3
-    zip
-    #logseq # NOTE: NOTE
-    imagemagick
-    snes9x-gtk
-    unzip
-    qemu
+    nvd
     # openmw  NOTE: morrowind
-    zsh-powerlevel10k
-    config.nur.repos.mic92.hello-nur
-    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
-    grimblast
+    openssl
+    playerctl
+    protonup-qt
+    pulsemixer
+    python3
+    qbittorrent
+    qemu
+    ripgrep
+    rsync
+    snes9x-gtk
+    sops
+    steam-run
+    swww
+    translate-shell
+    unzip
+    wget
+    wl-clipboard
+    xdg-utils
+    xwayland
+    yt-dlp
+    zip
+    zoxide
   ];
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})

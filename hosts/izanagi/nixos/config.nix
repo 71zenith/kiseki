@@ -26,13 +26,13 @@ in {
       vpn_private_us = {};
       vpn_private_nl = {};
     };
-    # TODO: move to home-manager after #529 is merged
+    # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
     templates."credentials.json" = {
       owner = "${myUserName}";
       content = builtins.toJSON {
-        username = "${config.sops.placeholder.spot_username}";
+        username = config.sops.placeholder.spot_username;
         auth_type = 1;
-        auth_data = "${config.sops.placeholder.spot_auth_data}";
+        auth_data = config.sops.placeholder.spot_auth_data;
       };
       path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
     };
