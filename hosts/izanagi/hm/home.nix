@@ -6,7 +6,6 @@
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
-  scripts = pkgs.callPackage ../../../pkgs/scripts.nix {};
 in {
   imports = [
     ./tools.nix

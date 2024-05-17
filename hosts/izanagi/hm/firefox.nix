@@ -136,11 +136,6 @@ in {
                 url = "https://search.nixos.org/packages?channel=unstable";
               }
               {
-                name = "Noogle";
-                keyword = "ng";
-                url = "https://noogle.dev/";
-              }
-              {
                 name = "Nix Options";
                 keyword = "no";
                 url = "https://search.nixos.org/options?channel=unstable";
@@ -304,6 +299,11 @@ in {
               urls = [{template = "https://wiki.nixos.org/wiki/{searchTerms}";}];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@nw"];
+            };
+            "Noogle" = {
+              urls = [{template = "https://noogle.dev/q?term={searchTerms}";}];
+              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+              definedAliases = ["@ng"];
             };
             "NixVim" = {
               urls = [{template = "https://nix-community.github.io/nixvim/?search={searchTerms}";}];

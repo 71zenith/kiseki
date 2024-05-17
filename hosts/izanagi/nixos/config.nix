@@ -20,9 +20,8 @@ in {
     secrets = {
       root_pass.neededForUsers = true;
       user_pass.neededForUsers = true;
-      username = {};
-      auth_type = {};
-      auth_data = {};
+      spot_username = {};
+      spot_auth_data = {};
       vpn_private_jp = {};
       vpn_private_us = {};
       vpn_private_nl = {};
@@ -30,13 +29,11 @@ in {
     # TODO: move to home-manager after #529 is merged
     templates."credentials.json" = {
       owner = "${myUserName}";
-      content = ''
-        {
-          "username": "${config.sops.placeholder.username}",
-          "auth_type": ${config.sops.placeholder.auth_type},
-          "auth_data": "${config.sops.placeholder.auth_data}"
-        }
-      '';
+      content = builtins.toJSON {
+        username = "${config.sops.placeholder.spot_username}";
+        auth_type = 1;
+        auth_data = "${config.sops.placeholder.spot_auth_data}";
+      };
       path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
     };
   };
