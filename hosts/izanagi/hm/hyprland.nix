@@ -147,6 +147,7 @@ in {
           "$mod4, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
           "$mod4, o, exec, ${scripts.wlOcr}"
           "$mod4, p, exec, ${scripts.openMedia}"
+          "$mod4, u, exec, ${scripts.rofiGuard}"
           "$mod4, i, exec, ${scripts.transLiner}"
 
           "$mod1, q, killactive,"

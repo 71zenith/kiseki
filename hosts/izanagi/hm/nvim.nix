@@ -116,7 +116,7 @@ in {
         undofile = true;
         undolevels = 10000;
         list = true;
-        formatoptions = "jcroqlnt";
+        formatoptions = "jcqlnt";
         conceallevel = 0;
         spelllang = ["en_us"];
         concealcursor = "nc";
