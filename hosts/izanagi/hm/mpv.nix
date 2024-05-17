@@ -39,7 +39,16 @@
       "j" = "seek -60";
       "]" = "add speed 0.1";
       "[" = "add speed -0.1";
-      "shift+s" = "script-binding crop-screenshot";
+      "f" = "script-binding memo-history";
+      "tab" = "script-binding uosc/toggle-ui";
+      "c" = "script-binding uosc/chapters";
+      "q" = "script-binding uosc/stream-quality";
+      "t" = "script-binding uosc/audio";
+      "shift+f" = "script-binding uosc/keybinds";
+      "shift+p" = "script-binding uosc/items";
+      "s" = "script-binding uosc/subtitles";
+      "u" = "script-message-to youtube_upnext menu";
+      "shift+s" = "async screenshot";
       "CTRL+1" = ''
         no-osd change-list glsl-shaders set "${pkgs.anime4k}/Anime4K_Clamp_Highlights.glsl:${pkgs.anime4k}/Anime4K_Restore_CNN_M.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_M.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${pkgs.anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${pkgs.anime4k}/Anime4K_Upscale_CNN_x2_S.glsl"; show-text "Anime4K: Mode A (Fast)"'';
       "CTRL+2" = ''
@@ -58,7 +67,12 @@
     scripts = with pkgs.mpvScripts; [
       mpris
       autoload
+      mpv-cheatsheet
+      youtube-upnext
+      memo
+      reload
       uosc
+      webtorrent-mpv-hook
       thumbfast
       sponsorblock
     ];
