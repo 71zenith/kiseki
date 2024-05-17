@@ -106,6 +106,7 @@
         fl = "nix flake";
         zj = "zellij";
         pm = "pulsemixer";
+        s = "sudo systemctl";
         cat = "bat -p -P";
         g = "git";
         rm = "rm -Ivr";
