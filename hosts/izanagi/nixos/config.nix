@@ -53,11 +53,13 @@ in {
   };
 
   boot = {
-    loader.systemd-boot = {
-      enable = true;
-      consoleMode = "max";
+    loader = {
+      systemd-boot = {
+        enable = true;
+        consoleMode = "max";
+      };
+      efi.canTouchEfiVariables = true;
     };
-    loader.efi.canTouchEfiVariables = true;
     kernelPackages = pkgs.linuxPackages_xanmod;
   };
 
