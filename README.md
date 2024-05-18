@@ -14,9 +14,10 @@ This repo contains the nix flakes to build an identical copy of my system.
 ![](./resources/screenshot6.png)
 
 previous iterations are in [resources](./resources/).
+
 wallpapers are in [resources/wallpapers](./resources/wallpapers).
 
-## NIX Components
+## Nix components
 - [flakes](https://nixos.wiki/wiki/Flakes) - channel manager
 - [home-manager](https://github.com/nix-community/home-manager) - manage dots
 - [stylix](https://github.com/danth/stylix) - auto themer
@@ -28,7 +29,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 - [nix-output-monitor](https://github.com/maralorn/nix-output-monitor) - better nix commands
 
 
-## Programs Used
+## Programs
 - [hyprland](https://github.com/hyprwm/Hyprland) - compositor
 - [firefox](https://www.mozilla.org/en-US/firefox/) - web browser
 - [emacs](https://www.gnu.org/emacs) - secondary main text editor
@@ -53,7 +54,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 - [ani-cli](https://github.com/pystardust/ani-cli) - anime tool
 
 
-## Rusty Tools Used
+## Rusty tools
 - [eza](https://github.com/eza-community/eza) - ls alter
 - [duf](https://github.com/muesli/duf) - df alter
 - [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd
@@ -62,7 +63,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 - [rg](https://github.com/BurstSushi/ripgrep) - grep alter
 
 
-## Standardised Config
+## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
 - [iosevka](https://github.com/be5invis/Iosevka) - monospace font
 - [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
