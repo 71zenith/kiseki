@@ -165,6 +165,7 @@ in {
       };
     };
   };
+
   services = {
     blueman-applet.enable = true;
     mako = {
