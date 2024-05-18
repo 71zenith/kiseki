@@ -90,11 +90,9 @@
       }
 
       window#waybar {
-        background-color: rgba(16, 16, 16, 0.8);
-        color: @base04;
-          transition-property: background-color;
-          transition-duration: 0.1s;
-        }
+        transition-property: background-color;
+        transition-duration: 0.1s;
+      }
       window#waybar.hidden {
         opacity: 0.1;
       }
@@ -144,7 +142,6 @@
         padding-right: 7px;
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
-
       #pulseaudio {
         color: @base0D;
       }
@@ -174,15 +171,12 @@
         padding: 15px;
         background-color: @base01;
       }
-
       tooltip label {
         padding: 5px;
       }
-
       #tray > .passive {
         -gtk-icon-effect: dim;
       }
-
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background-color: @base0A;
