@@ -38,6 +38,8 @@
             "6" = [];
             "7" = [];
             "8" = [];
+            "music" = [];
+            "neorg" = [];
           };
         };
         "tray" = {spacing = 10;};
@@ -108,39 +110,31 @@
       #workspaces,
       #network.disconnected {
         color: @base05;
-        padding: 2px 10px;
-        background-color: @base00;
-        border-radius: 8px;
+        padding: 2px 8px;
+        background-color: alpha(@base00, 0.5);
+        border-radius: 5px;
 
-        margin-left: 6px;
-        margin-right: 6px;
+        margin-left: 4px;
+        margin-right: 4px;
 
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin-top: 3px;
+        margin-bottom: 3px;
       }
       #workspaces button {
         color: @base04;
         box-shadow: inset 0 -3px transparent;
-
         padding-right: 7px;
         padding-left: 7px;
-
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.empty {
         color: @base03;
-        box-shadow: inset 0 -3px transparent;
-
-        padding-right: 7px;
-        padding-left: 7px;
-
-        transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.active {
         color: @base0B;
-        padding-left: 7px;
-        padding-right: 7px;
-        transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+      }
+      #mpris {
+        color: @base09;
       }
       #pulseaudio {
         color: @base0D;
@@ -154,12 +148,6 @@
       #network.disconnected {
         color: @base0A;
       }
-      @keyframes blink {
-        to {
-          background-color: rgba(30, 34, 42, 0.5);
-          color: @base07;
-        }
-      }
       #clock.time {
         color: @base0E;
       }
@@ -167,9 +155,8 @@
         color: @base08;
       }
       tooltip {
-        border-radius: 15px;
-        padding: 15px;
-        background-color: @base01;
+        padding: 5px;
+        background-color: alpha(@base01, 0.9);
       }
       tooltip label {
         padding: 5px;
@@ -180,9 +167,6 @@
       #tray > .needs-attention {
         -gtk-icon-effect: highlight;
         background-color: @base0A;
-      }
-      #mpris {
-        color: @base09;
       }
     '';
   };
