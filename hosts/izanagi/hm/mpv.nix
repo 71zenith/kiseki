@@ -22,7 +22,7 @@
       slang = "en,eng";
       alang = "ja,jp,jpn,en,eng";
       image-display-duration = "inf";
-      osd-font = "${config.stylix.fonts.monospace.name}";
+      osd-font = config.stylix.fonts.monospace.name;
       cache = "yes";
       demuxer-max-bytes = "1000MiB";
       demuxer-max-back-bytes = "50MiB";
