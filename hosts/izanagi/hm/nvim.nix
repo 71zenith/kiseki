@@ -10,13 +10,14 @@ in {
     ../../../modules/hm/neovide.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
+  stylix.targets.nixvim.enable = false;
   programs = {
     neovide = {
       enable = true;
       settings = {
         srgb = true;
         font = {
-          normal = ["${config.stylix.fonts.monospace.name}"];
+          normal = [config.stylix.fonts.monospace.name];
           size = 21;
         };
       };
@@ -33,9 +34,7 @@ in {
         local tele = require("telescope.actions")
       '';
       extraConfigLuaPost = ''
-        require("buffer_manager").setup({
-          focus_alternate_buffer = true,
-        })
+        require("buffer_manager").setup({ focus_alternate_buffer = true,})
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
         local cmp = require('cmp')
         cmp.event:on(
@@ -127,7 +126,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [lualine-so-fancy buffer-manager];
+      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager];
       autoCmd = [
         {
           pattern = ["norg"];
@@ -150,7 +149,6 @@ in {
           settings.check_ts = true;
         };
         nvim-bqf.enable = true;
-        comment.enable = true;
         todo-comments.enable = true;
         barbecue = {
           enable = true;
@@ -227,7 +225,6 @@ in {
           };
         };
         cursorline.enable = true;
-        harpoon.enable = true;
         alpha = {
           enable = true;
           layout = [
@@ -384,7 +381,6 @@ in {
             "<leader>l" = "LSP";
             "<leader>g" = "GIT";
             "<leader>w" = "WINDOW";
-            "<leader>j" = "HARPOON";
           };
         };
         treesitter = {
@@ -573,7 +569,7 @@ in {
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
-              require('luasnip').lsp_expand(args.body)
+              luasnip.lsp_expand(args.body)
               end
             '';
             mapping = {
@@ -616,7 +612,7 @@ in {
           enable = true;
           extensions = {
             frecency.enable = true;
-            frecency.settings.db_validate_threshold = 100;
+            frecency.settings.db_validate_threshold = 200;
           };
           settings = {
             defaults = {
@@ -672,28 +668,10 @@ in {
           options.desc = "Dia[g]nostics loclist";
         }
         {
-          key = "K";
-          mode = "n";
-          action = "<CMD>lua vim.lsp.buf.hover()<CR>";
-          options.desc = "Show hover docs";
-        }
-        {
           key = "<leader>ld";
           mode = "n";
           action = "<CMD>lua vim.diagnostic.open_float()<CR>";
           options.desc = "Hover [d]iagnostics";
-        }
-        {
-          key = "[d";
-          mode = "n";
-          action = "<CMD>lua vim.diagnostic.goto_prev()<CR>";
-          options.desc = "Goto prev diagnostic";
-        }
-        {
-          key = "]d";
-          mode = "n";
-          action = "<CMD>lua vim.diagnostic.goto_next()<CR>";
-          options.desc = "Goto next diagnostic";
         }
         {
           key = "<leader>ln";
@@ -833,16 +811,16 @@ in {
           options.desc = "Live [g]rep";
         }
         {
-          key = "<leader>fe";
+          key = "<leader>fr";
           mode = "n";
           action = "<CMD>Telescope frecency<CR>";
           options.desc = "Fr[e]cency files";
         }
         {
-          key = "<leader>fr";
+          key = "<leader>fe";
           mode = "n";
           action = "<CMD>Telescope oldfiles<CR>";
-          options.desc = "[R]ecent files";
+          options.desc = "R[e]cent files";
         }
         {
           key = "<leader>fu";
@@ -1123,24 +1101,6 @@ in {
           action = "<C-p>";
         }
         {
-          key = "<leader>jo";
-          mode = "n";
-          action = "<CMD>lua require('harpoon.mark').add_file()<CR>";
-          options.desc = "Add file to harpoon";
-        }
-        {
-          key = "<leader>ja";
-          mode = "n";
-          action = "<CMD>lua require('harpoon.ui').nav_prev()<CR>";
-          options.desc = "Harpoon prev";
-        }
-        {
-          key = "<leader>js";
-          mode = "n";
-          action = "<CMD>lua require('harpoon.ui').nav_next()<CR>";
-          options.desc = "Harpoon next";
-        }
-        {
           key = "]q";
           mode = "n";
           action = "<CMD>cnext<CR>";
@@ -1151,12 +1111,6 @@ in {
           mode = "n";
           action = "<CMD>cprev<CR>";
           options.desc = "Prev quickfix";
-        }
-        {
-          key = "<leader>jj";
-          mode = "n";
-          action = "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>";
-          options.desc = "Harpoon menu";
         }
         {
           key = "<leader>ap";
