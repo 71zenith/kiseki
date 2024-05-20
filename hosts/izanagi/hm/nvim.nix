@@ -664,8 +664,8 @@ in {
         {
           key = "<leader>lg";
           mode = "n";
-          action = "<CMD>lua vim.diagnostic.setloclist()<CR>";
-          options.desc = "Dia[g]nostics loclist";
+          action = "<CMD>lua vim.diagnostic.setqflist()<CR>";
+          options.desc = "Dia[g]nostics qflist";
         }
         {
           key = "<leader>ld";

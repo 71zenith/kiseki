@@ -50,6 +50,7 @@
           "https://cache.garnix.io"
           "https://hyprland.cachix.org"
           "https://cache.nixos.org"
+          "https://nix-community.cachix.org"
           "https://nixpkgs-wayland.cachix.org"
         ];
         trusted-public-keys = [
