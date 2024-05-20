@@ -88,7 +88,6 @@
         border-radius: 0;
         min-height: 0;
       }
-
       window#waybar {
         transition-property: background-color;
         transition-duration: 0.1s;
