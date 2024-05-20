@@ -15,8 +15,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   };
 
   installPhase = ''
-    runHook preInstall
-
     install -Dm644 FluentDark/arrow.png $out/share/fcitx5/themes/FluentDark/arrow.png
     install -Dm644 FluentDark/back.png $out/share/fcitx5/themes/FluentDark/back.png
     install -Dm644 FluentDark/next.png $out/share/fcitx5/themes/FluentDark/next.png
@@ -31,8 +29,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     install -Dm644 FluentDark-solid/panel.png $out/share/fcitx5/themes/FluentDark-solid/panel.png
     install -Dm644 FluentDark-solid/radio.png $out/share/fcitx5/themes/FluentDark-solid/radio.png
     install -Dm644 FluentDark-solid/theme.conf $out/share/fcitx5/themes/FluentDark-solid/theme.conf
-
-    runHook postInstall
   '';
 
   meta = with lib; {
