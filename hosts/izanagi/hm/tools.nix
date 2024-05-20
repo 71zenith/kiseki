@@ -138,7 +138,7 @@ in {
     foot = {
       enable = true;
       settings = {
-        main = {pad = "7x7";};
+        main = {pad = "5x5";};
         mouse = {hide-when-typing = "no";};
         key-bindings = {
           scrollback-up-page = "Control+u";
