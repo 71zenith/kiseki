@@ -18,7 +18,7 @@ in {
         srgb = true;
         font = {
           normal = [config.stylix.fonts.monospace.name];
-          size = 21;
+          size = 17;
         };
       };
     };
