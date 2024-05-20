@@ -10,13 +10,6 @@
       enableCompletion = true;
       defaultKeymap = "viins";
       initExtra = ''
-        function oshi() {
-          if [ -z "$1" ]; then
-            cat - | curl -T - "https://oshi.at" 2>/dev/null | sed -n '3p' | cut -f1 -d' ' | wl-copy
-          else
-            curl -T "$1" "https://oshi.at" 2>/dev/null | sed -n '3p' | cut -f1 -d' ' | wl-copy
-          fi
-        }
         function precmd() {
           print -Pn "\e]133;A\e\\"
           if ! builtin zle; then
@@ -29,7 +22,7 @@
           print -Pn "\e]0;''${(q)1}\e\\"
         }
         function osc7-pwd() {
-          emulate -L zsh # also sets localoptions for us
+          emulate -L zsh
           setopt extendedglob
           local LC_ALL=C
           printf '\e]7;file://%s%s\e\' $HOST ''${PWD//(#m)([^@-Za-z&-;_~])/%''${(l:2::0:)$(([##16]#MATCH))}}
@@ -38,19 +31,15 @@
           (( ZSH_SUBSHELL )) || osc7-pwd
         }
         add-zsh-hook -Uz chpwd chpwd-osc7-pwd
-        zstyle ':completion:*' menu select
         bindkey '^[[Z' reverse-menu-complete
-        bindkey '^I' menu-complete
         bindkey "^?" autopair-delete
         bindkey '^H' backward-delete-word
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
         setopt complete_in_word interactivecomments
-        zstyle ':completion:*' verbose yes
-        zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+        zstyle ':completion:*' menu select
+        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-        zstyle ':completion:*' use-cache on
-        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
         _comp_options+=(globdots)
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';

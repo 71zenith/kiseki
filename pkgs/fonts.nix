@@ -1,21 +1,20 @@
 {
   lib,
   stdenvNoCC,
-  fetchzip,
+  fetchFromGitHub,
 }:
-stdenvNoCC.mkDerivation {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "fonts";
   version = "3";
-
-  src = fetchzip {
-    url = "https://github.com/71zenith/fonts/archive/refs/tags/3.zip";
-    stripRoot = false;
-    hash = "sha256-eHYpOqe/ptnB1ICIVRTcSswSLC+O4Vp6jqDx7QPMBZ8=";
+  src = fetchFromGitHub {
+    owner = "71zenith";
+    repo = "fonts";
+    rev = finalAttrs.version;
+    hash = "sha256-ZLGRkbnJGgMademXXJX0tecuFkXyNZnstFY3cWnrZp0=";
   };
-
   installPhase = ''
     mkdir -p $out/share/fonts
-    install -Dm444 fonts-3/* $out/share/fonts/
+    install -Dm444 * $out/share/fonts/
   '';
   meta = with lib; {
     description = "Collection of fonts";
@@ -23,4 +22,4 @@ stdenvNoCC.mkDerivation {
     platforms = platforms.unix;
     maintainers = with maintainers; [zen];
   };
-}
+})
