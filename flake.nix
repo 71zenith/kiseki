@@ -68,7 +68,7 @@
     devShell.${system} = pkgs.mkShell {
       packages = with pkgs; [lolcat];
       shellHook = ''
-        echo "1337 h4x0ring..." | lolcat
+        printf "\e[3m\e[1m%s\em\n" "1337 h4x0ring..." | lolcat
       '';
     };
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
