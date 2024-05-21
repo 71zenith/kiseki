@@ -41,6 +41,11 @@ in {
           'confirm_done',
           cmp_autopairs.on_confirm_done())
       '';
+      # HACK: till upstream fix arrives
+      highlight = {
+        WinBar.bg = "#${config.stylix.base16Scheme.palette.base00}";
+        WinBarNC.bg = "#${config.stylix.base16Scheme.palette.base00}";
+      };
       globals = {
         mapleader = " ";
         maplocalleader = ";";
