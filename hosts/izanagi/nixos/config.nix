@@ -2,11 +2,11 @@
   pkgs,
   config,
   inputs,
+  pcName,
+  myUserName,
   lib,
   ...
-}: let
-  myUserName = "zen";
-in {
+}: {
   imports = [
     ./hardware.nix
     ./packages.nix
@@ -160,7 +160,7 @@ in {
   };
 
   networking = {
-    hostName = "izanagi";
+    hostName = pcName;
     wireless.enable = false;
     useNetworkd = true;
   };
