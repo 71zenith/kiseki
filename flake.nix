@@ -41,6 +41,8 @@
     nixpkgs,
     ...
   } @ inputs: let
+    pcName = "izanagi";
+    myUserName = "zen";
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
     caches = {
@@ -69,14 +71,18 @@
         echo "1337 h4x0ring..." | lolcat
       '';
     };
-    nixosConfigurations.izanagi = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+    nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
+      specialArgs = {
+        inherit inputs;
+        inherit pcName;
+        inherit myUserName;
+      };
       modules = [
+        caches
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default
         inputs.sops-nix.nixosModules.sops
-        caches
         ./hosts/izanagi/nixos/config.nix
       ];
     };
