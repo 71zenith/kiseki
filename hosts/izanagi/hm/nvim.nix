@@ -115,7 +115,7 @@ in {
         undofile = true;
         undolevels = 10000;
         list = true;
-        formatoptions = "jcqlnt";
+        formatoptions = "jqlnt";
         conceallevel = 0;
         spelllang = ["en_us"];
         concealcursor = "nc";
@@ -134,15 +134,15 @@ in {
           callback = {
             __raw = ''
               function()
-                vim.opt_local.wrap = true
-                vim.opt_local.linebreak = true
+              vim.opt_local.wrap = true
+              vim.opt_local.linebreak = true
               end
             '';
           };
         }
       ];
       plugins = {
-        nix.enable = true;
+        nix.enable = false;
         hop.enable = true;
         nvim-autopairs = {
           enable = true;
@@ -154,8 +154,8 @@ in {
           enable = true;
           leadCustomSection = ''
             function()
-            return { { " ", "WinBar" } }
-            end,
+            return {{" ","WinBar"}}
+            end
           '';
         };
         flash.enable = true;
@@ -173,7 +173,7 @@ in {
                 hook = {
                   __raw = ''
                     function(keybinds)
-                      keybinds.remap_event("norg", "i", "<C-CR>", "core.itero.next-iteration")
+                    keybinds.remap_event("norg", "i", "<C-CR>", "core.itero.next-iteration")
                     end,
                   '';
                 };
@@ -293,15 +293,12 @@ in {
             };
           };
         };
-        cmp-buffer.enable = true;
         diffview.enable = true;
-        cmp-nvim-lsp.enable = true;
         surround.enable = true;
         lastplace.enable = true;
-        better-escape.enable = true;
         lspkind.enable = true;
-        lsp-format.enable = true;
         friendly-snippets.enable = true;
+        lsp-format.enable = true;
         none-ls = {
           enable = true;
           enableLspFormat = true;
@@ -803,6 +800,12 @@ in {
           mode = "n";
           action = "<CMD>Telescope grep_string<CR>";
           options.desc = "Find string under [c]ursor";
+        }
+        {
+          key = "<leader>ft";
+          mode = "n";
+          action = "<CMD>TodoTelescope<CR>";
+          options.desc = "[T]odo Telescope";
         }
         {
           key = "<leader>fg";

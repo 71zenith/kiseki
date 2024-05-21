@@ -88,6 +88,7 @@
         nv = "nvim";
         up = "nh os switch";
         del = "nh clean all --nogcroots";
+        ss = "nh search";
         ts = "nix-shell --run zsh -p";
         qq = "nvd list";
         fl = "nix flake";
