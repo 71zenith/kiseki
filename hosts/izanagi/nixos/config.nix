@@ -257,8 +257,9 @@
     extraSpecialArgs = {
       inherit inputs;
       inherit myUserName;
+      inherit pcName;
     };
-    users = {"${myUserName}" = import ../hm/home.nix;};
+    users = {${myUserName} = import ../hm/home.nix;};
   };
 
   hardware = {
