@@ -5,7 +5,7 @@
       enable = true;
       defaultApplications = let
         browser = ["firefox.desktop"];
-        fileManager = ["nautilus.desktop"];
+        fileManager = ["org.gnome.Nautilus.desktop"];
         editor = ["neovide.desktop"];
         player = ["mpv.desktop"];
         viewer = ["nsxiv.desktop"];
