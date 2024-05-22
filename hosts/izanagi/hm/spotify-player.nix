@@ -134,6 +134,10 @@ in {
             fg = "Red";
             modifiers = ["Bold" "Italic"];
           };
+          playlist_desc = {
+            fg = "White";
+            modifiers = ["Italic"];
+          };
           page_desc = {
             fg = "Magenta";
             modifiers = ["Bold" "Italic"];
