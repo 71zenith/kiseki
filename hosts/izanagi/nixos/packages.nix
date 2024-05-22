@@ -38,6 +38,7 @@ in {
     nix-init
     nix-output-monitor
     nsxiv
+    nurl
     nvd
     # openmw  NOTE: morrowind
     openssl
