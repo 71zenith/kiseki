@@ -19,8 +19,8 @@ in {
         name = "Google Sans";
       };
       monospace = {
-        package = pkgs.victor-mono;
-        name = "Victor Mono Medium";
+        package = pkgs.iosevka-bin;
+        name = "Iosevka Term Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
