@@ -77,6 +77,7 @@ in {
       };
       dwindle = {
         force_split = 2;
+        no_gaps_when_only = false;
         pseudotile = true;
         preserve_split = true;
       };
