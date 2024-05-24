@@ -33,35 +33,28 @@ in {
         ;;
         esac
   '';
+  copyTwit = writeShellScript "copyTwit" ''
+    url=$(wl-paste | sed 's/x.com/twitter.com/g')
+    notify-send "Downloading..."
+    ! yt-dlp -f "best[ext=mp4]" --force-overwrites "$url" --paths "/tmp" --output send.mp4 && notify-send "Not a valid URL !!" && exit 1
+    wl-copy -t text/uri-list "file:///tmp/send.mp4" && notify-send "Copied to clipboard"
+  '';
   rofiGuard = writeShellScript "rofiGuard" ''
-    get_status() {
-      [ -z "$(sudo wg)" ] && return 1;
-      return 0;
-    }
-    notify() {
-      notify-send "Switched $1" "$2"
-    }
-    get_vpns() {
-      systemctl list-unit-files --type=service --all | sed -nE 's/^(wg-quick.+).service.*/\1/p'
-    }
-    get_active() {
-      systemctl list-units --type=service | sed -nE 's/(wg-quick.+).service.*/\1/p' | tr -d ' '
-    }
     build_rofi() {
-      gv="$(get_vpns)"
-      echo "$gv" | rofi -dmenu -p "󰖂" -mesg "$1" -l "$(echo "$gv" | wc -l)"
+      gv="$(systemctl list-unit-files --type=service --all | sed -nE 's/^(wg-quick.+).service.*/\1/p')"
+      echo "$gv" | rofi -filter -dmenu -p "󰖂" -mesg "$1" -l "$(echo "$gv" | wc -l)"
     }
     act_on_rofi() {
       [ -z "$1" ] && exit 1
-      ga=$(get_active)
-      [ "$1" = "$ga" ] && sudo systemctl stop "$1" && notify "OFF" "$1" && exit 0
-      [ -n "$ga" ] && sudo systemctl stop "$ga" && notify "OFF" "$ga"
+      [ "$1" = "$2" ] && sudo systemctl stop "$1" && notify-send "Switched OFF" "$1" && exit 0
+      [ -n "$2" ] && sudo systemctl stop "$2" && notify-send "Switched OFF" "$2"
       sudo systemctl start "$1" && notify "ON" "$1" && exit 0
     }
-    if get_status; then
-      act_on_rofi "$(build_rofi "STATUS: <b>ON</b> <i>$(get_active)</i>")"
-    else
+    if [ -z "$(sudo wg)" ]; then
       act_on_rofi "$(build_rofi "STATUS: <b>OFF</b>")"
+    else
+      ga=$(systemctl list-units --type=service | sed -nE 's/(wg-quick.+).service.*/\1/p' | tr -d ' ')
+      act_on_rofi "$(build_rofi "STATUS: <b>ON</b> <i>$ga</i>")" "$ga"
     fi
   '';
 }
