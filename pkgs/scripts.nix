@@ -21,14 +21,14 @@ in {
     case "$(wl-paste --list-types)" in
       *text*)
         notify-send 'Opening URL'
-        mpv $(wl-paste)
+        mpv $(wl-paste) || notify-send "Not a valid URL !!"
         ;;
       *image*)
         notify-send 'Opening image'
         wl-paste | mpv -
         ;;
       *)
-        notify-send 'Clipboard content is not an image'
+        notify-send 'Clipboard content is not a media'
         exit 1
         ;;
         esac
