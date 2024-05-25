@@ -169,15 +169,15 @@ in {
   services = {
     blueman-applet.enable = true;
     hypridle = {
-      enable = false;
+      enable = true;
       settings = {
         general = {
           ignore_dbus_inhibit = false;
         };
         listener = {
           timeout = 300;
-          on-timeout = "mpv --fs '/home/zen/cat.webp'";
-          on-resume = "pkill mpv";
+          on-timeout = "/home/zen/dvd/zig-out/bin/dvd";
+          on-resume = "pkill dvd";
         };
       };
     };
