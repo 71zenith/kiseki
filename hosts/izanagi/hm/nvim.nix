@@ -219,6 +219,7 @@ in {
               installRustc = true;
             };
             pyright.enable = true;
+            zls.enable = true;
             ruff-lsp.enable = true;
           };
         };

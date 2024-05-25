@@ -168,6 +168,19 @@ in {
 
   services = {
     blueman-applet.enable = true;
+    hypridle = {
+      enable = false;
+      settings = {
+        general = {
+          ignore_dbus_inhibit = false;
+        };
+        listener = {
+          timeout = 300;
+          on-timeout = "mpv --fs '/home/zen/cat.webp'";
+          on-resume = "pkill mpv";
+        };
+      };
+    };
     mako = {
       enable = true;
       defaultTimeout = 5000;
