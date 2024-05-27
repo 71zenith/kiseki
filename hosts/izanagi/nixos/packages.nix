@@ -61,6 +61,7 @@ in {
     xdg-utils
     xwayland
     yt-dlp
+    zed-editor
     zip
     zoxide
   ];
