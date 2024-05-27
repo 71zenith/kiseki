@@ -34,7 +34,6 @@ in {
 
   home = {
     username = "${myUserName}";
-    homeDirectory = "/home/${myUserName}";
 
     stateVersion = "24.05";
 

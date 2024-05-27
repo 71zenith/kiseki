@@ -88,7 +88,7 @@ in {
       };
       decoration = {
         rounding = 10;
-        drop_shadow = false;
+        drop_shadow = true;
       };
       general = {
         gaps_in = 4;
