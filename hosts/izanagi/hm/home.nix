@@ -3,6 +3,7 @@
   config,
   inputs,
   myUserName,
+  overlays,
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
@@ -44,10 +45,7 @@ in {
   };
 
   nixpkgs.config = import ./nixpkgs.nix;
-  nixpkgs.overlays = [
-    inputs.neorg.overlays.default
-    inputs.hyprland.overlays.default
-  ];
+  nixpkgs.overlays = overlays;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
   qt = {

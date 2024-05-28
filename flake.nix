@@ -71,6 +71,7 @@
     overlays = {
       nixpkgs.overlays = [
         inputs.hyprland.overlays.default
+        inputs.neorg.overlays.default
       ];
     };
   in {

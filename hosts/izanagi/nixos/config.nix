@@ -113,23 +113,11 @@
     };
   };
 
-  # HACK: Cloudflare warp (1.1.1.1) setup
-  # systemd.packages = [pkgs.cloudflare-warp];
-  # systemd.services.warp-svc = {
-  #   enable = true;
-  #   after = ["network.target"];
-  #   wantedBy = ["multi-user.target"];
-  #   postStart = ''
-  #     sleep 5 && ${pkgs.cloudflare-warp}/bin/warp-cli --accept-tos registration new
-  #   '';
-  # };
-
   services = {
     greetd = {
       enable = true;
       settings = rec {
         initial_session = {
-          # command = "${lib.getExe config.programs.hyprland.package}";
           command = "${lib.getExe pkgs.hyprland}";
           user = "${myUserName}";
         };
@@ -259,6 +247,7 @@
       inherit inputs;
       inherit myUserName;
       inherit pcName;
+      inherit (config.nixpkgs) overlays;
     };
     users = {${myUserName} = import ../hm/home.nix;};
   };
@@ -297,9 +286,7 @@
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = import ../hm/nixpkgs.nix;
 
   # NOTE: wacom fix
   # hardware.opentabletdriver.enable = true;
