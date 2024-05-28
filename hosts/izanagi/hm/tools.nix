@@ -1,6 +1,8 @@
 {
   pkgs,
+  inputs,
   config,
+  lib,
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette slug;
@@ -169,15 +171,14 @@ in {
   services = {
     blueman-applet.enable = true;
     hypridle = {
-      enable = true;
+      enable = false;
       settings = {
         general = {
           ignore_dbus_inhibit = false;
         };
         listener = {
           timeout = 300;
-          on-timeout = "/home/zen/dvd/zig-out/bin/dvd";
-          on-resume = "pkill dvd";
+          on-timeout = "${lib.getExe inputs.dvd-zig.packages.${pkgs.system}.dvd-zig}";
         };
       };
     };

@@ -129,7 +129,8 @@
       enable = true;
       settings = rec {
         initial_session = {
-          command = "${lib.getExe config.programs.hyprland.package}";
+          # command = "${lib.getExe config.programs.hyprland.package}";
+          command = "${lib.getExe pkgs.hyprland}";
           user = "${myUserName}";
         };
         default_session = initial_session;

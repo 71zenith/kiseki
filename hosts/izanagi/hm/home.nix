@@ -44,7 +44,10 @@ in {
   };
 
   nixpkgs.config = import ./nixpkgs.nix;
-  nixpkgs.overlays = [inputs.neorg.overlays.default];
+  nixpkgs.overlays = [
+    inputs.neorg.overlays.default
+    inputs.hyprland.overlays.default
+  ];
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
   qt = {

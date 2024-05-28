@@ -17,6 +17,10 @@
       url = "github:julcioo/PrismLauncher-Cracked?ref=8.3-cracked";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dvd-zig = {
+      url = "github:71zenith/dvd-zig";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.39.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -64,6 +68,11 @@
         ];
       };
     };
+    overlays = {
+      nixpkgs.overlays = [
+        inputs.hyprland.overlays.default
+      ];
+    };
   in {
     devShell.${system} = pkgs.mkShell {
       packages = with pkgs; [lolcat];
@@ -79,6 +88,7 @@
       };
       modules = [
         caches
+        overlays
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
         inputs.home-manager.nixosModules.default

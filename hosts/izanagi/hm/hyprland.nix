@@ -9,6 +9,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    #package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

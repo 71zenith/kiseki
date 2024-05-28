@@ -108,7 +108,6 @@
       #network.disconnected {
         color: @base05;
         padding: 2px 8px;
-        background-color: alpha(@base00, 0.5);
         border-radius: 5px;
 
         margin-left: 4px;
