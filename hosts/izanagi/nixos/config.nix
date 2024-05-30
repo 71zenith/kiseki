@@ -284,6 +284,7 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config.common.default = "*";
   };
 
   nixpkgs.config = import ../hm/nixpkgs.nix;
@@ -295,5 +296,5 @@
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "24.11";
 }

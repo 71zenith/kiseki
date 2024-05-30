@@ -70,6 +70,7 @@
     };
     overlays = {
       nixpkgs.overlays = [
+        inputs.prismlauncher.overlays.default
         inputs.hyprland.overlays.default
         inputs.neorg.overlays.default
       ];
@@ -92,9 +93,9 @@
         overlays
         inputs.stylix.nixosModules.stylix
         inputs.nur.nixosModules.nur
-        inputs.home-manager.nixosModules.default
+        inputs.home-manager.nixosModules.home-manager
         inputs.sops-nix.nixosModules.sops
-        ./hosts/izanagi/nixos/config.nix
+        ./hosts/${pcName}/nixos/config.nix
       ];
     };
   };

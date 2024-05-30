@@ -27,7 +27,7 @@ in {
     gtk3
     heroic
     imagemagick
-    inputs.prismlauncher.packages.${pkgs.system}.prismlauncher
+    inputs.dvd-zig.packages.${pkgs.system}.dvd-zig
     libnotify
     libsForQt5.qt5.qtwayland
     libsixel

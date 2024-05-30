@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  inputs,
   myUserName,
   overlays,
   ...
@@ -36,7 +35,7 @@ in {
   home = {
     username = "${myUserName}";
 
-    stateVersion = "24.05";
+    stateVersion = "24.11";
 
     pointerCursor = {
       x11.enable = true;
