@@ -177,7 +177,7 @@ in {
           ignore_dbus_inhibit = false;
         };
         listener = {
-          timeout = 300;
+          timeout = 10;
           on-timeout = "${lib.getExe inputs.dvd-zig.packages.${pkgs.system}.dvd-zig}";
         };
       };
