@@ -171,13 +171,13 @@ in {
   services = {
     blueman-applet.enable = true;
     hypridle = {
-      enable = false;
+      enable = true;
       settings = {
         general = {
           ignore_dbus_inhibit = false;
         };
         listener = {
-          timeout = 10;
+          timeout = 300;
           on-timeout = "${lib.getExe inputs.dvd-zig.packages.${pkgs.system}.dvd-zig}";
         };
       };
