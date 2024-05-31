@@ -7,7 +7,7 @@ in {
     src = fetchFromGitHub {
       owner = "meuter";
       repo = "lualine-so-fancy.nvim";
-      rev = "21284504fed2776668fdea8743a528774de5d2e1";
+      rev = "135363fc3cc29efd8e804e872f22d033ea6d87ad";
       hash = "sha256-JMz3Dv3poGoYQU+iq/jtgyHECZLx+6mLCvqUex/a0SY=";
     };
   };
