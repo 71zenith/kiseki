@@ -42,7 +42,7 @@ in {
   rofiGuard = writeShellScript "rofiGuard" ''
     build_rofi() {
       gv="$(systemctl list-unit-files --type=service --all | sed -nE 's/^(wg-quick.+).service.*/\1/p')"
-      echo "$gv" | rofi -filter -dmenu -p "󰖂" -mesg "$1" -l "$(echo "$gv" | wc -l)"
+      echo "$gv" | rofi -dmenu -p "󰖂" -mesg "$1" -l "$(echo "$gv" | wc -l) -filter"
     }
     act_on_rofi() {
       [ -z "$1" ] && exit 1
@@ -59,17 +59,17 @@ in {
   '';
   disSend = writeShellScript "disSend" ''
     DISCORD_URL='https://discord.com/api/v10'
-    DISCORD_SERVER_ID=931186431215435807
+    DISCORD_SERVER_ID=1083698635864277023
     DISCORD_TOKEN=$(cat /run/secrets/discord_token)
     send() {
       curl -s "$DISCORD_URL/channels/$chan_id/messages" -H "Authorization: $DISCORD_TOKEN" -H "Accept: application/json" -H "Content-Type: multipart/form-data" -X POST -F "$1"
     }
     selchan() {
-      chans=$(curl -s "$DISCORD_URL/guilds/$DISCORD_SERVER_ID/channels" -H "Authorization: $DISCORD_TOKEN" | tr '{}' '\n' | sed -nE 's|.*"id":"([^"]*)".*last_message_id.*"name":"([^"]*)".*|\1 \2|p' )
+      chans=$(curl -s "$DISCORD_URL/guilds/$DISCORD_SERVER_ID/channels" -H "Authorization: $DISCORD_TOKEN" | tr '{}' '\n' | sed -nE 's|.*"id":"([^"]*)".*type":0.*last_message_id.*"name":"([^"]*)".*|\1 \2|p' )
       chan=$(echo "$chans" | cut -d' ' -f2 | rofi -dmenu -p "Select Channel" -filter 2>/dev/null)
       chan_id=$(printf "%s" "$chans" | grep "$chan" | cut -d' ' -f1)
     }
-    f=$(rofi -show filebrowser -filebrowser-command 'echo' ~/ 2>/dev/null)
+    f=$(rofi -show filebrowser -filebrowser-command 'echo' 2>/dev/null)
     test -d "$f" && f=$(nsxiv -top "$f")
     [ -z "$f" ] && notify-send "Exiting!!!" && exit 1
     selchan
