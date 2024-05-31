@@ -42,6 +42,7 @@ in {
     # openmw  NOTE: morrowind
     openssl
     playerctl
+    prismlauncher
     protonup-qt
     pulsemixer
     python3

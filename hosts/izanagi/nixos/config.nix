@@ -275,6 +275,7 @@
       powerManagement.enable = true;
       forceFullCompositionPipeline = true;
       nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.beta;
     };
 
     cpu.amd.updateMicrocode = true;
