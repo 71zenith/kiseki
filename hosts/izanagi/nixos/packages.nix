@@ -27,7 +27,6 @@ in {
     gtk3
     heroic
     imagemagick
-    inputs.dvd-zig.packages.${pkgs.system}.dvd-zig
     libnotify
     libsForQt5.qt5.qtwayland
     libsixel
