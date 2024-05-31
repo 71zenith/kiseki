@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  inputs,
   ...
 }: let
   ani-cli = pkgs.callPackage ../../../pkgs/ani-cli.nix {};

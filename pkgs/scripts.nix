@@ -57,4 +57,25 @@ in {
       act_on_rofi "$(build_rofi "STATUS: <b>ON</b> <i>$ga</i>")" "$ga"
     fi
   '';
+  disSend = writeShellScript "disSend" ''
+    DISCORD_URL='https://discord.com/api/v10'
+    DISCORD_SERVER_ID=931186431215435807
+    DISCORD_TOKEN=$(cat /run/secrets/discord_token)
+    send() {
+      curl -s "$DISCORD_URL/channels/$chan_id/messages" -H "Authorization: $DISCORD_TOKEN" -H "Accept: application/json" -H "Content-Type: multipart/form-data" -X POST -F "$1"
+    }
+    selchan() {
+      chans=$(curl -s "$DISCORD_URL/guilds/$DISCORD_SERVER_ID/channels" -H "Authorization: $DISCORD_TOKEN" | tr '{}' '\n' | sed -nE 's|.*"id":"([^"]*)".*last_message_id.*"name":"([^"]*)".*|\1 \2|p' )
+      chan=$(echo "$chans" | cut -d' ' -f2 | rofi -dmenu -p "Select Channel" -filter 2>/dev/null)
+      chan_id=$(printf "%s" "$chans" | grep "$chan" | cut -d' ' -f1)
+    }
+    f=$(rofi -show filebrowser -filebrowser-command 'echo' ~/ 2>/dev/null)
+    test -d "$f" && f=$(nsxiv -top "$f")
+    [ -z "$f" ] && notify-send "Exiting!!!" && exit 1
+    selchan
+    IFS="
+    "
+    [ -n "$f" ] && for i in $f; do send "file=@$i"; done && notify-send "Uploaded $f to Discord in $chan" && exit 0
+    notify-send "Exiting!!!" && exit 1
+  '';
 }

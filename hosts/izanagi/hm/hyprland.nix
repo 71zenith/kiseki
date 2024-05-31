@@ -146,6 +146,7 @@ in {
           "$mod2, i, exec, $setwall"
           "$mod1, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
+          "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
           "$mod1, p, exec, ${scripts.openMedia}"
           "$mod1, u, exec, ${scripts.rofiGuard}"
