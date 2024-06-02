@@ -36,7 +36,7 @@ in {
   copyTwit = writeShellScript "copyTwit" ''
     url=$(wl-paste | sed 's/x.com/twitter.com/g')
     notify-send "Downloading..."
-    ! yt-dlp -f "best[ext=mp4]" --force-overwrites "$url" --paths "/tmp" --output send.mp4 && notify-send "Not a valid URL !!" && exit 1
+    ! yt-dlp -f "best[ext=mp4]" --embed-thumbnail --force-overwrites "$url" --paths "/tmp" --output send.mp4 && notify-send "Not a valid URL !!" && exit 1
     wl-copy -t text/uri-list "file:///tmp/send.mp4" && notify-send "Copied to clipboard"
   '';
   rofiGuard = writeShellScript "rofiGuard" ''
