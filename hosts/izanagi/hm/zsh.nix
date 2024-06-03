@@ -90,6 +90,7 @@
         del = "nh clean all --nogcroots";
         ss = "nh search";
         ts = "nix-shell --run zsh -p";
+        nn = "nom build";
         qq = "nvd list";
         fl = "nix flake";
         zj = "zellij";

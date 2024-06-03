@@ -59,7 +59,7 @@ in {
   '';
   disSend = writeShellScript "disSend" ''
     DISCORD_URL='https://discord.com/api/v10'
-    DISCORD_SERVER_ID=1083698635864277023
+    DISCORD_SERVER_ID=931186431215435807
     DISCORD_TOKEN=$(cat /run/secrets/discord_token)
     send() {
       curl -s "$DISCORD_URL/channels/$chan_id/messages" -H "Authorization: $DISCORD_TOKEN" -H "Accept: application/json" -H "Content-Type: multipart/form-data" -X POST -F "$1"
