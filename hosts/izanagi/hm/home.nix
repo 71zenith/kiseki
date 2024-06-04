@@ -2,7 +2,6 @@
   pkgs,
   config,
   myUserName,
-  overlays,
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
@@ -43,8 +42,6 @@ in {
     };
   };
 
-  nixpkgs.config = import ./nixpkgs.nix;
-  nixpkgs.overlays = overlays;
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
   qt = {

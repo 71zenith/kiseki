@@ -19,6 +19,7 @@ in {
     duf
     fd
     ffmpeg
+    file
     firefox
     gcc
     gnome.nautilus

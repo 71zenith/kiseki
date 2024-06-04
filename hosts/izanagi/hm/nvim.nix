@@ -211,7 +211,7 @@ in {
             end
           '';
           servers = {
-            nil_ls.enable = true;
+            nil-ls.enable = true;
             bashls.enable = true;
             rust-analyzer = {
               enable = true;
