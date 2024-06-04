@@ -22,6 +22,7 @@ in {
     file
     firefox
     gcc
+    glava
     gnome.nautilus
     grimblast
     gtk3

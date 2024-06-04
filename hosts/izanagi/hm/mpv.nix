@@ -24,7 +24,7 @@
       image-display-duration = "inf";
       osd-font = config.stylix.fonts.monospace.name;
       cache = "yes";
-      demuxer-max-bytes = "1000MiB";
+      demuxer-max-bytes = "650MiB";
       demuxer-max-back-bytes = "50MiB";
       demuxer-readahead-secs = "60";
       border = "no";

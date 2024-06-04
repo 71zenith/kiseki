@@ -69,10 +69,10 @@
       };
     };
     overlays = {
-      nixpkgs.overlays = [
-        inputs.prismlauncher.overlays.default
-        inputs.hyprland.overlays.default
-        inputs.neorg.overlays.default
+      nixpkgs.overlays = with inputs; [
+        prismlauncher.overlays.default
+        hyprland.overlays.default
+        neorg.overlays.default
       ];
     };
   in {
@@ -88,13 +88,13 @@
         inherit pcName;
         inherit myUserName;
       };
-      modules = [
+      modules = with inputs; [
         caches
         overlays
-        inputs.stylix.nixosModules.stylix
-        inputs.nur.nixosModules.nur
-        inputs.home-manager.nixosModules.home-manager
-        inputs.sops-nix.nixosModules.sops
+        stylix.nixosModules.stylix
+        nur.nixosModules.nur
+        home-manager.nixosModules.home-manager
+        sops-nix.nixosModules.sops
         ./hosts/${pcName}/nixos/config.nix
       ];
     };
