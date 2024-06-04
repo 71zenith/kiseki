@@ -45,7 +45,7 @@ in {
   xdg.configFile = {
     "nixpkgs/config.nix".source = ./nixpkgs.nix;
 
-    "glava/bars.glsl".enable = true;
+    "glava/bars.glsl".enable = false;
     "glava/bars.glsl".text = ''
       #define C_LINE 2
       #define BAR_WIDTH 8
