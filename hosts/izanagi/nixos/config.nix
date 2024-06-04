@@ -244,11 +244,11 @@
 
   home-manager = {
     backupFileExtension = "backup";
+    useGlobalPkgs = true;
     extraSpecialArgs = {
       inherit inputs;
       inherit myUserName;
       inherit pcName;
-      inherit (config.nixpkgs) overlays;
     };
     users = {${myUserName} = import ../hm/home.nix;};
   };

@@ -55,7 +55,7 @@
         substituters = [
           "https://cache.garnix.io"
           "https://hyprland.cachix.org"
-          "https://cache.nixos.org"
+          "https://cache.nixos.org?priority=10"
           "https://nix-community.cachix.org"
           "https://nixpkgs-wayland.cachix.org"
         ];

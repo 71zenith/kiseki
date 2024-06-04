@@ -43,6 +43,7 @@ in {
         "$setwall &"
       ];
       windowrule = [
+        "noblur, ^(Glava)"
         "tile, class:neovide"
         "maximize, neovide"
         "float, file_progress"
