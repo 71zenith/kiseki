@@ -42,23 +42,27 @@ in {
     };
   };
 
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
-  xdg.configFile."glava/bars.glsl".text = ''
-    #define C_LINE 2
-    #define BAR_WIDTH 8
-    #define BAR_GAP 5
-    #define BAR_OUTLINE #${palette.base02}
-    #define BAR_OUTLINE_WIDTH 0
-    #define AMPLIFY 400
-    #define USE_ALPHA 0
-    #define GRADIENT_POWER 500
-    #define GRADIENT (d / GRADIENT_POWER + 1)
-    #define COLOR (#${palette.base07}* GRADIENT)
-    #define INVERT 0
-    #define DIRECTION 0
-    #define FLIP 0
-    #define MIRROR_YX 0
-  '';
+  xdg.configFile = {
+    "nixpkgs/config.nix".source = ./nixpkgs.nix;
+
+    "glava/bars.glsl".enable = true;
+    "glava/bars.glsl".text = ''
+      #define C_LINE 2
+      #define BAR_WIDTH 8
+      #define BAR_GAP 5
+      #define BAR_OUTLINE #${palette.base02}
+      #define BAR_OUTLINE_WIDTH 0
+      #define AMPLIFY 400
+      #define USE_ALPHA 0
+      #define GRADIENT_POWER 500
+      #define GRADIENT (d / GRADIENT_POWER + 1)
+      #define COLOR (#${palette.base07}* GRADIENT)
+      #define INVERT 0
+      #define DIRECTION 0
+      #define FLIP 0
+      #define MIRROR_YX 0
+    '';
+  };
 
   qt = {
     enable = true;

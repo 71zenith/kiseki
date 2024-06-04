@@ -26,6 +26,7 @@ in {
         extensions = with config.nur.repos.rycee.firefox-addons; [
           refined-github
           sponsorblock
+          mal-sync
           to-google-translate
           foxyproxy-standard
           i-dont-care-about-cookies
