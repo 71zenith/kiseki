@@ -4,6 +4,7 @@
   inputs,
   pcName,
   myUserName,
+  nur-no-pkgs,
   lib,
   ...
 }: {
@@ -249,6 +250,7 @@
       inherit inputs;
       inherit myUserName;
       inherit pcName;
+      inherit nur-no-pkgs;
     };
     users = {${myUserName} = import ../hm/home.nix;};
   };
