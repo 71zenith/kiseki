@@ -15,11 +15,31 @@
     enable = true;
     recommendedGcSettings = true;
     startupTimer = true;
-    postlude = ''
+    earlyInit = ''
+      (setq inhibit-startup-screen t
+            inhibit-startup-echo-area-message (user-login-name))
 
+      (setq initial-major-mode 'fundamental-mode
+            initial-scratch-message nil)
+    '';
+    postlude = ''
+      (setq make-backup-files nil
+            auto-save-default nil)
+
+      (setq-default indent-tabs-mode nil
+                    tab-width 4
+                    c-basic-offset 4)
+      (setq-default show-trailing-whitespace t)
+      (prefer-coding-system 'utf-8)
+      (setq scroll-step 1
+            scroll-conservatively 100)
     '';
     usePackage = {
       magit.enable = true;
+      autorevert = {
+        enable = true;
+        command = ["auto-revert-mode"];
+      };
       fontaine = {
         enable = true;
         config = ''
@@ -29,7 +49,7 @@
                     (t
                       :default-family "${config.stylix.fonts.monospace.name}"
                       :default-weight medium
-                      :default-height ${builtins.toString (config.stylix.fonts.sizes.terminal * 10)}
+                      :default-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 1.15 * 10))}
                       :mode-line-active-family "${config.stylix.fonts.serif.name}"
                       :mode-line-inactive-family "${config.stylix.fonts.serif.name}")))
           (fontaine-mode t)
@@ -81,8 +101,8 @@
         enable = true;
         bindLocal = {
           corfu-map = {
-            "TAB" = "corfu-next";
-            "S-TAB" = "corfu-previous";
+            "[tab]" = "corfu-next";
+            "[backtab]" = "corfu-previous";
           };
         };
         hook = ["(prog-mode . corfu-mode)"];
@@ -124,55 +144,55 @@
           (global-set-key [remap isearch-backward] 'consult-line)
         '';
       };
-      # embark = {
-      #   enable = false;
-      #   defer = true;
-      #   config = ''
-      #       (defun embark-which-key-indicator ()
-      #         "An embark indicator that displays keymaps using which-key.
-      #     The which-key help message will show the type and value of the
-      #     current target followed by an ellipsis if there are further
-      #     targets."
-      #         (lambda (&optional keymap targets prefix)
-      #           (if (null keymap)
-      #               (which-key--hide-popup-ignore-command)
-      #             (which-key--show-keymap
-      #             (if (eq (plist-get (car targets) :type) 'embark-become)
-      #                 "Become"
-      #               (format "Act on %s '%s'%s"
-      #                       (plist-get (car targets) :type)
-      #                       (embark--truncate-target (plist-get (car targets) :target))
-      #                       (if (cdr targets) "…" "")))
-      #             (if prefix
-      #                 (pcase (lookup-key keymap prefix 'accept-default)
-      #                   ((and (pred keymapp) km) km)
-      #                   (_ (key-binding prefix 'accept-default)))
-      #               keymap)
-      #             nil nil t (lambda (binding)
-      #                         (not (string-suffix-p "-argument" (cdr binding))))))))
-      #
-      #       (setq embark-indicators
-      #             '(embark-which-key-indicator
-      #               embark-highlight-indicator
-      #               embark-isearch-highlight-indicator))
-      #
-      #       (defun embark-hide-which-key-indicator (fn &rest args)
-      #         "Hide the which-key indicator immediately when using the completing-read prompter."
-      #         (which-key--hide-popup-ignore-command)
-      #         (let ((embark-indicators
-      #               (remq #'embark-which-key-indicator embark-indicators)))
-      #           (apply fn args)))
-      #
-      #       (advice-add #'embark-completing-read-prompter
-      #                   :around #'embark-hide-which-key-indicator)
-      #   '';
-      # };
-      # embark-consult = {
-      #   enable = false;
-      #   # defer = true;
-      #   after = ["embark" "consult"];
-      #   hook = ["(embark-collect-mode . consult-preview-at-point-mode)"];
-      # };
+      embark = {
+        enable = true;
+        defer = true;
+        #   config = ''
+        #       (defun embark-which-key-indicator ()
+        #         "An embark indicator that displays keymaps using which-key.
+        #     The which-key help message will show the type and value of the
+        #     current target followed by an ellipsis if there are further
+        #     targets."
+        #         (lambda (&optional keymap targets prefix)
+        #           (if (null keymap)
+        #               (which-key--hide-popup-ignore-command)
+        #             (which-key--show-keymap
+        #             (if (eq (plist-get (car targets) :type) 'embark-become)
+        #                 "Become"
+        #               (format "Act on %s '%s'%s"
+        #                       (plist-get (car targets) :type)
+        #                       (embark--truncate-target (plist-get (car targets) :target))
+        #                       (if (cdr targets) "…" "")))
+        #             (if prefix
+        #                 (pcase (lookup-key keymap prefix 'accept-default)
+        #                   ((and (pred keymapp) km) km)
+        #                   (_ (key-binding prefix 'accept-default)))
+        #               keymap)
+        #             nil nil t (lambda (binding)
+        #                         (not (string-suffix-p "-argument" (cdr binding))))))))
+        #
+        #       (setq embark-indicators
+        #             '(embark-which-key-indicator
+        #               embark-highlight-indicator
+        #               embark-isearch-highlight-indicator))
+        #
+        #       (defun embark-hide-which-key-indicator (fn &rest args)
+        #         "Hide the which-key indicator immediately when using the completing-read prompter."
+        #         (which-key--hide-popup-ignore-command)
+        #         (let ((embark-indicators
+        #               (remq #'embark-which-key-indicator embark-indicators)))
+        #           (apply fn args)))
+        #
+        #       (advice-add #'embark-completing-read-prompter
+        #                   :around #'embark-hide-which-key-indicator)
+        #   '';
+      };
+      embark-consult = {
+        enable = true;
+        defer = true;
+        after = ["embark" "consult"];
+        hook = ["(embark-collect-mode . consult-preview-at-point-mode)"];
+      };
       eat.enable = true;
       popwin = {
         enable = true;
@@ -192,9 +212,25 @@
           (evil-mode t)
         '';
       };
+      evil-surround = {
+        enable = true;
+        after = ["evil"];
+        config = ''
+          (global-evil-surround-mode t)
+        '';
+      };
+      saveplace = {
+        enable = true;
+        defer = 1;
+        config = ''
+          (setq-default save-place t)
+          (setq save-place-file (locate-user-emacs-file "places"))
+        '';
+      };
+      yasnippet-snippets.enable = true;
       yasnippet = {
         enable = true;
-        hook = ["((prog-mode org-mode) . yas-minor-mode)"];
+        hook = ["(prog-mode . yas-minor-mode)"];
       };
       undo-fu.enable = true;
       undo-fu-session = {
@@ -220,11 +256,40 @@
       };
       envrc = {
         enable = true;
-        hook = ["(prog-mode . envrc-global-mode)"];
+        init = "(envrc-global-mode t)";
       };
-      cider.enable = true;
-      smartparens.enable = true;
-      prism.enable = true;
+      uniquify = {
+        enable = true;
+        config = ''
+          (setq uniquify-buffer-name-style 'forward)
+        '';
+      };
+      treesit-auto = {
+        enable = true;
+        config = ''
+          (setq treesit-auto-install t)
+          (treesit-auto-add-to-auto-mode-alist 'all)
+          (global-treesit-auto-mode)
+        '';
+      };
+      eglot = {
+        enable = true;
+        hook = ["(prog-mode . eglot-ensure)"];
+      };
+      recentf = {
+        enable = true;
+        config = ''
+          (setq recentf-max-saved-items 200)
+        '';
+        init = ''
+          (recentf-mode t)
+        '';
+      };
+      electric = {
+        enable = true;
+        hook = ["(prog-mode . electric-indent-mode)"];
+      };
+      smartparens.enable = false;
       git-gutter.enable = true;
       which-key.enable = true;
       helpful.enable = true;
@@ -235,6 +300,7 @@
       markdown-mode.enable = true;
       rust-mode.enable = true;
       clojure-mode.enable = true;
+      cider.enable = true;
     };
   };
 }
