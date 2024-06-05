@@ -15,6 +15,9 @@
     enable = true;
     recommendedGcSettings = true;
     startupTimer = true;
+    postlude = ''
+
+    '';
     usePackage = {
       magit.enable = true;
       fontaine = {
@@ -121,59 +124,59 @@
           (global-set-key [remap isearch-backward] 'consult-line)
         '';
       };
-      embark = {
-        enable = true;
-        defer = true;
-        config = ''
-            (defun embark-which-key-indicator ()
-              "An embark indicator that displays keymaps using which-key.
-          The which-key help message will show the type and value of the
-          current target followed by an ellipsis if there are further
-          targets."
-              (lambda (&optional keymap targets prefix)
-                (if (null keymap)
-                    (which-key--hide-popup-ignore-command)
-                  (which-key--show-keymap
-                  (if (eq (plist-get (car targets) :type) 'embark-become)
-                      "Become"
-                    (format "Act on %s '%s'%s"
-                            (plist-get (car targets) :type)
-                            (embark--truncate-target (plist-get (car targets) :target))
-                            (if (cdr targets) "…" "")))
-                  (if prefix
-                      (pcase (lookup-key keymap prefix 'accept-default)
-                        ((and (pred keymapp) km) km)
-                        (_ (key-binding prefix 'accept-default)))
-                    keymap)
-                  nil nil t (lambda (binding)
-                              (not (string-suffix-p "-argument" (cdr binding))))))))
-
-            (setq embark-indicators
-                  '(embark-which-key-indicator
-                    embark-highlight-indicator
-                    embark-isearch-highlight-indicator))
-
-            (defun embark-hide-which-key-indicator (fn &rest args)
-              "Hide the which-key indicator immediately when using the completing-read prompter."
-              (which-key--hide-popup-ignore-command)
-              (let ((embark-indicators
-                    (remq #'embark-which-key-indicator embark-indicators)))
-                (apply fn args)))
-
-            (advice-add #'embark-completing-read-prompter
-                        :around #'embark-hide-which-key-indicator))
-        '';
-      };
-      embark-consult = {
-        enable = true;
-        defer = true;
-        after = ["embark" "consult"];
-        hook = ["(embark-collect-mode . consult-preview-at-point-mode)"];
-      };
+      # embark = {
+      #   enable = false;
+      #   defer = true;
+      #   config = ''
+      #       (defun embark-which-key-indicator ()
+      #         "An embark indicator that displays keymaps using which-key.
+      #     The which-key help message will show the type and value of the
+      #     current target followed by an ellipsis if there are further
+      #     targets."
+      #         (lambda (&optional keymap targets prefix)
+      #           (if (null keymap)
+      #               (which-key--hide-popup-ignore-command)
+      #             (which-key--show-keymap
+      #             (if (eq (plist-get (car targets) :type) 'embark-become)
+      #                 "Become"
+      #               (format "Act on %s '%s'%s"
+      #                       (plist-get (car targets) :type)
+      #                       (embark--truncate-target (plist-get (car targets) :target))
+      #                       (if (cdr targets) "…" "")))
+      #             (if prefix
+      #                 (pcase (lookup-key keymap prefix 'accept-default)
+      #                   ((and (pred keymapp) km) km)
+      #                   (_ (key-binding prefix 'accept-default)))
+      #               keymap)
+      #             nil nil t (lambda (binding)
+      #                         (not (string-suffix-p "-argument" (cdr binding))))))))
+      #
+      #       (setq embark-indicators
+      #             '(embark-which-key-indicator
+      #               embark-highlight-indicator
+      #               embark-isearch-highlight-indicator))
+      #
+      #       (defun embark-hide-which-key-indicator (fn &rest args)
+      #         "Hide the which-key indicator immediately when using the completing-read prompter."
+      #         (which-key--hide-popup-ignore-command)
+      #         (let ((embark-indicators
+      #               (remq #'embark-which-key-indicator embark-indicators)))
+      #           (apply fn args)))
+      #
+      #       (advice-add #'embark-completing-read-prompter
+      #                   :around #'embark-hide-which-key-indicator)
+      #   '';
+      # };
+      # embark-consult = {
+      #   enable = false;
+      #   # defer = true;
+      #   after = ["embark" "consult"];
+      #   hook = ["(embark-collect-mode . consult-preview-at-point-mode)"];
+      # };
       eat.enable = true;
       popwin = {
         enable = true;
-        init = ''
+        config = ''
           (popwin-mode 1)
           (push '("*helpful*" :height 7) popwin:special-display-config)
           (push '("*Help*" :height 7) popwin:special-display-config)
@@ -185,17 +188,40 @@
       };
       evil = {
         enable = true;
-        init = "(evil-mode t)";
+        init = ''
+          (evil-mode t)
+        '';
       };
       yasnippet = {
         enable = true;
-        diminish = ["yas-minor-mode"];
-        hook = ["(prog-mode org-mode) . yas-minor-mode)"];
+        hook = ["((prog-mode org-mode) . yas-minor-mode)"];
       };
       undo-fu.enable = true;
-      undo-fu-session.enable = true;
-      spacious-padding.enable = true;
-      envrc.enable = true;
+      undo-fu-session = {
+        enable = true;
+        init = ''
+          (undo-fu-session-global-mode t)
+        '';
+      };
+      spacious-padding = {
+        enable = true;
+        config = ''
+          (setq spacious-padding-widths
+                  '(:internal-border-width 10
+                    :header-line-width 2
+                    :mode-line-width 1
+                    :tab-width 4
+                    :right-divider-width 30
+                    :scroll-bar-width 2))
+        '';
+        init = ''
+          (spacious-padding-mode t)
+        '';
+      };
+      envrc = {
+        enable = true;
+        hook = ["(prog-mode . envrc-global-mode)"];
+      };
       cider.enable = true;
       smartparens.enable = true;
       prism.enable = true;
