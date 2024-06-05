@@ -21,24 +21,58 @@
 
       (setq initial-major-mode 'fundamental-mode
             initial-scratch-message nil)
+      (set-frame-parameter nil 'alpha-background 85)
+      (add-to-list 'default-frame-alist '(alpha-background . 85))
+
+      (setq use-dialog-box nil
+            confirm-kill-emacs nil
+            confirm-kill-processes nil
+            use-short-answers t
+            enable-recursive-minibuffers t
+            completion-cycle-threshold 3
+            ring-bell-function #'ignore
+            file-name-handler-alist nil
+            frame-inhibit-implied-resize t
+            fast-but-imprecise-scrolling t
+            idle-update-delay 1.0
+            warning-minimum-level :error)
 
       (setq-default default-frame-alist
-                    '((tool-bar-lines . t)
-                      (menu-bar-lines . t)
-                      (undecorated . t)
+                    '((undecorated . t)
                       (vertical-scroll-bars . nil)
                       (horizontal-scroll-bars . nil)))
     '';
     postlude = ''
+      (defadvice split-window (after split-window-after activate)
+                              (other-window 1))
+      (defun crm-indicator (args)
+        (cons (format "[CRM%s] %s"
+                    (replace-regexp-in-string
+                    "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+                    crm-separator)
+                    (car args))
+            (cdr args)))
+      (advice-add #'completing-read-multiple :filter-args #'crm-indicator)
+
       (setq make-backup-files nil
+            create-lockfiles nil
+            vc-make-backup-files nil
             auto-save-default nil)
+
+      (setq tab-always-indent 'complete)
 
       (setq-default indent-tabs-mode nil
                     tab-width 4)
       (setq show-trailing-whitespace t)
+
       (prefer-coding-system 'utf-8)
+
       (setq scroll-step 1
+            scroll-margin 3
             scroll-conservatively 100)
+
+      (setq vc-follow-symlinks t
+            find-filie-visit-truename t)
 
       (setq save-place-file (locate-user-emacs-file "places"))
       (save-place-mode t)
@@ -61,7 +95,7 @@
     '';
     usePackage = {
       emacs = {
-        bind = {"SPC SPC" = "execute-extended-command";};
+        hook = ["(prog-mode . display-line-numbers-mode)"];
       };
       magit.enable = true;
       format-all = {
@@ -79,9 +113,11 @@
                     (t
                       :default-family "${config.stylix.fonts.monospace.name}"
                       :default-weight medium
-                      :default-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 1.15 * 10))}
+                      :default-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 2 * 10))}
+                      :variable-pitch-family "${config.stylix.fonts.serif.name}"
                       :mode-line-active-family "${config.stylix.fonts.serif.name}"
                       :mode-line-inactive-family "${config.stylix.fonts.serif.name}")))
+                      :line-number-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 2.2 * 10))}
           (fontaine-mode t)
           (fontaine-set-preset 'regular)
         '';
@@ -154,6 +190,15 @@
           (corfu-popupinfo-mode t)
         '';
       };
+      cape = {
+        enable = true;
+        config = ''
+          (add-hook 'completion-at-point-functions #'cape-file)
+          (add-hook 'completion-at-point-functions #'cape-dabbrev)
+          (add-hook 'completion-at-point-functions #'cape-emoji)
+          (add-hook 'completion-at-point-functions #'cape-keyword)
+        '';
+      };
       consult = {
         enable = true;
         defer = true;
@@ -223,7 +268,10 @@
         after = ["embark" "consult"];
         hook = ["(embark-collect-mode . consult-preview-at-point-mode)"];
       };
-      eat.enable = true;
+      eat = {
+        enable = true;
+        hook = ["(eat-mode . eat-char-mode)"];
+      };
       popwin = {
         enable = true;
         config = ''
@@ -239,10 +287,19 @@
       evil = {
         enable = true;
         config = ''
-          (setq evil-undo-system 'undo-fu)
+          (setq evil-undo-system 'undo-fu
+                evil-want-keybinding nil)
+          (evil-global-set-key 'normal (kbd "SPC SPC") 'execute-extended-command)
+          (evil-global-set-key 'visual (kbd "SPC SPC") 'execute-extended-command)
         '';
         init = ''
           (evil-mode t)
+        '';
+      };
+      evil-collection = {
+        enable = true;
+        config = ''
+          (evil-collection-init)
         '';
       };
       evil-commentary = {

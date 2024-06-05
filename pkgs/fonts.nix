@@ -5,12 +5,12 @@
 }:
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "fonts";
-  version = "6";
+  version = "8";
   src = fetchFromGitHub {
     owner = "71zenith";
     repo = "fonts";
     rev = finalAttrs.version;
-    hash = "sha256-m19jn/vxaDqHnPqdfdWGb7y7xEGFobvYe2u22zFOgNY=";
+    hash = "sha256-TG0e0tgwMAHrOBSM5LxWbve2CW2zJSawbZ8Ou1nYbfI=";
   };
   installPhase = ''
     mkdir -p $out/share/fonts
