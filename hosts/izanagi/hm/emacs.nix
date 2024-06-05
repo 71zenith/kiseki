@@ -21,24 +21,54 @@
 
       (setq initial-major-mode 'fundamental-mode
             initial-scratch-message nil)
+
+      (setq-default default-frame-alist
+                    '((tool-bar-lines . t)
+                      (menu-bar-lines . t)
+                      (undecorated . t)
+                      (vertical-scroll-bars . nil)
+                      (horizontal-scroll-bars . nil)))
     '';
     postlude = ''
       (setq make-backup-files nil
             auto-save-default nil)
 
       (setq-default indent-tabs-mode nil
-                    tab-width 4
-                    c-basic-offset 4)
-      (setq-default show-trailing-whitespace t)
+                    tab-width 4)
+      (setq show-trailing-whitespace t)
       (prefer-coding-system 'utf-8)
       (setq scroll-step 1
             scroll-conservatively 100)
+
+      (setq save-place-file (locate-user-emacs-file "places"))
+      (save-place-mode t)
+
+      (setq display-time-format "%a %d %b %H:%M"
+            display-time-default-load-average nil)
+      (display-time-mode t)
+
+      (setq default-input-method "japanese")
+
+      (setq recentf-max-saved-items 200)
+      (recentf-mode t)
+
+      (setq uniquify-buffer-name-style 'forward)
+
+      (size-indication-mode t)
+      (column-number-mode t)
+      (auto-revert-mode t)
+      (savehist-mode t)
     '';
     usePackage = {
+      emacs = {
+        bind = {"SPC SPC" = "execute-extended-command";};
+      };
       magit.enable = true;
-      autorevert = {
+      format-all = {
         enable = true;
-        command = ["auto-revert-mode"];
+        hook = [
+          "(prog-mode . format-all-mode)"
+        ];
       };
       fontaine = {
         enable = true;
@@ -208,8 +238,23 @@
       };
       evil = {
         enable = true;
+        config = ''
+          (setq evil-undo-system 'undo-fu)
+        '';
         init = ''
           (evil-mode t)
+        '';
+      };
+      evil-commentary = {
+        enable = true;
+        after = ["evil"];
+        config = ''
+          (evil-commentary-mode t)
+        '';
+      };
+      evil-snipe = {
+        config = ''
+          (evil-snipe-override-mode t)
         '';
       };
       evil-surround = {
@@ -217,14 +262,6 @@
         after = ["evil"];
         config = ''
           (global-evil-surround-mode t)
-        '';
-      };
-      saveplace = {
-        enable = true;
-        defer = 1;
-        config = ''
-          (setq-default save-place t)
-          (setq save-place-file (locate-user-emacs-file "places"))
         '';
       };
       yasnippet-snippets.enable = true;
@@ -258,12 +295,6 @@
         enable = true;
         init = "(envrc-global-mode t)";
       };
-      uniquify = {
-        enable = true;
-        config = ''
-          (setq uniquify-buffer-name-style 'forward)
-        '';
-      };
       treesit-auto = {
         enable = true;
         config = ''
@@ -276,22 +307,40 @@
         enable = true;
         hook = ["(prog-mode . eglot-ensure)"];
       };
-      recentf = {
-        enable = true;
-        config = ''
-          (setq recentf-max-saved-items 200)
-        '';
-        init = ''
-          (recentf-mode t)
-        '';
-      };
       electric = {
         enable = true;
-        hook = ["(prog-mode . electric-indent-mode)"];
+        hook = [
+          "(prog-mode . electric-indent-mode)"
+        ];
       };
       smartparens.enable = false;
-      git-gutter.enable = true;
-      which-key.enable = true;
+      rainbow-delimiters = {
+        enable = true;
+        hook = ["(prog-mode . rainbow-delimiters-mode)"];
+      };
+      git-gutter = {
+        enable = true;
+        config = ''
+          (global-git-gutter-mode t)
+          (custom-set-variables
+           '(git-gutter:modified-sign "● ")
+           '(git-gutter:added-sign "▶ ")
+           '(git-gutter:deleted-sign "▼ "))
+        '';
+      };
+      blamer = {
+        enable = true;
+        hook = ["(vc-mode . blamer-mode)"];
+      };
+      which-key = {
+        enable = true;
+        config = ''
+          (setq which-key-idle-delay 0.4
+                which-key-idle-secondary-delay 0.05)
+          (which-key-setup-minibuffer)
+          (which-key-mode)
+        '';
+      };
       helpful.enable = true;
 
       #### Language support ####
