@@ -90,11 +90,6 @@ in {
       };
     };
 
-    emacs = {
-      enable = true;
-      package = pkgs.emacs29-pgtk;
-    };
-
     direnv = {
       enable = true;
       enableZshIntegration = true;

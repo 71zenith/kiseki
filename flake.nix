@@ -49,6 +49,9 @@
     myUserName = "zen";
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
+    nur-no-pkgs = import inputs.nur {
+      nurpkgs = import nixpkgs {system = "x86_64-linux";};
+    };
     caches = {
       nix.settings = {
         builders-use-substitutes = true;
@@ -73,6 +76,7 @@
         prismlauncher.overlays.default
         hyprland.overlays.default
         neorg.overlays.default
+        nur.overlay
       ];
     };
   in {
@@ -87,6 +91,7 @@
         inherit inputs;
         inherit pcName;
         inherit myUserName;
+        inherit nur-no-pkgs;
       };
       modules = with inputs; [
         caches

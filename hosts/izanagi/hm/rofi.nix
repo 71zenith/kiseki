@@ -18,7 +18,7 @@
       })
     ];
     extraConfig = {
-      modi = "drun,window,calc,emoji,run";
+      modi = "drun,calc,window,emoji,run";
       sidebar-mode = true;
       terminal = "footclient";
       show-icons = true;
