@@ -50,11 +50,10 @@ in {
         "noshadow, GLava"
         "noanim, GLava"
         "pin, GLava"
+        "idleinhibit always, GLava"
         "nofocus, GLava"
         "size 100% 100%, GLava"
         "move 0 0, GLava"
-        "tile, class:neovide"
-        "maximize, neovide"
         "float, file_progress"
         "float, confirm"
         "float, dialog"
@@ -74,6 +73,7 @@ in {
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
         "tile, class:Nsxiv,xwayland:1"
+        "tile, title:Neovide,class:neovide"
       ];
       workspace = [
         "special:music,on-created-empty:footclient -T spotify_player spotify_player"
