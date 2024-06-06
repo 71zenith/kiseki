@@ -13,9 +13,8 @@ in {
     cliphist
     config.nur.repos.mic92.hello-nur
     curl
-    dbus
     desmume
-    du-dust
+    dust
     duf
     fd
     ffmpeg
