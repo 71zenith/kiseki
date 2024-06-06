@@ -72,7 +72,7 @@
         };
         "mpris" = {
           format = "{status_icon} {title}";
-          format-paused = " {status_icon} <i>{title}</i>";
+          format-paused = "{status_icon} <i>{title}</i>";
           max-length = 80;
           status-icons = {
             playing = "";
@@ -90,6 +90,7 @@
       }
       window#waybar {
         transition-property: background-color;
+        background-color: alpha(@base00, 0.9);
         transition-duration: 0.1s;
       }
       window#waybar.hidden {
@@ -107,8 +108,9 @@
       #workspaces,
       #network.disconnected {
         color: @base05;
-        padding: 2px 8px;
+        padding: 2px 5px;
         border-radius: 5px;
+        background-color: alpha(@base00, 0.5);
 
         margin-left: 4px;
         margin-right: 4px;
@@ -119,8 +121,8 @@
       #workspaces button {
         color: @base04;
         box-shadow: inset 0 -3px transparent;
-        padding-right: 7px;
-        padding-left: 7px;
+        padding-right: 6px;
+        padding-left: 6px;
         transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.empty {
@@ -152,7 +154,7 @@
       }
       tooltip {
         padding: 5px;
-        background-color: alpha(@base01, 0.9);
+        background-color: alpha(@base01, 0.75);
       }
       tooltip label {
         padding: 5px;
