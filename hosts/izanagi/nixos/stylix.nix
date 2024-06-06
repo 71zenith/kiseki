@@ -20,7 +20,7 @@ in {
       };
       monospace = {
         package = pkgs.iosevka-bin;
-        name = "Space Mono";
+        name = "Iosevka Term Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
