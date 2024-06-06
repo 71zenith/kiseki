@@ -113,11 +113,11 @@
                     (t
                       :default-family "${config.stylix.fonts.monospace.name}"
                       :default-weight medium
-                      :default-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 2 * 10))}
+                      :default-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 2.7 * 10))}
                       :variable-pitch-family "${config.stylix.fonts.serif.name}"
                       :mode-line-active-family "${config.stylix.fonts.serif.name}"
                       :mode-line-inactive-family "${config.stylix.fonts.serif.name}")))
-                      :line-number-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 2.2 * 10))}
+                      :line-number-height ${builtins.toString (builtins.floor (config.stylix.fonts.sizes.terminal * 2.5 * 10))}
           (fontaine-mode t)
           (fontaine-set-preset 'regular)
         '';
