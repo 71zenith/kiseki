@@ -1,4 +1,6 @@
-{myUserName, ...}: {
+{osConfig, ...}: let
+  inherit (osConfig.vals) myUserName;
+in {
   programs.git = {
     enable = true;
     userName = myUserName;
