@@ -9,8 +9,6 @@
 </p>
 
 This repo contains the nix flakes to build an identical copy of my system.
-
-
 ![](./resources/screenshot6.png)
 
 previous iterations are in [resources](./resources/).
@@ -26,13 +24,14 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 - [nur](https://github.com/nix-community/NUR) - nix user repository
 - [nh](https://github.com/viperML/nh) - nix helper
 - [sops-nix](https://github.com/Mic92/sops-nix) - secrets manager
-- [nix-output-monitor](https://github.com/maralorn/nix-output-monitor) - better nix commands
+- [nix-output-monitor](https://github.com/maralorn/nix-output-monitor) - fancy nix output
+- [direnv](https://github.com/nix-community/nix-direnv) - auto env switcher
 
 
 ## Programs
 - [hyprland](https://github.com/hyprwm/Hyprland) - compositor
 - [firefox](https://www.mozilla.org/en-US/firefox/) - web browser
-- [neovim](https://github.com/neovim/neovim) - primary main text editor
+- [neovim](https://github.com/neovim/neovim) - primary main essential principal text editor
 - [neovide](https://github.com/neovide/neovide) - neovim gui
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
@@ -43,7 +42,6 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 - [zathura](https://pwmt.org/projects/zathura) - pdf/epub viewer
 - [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
 - [zsh](http://www.zsh.org) - shell
-- [direnv](https://github.com/nix-community/nix-direnv) - auto env switcher
 - [rofi](https://github.com/davatorium/rofi) - custom launcher
 - [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
 - [calibre](https://github.com/kovidgoyal/calibre) - ebook manager
@@ -64,7 +62,7 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 
 ## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [iosevka](https://github.com/be5invis/Iosevka) - monospace font
+- [space-mono](https://fonts.google.com/specimen/Space+Mono) - monospace font
 - [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
