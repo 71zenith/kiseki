@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   ...
 }: {
   programs = {
@@ -133,6 +134,40 @@
       enable = true;
       enableZshIntegration = true;
     };
+
+    atuin = {
+      enable = true;
+      enableZshIntegration = true;
+      flags = ["--disable-up-arrow"];
+      settings = {
+        sync_frequency = "15m";
+        update_check = false;
+        key_path = osConfig.sops.secrets.atuin_key.path;
+      };
+    };
+  };
+  systemd.user.services.atuin-login = {
+    Service = let
+      atuinLogin = pkgs.writeShellApplication {
+        name = "atuin-login";
+        runtimeInputs = [
+          config.programs.atuin.package
+        ];
+        text = ''
+          if ! atuin status; then
+            atuin login \
+              --username mori-zen \
+              --password "$(cat "${osConfig.sops.secrets.atuin_pass.path}")"
+          fi
+          atuin status
+        '';
+      };
+    in {
+      ExecStart = "${atuinLogin}/bin/atuin-login";
+      Type = "oneshot";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = ["default.target"];
   };
   xdg.configFile."zsh/p10k.zsh".text = ''
     'builtin' 'local' '-a' 'p10k_config_opts'
