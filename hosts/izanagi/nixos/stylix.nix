@@ -12,14 +12,14 @@ in {
     fonts = {
       serif = {
         package = fonts;
-        name = "Google Sans";
+        name = "Space Grotesk Medium";
       };
       sansSerif = {
         package = fonts;
-        name = "Google Sans";
+        name = "Space Grotesk Medium";
       };
       monospace = {
-        package = pkgs.iosevka-bin;
+        package = fonts;
         name = "Space Mono";
       };
       emoji = {

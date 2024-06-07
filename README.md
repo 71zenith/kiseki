@@ -63,6 +63,6 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 ## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
 - [space-mono](https://fonts.google.com/specimen/Space+Mono) - monospace font
-- [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
+- [space-grotesk](https://fonts.google.com/specimen/Space+Grotesk) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
