@@ -5,7 +5,7 @@
   lib,
   ...
 }: let
-  inherit (config.stylix.base16Scheme) palette slug;
+  inherit (config.stylix.base16Scheme) slug palette;
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
 in {
   stylix.targets = {
@@ -44,20 +44,20 @@ in {
           hide_session_name = true;
         };
         plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
-        theme = "${slug}";
+        theme = slug;
         themes = {
-          ${slug} = with palette; {
-            fg = "#${base08}";
-            bg = "#${base01}";
-            green = "#${base0D}";
-            orange = "#${base0A}";
-            red = "#${base0A}";
-            yellow = "#${base07}";
-            blue = "#${base0B}";
-            magenta = "#${base09}";
-            cyan = "#${base0F}";
-            white = "#${base09}";
-            black = "#${base01}";
+          ${slug} = with config.lib.stylix.colors.withHashtag; {
+            fg = base08;
+            bg = base01;
+            green = base0D;
+            orange = base0A;
+            red = base0A;
+            yellow = base07;
+            blue = base0B;
+            magenta = base09;
+            cyan = base0F;
+            white = base09;
+            black = base01;
           };
         };
         keybinds = {
@@ -98,29 +98,29 @@ in {
 
     zathura = {
       enable = true;
-      options = with palette; {
+      options = with config.lib.stylix.colors.withHashtag; {
         selection-clipboard = "clipboard";
         recolor = "true";
         recolor-keephue = "true";
         font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.popups}";
-        completion-bg = "#${base02}";
-        completion-fg = "#${base0C}";
-        completion-highlight-bg = "#${base0C}";
-        completion-highlight-fg = "#${base02}";
-        default-fg = "#${base01}";
-        highlight-active-color = "#${base0D}";
-        highlight-color = "#${base0A}";
-        index-active-bg = "#${base0D}";
-        inputbar-bg = "#${base00}";
-        inputbar-fg = "#${base04}";
-        notification-bg = "#${base09}";
-        notification-error-bg = "#${base08}";
-        notification-error-fg = "#${base00}";
-        notification-fg = "#${base00}";
-        notification-warning-bg = "#${base08}";
-        notification-warning-fg = "#${base00}";
-        recolor-darkcolor = "#${base06}";
-        statusbar-bg = "#${base01}";
+        completion-bg = base02;
+        completion-fg = base0C;
+        completion-highlight-bg = base0C;
+        completion-highlight-fg = base02;
+        default-fg = base01;
+        highlight-active-color = base0D;
+        highlight-color = base0A;
+        index-active-bg = base0D;
+        inputbar-bg = base00;
+        inputbar-fg = base04;
+        notification-bg = base09;
+        notification-error-bg = base08;
+        notification-error-fg = base00;
+        notification-fg = base00;
+        notification-warning-bg = base08;
+        notification-warning-fg = base00;
+        recolor-darkcolor = base06;
+        statusbar-bg = base01;
         default-bg = "rgba(0,0,0,0.7)";
         recolor-lightcolor = "rgba(256,256,256,0)";
       };
