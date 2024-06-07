@@ -111,7 +111,7 @@ in {
         d = "sudo";
         du = "dust";
         cd = "z";
-        setwall = "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2";
+        setwall = "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
         f = "free -h";
         ko = "pkill";
       };
