@@ -20,7 +20,7 @@ in {
       };
       monospace = {
         package = pkgs.iosevka-bin;
-        name = "Iosevka Term Medium";
+        name = "Space Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -30,7 +30,7 @@ in {
         applications = 13;
         desktop = 12;
         popups = 14;
-        terminal = 15;
+        terminal = 14;
       };
     };
     opacity = {
