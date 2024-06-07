@@ -16,6 +16,7 @@ in {
     desmume
     dust
     duf
+    dvd-zig
     fd
     ffmpeg
     file

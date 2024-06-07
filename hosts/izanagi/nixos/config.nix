@@ -239,9 +239,10 @@
         enable = true;
         gamescopeSession.enable = true;
       };
-
-      nh.enable = true;
-      nh.flake = "/home/${config.vals.myUserName}/nix";
+      nh = {
+        enable = true;
+        flake = "/home/${config.vals.myUserName}/nix";
+      };
 
       nix-ld.enable = true;
     };
