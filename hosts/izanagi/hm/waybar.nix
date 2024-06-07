@@ -9,7 +9,7 @@
     settings = {
       mainBar = {
         layer = "top";
-        modules-left = ["hyprland/workspaces"];
+        modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-center = ["mpris"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
         "hyprland/workspaces" = {
@@ -38,6 +38,12 @@
             "6" = [];
             "7" = [];
             "8" = [];
+          };
+        };
+        "hyprland/window" = {
+          icon = true;
+          rewrite = {
+            ".+" = "";
           };
         };
         "tray" = {spacing = 10;};
@@ -85,9 +91,6 @@
       }
       window#waybar.hidden {
         opacity: 0.1;
-      }
-      #window {
-        color: @base04;
       }
       #clock,
       #mpris,
