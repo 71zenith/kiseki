@@ -28,6 +28,7 @@
   config = {
     sops = {
       defaultSopsFile = ../../../secrets/secrets.yaml;
+      defaultSopsFormat = "yaml";
       age.sshKeyPaths = ["/home/${config.vals.myUserName}/.ssh/id_ed25519"];
       secrets = {
         root_pass.neededForUsers = true;
@@ -36,8 +37,6 @@
         spot_auth_data = {};
         vpn_private_jp = {};
         vpn_private_us = {};
-        atuin_key = {owner = config.vals.myUserName;};
-        atuin_pass = {owner = config.vals.myUserName;};
         vpn_private_nl = {};
         discord_token = {owner = config.vals.myUserName;};
       };
@@ -270,7 +269,6 @@
         inherit inputs;
         inherit nur-no-pkgs;
       };
-      sharedModules = [inputs.sops-nix.homeManagerModules.sops];
       users.${config.vals.myUserName} = import ../hm/home.nix;
     };
 
