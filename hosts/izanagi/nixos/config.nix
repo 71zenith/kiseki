@@ -16,11 +16,11 @@
 
   options.vals = {
     pcName = lib.mkOption {
-      default = "${pcName}";
+      default = pcName;
       type = lib.types.str;
     };
     myUserName = lib.mkOption {
-      default = "${myUserName}";
+      default = myUserName;
       type = lib.types.str;
     };
   };
