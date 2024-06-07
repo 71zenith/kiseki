@@ -43,8 +43,8 @@ in {
       '';
       # HACK: till upstream fix arrives
       highlight = {
-        WinBar.bg = "#${config.stylix.base16Scheme.palette.base00}";
-        WinBarNC.bg = "#${config.stylix.base16Scheme.palette.base00}";
+        WinBar.bg = config.lib.stylix.colors.withHashtag.base00;
+        WinBarNC.bg = config.lib.stylix.colors.withHashtag.base00;
       };
       globals = {
         mapleader = " ";

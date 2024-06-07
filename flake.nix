@@ -76,7 +76,6 @@
         prismlauncher.overlays.default
         hyprland.overlays.default
         neorg.overlays.default
-        nur.overlay
       ];
     };
   in {
