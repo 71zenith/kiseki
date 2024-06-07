@@ -9,7 +9,15 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    # plugins = with inputs.hyprland-plugins.packages.${pkgs.system}; [
+    #   hyprwinwrap
+    # ];
     settings = {
+      # plugin = {
+      #   hyprwinwrap = {
+      #     "class" = "GLava";
+      #   };
+      # };
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
@@ -33,7 +41,7 @@ in {
       "$mod2" = "SUPERSHIFT";
       "$mod3" = "SUPERCONTROL";
       "$mod4" = "ALT";
-      "$setwall" = "swww img $(fd . ${inputs.self}/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
+      "$setwall" = "swww img $(fd . ${inputs.self}/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
         "pgrep waybar || waybar &"
@@ -45,13 +53,12 @@ in {
       windowrule = [
         "noblur, GLava"
         "noborder, GLava"
-        "float, GLava"
-        "fullscreen, GLava"
         "noshadow, GLava"
         "noanim, GLava"
+        "nofocus, GLava"
+        "float, GLava"
         "pin, GLava"
         "idleinhibit always, GLava"
-        "nofocus, GLava"
         "size 100% 100%, GLava"
         "move 0 0, GLava"
         "float, file_progress"
