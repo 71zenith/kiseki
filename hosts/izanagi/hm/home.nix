@@ -37,11 +37,6 @@ in {
 
     stateVersion = "24.11";
 
-    pointerCursor = {
-      x11.enable = true;
-      gtk.enable = true;
-    };
-
     packages = [
       scripts._4khd
     ];

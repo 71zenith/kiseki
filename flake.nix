@@ -45,13 +45,18 @@
     nixpkgs,
     ...
   } @ inputs: let
+    ### DECLARE USER ###
     pcName = "izanagi";
     myUserName = "zen";
+
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
+
+    # HACK: nur prevent infinite recursion
     nur-no-pkgs = import inputs.nur {
       nurpkgs = import nixpkgs {system = "x86_64-linux";};
     };
+
     caches = {
       nix.settings = {
         builders-use-substitutes = true;
