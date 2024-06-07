@@ -85,6 +85,7 @@
         prismlauncher.overlays.default
         hyprland.overlays.default
         neorg.overlays.default
+        dvd-zig.overlays.default
       ];
     };
   in {

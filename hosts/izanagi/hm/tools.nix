@@ -173,7 +173,7 @@ in {
         };
         listener = {
           timeout = 300;
-          on-timeout = "${lib.getExe inputs.dvd-zig.packages.${pkgs.system}.dvd-zig}";
+          on-timeout = "${lib.getExe pkgs.dvd-zig}";
         };
       };
     };
