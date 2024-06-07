@@ -2,24 +2,22 @@
   pkgs,
   inputs,
   ...
-}: let
-  fonts = pkgs.callPackage ../../../pkgs/fonts.nix {};
-in {
+}: {
   stylix = {
     polarity = "dark";
     image = ../../../resources/wallpapers/oxocarbon.png;
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
     fonts = {
       serif = {
-        package = fonts;
+        package = pkgs.my-fonts;
         name = "Space Grotesk Medium";
       };
       sansSerif = {
-        package = fonts;
+        package = pkgs.my-fonts;
         name = "Space Grotesk Medium";
       };
       monospace = {
-        package = fonts;
+        package = pkgs.my-fonts;
         name = "Space Mono";
       };
       emoji = {

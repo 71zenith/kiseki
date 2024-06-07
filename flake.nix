@@ -23,6 +23,10 @@
       url = "github:71zenith/dvd-zig";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    my-fonts = {
+      url = "github:71zenith/fonts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.39.1";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -86,6 +90,7 @@
         hyprland.overlays.default
         neorg.overlays.default
         dvd-zig.overlays.default
+        my-fonts.overlays.default
       ];
     };
   in {
