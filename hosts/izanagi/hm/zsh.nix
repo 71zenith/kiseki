@@ -1,11 +1,8 @@
 {
   pkgs,
-  lib,
   config,
   ...
-}: let
-  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
-in {
+}: {
   programs = {
     zsh = {
       enable = true;
@@ -90,7 +87,6 @@ in {
       shellAliases = {
         nv = "nvim";
         up = "nh os switch";
-        khd = "${scripts._4khd}";
         del = "nh clean all --nogcroots";
         ss = "nh search";
         ts = "nix-shell --run zsh -p";
