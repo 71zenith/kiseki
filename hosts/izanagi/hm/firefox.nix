@@ -22,7 +22,7 @@ in {
       ${myUserName} = {
         id = 0;
         isDefault = true;
-        name = "${myUserName}";
+        name = myUserName;
         extensions = with config.nur.repos.rycee.firefox-addons; [
           refined-github
           sponsorblock

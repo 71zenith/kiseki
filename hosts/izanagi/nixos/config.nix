@@ -26,11 +26,11 @@
       vpn_private_jp = {};
       vpn_private_us = {};
       vpn_private_nl = {};
-      discord_token = {owner = "${myUserName}";};
+      discord_token = {owner = myUserName;};
     };
     # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
     templates."credentials.json" = {
-      owner = "${myUserName}";
+      owner = myUserName;
       content = builtins.toJSON {
         username = config.sops.placeholder.spot_username;
         auth_type = 1;
@@ -123,7 +123,7 @@
       settings = rec {
         initial_session = {
           command = "${lib.getExe pkgs.hyprland}";
-          user = "${myUserName}";
+          user = myUserName;
         };
         default_session = initial_session;
       };
@@ -160,7 +160,7 @@
 
   security.sudo.extraRules = [
     {
-      users = ["${myUserName}"];
+      users = [myUserName];
       commands = [
         {
           command = "ALL";

@@ -4,7 +4,7 @@
   args ? "-no-warn -no-autocorrect -b",
   langs ? "eng+jpn+jpn_vert+kor+kor_vert+deu+rus",
 }: let
-  inherit (pkgs) writeShellScript grim slurp tesseract5;
+  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp tesseract5;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
@@ -78,7 +78,8 @@ in {
     [ -n "$f" ] && for i in $f; do send "file=@$i"; done && notify-send "Uploaded $f to Discord in $chan" && exit 0
     notify-send "Exiting!!!" && exit 1
   '';
-  _4khd = writeShellScript "4khd" ''
+  _4khd = writeShellScriptBin "4khd" ''
+    #!/bin/sh
     player=debug
     while [ $# -gt 0 ]; do
       case "$1" in

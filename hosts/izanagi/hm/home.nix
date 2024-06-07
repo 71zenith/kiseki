@@ -1,10 +1,12 @@
 {
   pkgs,
   config,
+  lib,
   myUserName,
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
+  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
 in {
   imports = [
     ./tools.nix
@@ -32,7 +34,7 @@ in {
   };
 
   home = {
-    username = "${myUserName}";
+    username = myUserName;
 
     stateVersion = "24.11";
 
@@ -40,6 +42,10 @@ in {
       x11.enable = true;
       gtk.enable = true;
     };
+
+    packages = [
+      scripts._4khd
+    ];
   };
 
   xdg.configFile = {

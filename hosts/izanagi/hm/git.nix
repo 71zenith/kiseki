@@ -1,7 +1,7 @@
 {myUserName, ...}: {
   programs.git = {
     enable = true;
-    userName = "${myUserName}";
+    userName = myUserName;
     userEmail = "71zenith@proton.me";
     aliases = {
       co = "checkout";
