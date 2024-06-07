@@ -53,16 +53,6 @@
           interface = "enp7s0";
           interval = 1;
         };
-        "bluetooth" = {
-          format = "{icon}";
-          format-alt = "bluetooth: {status}";
-          interval = 30;
-          format-icons = {
-            enabled = "";
-            disabled = "󰂲";
-          };
-          tooltip-format = "{status}";
-        };
         "pulseaudio" = {
           format = "{volume}%";
           format-muted = "{volume}%";
