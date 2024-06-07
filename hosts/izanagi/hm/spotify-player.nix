@@ -4,7 +4,7 @@
   ...
 }: let
   spotify-player = pkgs.callPackage ../../../pkgs/spotify-player.nix {};
-  inherit (config.stylix.base16Scheme) palette slug;
+  inherit (config.stylix.base16Scheme) slug;
 in {
   disabledModules = ["programs/spotify-player.nix"];
   imports = [
@@ -24,7 +24,7 @@ in {
       pause_icon = " ";
       enable_media_control = true;
       default_device = "ur-mom";
-      theme = "${slug}";
+      theme = config.stylix.base16Scheme.slug;
       playback_window_position = "Bottom";
       liked_icon = " ";
       border_type = "Hidden";
@@ -85,25 +85,25 @@ in {
     ];
     themes = [
       {
-        name = "${slug}";
-        palette = with palette; {
-          black = "#${base00}";
-          foreground = "#${base03}";
-          bright_black = "#${base01}";
-          yellow = "#${base02}";
-          green = "#${base03}";
-          bright_yellow = "#${base04}";
-          white = "#${base05}";
-          bright_white = "#${base06}";
-          cyan = "#${base07}";
-          bright_cyan = "#${base08}";
-          blue = "#${base09}";
-          bright_red = "#${base0A}";
-          bright_blue = "#${base0B}";
-          red = "#${base0C}";
-          bright_green = "#${base0D}";
-          magenta = "#${base07}";
-          bright_magenta = "#${base0F}";
+        name = config.stylix.base16Scheme.slug;
+        palette = with config.lib.stylix.colors.withHashtag; {
+          black = base00;
+          foreground = base03;
+          bright_black = base01;
+          yellow = base02;
+          green = base03;
+          bright_yellow = base04;
+          white = base05;
+          bright_white = base06;
+          cyan = base07;
+          bright_cyan = base08;
+          blue = base09;
+          bright_red = base0A;
+          bright_blue = base0B;
+          red = base0C;
+          bright_green = base0D;
+          magenta = base07;
+          bright_magenta = base0F;
         };
         component_style = {
           block_title = {
