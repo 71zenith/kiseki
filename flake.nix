@@ -84,9 +84,10 @@
       nix.settings = {
         builders-use-substitutes = true;
         substituters = [
+          "https://cache.nixos.org?priority=10"
+          "https://71zenith.cachix.org"
           "https://cache.garnix.io"
           "https://hyprland.cachix.org"
-          "https://cache.nixos.org?priority=10"
           "https://nix-community.cachix.org"
           "https://nixpkgs-wayland.cachix.org"
         ];
@@ -96,6 +97,7 @@
           "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
           "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
           "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+          "71zenith.cachix.org-1:IWLCsdsxL+9HRGHfPJ7Bl93yT1U9oIZqovFcySpQ3cc="
         ];
       };
     };

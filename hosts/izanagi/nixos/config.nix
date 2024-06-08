@@ -38,6 +38,7 @@
         vpn_private_jp = {};
         vpn_private_us = {};
         vpn_private_nl = {};
+        cachix_token = {};
         discord_token = {owner = config.vals.myUserName;};
       };
       # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
@@ -134,6 +135,13 @@
     };
 
     services = {
+      cachix-watch-store = {
+        enable = true;
+        cacheName = "71zenith";
+        cachixTokenFile = config.sops.secrets.cachix_token.path;
+        compressionLevel = 16;
+        verbose = true;
+      };
       greetd = {
         enable = true;
         settings = rec {
