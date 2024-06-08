@@ -8,12 +8,16 @@
   </a>
 </p>
 
+**BREAKING**
+commits below `b4000db955f1c73714f25b612128b5c3d2c2050f` shall not work due to moving of
+wallpapers to separate repo.
+
 This repo contains the nix flakes to build an identical copy of my system.
-![](./resources/screenshot6.png)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot6.png?raw=true)
 
-previous iterations are in [resources](./resources/).
+previous iterations are in [resources](https://github.com/71zenith/walls/tree/master/screenshot).
 
-wallpapers are in [resources/wallpapers](./resources/wallpapers).
+wallpapers are in [walls](https://github.com/71zenith/walls/tree/master/active).
 
 ## Nix components
 - [flakes](https://nixos.wiki/wiki/Flakes) - channel manager
@@ -66,3 +70,5 @@ wallpapers are in [resources/wallpapers](./resources/wallpapers).
 - [space-grotesk](https://fonts.google.com/specimen/Space+Grotesk) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
+
+

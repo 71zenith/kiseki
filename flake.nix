@@ -51,15 +51,8 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    my-walls = {
-      url = "github:71zenith/walls";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-    my-fonts = {
-      url = "github:71zenith/fonts";
+    my-assets = {
+      url = "github:71zenith/assets";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
@@ -108,8 +101,7 @@
         hyprland.overlays.default
         neorg.overlays.default
         dvd-zig.overlays.default
-        my-walls.overlays.default
-        my-fonts.overlays.default
+        my-assets.overlays.default
       ];
     };
   in {

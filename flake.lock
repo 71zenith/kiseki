@@ -641,7 +641,7 @@
         "type": "github"
       }
     },
-    "my-fonts": {
+    "my-assets": {
       "inputs": {
         "flake-utils": [
           "flake-utils"
@@ -651,39 +651,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1717788186,
-        "narHash": "sha256-i8Hdh5WIcWjdZOYIa6yz5Qh2RQlCIEesFzByzPJBip0=",
+        "lastModified": 1717824813,
+        "narHash": "sha256-1hu4K5Als1DoMWyBvyFLm4Y0SedzVHCckLosxmDQ9kw=",
         "owner": "71zenith",
-        "repo": "fonts",
-        "rev": "c844ebe845b7a656ee594c71c911501f55426aff",
+        "repo": "assets",
+        "rev": "d4bbfb0148bbe3f3727cdc1983299ac405897ab9",
         "type": "github"
       },
       "original": {
         "owner": "71zenith",
-        "repo": "fonts",
-        "type": "github"
-      }
-    },
-    "my-walls": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1717821788,
-        "narHash": "sha256-c3wOnmUYwYFBJakOo002btU4rZjZpHmp5c2yCXAMigw=",
-        "owner": "71zenith",
-        "repo": "walls",
-        "rev": "58f0465cf728a0584035747bf8c0eb6f8b611e0b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "71zenith",
-        "repo": "walls",
+        "repo": "assets",
         "type": "github"
       }
     },
@@ -701,11 +678,11 @@
         "norg-meta": "norg-meta"
       },
       "locked": {
-        "lastModified": 1717763247,
-        "narHash": "sha256-7TFH2CgLpVPvYoyFwnsMWOGvpMDwA/uVkt7cAzgO8VI=",
+        "lastModified": 1717798410,
+        "narHash": "sha256-NBYMm3/yfZ0wMDimUjbQ2kyLh9eKSbqVi/vXyZd+McM=",
         "owner": "nvim-neorg",
         "repo": "nixpkgs-neorg-overlay",
-        "rev": "3af2b2e914dc11e51804a23693164248dfb93dfe",
+        "rev": "c2294bad5840395f93b215f23e27de321c474085",
         "type": "github"
       },
       "original": {
@@ -896,11 +873,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1717771374,
-        "narHash": "sha256-/4wvx/TqcPkqXANSURsliFQ+8rWPjr6RZ19IXrEd+Rw=",
+        "lastModified": 1717799968,
+        "narHash": "sha256-NvmBPOpaf2z8aId+stIJK3/URuc4EaL3KeurKkHTxRA=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "94a452074f5dc1eda18fe6d3f447cc49ab2adefb",
+        "rev": "552e8b0a8551acc43292d06258829fe0621980e2",
         "type": "github"
       },
       "original": {
@@ -952,11 +929,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1717771953,
-        "narHash": "sha256-i/i/CiyWK7trUMoAlzLXGVr0BnVXD0rf2Rs+S/MC8Ck=",
+        "lastModified": 1717821758,
+        "narHash": "sha256-9iQreGkOPNBSMloULfv45dzAuaihK9ESR26bRs//tW0=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "ab2ef186fc85fb7731b428fdffebca3e7e8b651a",
+        "rev": "f4f3dcd9f8be9eee489df9ec268e395cbbd215f3",
         "type": "github"
       },
       "original": {
@@ -1028,8 +1005,7 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "my-fonts": "my-fonts",
-        "my-walls": "my-walls",
+        "my-assets": "my-assets",
         "neorg": "neorg",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_3",
