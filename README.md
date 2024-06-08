@@ -13,7 +13,7 @@ commits below `b4000db955f1c73714f25b612128b5c3d2c2050f` shall not work due to m
 wallpapers to separate repo.
 
 This repo contains the nix flakes to build an identical copy of my system.
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot6.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot7.png?raw=true)
 
 previous iterations are in [resources](https://github.com/71zenith/walls/tree/master/screenshot).
 
