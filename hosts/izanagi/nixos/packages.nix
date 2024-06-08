@@ -7,64 +7,75 @@
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    ani-cli
-    aria2
-    calibre
-    cliphist
+    # NUR
     config.nur.repos.mic92.hello-nur
+    # Custom
+    ani-cli
+    # Cli
+    aria2
     curl
-    desmume
+    gcc
     dust
     duf
-    dvd-zig
-    fd
-    ffmpeg
-    file
-    firefox
-    gcc
-    glava
-    gnome.nautilus
-    grimblast
-    gtk3
-    heroic
-    imagemagick
-    libnotify
-    libsForQt5.qt5.qtwayland
-    libsixel
-    # logseq # NOTE: NOTES
-    mgba
     neovim
+    fd
+    file
+    unzip
+    wget
+    yt-dlp
+    grimblast
+    cliphist
+    ffmpeg
+    pulsemixer
+    imagemagick
+    nvtopPackages.nvidia
+    playerctl
+    zip
+    wl-clipboard
+    xdg-utils
+    swww
+    ripgrep
+    sops
+    translate-shell
+    zoxide
+    rsync
+    ## nix
     nitch
     nix-init
     nix-output-monitor
-    nsxiv
     nurl
     nvd
-    # openmw  NOTE: morrowind
-    openssl
-    playerctl
-    prismlauncher
-    protonup-qt
-    pulsemixer
-    python3
-    qbittorrent
+    # gui
+    calibre
+    dvd-zig
+    firefox
     qemu
-    ripgrep
-    rsync
-    snes9x-gtk
-    sops
+    gnome.nautilus
+    glava
+    nsxiv
+    qbittorrent
+    ## games
+    heroic
+    prismlauncher
     steam-run
-    swww
-    translate-shell
-    unzip
-    wget
-    wl-clipboard
-    xdg-utils
+    protonup-qt
+    ### emulators
+    desmume
+    mgba
+    snes9x-gtk
+    # libs
+    libnotify
+    gtk3
+    libsixel
+    openssl
     xwayland
-    yt-dlp
+    # dev
+    python3
     zed-editor
-    zip
-    zoxide
+    zig
+    # disabled
+    # logseq  NOTE: NOTES
+    # openmw  NOTE: morrowind
   ];
   fonts.packages = with pkgs; [
     (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
