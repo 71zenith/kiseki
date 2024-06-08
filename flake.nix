@@ -24,6 +24,10 @@
       url = "github:hyprwm/Hyprland?ref=v0.39.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins?ref=00d147d7f6ad2ecfbf75efe4a8402723c72edd98";
+      inputs.hyprland.follows = "hyprland";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -102,6 +106,7 @@
         neorg.overlays.default
         dvd-zig.overlays.default
         my-assets.overlays.default
+        hyprland-plugins.overlays.default
       ];
     };
   in {
