@@ -45,6 +45,7 @@ in {
           "browser.display.use_document_fonts" = 0;
           "browser.ctrlTab.sortByRecentlyUsed" = false;
           "browser.toolbars.bookmarks.visibility" = "never";
+          "browser.theme.toolbar-theme" = 0;
           "browser.download.useDownloadDir" = false;
           "privacy.clearOnShutdown.history" = false;
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
@@ -70,6 +71,7 @@ in {
           "datareporting.policy.dataSubmissionEnabled" = false;
           "datareporting.healthreport.uploadEnabled" = false;
           "browser.urlbar.eventTelemetry.enabled" = false;
+          "browser.urlbar.suggest.engines" = false;
 
           # POCKET
           "browser.newtabpage.activity-stream.feeds.discoverystreamfeed" = false;
