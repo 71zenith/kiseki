@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     stylix = {
@@ -12,7 +13,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    flake-utils.url = "github:numtide/flake-utils";
     neorg = {
       url = "github:nvim-neorg/nixpkgs-neorg-overlay";
       inputs = {
@@ -84,9 +84,9 @@
       nix.settings = {
         builders-use-substitutes = true;
         substituters = [
+          "https://cache.nixos.org?priority=10"
           "https://cache.garnix.io"
           "https://hyprland.cachix.org"
-          "https://cache.nixos.org?priority=10"
           "https://nix-community.cachix.org"
           "https://nixpkgs-wayland.cachix.org"
         ];
