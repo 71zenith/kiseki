@@ -5,7 +5,7 @@
 }: {
   stylix = {
     polarity = "dark";
-    image = ../../../resources/wallpapers/oxocarbon.png;
+    image = "${pkgs.my-walls}/share/wallpapers/oxocarbon.png";
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
     fonts = {
       serif = {

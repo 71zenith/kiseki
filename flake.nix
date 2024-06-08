@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
+    nix-colors.url = "github:misterio77/nix-colors";
     stylix = {
       url = "github:danth/stylix";
       inputs = {
@@ -11,33 +12,20 @@
         home-manager.follows = "home-manager";
       };
     };
+    flake-utils.url = "github:numtide/flake-utils";
     neorg = {
       url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    prismlauncher = {
-      url = "github:julcioo/PrismLauncher-Cracked?ref=8.3-cracked";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    dvd-zig = {
-      url = "github:71zenith/dvd-zig";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    my-fonts = {
-      url = "github:71zenith/fonts";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
     };
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.39.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
@@ -45,6 +33,36 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";
+      };
+    };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    prismlauncher = {
+      url = "github:julcioo/PrismLauncher-Cracked?ref=8.3-cracked";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    ### MY FLAKES ###
+    dvd-zig = {
+      url = "github:71zenith/dvd-zig";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    my-walls = {
+      url = "github:71zenith/walls";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
+    my-fonts = {
+      url = "github:71zenith/fonts";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
       };
     };
   };
@@ -90,6 +108,7 @@
         hyprland.overlays.default
         neorg.overlays.default
         dvd-zig.overlays.default
+        my-walls.overlays.default
         my-fonts.overlays.default
       ];
     };

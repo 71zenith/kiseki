@@ -41,7 +41,7 @@ in {
       "$mod2" = "SUPERSHIFT";
       "$mod3" = "SUPERCONTROL";
       "$mod4" = "ALT";
-      "$setwall" = "swww img $(fd . ${inputs.self}/resources/wallpapers | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
+      "$setwall" = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
       monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
       exec-once = [
         "pgrep waybar || waybar &"
