@@ -17,7 +17,6 @@ in {
     gcc
     dust
     duf
-    neovim
     fd
     file
     unzip
@@ -70,9 +69,12 @@ in {
     openssl
     xwayland
     # dev
+    ## langs
     python3
-    zed-editor
     zig
+    ## editors
+    neovim
+    zed-editor
     # disabled
     # logseq  NOTE: NOTES
     # openmw  NOTE: morrowind
