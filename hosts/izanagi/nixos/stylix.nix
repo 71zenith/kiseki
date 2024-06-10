@@ -10,15 +10,15 @@
     fonts = {
       serif = {
         package = pkgs.my-fonts;
-        name = "Space Grotesk Medium";
+        name = "Google Sans";
       };
       sansSerif = {
         package = pkgs.my-fonts;
-        name = "Space Grotesk Medium";
+        name = "Google Sans";
       };
       monospace = {
-        package = pkgs.my-fonts;
-        name = "Space Mono";
+        package = pkgs.iosevka-bin;
+        name = "Iosevka Term Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;

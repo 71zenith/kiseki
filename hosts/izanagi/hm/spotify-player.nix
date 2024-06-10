@@ -6,9 +6,7 @@
   spotify-player = pkgs.callPackage ../../../pkgs/spotify-player.nix {};
 in {
   disabledModules = ["programs/spotify-player.nix"];
-  imports = [
-    ../../../modules/hm/spotify-player.nix
-  ];
+  imports = [../../../modules/hm/spotify-player.nix];
 
   programs.spotify-player = {
     enable = true;
@@ -28,7 +26,7 @@ in {
       liked_icon = " ";
       border_type = "Hidden";
       progress_bar_type = "Rectangle";
-      cover_img_scale = 1.8;
+      cover_img_scale = 1.4;
       device = {
         name = "ur mom";
         device_type = "speaker";

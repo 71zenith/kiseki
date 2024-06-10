@@ -19,6 +19,7 @@ in {
         # };
         hyprexpo = {
           gap_size = 15;
+          columns = 2;
           workspace_method = "first 1";
         };
       };

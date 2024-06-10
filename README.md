@@ -15,9 +15,9 @@ wallpapers to separate repo.
 This repo contains the nix flakes to build an identical copy of my system.
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot7.png?raw=true)
 
-previous iterations are in [resources](https://github.com/71zenith/walls/tree/master/screenshot).
+previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
 
-wallpapers are in [walls](https://github.com/71zenith/walls/tree/master/active).
+wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master/active).
 
 ## Nix components
 - [flakes](https://nixos.wiki/wiki/Flakes) - channel manager
@@ -66,9 +66,7 @@ wallpapers are in [walls](https://github.com/71zenith/walls/tree/master/active).
 
 ## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [space-mono](https://fonts.google.com/specimen/Space+Mono) - monospace font
-- [space-grotesk](https://fonts.google.com/specimen/Space+Grotesk) - "everything else" font
+- [iosevka](https://github.com/be5invis/Iosevka) - monospace font
+- [google-sans](https://github.com/hprobotic/Google-Sans-Font) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
-
-
