@@ -9,6 +9,7 @@
     settings = {
       mainBar = {
         layer = "top";
+        position = "top";
         modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-center = ["mpris"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
