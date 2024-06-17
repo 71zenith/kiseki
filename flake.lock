@@ -651,6 +651,29 @@
         "type": "github"
       }
     },
+    "lem": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718615663,
+        "narHash": "sha256-G3UBFCu7MnZNdE/CeBNX6UPvEBSKkjdUaayLucguWhA=",
+        "owner": "71zenith",
+        "repo": "lem-flake",
+        "rev": "3e63e73cd4f7441046b9542b3786a6306be849b3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "71zenith",
+        "repo": "lem-flake",
+        "type": "github"
+      }
+    },
     "libnbtplusplus": {
       "flake": false,
       "locked": {
@@ -1032,6 +1055,7 @@
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "lem": "lem",
         "my-assets": "my-assets",
         "neorg": "neorg",
         "nix-colors": "nix-colors",

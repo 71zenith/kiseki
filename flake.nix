@@ -48,6 +48,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ### MY FLAKES ###
+    lem = {
+      url = "github:71zenith/lem-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     dvd-zig = {
       url = "github:71zenith/dvd-zig";
       inputs = {
@@ -107,6 +114,7 @@
         dvd-zig.overlays.default
         my-assets.overlays.default
         hyprland-plugins.overlays.default
+        lem.overlays.default
       ];
     };
   in {

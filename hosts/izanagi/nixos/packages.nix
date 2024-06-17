@@ -77,6 +77,7 @@ in {
     zig
     ## editors
     neovim
+    lem-sdl2
     zed-editor
     # disabled
     # logseq  NOTE: NOTES
