@@ -69,6 +69,9 @@ in {
     openssl
     xwayland
     # dev
+    ## docs
+    man-pages
+    man-pages-posix
     ## langs
     python3
     zig
