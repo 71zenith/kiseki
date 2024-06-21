@@ -18,7 +18,7 @@
       };
       monospace = {
         package = pkgs.iosevka-bin;
-        name = "Iosevka Term Medium";
+        name = "ComicCodeLigatures";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
