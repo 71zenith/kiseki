@@ -15,7 +15,6 @@ in {
     ./nvim.nix
     ./git.nix
     ./rofi.nix
-    ./river.nix
     ./xdg.nix
     ./firefox.nix
     ./spotify-player.nix

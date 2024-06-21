@@ -154,7 +154,6 @@
       xserver.xkb = {
         layout = "us";
         variant = "";
-        options = "caps:escape,altwin:swap_lalt_lwin";
       };
 
       blueman.enable = true;
