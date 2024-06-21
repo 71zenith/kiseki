@@ -36,8 +36,6 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 - [hyprland](https://github.com/hyprwm/Hyprland) - compositor
 - [firefox](https://www.mozilla.org/en-US/firefox/) - web browser
 - [neovim](https://github.com/neovim/neovim) - primary main essential principal text editor
-- [emacs](https://www.gnu.org/emacs) - secondary main text editor
-- [neovim](https://github.com/neovim/neovim) - primary main text editor
 - [neovide](https://github.com/neovide/neovide) - neovim gui
 - [foot](https://codeberg.org/dnkl/foot) - terminal
 - [waybar](https://github.com/Alexays/Waybar) - status bar
