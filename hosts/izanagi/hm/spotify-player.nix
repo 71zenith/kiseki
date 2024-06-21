@@ -32,6 +32,7 @@ in {
         device_type = "speaker";
         bitrate = 320;
         audio_cache = false;
+        autoplay = true;
       };
     };
     keymaps = [

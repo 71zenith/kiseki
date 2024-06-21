@@ -24,6 +24,7 @@
   withImage ? true,
   withNotify ? true,
   withSixel ? true,
+  withFuzzy ? true,
   stdenv,
   darwin,
   makeBinaryWrapper,
@@ -31,16 +32,16 @@
 assert lib.assertOneOf "withAudioBackend" withAudioBackend ["" "alsa" "pulseaudio" "rodio" "portaudio" "jackaudio" "rodiojack" "sdl" "gstreamer"];
   rustPlatform.buildRustPackage rec {
     pname = "spotify-player";
-    version = "0.18.2";
+    version = "unstable-2024-06-19";
 
     src = fetchFromGitHub {
       owner = "aome510";
       repo = "${pname}";
-      rev = "v${version}";
-      hash = "sha256-bLUPQgqSsE9tF5YiFj5B+Ylyy96DhWFNjwqXbQ9H8uc=";
+      rev = "1324adb0a9685da33e929e7cfe7b8848d5a07bf9";
+      hash = "sha256-tF4peLozQoB1CHT+Awwp4IoAAFVEOlzv+ZdbceZQq3U=";
     };
 
-    cargoHash = "sha256-rptGA7J63rHdmxuPIguhZYYs8tZbpidJ0fXroBBoEIM=";
+    cargoHash = "sha256-2+IfiAJEDvLy/aQeGhTTn6ZVhd01c4FIkr4nlh1A+sk=";
 
     nativeBuildInputs =
       [
@@ -84,7 +85,8 @@ assert lib.assertOneOf "withAudioBackend" withAudioBackend ["" "alsa" "pulseaudi
       ++ lib.optionals withDaemon ["daemon"]
       ++ lib.optionals withNotify ["notify"]
       ++ lib.optionals withStreaming ["streaming"]
-      ++ lib.optionals withSixel ["sixel"];
+      ++ lib.optionals withSixel ["sixel"]
+      ++ lib.optionals withFuzzy ["fzf"];
 
     # sixel-sys is dynamically linked to libsixel
     postInstall = lib.optionals (stdenv.isDarwin && withSixel) ''
