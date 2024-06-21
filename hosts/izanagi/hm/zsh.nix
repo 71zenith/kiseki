@@ -99,7 +99,6 @@
         cat = "bat -p -P";
         g = "git";
         rm = "rm -Ivr";
-        v = "emacs -nw";
         mv = "mv -iv";
         cp = "cp -ivr";
         c = "clear";

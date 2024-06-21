@@ -162,7 +162,6 @@ in {
           "$mod1, Print, exec, grimblast --notify copy screen"
           "$mod2, f, exec, firefox"
           "$mod1, return, exec, footclient"
-          "$mod2, e, exec, emacs"
           "$mod2, v, exec, neovide"
           "$mod2, i, exec, $setwall"
           "$mod1, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
