@@ -7,21 +7,23 @@
 in {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # NUR
-    config.nur.repos.mic92.hello-nur
     # Custom
+    config.nur.repos.mic92.hello-nur
     ani-cli
     # Cli
+    ## internet
     aria2
     curl
-    gcc
+    wget
+    yt-dlp
+    rsync
+    ## utils
     dust
     duf
     fd
     file
-    unzip
-    wget
-    yt-dlp
+    ## helpful
+    gcc
     grimblast
     cliphist
     ffmpeg
@@ -29,7 +31,6 @@ in {
     imagemagick
     nvtopPackages.nvidia
     playerctl
-    zip
     wl-clipboard
     xdg-utils
     swww
@@ -37,13 +38,18 @@ in {
     sops
     translate-shell
     zoxide
-    rsync
     ## nix
     nitch
     nix-init
     nix-output-monitor
     nurl
     nvd
+    ## compression
+    zip
+    unzip
+    rar
+    unrar
+    _7zz
     # gui
     calibre
     dvd-zig
@@ -62,6 +68,7 @@ in {
     desmume
     mgba
     snes9x-gtk
+    config.nur.repos.chigyutendies.citra-nightly
     # libs
     libnotify
     gtk3
