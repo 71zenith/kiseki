@@ -40,6 +40,11 @@ in {
     packages = [
       scripts._4khd
     ];
+
+    sessionVariables = {
+      MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g";
+      MANROFFOPT = "-P -c";
+    };
   };
 
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
