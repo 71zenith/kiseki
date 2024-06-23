@@ -27,6 +27,11 @@ in {
       border_type = "Hidden";
       progress_bar_type = "Rectangle";
       cover_img_scale = 1.4;
+      player_event_hook_command.command = pkgs.writeShellScript "waybarHook" ''
+        sleep 1
+        curl "$(playerctl -p spotify_player metadata mpris:artUrl)" > /tmp/cover.jpg
+        pkill -RTMIN+8 waybar
+      '';
       device = {
         name = "ur mom";
         device_type = "speaker";

@@ -11,7 +11,7 @@
         layer = "top";
         position = "top";
         modules-left = ["hyprland/workspaces" "hyprland/window"];
-        modules-center = ["mpris"];
+        modules-center = ["image" "mpris"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -66,6 +66,11 @@
           on-click = "pulsemixer --toggle-mute";
           on-scroll-up = "pulsemixer --change-volume +5";
           on-scroll-down = "pulsemixer --change-volume -5";
+        };
+        "image" = {
+          path = "/tmp/cover.jpg";
+          size = 32;
+          signal = 8;
         };
         "mpris" = {
           format = "{status_icon} {title}";
