@@ -85,7 +85,6 @@
     };
     style = ''
       * {
-        font-size: 19px;
         border: none;
         border-radius: 0;
         min-height: 0;

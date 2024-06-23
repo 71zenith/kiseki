@@ -18,16 +18,16 @@
       };
       monospace = {
         package = pkgs.iosevka-bin;
-        name = "Iosevka Term Medium";
+        name = "PlemolJP Console NF Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 14;
-        desktop = 14;
-        popups = 14;
+        applications = 15;
+        desktop = 15;
+        popups = 15;
         terminal = 14;
       };
     };
@@ -42,4 +42,8 @@
       size = 32;
     };
   };
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+  ];
 }
