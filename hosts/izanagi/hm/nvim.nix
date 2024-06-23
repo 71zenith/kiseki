@@ -231,6 +231,15 @@ in {
           };
         };
         cursorline.enable = true;
+        toggleterm = {
+          enable = true;
+          settings = {
+            direction = "float";
+            float_opts = {
+              border = "curved";
+            };
+          };
+        };
         alpha = {
           enable = true;
           layout = [
@@ -1180,6 +1189,12 @@ in {
           mode = "n";
           action = "<CMD>Neorg inject-metadata<CR>";
           options.desc = "Insert Metadata";
+        }
+        {
+          key = "<leader>v";
+          mode = ["n" "t"];
+          action = "<CMD>1ToggleTerm direction=float name=はい <CR>";
+          options.desc = "Open termi[n]al";
         }
         {
           key = "<leader>.";

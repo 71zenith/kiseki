@@ -213,7 +213,7 @@
       typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':⇣'
       typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=':⇡'
       typeset -g POWERLEVEL9K_VCS_{COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=1
-      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='‎''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'
+      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION=' ''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'
 
       typeset -g POWERLEVEL9K_TIME_FOREGROUND=$grey
       typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
