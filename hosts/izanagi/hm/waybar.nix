@@ -85,14 +85,13 @@
     };
     style = ''
       * {
-        font-size: 18.5px;
+        font-size: 19px;
         border: none;
         border-radius: 0;
         min-height: 0;
       }
       window#waybar {
         transition-property: background-color;
-        background-color: alpha(@base00, 0.9);
         transition-duration: 0.1s;
       }
       window#waybar.hidden {
