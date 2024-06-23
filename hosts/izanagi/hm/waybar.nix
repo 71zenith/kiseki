@@ -1,4 +1,4 @@
-{config, ...}: {
+{
   stylix.targets.waybar = {
     enableLeftBackColors = false;
     enableRightBackColors = false;
@@ -68,7 +68,7 @@
           on-scroll-down = "pulsemixer --change-volume -5";
         };
         "image" = {
-          exec = "playerctl -p spotify_player metadata -f '${config.xdg.cacheHome}/spotify-player/image/{{album}}-{{artist}}-cover.jpg'";
+          path = "/tmp/cover.jpg";
           size = 32;
           signal = 8;
         };
