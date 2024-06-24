@@ -46,6 +46,7 @@ in {
       MANROFFOPT = "-P -c";
     };
   };
+  fonts.fontconfig = {inherit (osConfig.fonts.fontconfig) defaultFonts;};
 
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 

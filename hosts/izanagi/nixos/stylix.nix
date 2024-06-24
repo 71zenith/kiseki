@@ -7,28 +7,28 @@
     polarity = "dark";
     image = "${pkgs.my-walls}/share/wallpapers/oxocarbon.png";
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
-    fonts = {
+    fonts = rec {
       serif = {
         package = pkgs.my-fonts;
         name = "Kollektif";
       };
       sansSerif = {
         package = pkgs.my-fonts;
-        name = "Kollektif";
+        inherit (serif) name;
       };
       monospace = {
         package = pkgs.iosevka-bin;
-        name = "PlemolJP Console NF Medium";
+        name = "ComicCodeLigatures";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 15;
-        desktop = 15;
-        popups = 15;
-        terminal = 14;
+        applications = 14;
+        desktop = 14;
+        popups = 14;
+        terminal = 15;
       };
     };
     opacity = {
@@ -42,8 +42,20 @@
       size = 32;
     };
   };
+  fonts = {
+    fontconfig.defaultFonts = rec {
+      sansSerif = [
+        "Kollektif"
+        "irohamaru"
+      ];
+      serif = sansSerif;
+      emoji = ["Noto Color Emoji"];
+      monospace = ["ComicCodeLigatures"];
+    };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-  ];
+    packages = with pkgs; [
+      my-fonts
+      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+    ];
+  };
 }
