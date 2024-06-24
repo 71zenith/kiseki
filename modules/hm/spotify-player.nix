@@ -26,10 +26,6 @@ in {
       type = tomlFormat.type;
       default = {};
     };
-    enableZshIntegration = mkOption {
-      default = true;
-      type = types.bool;
-    };
     themes = mkOption {
       type = types.listOf tomlFormat.type;
       default = [];
@@ -37,6 +33,14 @@ in {
     keymaps = mkOption {
       type = types.listOf tomlFormat.type;
       default = [];
+    };
+    actions = mkOption {
+      type = types.listOf tomlFormat.type;
+      default = [];
+    };
+    enableZshIntegration = mkOption {
+      default = true;
+      type = types.bool;
     };
   };
   config = mkIf cfg.enable {
@@ -56,6 +60,7 @@ in {
       "spotify-player/keymap.toml" = mkIf (cfg.keymaps != []) {
         source = tomlFormat.generate "spotify-player-keymap" {
           inherit (cfg) keymaps;
+          inherit (cfg) actions;
         };
       };
     };

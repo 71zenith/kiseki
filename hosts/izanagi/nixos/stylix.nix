@@ -17,8 +17,8 @@
         inherit (serif) name;
       };
       monospace = {
-        package = pkgs.iosevka-bin;
-        name = "ComicCodeLigatures";
+        package = pkgs.my-fonts;
+        name = "Comic Shanns Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -44,13 +44,10 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = [
-        "Kollektif"
-        "irohamaru"
-      ];
+      sansSerif = ["Kollektif" "irohamaru"];
       serif = sansSerif;
       emoji = ["Noto Color Emoji"];
-      monospace = ["ComicCodeLigatures"];
+      monospace = ["Comic Shanns Mono"];
     };
 
     packages = with pkgs; [
