@@ -66,7 +66,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 ## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [agave](https://github.com/blobject/agave) - monospace font
+- [fantasque-sans](https://github.com/belluzj/fantasque-sans) - monospace font
 - [kollektif](https://unblast.com/kollektif-sans-typeface/) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies

@@ -22,8 +22,8 @@
         inherit (serif) name;
       };
       monospace = {
-        package = pkgs.my-fonts;
-        name = "Agave";
+        package = pkgs.fantasque-sans-mono;
+        name = "Fantasque Sans Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -33,7 +33,7 @@
         applications = 14;
         desktop = 14;
         popups = 14;
-        terminal = 16;
+        terminal = 15;
       };
     };
     opacity = {
@@ -52,7 +52,7 @@
       sansSerif = ["Kollektif" "umeboshi"];
       serif = sansSerif;
       emoji = ["Noto Color Emoji"];
-      monospace = ["Agave"];
+      monospace = ["Fantasque Sans Mono"];
     };
 
     packages = with pkgs; [
