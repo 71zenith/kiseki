@@ -9,6 +9,7 @@
   #   };
   # };
   stylix = {
+    enable = true;
     polarity = "dark";
     image = "${pkgs.my-walls}/share/wallpapers/oxocarbon.png";
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;

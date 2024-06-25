@@ -55,6 +55,10 @@ in {
     platformTheme.name = "gtk3";
   };
 
+  stylix.targets.gtk.extraCss = with config.lib.stylix.colors.withHashtag; ''
+    @define-color accent_color ${base0A};
+    @define-color accent_bg_color ${base0A};
+  '';
   gtk = {
     enable = true;
     iconTheme = {

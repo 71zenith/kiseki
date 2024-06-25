@@ -7,7 +7,7 @@
     nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     stylix = {
-      url = "github:danth/stylix?ref=85a0a92c3173ceebbca9b7ec692db79cff8ce91a";
+      url = "github:danth/stylix";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         home-manager.follows = "home-manager";

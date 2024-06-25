@@ -1,10 +1,16 @@
 {
   pkgs,
+  config,
   lib,
   ...
 }: let
+  rgb = color: "rgb(${color})";
+  inherit (config.stylix.base16Scheme) palette;
   scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
 in {
+  # FIX: do not anger me; fuck hyprpaper
+  services.hyprpaper.enable = lib.mkForce false;
+  stylix.targets.hyprpaper.enable = lib.mkForce false;
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
@@ -102,6 +108,12 @@ in {
         gaps_in = 4;
         gaps_out = 8;
         border_size = 3;
+        "col.active_border" = lib.mkForce (rgb palette.base0A);
+      };
+      group = {
+        "col.border_inactive" = lib.mkForce (rgb palette.base0D);
+        "col.border_active" = lib.mkForce (rgb palette.base06);
+        "col.border_locked_active" = lib.mkForce (rgb palette.base06);
       };
       animations = {
         enabled = true;
