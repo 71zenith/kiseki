@@ -39,7 +39,6 @@
         zstyle ':completion:*' menu select
         zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
-        _comp_options+=(globdots)
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';
       syntaxHighlighting = {
@@ -83,8 +82,14 @@
           file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
         }
       ];
+      zsh-abbr = {
+        enable = true;
+        abbreviations = {
+          ir = "nix run";
+          nv = "nvim";
+        };
+      };
       shellAliases = {
-        nv = "nvim";
         up = "nh os switch";
         del = "nh clean all --nogcroots";
         ss = "nh search";

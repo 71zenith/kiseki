@@ -23,7 +23,7 @@
       };
       monospace = {
         package = pkgs.my-fonts;
-        name = "Comic Shanns Mono";
+        name = "Agave";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -33,7 +33,7 @@
         applications = 14;
         desktop = 14;
         popups = 14;
-        terminal = 15;
+        terminal = 16;
       };
     };
     opacity = {
@@ -52,7 +52,7 @@
       sansSerif = ["Kollektif" "umeboshi"];
       serif = sansSerif;
       emoji = ["Noto Color Emoji"];
-      monospace = ["Comic Shanns Mono"];
+      monospace = ["Agave"];
     };
 
     packages = with pkgs; [

@@ -233,12 +233,7 @@ in {
         cursorline.enable = true;
         toggleterm = {
           enable = true;
-          settings = {
-            direction = "float";
-            float_opts = {
-              border = "curved";
-            };
-          };
+          settings.direction = "float";
         };
         alpha = {
           enable = true;
