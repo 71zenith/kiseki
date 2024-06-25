@@ -15,6 +15,17 @@ wallpapers to separate repo.
 This repo contains the nix flakes to build an identical copy of my system.
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot9.png?raw=true)
 
+<details><summary><b>More screenshots</b></summary>
+
+![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/2.png?raw=true)
+
+![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/3.png?raw=true)
+
+![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/4.png?raw=true)
+
+![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/5.png?raw=true)
+</details>
+
 previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
 
 wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master/active).
