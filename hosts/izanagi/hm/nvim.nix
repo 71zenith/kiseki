@@ -65,6 +65,8 @@ in {
         number = true;
         relativenumber = false;
         completeopt = "menu,menuone,noselect";
+        encoding = "utf-8";
+        fileencoding = "utf-8";
         shiftwidth = 2;
         tabstop = 2;
         confirm = true;
