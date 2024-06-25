@@ -13,7 +13,7 @@ commits below [`b4000db`](https://github.com/71zenith/nix-dots/tree/b4000db955f1
 wallpapers to separate repo.
 
 This repo contains the nix flakes to build an identical copy of my system.
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot7.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot8.png?raw=true)
 
 previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
 
