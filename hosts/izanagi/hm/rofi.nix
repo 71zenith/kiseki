@@ -246,4 +246,37 @@
       };
     };
   };
+  xdg.dataFile."rofi/themes/preview.rasi".text = ''
+    @import "./custom.rasi"
+    icon-current-entry {
+      enabled: true;
+      size: 50%;
+      padding: 10px;
+      background-color: inherit;
+    }
+    listview-split {
+      background-color: transparent;
+      border-radius: 0px;
+      cycle: true;
+      dynamic : true;
+      orientation: horizontal;
+      border: 0px solid;
+      children: [listview,icon-current-entry];
+    }
+    listview {
+      lines: 10;
+    }
+    mainbox {
+      children: [inputbar,listview-split];
+    }
+    configuration {
+      display-filebrowser: "";
+      modi: "filebrowser";
+      filebrowser {
+        directories-first: false;
+        directory: "${pkgs.my-walls}/share/wallpapers";
+        command: "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
+      }
+    }
+  '';
 }
