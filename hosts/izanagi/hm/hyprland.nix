@@ -8,21 +8,7 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    plugins = with pkgs; [
-      # hyprwinwrap
-      hyprexpo
-    ];
     settings = {
-      plugin = {
-        # hyprwinwrap = {
-        #   "class" = "GLava";
-        # };
-        hyprexpo = {
-          gap_size = 15;
-          columns = 2;
-          workspace_method = "first 1";
-        };
-      };
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
@@ -181,7 +167,6 @@ in {
           "$mod2, q, exit,"
           "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
-          "$mod1, grave, hyprexpo:expo, toggle"
 
           "$mod1, l, cyclenext,"
           "$mod1, h, cyclenext,prev"

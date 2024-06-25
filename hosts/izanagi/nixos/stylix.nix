@@ -3,6 +3,11 @@
   inputs,
   ...
 }: {
+  # specialisation = {
+  #   "light".configuration = {
+  #     stylix.base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-light;
+  #   };
+  # };
   stylix = {
     polarity = "dark";
     image = "${pkgs.my-walls}/share/wallpapers/oxocarbon.png";
@@ -34,7 +39,7 @@
     opacity = {
       terminal = 0.80;
       popups = 0.90;
-      desktop = 0.90;
+      desktop = 0.75;
     };
     cursor = {
       package = pkgs.phinger-cursors;
@@ -44,7 +49,7 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = ["Kollektif" "irohamaru"];
+      sansSerif = ["Kollektif" "umeboshi"];
       serif = sansSerif;
       emoji = ["Noto Color Emoji"];
       monospace = ["Comic Shanns Mono"];

@@ -575,32 +575,6 @@
         "type": "github"
       }
     },
-    "hyprland-plugins": {
-      "inputs": {
-        "hyprland": [
-          "hyprland"
-        ],
-        "systems": [
-          "hyprland-plugins",
-          "hyprland",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1713283897,
-        "narHash": "sha256-/0OPK/bDr8/Lf7r8kzDD/yP1kySbJ8gPmV3CdUbVTFM=",
-        "owner": "hyprwm",
-        "repo": "hyprland-plugins",
-        "rev": "00d147d7f6ad2ecfbf75efe4a8402723c72edd98",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hyprwm",
-        "ref": "00d147d7f6ad2ecfbf75efe4a8402723c72edd98",
-        "repo": "hyprland-plugins",
-        "type": "github"
-      }
-    },
     "hyprland-protocols": {
       "inputs": {
         "nixpkgs": [
@@ -700,11 +674,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719254575,
-        "narHash": "sha256-5NdvODc5YAduuocpwI/PcgzjgqFcYAOZFpK4lnL2Cuo=",
+        "lastModified": 1719289174,
+        "narHash": "sha256-i7aaRLqo/9lyEPk8PTh53ZSh6JH5ErsfCYYagOdK64M=",
         "owner": "71zenith",
         "repo": "assets",
-        "rev": "e430cb04060409f77ede53997800c5f6196d4e0a",
+        "rev": "5f9d236b1a697cf7e6a255aae5b89a4329eb0fa5",
         "type": "github"
       },
       "original": {
@@ -1054,7 +1028,6 @@
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
-        "hyprland-plugins": "hyprland-plugins",
         "lem": "lem",
         "my-assets": "my-assets",
         "neorg": "neorg",
