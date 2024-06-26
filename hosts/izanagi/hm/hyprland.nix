@@ -175,7 +175,6 @@ in {
           "$mod1, return, exec, footclient"
           "$mod2, v, exec, neovide"
           "$mod2, i, exec, $setwall"
-          "$mod1, v, exec, cliphist list | rofi -dmenu -i -p '' | cliphist decode | wl-copy"
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
           "$mod1, g, exec, pkill glava || glava"
@@ -186,6 +185,7 @@ in {
           "$mod1, u, exec, ${scripts.rofiGuard}"
           "$mod1, i, exec, ${scripts.transLiner}"
           "$mod1, y, exec, ${scripts.copyTwit}"
+          "$mod1, v, exec, ${scripts.clipShow}"
 
           "$mod1, q, killactive,"
           "$mod1, t, fullscreen,"

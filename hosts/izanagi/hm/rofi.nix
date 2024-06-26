@@ -247,10 +247,11 @@
     };
   };
   xdg.dataFile."rofi/themes/preview.rasi".text = ''
-    @import "./custom.rasi"
+    @theme "custom"
     icon-current-entry {
       enabled: true;
       size: 50%;
+      dynamic: true;
       padding: 10px;
       background-color: inherit;
     }
@@ -276,6 +277,22 @@
         directories-first: false;
         directory: "${pkgs.my-walls}/share/wallpapers";
         command: "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
+      }
+    }
+    @media (enabled: env(CLIP, false)) {
+      element {
+        children: [element-text];
+      }
+      icon-current-entry {
+        enabled: true;
+        size: 35%;
+      }
+      window {
+        width: 1200px;
+      }
+      listview {
+        lines: 15;
+        spacing: 4px;
       }
     }
   '';
