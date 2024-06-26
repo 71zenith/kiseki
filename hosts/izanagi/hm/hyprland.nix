@@ -22,7 +22,9 @@ in {
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
         "NIXOS_OZONE_WL,1"
+        "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "MOZ_ENABLE_WAYLAND,1"
+        "NVD_BACKEND,direct"
         "MOZ_WEBRENDER,1"
         "_JAVA_AWT_WM_NONREPARENTING,1"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
@@ -39,12 +41,15 @@ in {
       "$mod3" = "SUPERCONTROL";
       "$mod4" = "ALT";
       "$setwall" = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
-      monitor = "HDMI-A-1,1920x1080@75.00,0x0,1";
+      monitor = [
+        "Unknown-1,disabled"
+        "HDMI-A-1,1920x1080@75.00,0x0,1"
+      ];
       exec-once = [
         "pgrep waybar || waybar &"
         "foot --server &"
         "swww-daemon --format xrgb"
-        "wl-paste --type text --watch cliphist store &"
+        "wl-paste --watch cliphist store &"
         "$setwall &"
       ];
       windowrule = [
@@ -76,6 +81,7 @@ in {
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
+        "noborder, onworkspace:w[t1]"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
@@ -97,6 +103,7 @@ in {
       };
       misc = {
         enable_swallow = true;
+        force_default_wallpaper = 0;
         disable_hyprland_logo = true;
         swallow_regex = "^(foot).*$";
       };
@@ -114,6 +121,12 @@ in {
         "col.border_inactive" = lib.mkForce (rgb palette.base0D);
         "col.border_active" = lib.mkForce (rgb palette.base06);
         "col.border_locked_active" = lib.mkForce (rgb palette.base06);
+      };
+      cursor = {
+        no_hardware_cursors = true;
+      };
+      debug = {
+        disable_logs = false;
       };
       animations = {
         enabled = true;

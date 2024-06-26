@@ -21,8 +21,7 @@
       };
     };
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.39.1";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
