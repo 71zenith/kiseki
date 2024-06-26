@@ -19,7 +19,6 @@ in {
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
         "GBM_BACKEND,nvidia-drm"
-        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
         "NIXOS_OZONE_WL,1"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
@@ -98,23 +97,27 @@ in {
       dwindle = {
         force_split = 2;
         no_gaps_when_only = false;
-        pseudotile = true;
+        pseudotile = false;
         preserve_split = true;
       };
       misc = {
         enable_swallow = true;
         force_default_wallpaper = 0;
+        new_window_takes_over_fullscreen = 1;
         disable_hyprland_logo = true;
         swallow_regex = "^(foot).*$";
       };
       decoration = {
         rounding = 10;
         drop_shadow = true;
+        shadow_range = 10;
+        dim_inactive = true;
+        dim_strength = 0.15;
       };
       general = {
         gaps_in = 4;
         gaps_out = 8;
-        border_size = 3;
+        border_size = 0;
         "col.active_border" = lib.mkForce (rgb palette.base0A);
       };
       group = {

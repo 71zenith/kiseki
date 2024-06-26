@@ -107,13 +107,13 @@
         color: @base05;
         padding: 2px 5px;
         border-radius: 5px;
-        background-color: alpha(@base00, 0.5);
+        background-color: alpha(@base00, 0.0);
 
-        margin-left: 4px;
-        margin-right: 4px;
+        margin-left: 5px;
+        margin-right: 5px;
 
-        margin-top: 3px;
-        margin-bottom: 3px;
+        margin-top: 2px;
+        margin-bottom: 2px;
       }
       #workspaces button {
         color: @base04;

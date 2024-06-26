@@ -12,18 +12,22 @@
 commits below [`b4000db`](https://github.com/71zenith/nix-dots/tree/b4000db955f1c73714f25b612128b5c3d2c2050f) shall not work due to moving of
 wallpapers to separate repo.
 
+**BREAKING**
+commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
+with dimming being a substitute.
+
 This repo contains the nix flakes to build an identical copy of my system.
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot9.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot11.png?raw=true)
 
 <details><summary><b>More screenshots</b></summary>
+
+![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/1.png?raw=true)
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/2.png?raw=true)
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/3.png?raw=true)
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/4.png?raw=true)
-
-![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/5.png?raw=true)
 </details>
 
 previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
