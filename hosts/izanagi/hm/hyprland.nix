@@ -90,9 +90,11 @@ in {
         preserve_split = true;
       };
       misc = {
+        font_family = config.stylix.fonts.serif.name;
         enable_swallow = true;
         force_default_wallpaper = 0;
         new_window_takes_over_fullscreen = 1;
+        disable_splash_rendering = true;
         disable_hyprland_logo = true;
         swallow_regex = "^(foot).*$";
       };
@@ -101,8 +103,9 @@ in {
         drop_shadow = true;
         shadow_range = 10;
         dim_inactive = true;
-        dim_strength = 0.15;
+        dim_strength = 0.1618;
       };
+      binds.workspace_back_and_forth = true;
       general = {
         gaps_in = 6;
         gaps_out = 8;
@@ -116,9 +119,6 @@ in {
       };
       cursor = {
         no_hardware_cursors = true;
-      };
-      debug = {
-        disable_logs = false;
       };
       animations = {
         enabled = true;
