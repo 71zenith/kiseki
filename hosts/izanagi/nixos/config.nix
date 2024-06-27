@@ -303,9 +303,9 @@
 
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
-      config.common.default = "*";
+      extraPortals = with pkgs;[xdg-desktop-portal-gtk xdg-desktop-portal-hyprland];
+      config.preferred.default = ["hyprland" "gtk"];
+      xdgOpenUsePortal = true;
     };
 
     nixpkgs.config = import ../hm/nixpkgs.nix;
