@@ -100,6 +100,10 @@ in {
       };
       decoration = {
         rounding = 10;
+        blur = {
+          enabled = true;
+          noise = 0;
+        };
         drop_shadow = true;
         shadow_range = 10;
         dim_inactive = true;
@@ -120,6 +124,7 @@ in {
       cursor = {
         no_hardware_cursors = true;
       };
+      blurls = ["waybar"];
       animations = {
         enabled = true;
         bezier = [
