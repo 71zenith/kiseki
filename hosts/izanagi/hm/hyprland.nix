@@ -41,6 +41,7 @@ in {
       "$mod4" = "ALT";
       "$setwall" = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
       monitor = [
+        # FIX: annoying ahh kernel bug
         "Unknown-1,disabled"
         "HDMI-A-1,1920x1080@75.00,0x0,1"
       ];
@@ -62,17 +63,6 @@ in {
         "idleinhibit always, GLava"
         "size 100% 100%, GLava"
         "move 0 0, GLava"
-        "float, file_progress"
-        "float, confirm"
-        "float, dialog"
-        "float, download"
-        "float, notification"
-        "float, error"
-        "float, splash"
-        "float, confirmreset"
-        "float, title:Library"
-        "float, title:Open File"
-        "float, title:branchdialog"
       ];
       layerrule = [
         "noanim, selection"
@@ -80,13 +70,12 @@ in {
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
-        "noborder, onworkspace:w[t1]"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
-        "special:music,on-created-empty:footclient -T spotify_player spotify_player"
-        "special:neorg,on-created-empty:footclient -T neorg nvim -c 'Neorg index'"
+        "special:music, on-created-empty:footclient -T spotify_player spotify_player"
+        "special:neorg, on-created-empty:footclient -T neorg nvim -c 'Neorg index'"
       ];
       input = {
         kb_options = "caps:escape,altwin:swap_lalt_lwin";
@@ -115,7 +104,7 @@ in {
         dim_strength = 0.15;
       };
       general = {
-        gaps_in = 4;
+        gaps_in = 6;
         gaps_out = 8;
         border_size = 0;
         "col.active_border" = lib.mkForce (rgb palette.base0A);
@@ -149,7 +138,10 @@ in {
           "specialWorkspace, 1, 3, pace, slidevert"
         ];
       };
-      bindm = ["$mod1, mouse:272, movewindow" "$mod1, mouse:273, resizewindow"];
+      bindm = [
+        "$mod1, mouse:272, movewindow"
+        "$mod1, mouse:273, resizewindow"
+      ];
       bindr = ["SUPER, SUPER_L, exec, pkill rofi || rofi -show drun"];
       bindel = [
         ",Print, exec,grimblast --notify copy area"
@@ -170,6 +162,11 @@ in {
         "$mod2, h, resizeactive, -40 0"
         "$mod2, j, resizeactive, 0 40"
         "$mod2, k, resizeactive, 0 -40"
+
+        "$mod3, l, moveactive, 60 0"
+        "$mod3, h, moveactive, -60 0"
+        "$mod3, j, moveactive, 0 60"
+        "$mod3, k, moveactive, 0 -60"
       ];
       bind =
         [
@@ -191,11 +188,15 @@ in {
           "$mod1, v, exec, ${scripts.clipShow}"
 
           "$mod1, q, killactive,"
+          "$mod1, x, togglesplit,"
           "$mod1, t, fullscreen,"
           "$mod2, t, fullscreen,1"
           "$mod2, q, exit,"
           "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
+
+          "$mod1, mouse_down, workspace, r+1"
+          "$mod1, mouse_up, workspace, r-1"
 
           "$mod1, l, cyclenext,"
           "$mod1, h, cyclenext,prev"
@@ -203,8 +204,8 @@ in {
           "$mod1, Tab, bringactivetotop,"
           "$mod2, Tab, bringactivetotop,"
           "$mod2, Tab, cyclenext,prev"
-          "$mod3, l, swapnext"
-          "$mod3, h, swapnext,prev"
+          "$mod3, n, swapnext"
+          "$mod3, p, swapnext,prev"
 
           "$mod2, 9, movetoworkspacesilent, special:music"
           "$mod2, 0, movetoworkspacesilent, special:neorg"
