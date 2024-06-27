@@ -42,12 +42,16 @@ in {
     };
     actions = [
       {
-        action = "GoToArtist";
-        key_sequence = "g A";
+        action = "ToggleLiked";
+        key_sequence = "C-l";
       }
       {
-        action = "GoToAlbum";
-        key_sequence = "g b";
+        action = "AddToLibrary";
+        key_sequence = "C-a";
+      }
+      {
+        action = "Follow";
+        key_sequence = "C-f";
       }
     ];
     keymaps = [
