@@ -6,6 +6,7 @@
 }: let
   inherit (config.stylix.base16Scheme) slug palette;
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
+  yazi-plugins = pkgs.callPackage ../../../pkgs/yazi-plugins.nix {};
 in {
   stylix.targets = {
     zathura.enable = false;
@@ -153,9 +154,30 @@ in {
     yazi = {
       enable = true;
       enableZshIntegration = true;
+      shellWrapperName = "ya";
+      keymap = {
+        manager.prepend_keymap = [
+          {
+            run = ''shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list' --confirm'';
+            on = ["y"];
+          }
+          {
+            run = ''shell "$SHELL" --block --confirm'';
+            on = ["<C-s>"];
+          }
+          {
+            run = "plugin --sync max-preview";
+            on = ["T"];
+          }
+        ];
+      };
+      plugins = {
+        max-preview = "${yazi-plugins}/share/max-preview.yazi";
+      };
       settings = {
         manager = {
           ratio = [1 3 3];
+          sort_by = "natural";
           show_hidden = true;
         };
       };

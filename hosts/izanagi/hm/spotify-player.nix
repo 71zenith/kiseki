@@ -15,13 +15,12 @@ in {
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";
       client_port = 8080;
-      tracks_playback_limit = 5;
-      track_table_item_max_len = 32;
       play_icon = " ";
       pause_icon = " ";
       enable_media_control = true;
       default_device = "ur-mom";
       theme = config.stylix.base16Scheme.slug;
+      seek_duration_secs = 10;
       playback_window_position = "Bottom";
       liked_icon = " ";
       border_type = "Hidden";
