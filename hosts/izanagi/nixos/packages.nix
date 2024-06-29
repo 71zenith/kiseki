@@ -90,7 +90,4 @@ in {
     # logseq  NOTE: NOTES
     # openmw  NOTE: morrowind
   ];
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
-  ];
 }

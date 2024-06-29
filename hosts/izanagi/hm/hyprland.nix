@@ -172,6 +172,11 @@ in {
         "$mod3, h, moveactive, -60 0"
         "$mod3, j, moveactive, 0 60"
         "$mod3, k, moveactive, 0 -60"
+
+        "$mod1, left, movewindow, l"
+        "$mod1, right, movewindow, r"
+        "$mod1, down, movewindow, d"
+        "$mod1, up, movewindow, u"
       ];
       bind =
         [

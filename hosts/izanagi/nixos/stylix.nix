@@ -23,8 +23,8 @@
         inherit (serif) name;
       };
       monospace = {
-        package = pkgs.fantasque-sans-mono;
-        name = "Fantasque Sans Mono";
+        package = pkgs.iosevka-bin.override {variant = "SS12";};
+        name = "Iosevka Term SS12 Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -53,9 +53,7 @@
       sansSerif = ["Kollektif" "umeboshi"];
       serif = sansSerif;
       emoji = ["Noto Color Emoji"];
-      monospace = ["Fantasque Sans Mono"];
     };
-
     packages = with pkgs; [
       my-fonts
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
