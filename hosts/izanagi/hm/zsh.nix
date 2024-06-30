@@ -41,6 +41,7 @@ in {
         bindkey "^[[1;5D" backward-word
         function fzf-comp-widget() {
           local FZF_CTRL_T_COMMAND=${scripts.fzfComp}
+          local FZF_CTRL_T_OPTS="--bind 'focus:jump' --bind 'space:jump,jump:accept,jump-cancel:abort' --tac"
           LBUFFER="''${LBUFFER}$(__fzf_select)"
           local ret=$?
           zle reset-prompt
