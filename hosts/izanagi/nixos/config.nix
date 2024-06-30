@@ -256,7 +256,7 @@
         description = "Mori Zen";
         shell = pkgs.zsh;
         hashedPasswordFile = config.sops.secrets.user_pass.path;
-        extraGroups = ["wheel" "libvirtd"];
+        extraGroups = ["wheel" "libvirtd" "input"];
       };
     };
 

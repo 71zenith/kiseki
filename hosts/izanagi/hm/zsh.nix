@@ -1,8 +1,11 @@
 {
   pkgs,
+  lib,
   config,
   ...
-}: {
+}: let
+  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
+in {
   programs = {
     zsh = {
       enable = true;
@@ -36,6 +39,15 @@
         bindkey '^H' backward-delete-word
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
+        function fzf-comp-widget() {
+          local FZF_CTRL_T_COMMAND=${scripts.fzfComp}
+          LBUFFER="''${LBUFFER}$(__fzf_select)"
+          local ret=$?
+          zle reset-prompt
+          return $ret
+        }
+        zle -N fzf-comp-widget
+        bindkey "^O" fzf-comp-widget
         zstyle ':completion:*' menu select
         zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}

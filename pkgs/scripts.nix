@@ -4,7 +4,7 @@
   args ? "-no-warn -no-autocorrect -b",
   langs ? "eng+jpn+jpn_vert+kor+kor_vert+deu+rus",
 }: let
-  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp tesseract5;
+  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp dotool tesseract5;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
@@ -133,7 +133,16 @@ in {
     }
     1
     EOF
-
     cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview | cliphist decode | wl-copy
+  '';
+  fzfComp = writeShellScript "fzfComp" ''
+    [ -e "/tmp/comsole" ] || echo "key ctrl+shift+f" | ${_ dotool}
+    input="$(tr ' ' '\n' < /tmp/comsole | tr -d \' | tr -d \" | tr -s '\n')"
+    rm -rf /tmp/comsole 2&>/dev/null
+    IFS="
+    "
+    for i in $input; do
+        [ -e "$i" ] && echo "$i"
+    done | uniq
   '';
 }
