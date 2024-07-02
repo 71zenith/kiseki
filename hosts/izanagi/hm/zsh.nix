@@ -49,9 +49,12 @@ in {
         }
         zle -N fzf-comp-widget
         bindkey "^O" fzf-comp-widget
+        setopt interactive_comments nomatch
+        unsetopt beep extendedglob notify
         zstyle ':completion:*' menu select
-        zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+        zstyle ':completion:*' matcher-list "" "m:{a-z0A-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        _comp_options+=(globdots)
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';
       syntaxHighlighting = {
@@ -118,7 +121,7 @@ in {
         d = "sudo";
         du = "dust";
         cd = "z";
-        setwall = "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
+        setwall = "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2";
         f = "free -h";
         ko = "pkill";
       };

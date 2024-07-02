@@ -276,7 +276,7 @@
       filebrowser {
         directories-first: false;
         directory: "${pkgs.my-walls}/share/wallpapers";
-        command: "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
+        command: "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       }
     }
     @media (enabled: env(CLIP, false)) {

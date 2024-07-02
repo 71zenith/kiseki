@@ -39,7 +39,7 @@ in {
       "$mod2" = "SUPERSHIFT";
       "$mod3" = "SUPERCONTROL";
       "$mod4" = "ALT";
-      "$setwall" = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2 --resize fit";
+      "$setwall" = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       monitor = [
         # FIX: annoying ahh kernel bug
         "Unknown-1,disabled"
@@ -100,13 +100,13 @@ in {
         swallow_regex = "^(foot).*$";
       };
       decoration = {
-        rounding = 10;
+        rounding = 12;
         blur = {
           enabled = true;
           noise = 0;
         };
         drop_shadow = true;
-        shadow_range = 10;
+        shadow_range = 15;
         dim_inactive = true;
         dim_strength = 0.1618;
       };
