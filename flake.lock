@@ -1107,8 +1107,32 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "prismlauncher": "prismlauncher",
+        "scraperwolf": "scraperwolf",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
+      }
+    },
+    "scraperwolf": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1719926116,
+        "narHash": "sha256-nA8Id9gVmIKdISwnZqIbYCy7grg9A8PQYSjBE2tG9es=",
+        "owner": "71zenith",
+        "repo": "scraperwolf",
+        "rev": "6938b6d727021de01d015bb63284dbe5ac100fe7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "71zenith",
+        "repo": "scraperwolf",
+        "type": "github"
       }
     },
     "sops-nix": {

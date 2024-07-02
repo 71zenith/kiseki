@@ -64,6 +64,13 @@
         flake-utils.follows = "flake-utils";
       };
     };
+    scraperwolf = {
+      url = "github:71zenith/scraperwolf";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
   outputs = {
     self,
@@ -109,6 +116,7 @@
         dvd-zig.overlays.default
         my-assets.overlays.default
         lem.overlays.default
+        scraperwolf.overlays.default
       ];
     };
   in {

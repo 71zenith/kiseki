@@ -54,6 +54,7 @@ in {
     calibre
     dvd-zig
     firefox
+    librewolf
     qemu
     gnome.nautilus
     glava
