@@ -49,7 +49,8 @@ in {
         "pgrep waybar || waybar &"
         "foot --server &"
         "swww-daemon --format xrgb"
-        "wl-paste --watch cliphist store &"
+        "wl-paste --type text --watch cliphist store &"
+        "wl-paste --type image --watch cliphist store &"
         "$setwall &"
       ];
       windowrule = [
