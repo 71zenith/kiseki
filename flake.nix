@@ -39,7 +39,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     prismlauncher = {
-      url = "github:julcioo/PrismLauncher-Cracked?ref=8.3-cracked";
+      url = "github:Diegiwg/PrismLauncher-Cracked?ref=v8.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ### MY FLAKES ###

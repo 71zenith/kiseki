@@ -162,11 +162,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1718078702,
-        "narHash": "sha256-NdKdsKehznuU2YoITBxLfp2+yivWLEIKkxxKUbwi380=",
+        "lastModified": 1719929154,
+        "narHash": "sha256-5B6Ol59fpOSmdnIrpZbwMq+MB7NRJzRkf6ASicKD8ig=",
         "owner": "71zenith",
         "repo": "dvd-zig",
-        "rev": "38ce9a45495b1d2b5ff498ce00e5d9c19f40d20d",
+        "rev": "b688a41d124fb49fb37cc9cdd1b8d491a1bdd3b1",
         "type": "github"
       },
       "original": {
@@ -841,21 +841,6 @@
         "type": "github"
       }
     },
-    "nix-filter": {
-      "locked": {
-        "lastModified": 1694857738,
-        "narHash": "sha256-bxxNyLHjhu0N8T3REINXQ2ZkJco0ABFPn6PIe2QUfqo=",
-        "owner": "numtide",
-        "repo": "nix-filter",
-        "rev": "41fd48e00c22b4ced525af521ead8792402de0ea",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "nix-filter",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1719075281,
@@ -1072,23 +1057,22 @@
         "flake-compat": "flake-compat_5",
         "flake-parts": "flake-parts_2",
         "libnbtplusplus": "libnbtplusplus",
-        "nix-filter": "nix-filter",
         "nixpkgs": [
           "nixpkgs"
         ],
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1714302453,
-        "narHash": "sha256-6jMta02zTb7xJ29O1ZTQh/BCsRKlxiKklA/xUkUGtNU=",
-        "owner": "julcioo",
+        "lastModified": 1719863877,
+        "narHash": "sha256-ffx3MgvKj9VsRIK9DT5Cxr+3WSrvMglzLE+kFU/cni4=",
+        "owner": "Diegiwg",
         "repo": "PrismLauncher-Cracked",
-        "rev": "9f80445644b1ccc6a794770b3a08aa5cdf30047c",
+        "rev": "911c0f3593dd6b825f6d91900e48bdf3b59ad3a9",
         "type": "github"
       },
       "original": {
-        "owner": "julcioo",
-        "ref": "8.3-cracked",
+        "owner": "Diegiwg",
+        "ref": "v8.4.1",
         "repo": "PrismLauncher-Cracked",
         "type": "github"
       }
