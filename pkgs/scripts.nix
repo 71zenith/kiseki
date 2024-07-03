@@ -136,8 +136,11 @@ in {
     cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview | cliphist decode | wl-copy
   '';
   fzfComp = writeShellScript "fzfComp" ''
-    ${_ wtype} -M ctrl -M shift f -m ctrl -m shift
-    input="$(tr ' ' '\n' < /tmp/comsole | tr -d \' | tr -d \" | tr -s '\n')"
+    rm -rf /tmp/comsole 2>&1 >/dev/null
+    while [ -z $input ]; do
+      ${_ wtype} -M ctrl -M shift f -m ctrl -m shift
+      input="$(tr ' ' '\n' < /tmp/comsole | tr -d \' | tr -d \" | tr -d \[ | tr -d \] | tr -d \{ | tr -d \} | tr -d \( | tr -d \) | tr -s '\n')"
+    done
     IFS="
     "
     for i in $input; do
