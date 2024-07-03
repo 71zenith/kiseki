@@ -281,7 +281,7 @@
     }
     @media (enabled: env(EPUB, false)) {
       icon-current-entry {
-        size: 30%;
+        size: 35%;
       }
     }
     @media (enabled: env(CLIP, false)) {

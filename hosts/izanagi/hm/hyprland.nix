@@ -203,6 +203,7 @@ in {
           "$mod1, x, togglesplit,"
           "$mod1, t, fullscreen,"
           "$mod2, t, fullscreen,1"
+          "$mod1, f, fakefullscreen"
           "$mod2, q, exit,"
           "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
