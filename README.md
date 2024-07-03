@@ -35,7 +35,7 @@ previous iterations are in [assets/screenshot](https://github.com/71zenith/asset
 wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master/active).
 
 ## Nix components
-- [flakes](https://nixos.wiki/wiki/Flakes) - channel manager
+- [flakes](https://wiki.nixos.org/wiki/Flakes) - channel manager
 - [home-manager](https://github.com/nix-community/home-manager) - manage dots
 - [stylix](https://github.com/danth/stylix) - auto themer
 - [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
