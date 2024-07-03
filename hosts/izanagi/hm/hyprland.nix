@@ -194,6 +194,7 @@ in {
           "$mod1, o, exec, ${scripts.wlOcr}"
           "$mod1, p, exec, ${scripts.openMedia}"
           "$mod1, u, exec, ${scripts.rofiGuard}"
+          "$mod1, w, exec, ${scripts.epubOpen}"
           "$mod1, i, exec, ${scripts.transLiner}"
           "$mod1, y, exec, ${scripts.copyTwit}"
           "$mod1, v, exec, ${scripts.clipShow}"
