@@ -152,11 +152,13 @@ in {
     epubs=$(fd -e=epub . ~/kindle/)
     IFS="
     "
+    open() {
+      file=$(cat -)
+      [ -n "$file" ] && zathura "$file.epub"
+    }
     for i in $epubs; do
       image="$(dirname "$i")/cover.jpg"
       echo -en "''${i%.epub}\0icon\x1f$image\n"
-    done | rofi -no-case-sensitive -dmenu -display-column-separator "/" -display-columns 7 -theme preview -p "" | read -r file
-    [ -n "$file" ] && zathura "''${file}.epub"
-    exit 1
+    done | rofi -no-case-sensitive -dmenu -display-column-separator "/" -display-columns 7 -theme preview -p "" | open
   '';
 }
