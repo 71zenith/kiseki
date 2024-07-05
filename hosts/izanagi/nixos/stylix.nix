@@ -40,7 +40,7 @@
     opacity = {
       terminal = 0.80;
       popups = 0.90;
-      desktop = 0.75;
+      desktop = 0.80;
     };
     cursor = {
       package = pkgs.phinger-cursors;
