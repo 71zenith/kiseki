@@ -301,13 +301,6 @@
       cpu.amd.updateMicrocode = true;
     };
 
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-gtk xdg-desktop-portal-hyprland];
-      config.preferred.default = ["hyprland" "gtk"];
-      xdgOpenUsePortal = true;
-    };
-
     nixpkgs.config = import ../hm/nixpkgs.nix;
 
     # NOTE: wacom fix
