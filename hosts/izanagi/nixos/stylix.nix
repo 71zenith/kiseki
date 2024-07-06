@@ -24,7 +24,7 @@
       };
       monospace = {
         package = pkgs.iosevka-bin.override {variant = "SS12";};
-        name = "Iosevka Term SS12 Medium";
+        name = "Iosevka Fixed SS12";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
