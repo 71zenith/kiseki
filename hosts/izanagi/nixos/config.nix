@@ -235,6 +235,8 @@
     programs = {
       zsh.enable = true;
 
+      hyprland.enable = true;
+
       steam = {
         enable = true;
         gamescopeSession.enable = true;
@@ -282,6 +284,9 @@
       graphics = {
         enable = true;
         enable32Bit = true;
+        extraPackages32 = with pkgs; [
+          pkgsi686Linux.mesa.drivers
+        ];
         extraPackages = with pkgs; [
           libva
           vaapiVdpau
