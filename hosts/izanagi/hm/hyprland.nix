@@ -189,7 +189,8 @@ in {
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
           "$mod1, g, exec, pkill glava || glava"
-          "$mod2, o, exec, rofi -theme preview.rasi -show filebrowser"
+          "$mod2, o, exec, rofi -theme preview -show filebrowser -selected-row 1"
+
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
           "$mod1, p, exec, ${scripts.openMedia}"

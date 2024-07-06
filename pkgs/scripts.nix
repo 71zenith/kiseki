@@ -28,7 +28,7 @@ in {
         wl-paste | mpv -
         ;;
       *)
-        notify-send 'Clipboard content is not a media'
+        notify-send 'Clipboard content is not media'
         exit 1
         ;;
         esac
@@ -66,10 +66,10 @@ in {
     }
     selchan() {
       chans=$(curl -s "$DISCORD_URL/guilds/$DISCORD_SERVER_ID/channels" -H "Authorization: $DISCORD_TOKEN" | tr '{}' '\n' | sed -nE 's|.*"id":"([^"]*)".*type":0.*last_message_id.*"name":"([^"]*)".*|\1 \2|p' )
-      chan=$(echo "$chans" | cut -d' ' -f2 | rofi -dmenu -p "Select Channel" -filter 2>/dev/null)
+      chan=$(echo "$chans" | cut -d' ' -f2 | rofi -dmenu -i -p "Select Channel" -filter 2>/dev/null)
       chan_id=$(printf "%s" "$chans" | grep "$chan" | cut -d' ' -f1)
     }
-    f=$(rofi -show filebrowser -filebrowser-command 'echo' 2>/dev/null)
+    f=$(rofi -show filebrowser -filebrowser-command 'echo' -filebrowser-directory ~/. -selected-row 1 2>/dev/null)
     test -d "$f" && f=$(nsxiv -top "$f")
     [ -z "$f" ] && notify-send "Exiting!!!" && exit 1
     selchan
@@ -79,7 +79,6 @@ in {
     notify-send "Exiting!!!" && exit 1
   '';
   _4khd = writeShellScriptBin "4khd" ''
-    #!/bin/sh
     player=debug
     while [ $# -gt 0 ]; do
       case "$1" in

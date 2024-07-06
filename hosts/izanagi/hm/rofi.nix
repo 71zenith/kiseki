@@ -30,6 +30,7 @@
       kb-row-down = "Control+j,Down";
       kb-row-left = "Control+u";
       kb-row-right = "Control+d";
+      kb-delete-entry = "Control+semicolon";
       kb-remove-char-forward = "";
       kb-remove-to-sol = "";
       kb-remove-to-eol = "";
