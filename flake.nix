@@ -42,6 +42,13 @@
       url = "github:Diegiwg/PrismLauncher-Cracked?ref=v8.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    woomer = {
+      url = "github:coffeeispower/woomer";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
     ### MY FLAKES ###
     lem = {
       url = "github:71zenith/lem-flake";

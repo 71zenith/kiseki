@@ -130,6 +130,27 @@
         "type": "github"
       }
     },
+    "crane": {
+      "inputs": {
+        "nixpkgs": [
+          "woomer",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1716745752,
+        "narHash": "sha256-8K1R9Yg4r08rYk86Yq+lu3E9L3uRUb4xMqYHgl0VGS0=",
+        "owner": "ipetkov",
+        "repo": "crane",
+        "rev": "19ca94ec2d288de334ae932107816b4a97736cd8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ipetkov",
+        "repo": "crane",
+        "type": "github"
+      }
+    },
     "devshell": {
       "inputs": {
         "flake-utils": "flake-utils_4",
@@ -1093,7 +1114,8 @@
         "prismlauncher": "prismlauncher",
         "scraperwolf": "scraperwolf",
         "sops-nix": "sops-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "woomer": "woomer"
       }
     },
     "scraperwolf": {
@@ -1250,6 +1272,30 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "woomer": {
+      "inputs": {
+        "crane": "crane",
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718803365,
+        "narHash": "sha256-fuPwvdYEBjxPOZuWmHFS1n/Vr/aVh+JUagaIF+DOADw=",
+        "owner": "coffeeispower",
+        "repo": "woomer",
+        "rev": "893319d763ace57457a60f4ad98409514d8ee135",
+        "type": "github"
+      },
+      "original": {
+        "owner": "coffeeispower",
+        "repo": "woomer",
         "type": "github"
       }
     },

@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: let
   ani-cli = pkgs.callPackage ../../../pkgs/ani-cli.nix {};
@@ -51,6 +52,7 @@ in {
     unrar
     _7zz
     # gui
+    inputs.woomer.packages.${system}.default
     calibre
     dvd-zig
     firefox
