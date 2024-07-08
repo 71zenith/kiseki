@@ -4,13 +4,12 @@
   lib,
   ...
 }: let
-  inherit (config.stylix.base16Scheme) slug palette;
+  inherit (config.stylix.base16Scheme) palette;
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
   yazi-plugins = pkgs.callPackage ../../../pkgs/yazi-plugins.nix {};
 in {
   stylix.targets = {
     zathura.enable = false;
-    zellij.enable = false;
     vim.enable = false;
   };
 
@@ -27,66 +26,6 @@ in {
         theme_background = false;
         vim_keys = true;
         rounded_corners = false;
-      };
-    };
-
-    zellij = {
-      enable = true;
-      enableZshIntegration = false;
-      settings = {
-        simplified_ui = true;
-        pane_frames = false;
-        default_layout = "compact";
-        copy_on_select = false;
-        hide_session_name = true;
-        session_serialization = false;
-        ui.pane_frames = {
-          hide_session_name = true;
-        };
-        plugins = ["compact-bar" "session-manager" "filepicker" "welcome-screen"];
-        theme = slug;
-        themes = {
-          ${slug} = with config.lib.stylix.colors.withHashtag; {
-            fg = base08;
-            bg = base01;
-            green = base0D;
-            orange = base0A;
-            red = base0A;
-            yellow = base07;
-            blue = base0B;
-            magenta = base09;
-            cyan = base0F;
-            white = base09;
-            black = base01;
-          };
-        };
-        keybinds = {
-          unbind = [
-            "Ctrl o"
-            "Ctrl t"
-          ];
-          pane = {
-            "bind \"p\"" = {
-              SwitchFocus = [];
-              SwitchToMode = ["Normal"];
-            };
-          };
-          session = {
-            "bind \"Ctrl q\"" = {
-              SwitchToMode = ["Normal"];
-            };
-          };
-          "shared_except \"session\" \"locked\"" = {
-            "bind \"Ctrl q\"" = {
-              SwitchToMode = ["Session"];
-            };
-          };
-          "shared_except \"tab\" \"locked\"" = {
-            "bind \"Ctrl w\"" = {
-              SwitchToMode = ["Tab"];
-            };
-          };
-        };
       };
     };
 

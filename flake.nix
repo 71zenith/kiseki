@@ -86,7 +86,7 @@
 
     # HACK: nur prevent infinite recursion
     nur-no-pkgs = import inputs.nur {
-      nurpkgs = import nixpkgs {system = "x86_64-linux";};
+      nurpkgs = import nixpkgs {inherit system;};
     };
 
     caches = {

@@ -167,6 +167,7 @@ in {
             fg = "Red";
             modifiers = ["Bold" "Reversed"];
           };
+          secondary_row = {bg = "BrightBlack";};
         };
       }
     ];

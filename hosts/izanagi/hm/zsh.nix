@@ -107,7 +107,6 @@ in {
         nn = "nom build";
         qq = "nvd list";
         fl = "nix flake";
-        zj = "zellij";
         pm = "pulsemixer";
         s = "sudo systemctl";
         cat = "bat -p -P";
