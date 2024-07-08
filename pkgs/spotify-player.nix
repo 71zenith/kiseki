@@ -100,6 +100,6 @@ assert lib.assertOneOf "withAudioBackend" withAudioBackend ["" "alsa" "pulseaudi
       changelog = "https://github.com/aome510/spotify-player/releases/tag/v${version}";
       mainProgram = "spotify_player";
       license = lib.licenses.mit;
-      maintainers = with lib.maintainers; [dit7ya xyven1];
+      maintainers = with lib.maintainers; [_71zenith];
     };
   }

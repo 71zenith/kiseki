@@ -60,7 +60,7 @@ assert withMpv || withVlc || withIina;
       homepage = "https://github.com/pystardust/ani-cli";
       description = "A cli tool to browse and play anime";
       license = licenses.gpl3Plus;
-      maintainers = with maintainers; [zen];
+      maintainers = with maintainers; [_71zenith];
       platforms = platforms.unix;
       mainProgram = "ani-cli";
     };

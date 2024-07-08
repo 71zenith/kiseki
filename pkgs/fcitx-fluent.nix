@@ -34,7 +34,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = with lib; {
     description = "Fcitx5 theme based on Fluent Dark Colors";
     homepage = "https://github.com/Reverier-Xu/FluentDark-fcitx5";
-    maintainers = with maintainers; [zen];
+    maintainers = with maintainers; [_71zenith];
     platforms = platforms.all;
   };
 })
