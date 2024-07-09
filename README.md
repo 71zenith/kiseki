@@ -56,7 +56,6 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 - [waybar](https://github.com/Alexays/Waybar) - status bar
 - [nautilus](https://gitlab.gnome.org/GNOME/nautilus) - gui file manager
 - [yazi](https://github.com/sxyazi/yazi) - tui file manager
-- [zellij](https://github.com/zellij-org/zellij) - terminal multiplexer
 - [btop](https://github.com/aristocratos/btop) - resource monitor
 - [zathura](https://pwmt.org/projects/zathura) - pdf/epub viewer
 - [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
@@ -81,7 +80,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 ## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [iosevka](https://github.com/be5invis/Iosevka/) - monospace font
+- [iosevka-ss12](https://github.com/be5invis/Iosevka/) - monospace font
 - [kollektif](https://unblast.com/kollektif-sans-typeface/) - "everything else" font
 - [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies

@@ -394,12 +394,15 @@ in {
         };
         treesitter = {
           enable = true;
-          incrementalSelection = {
-            enable = true;
-            keymaps = {
-              initSelection = "<C-SPACE>";
-              nodeIncremental = "<C-SPACE>";
-              nodeDecremental = "<BS>";
+          settings = {
+            highlight.disable = ["zig"];
+            incremental_selection = {
+              enable = true;
+              keymaps = {
+                init_selection = "<C-SPACE>";
+                node_incremental = "<C-SPACE>";
+                node_decremental = "<BS>";
+              };
             };
           };
         };

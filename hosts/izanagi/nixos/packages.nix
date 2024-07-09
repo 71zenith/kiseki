@@ -54,6 +54,7 @@ in {
     # gui
     inputs.woomer.packages.${system}.default
     calibre
+    qalculate-qt
     dvd-zig
     firefox
     librewolf
