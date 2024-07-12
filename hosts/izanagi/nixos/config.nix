@@ -134,6 +134,12 @@
     };
 
     services = {
+      mysql = {
+        enable = false;
+        package = pkgs.mariadb-embedded;
+        user = myUserName;
+      };
+
       greetd = {
         enable = true;
         settings = rec {
