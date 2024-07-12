@@ -162,11 +162,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719934436,
-        "narHash": "sha256-DDm3sjT50Mikn/1Vn4hznST1bm29ALEZeXVKsPs8TQs=",
+        "lastModified": 1720758784,
+        "narHash": "sha256-j4cws5Th1obCvyCDePG7c2UdJH8giGU2H89BpdHZ720=",
         "owner": "71zenith",
         "repo": "dvd-zig",
-        "rev": "a1f9174b9efe6bc0a7ecb0135330e5b17527c3a7",
+        "rev": "9da5f029892641dc1ca903912fc0cc5c8de15867",
         "type": "github"
       },
       "original": {

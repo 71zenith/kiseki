@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  inputs,
   ...
 }: let
   ani-cli = pkgs.callPackage ../../../pkgs/ani-cli.nix {};
@@ -57,7 +56,6 @@ in {
     dvd-zig
     firefox
     librewolf
-    #qemu
     gnome.nautilus
     glava
     nsxiv
