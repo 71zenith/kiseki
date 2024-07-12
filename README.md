@@ -80,7 +80,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 ## Standardised config
 - [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [iosevka-ss12](https://github.com/be5invis/Iosevka/) - monospace font
+- [zed-mono](https://github.com/zed-industries/zed-fonts) - monospace font
 - [kollektif](https://unblast.com/kollektif-sans-typeface/) - "everything else" font
-- [umeboshi](http://font.xxenxx.net/umeboshifont.html) - "everything else" font for weebs
+- [mamelon](https://moji-waku.com/mamelon/index.html) - "everything else" font for weebs
 - [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies

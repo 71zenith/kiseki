@@ -3,11 +3,6 @@
   inputs,
   ...
 }: {
-  # specialisation = {
-  #   "light".configuration = {
-  #     stylix.base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-light;
-  #   };
-  # };
   stylix = {
     enable = true;
     polarity = "dark";
@@ -23,8 +18,8 @@
         inherit (serif) name;
       };
       monospace = {
-        package = pkgs.iosevka-bin.override {variant = "SS12";};
-        name = "Iosevka Fixed SS12";
+        package = pkgs.my-fonts;
+        name = "Zed Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -50,7 +45,7 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = ["Kollektif" "umeboshi"];
+      sansSerif = ["Kollektif" "Mamelon"];
       serif = sansSerif;
       emoji = ["Noto Color Emoji"];
     };

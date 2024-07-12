@@ -52,13 +52,12 @@ in {
     unrar
     _7zz
     # gui
-    inputs.woomer.packages.${system}.default
     calibre
     qalculate-qt
     dvd-zig
     firefox
     librewolf
-    qemu
+    #qemu
     gnome.nautilus
     glava
     nsxiv
@@ -72,7 +71,7 @@ in {
     desmume
     mgba
     snes9x-gtk
-    config.nur.repos.chigyutendies.citra-nightly
+    #config.nur.repos.chigyutendies.citra-nightly
     # libs
     libnotify
     gtk3

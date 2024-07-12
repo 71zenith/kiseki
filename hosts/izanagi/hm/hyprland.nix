@@ -72,7 +72,7 @@ in {
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
-        "noanim, title: woomer"
+        "float, class:io.github.Qalculate.qalculate-qt"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
@@ -194,7 +194,7 @@ in {
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
           "$mod1, g, exec, pkill glava || glava"
-          "$mod1, z, exec, pkill woomer || woomer"
+          "$mod1, r, exec, qalculate-qt"
 
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
