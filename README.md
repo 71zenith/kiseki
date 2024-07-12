@@ -17,7 +17,7 @@ commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334
 with dimming being a substitute.
 
 This repo contains the nix flakes to build an identical copy of my system.
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot11.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot12.png?raw=true)
 
 <details><summary><b>More screenshots</b></summary>
 
