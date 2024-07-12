@@ -7,8 +7,8 @@ in {
     src = fetchFromGitHub {
       owner = "meuter";
       repo = "lualine-so-fancy.nvim";
-      rev = "135363fc3cc29efd8e804e872f22d033ea6d87ad";
-      hash = "sha256-JMz3Dv3poGoYQU+iq/jtgyHECZLx+6mLCvqUex/a0SY=";
+      rev = "45197358e5274d301d98638bf079f3437d6eacf8";
+      hash = "sha256-j6XI4cw1ouYEvSiKdam8RAqxefDqeLwe37Qir/UO+8g=";
     };
   };
   buffer-manager = buildVimPlugin {

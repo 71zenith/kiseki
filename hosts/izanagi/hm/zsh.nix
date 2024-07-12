@@ -177,7 +177,6 @@ in {
 
       typeset -g POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
         command_execution_time
-        virtualenv
         context
       )
 
@@ -195,10 +194,6 @@ in {
       typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='Λ'
       typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='Λ'
       typeset -g POWERLEVEL9K_PROMPT_CHAR_OVERWRITE_STATE=false
-
-      typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=$grey
-      typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=false
-      typeset -g POWERLEVEL9K_VIRTUALENV_{LEFT,RIGHT}_DELIMITER=
 
       typeset -g POWERLEVEL9K_DIR_FOREGROUND=$blue
 
@@ -226,7 +221,7 @@ in {
       typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':⇣'
       typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=':⇡'
       typeset -g POWERLEVEL9K_VCS_{COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=1
-      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION=' ''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'
+      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='​''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'
 
       typeset -g POWERLEVEL9K_TIME_FOREGROUND=$grey
       typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
