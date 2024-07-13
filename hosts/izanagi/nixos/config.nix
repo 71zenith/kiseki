@@ -12,6 +12,8 @@
     ./hardware.nix
     ./packages.nix
     ./stylix.nix
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+    inputs.nix-gaming.nixosModules.platformOptimizations
   ];
 
   options.vals = {
@@ -169,6 +171,7 @@
         alsa.enable = true;
         alsa.support32Bit = true;
         pulse.enable = true;
+        lowLatency.enable = true;
       };
 
       xserver.videoDrivers = ["nvidia"];
@@ -180,17 +183,20 @@
       useNetworkd = true;
     };
 
-    security.sudo.extraRules = [
-      {
-        users = [config.vals.myUserName];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-    ];
+    security = {
+      rtkit.enable = true;
+      sudo.extraRules = [
+        {
+          users = [config.vals.myUserName];
+          commands = [
+            {
+              command = "ALL";
+              options = ["NOPASSWD"];
+            }
+          ];
+        }
+      ];
+    };
 
     time.timeZone = "Asia/Kolkata";
     i18n = {
@@ -246,6 +252,8 @@
       steam = {
         enable = true;
         gamescopeSession.enable = true;
+        protontricks.enable = true;
+        platformOptimizations.enable = true;
       };
       nh = {
         enable = true;

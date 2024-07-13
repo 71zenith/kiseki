@@ -37,8 +37,10 @@ in {
         bindkey '^[[Z' reverse-menu-complete
         bindkey "^?" autopair-delete
         bindkey '^H' backward-delete-word
+
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
+
         function fzf-comp-widget() {
           local FZF_CTRL_T_COMMAND=${scripts.fzfComp}
           local FZF_CTRL_T_OPTS="--bind 'focus:jump' --bind 'space:jump,jump:accept,jump-cancel:abort' --tac"
@@ -52,8 +54,12 @@ in {
         setopt interactive_comments nomatch
         unsetopt beep extendedglob notify
         zstyle ':completion:*' menu select
-        zstyle ':completion:*' matcher-list "" "m:{a-z0A-Z}={A-Za-z}" "r:|=*" "l:|=* r:|=*"
+        zstyle ':completion:*' matcher-list "m:{a-z0A-Z}={A-Za-z}"
         zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
+        zstyle ':completion:*' completer _complete _ignored _approximate
+        zstyle ':completion:*' verbose true
+        zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+        zstyle ':completion:*' use-cache on
         _comp_options+=(globdots)
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';

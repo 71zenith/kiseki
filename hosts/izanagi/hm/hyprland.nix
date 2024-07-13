@@ -73,14 +73,17 @@ in {
         "stayfocused, title:^()$,class:^(steam)$"
         "minsize 1 1, title:^()$,class:^(steam)$"
         "float, class:io.github.Qalculate.qalculate-qt"
-        "size 60% 60%, class:io.github.Qalculate.qalculate-qt"
+        "size 70% 55%, class:io.github.Qalculate.qalculate-qt"
         "center, class:io.github.Qalculate.qalculate-qt"
+        "float, title:mixer"
+        "size 70% 50%, title:mixer"
+        "center, title:mixer"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
-        "special:music, on-created-empty:footclient -T spotify_player spotify_player"
-        "special:neorg, on-created-empty:footclient -T neorg nvim -c 'Neorg index'"
+        "special:music, on-created-empty:footclient spotify_player"
+        "special:neorg, on-created-empty:footclient nvim -c 'Neorg index'"
       ];
       input = {
         kb_options = "caps:escape,altwin:swap_lalt_lwin";
@@ -197,6 +200,7 @@ in {
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
           "$mod1, g, exec, pkill glava || glava"
           "$mod1, r, exec, pkill qalculate-qt || qalculate-qt"
+          "$mod1, z, exec, pkill pulsemixer || footclient -T mixer pulsemixer"
 
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
