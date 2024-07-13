@@ -24,6 +24,7 @@ in {
     file
     ## helpful
     gcc
+    sqlite
     grimblast
     cliphist
     ffmpeg

@@ -39,6 +39,13 @@
       url = "github:Diegiwg/PrismLauncher-Cracked?ref=v8.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    flake-programs-sqlite = {
+      url = "github:wamserma/flake-programs-sqlite";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        utils.follows = "flake-utils";
+      };
+    };
     ### MY FLAKES ###
     lem = {
       url = "github:71zenith/lem-flake";
@@ -134,6 +141,7 @@
         nur.nixosModules.nur
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
+        flake-programs-sqlite.nixosModules.programs-sqlite
         ./hosts/${pcName}/nixos/config.nix
       ];
     };
