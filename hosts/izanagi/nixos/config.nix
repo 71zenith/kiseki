@@ -2,10 +2,10 @@
   pkgs,
   config,
   inputs,
+  lib,
   pcName,
   myUserName,
-  nur-no-pkgs,
-  lib,
+  nurNoPkgs,
   ...
 }: {
   imports = [
@@ -276,7 +276,7 @@
       useUserPackages = true;
       extraSpecialArgs = {
         inherit inputs;
-        inherit nur-no-pkgs;
+        inherit nurNoPkgs;
       };
       users.${config.vals.myUserName} = import ../hm/home.nix;
     };

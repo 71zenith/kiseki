@@ -82,7 +82,7 @@
     pkgs = import nixpkgs {inherit system;};
 
     # HACK: nur prevent infinite recursion
-    nur-no-pkgs = import inputs.nur {
+    nurNoPkgs = import inputs.nur {
       nurpkgs = import nixpkgs {inherit system;};
     };
 
@@ -125,7 +125,7 @@
         inherit inputs;
         inherit pcName;
         inherit myUserName;
-        inherit nur-no-pkgs;
+        inherit nurNoPkgs;
       };
       modules = with inputs; [
         caches
