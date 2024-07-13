@@ -13,7 +13,6 @@
       in {
         "application/pdf" = reader;
         "application/epub" = reader;
-        "application/epub+zip" = reader;
 
         "text/html" = browser;
         "text/xml" = browser;
@@ -39,6 +38,7 @@
         "x-scheme-handler/https" = browser;
 
         "inode/directory" = fileManager;
+        "application/zip" = fileManager;
 
         "audio/*" = player;
         "video/*" = player;
@@ -49,7 +49,6 @@
         "image/png" = viewer;
         "image/webp" = viewer;
       };
-      associations.added = config.xdg.mimeApps.defaultApplications;
     };
     userDirs = {
       enable = true;

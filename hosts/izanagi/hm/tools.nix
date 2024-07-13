@@ -8,6 +8,8 @@
   # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
   yazi-plugins = pkgs.callPackage ../../../pkgs/yazi-plugins.nix {};
 in {
+  imports = [../../../modules/hm/iamb.nix];
+
   stylix.targets = {
     zathura.enable = false;
     vim.enable = false;
@@ -68,6 +70,23 @@ in {
         "[fullscreen] i" = "recolor";
         f = "toggle_fullscreen";
         "[fullscreen] f" = "toggle_fullscreen";
+      };
+    };
+
+    iamb = {
+      enable = true;
+      settings = {
+        profiles.main = {
+          user_id = "@mori.zen:matrix.org";
+          settings = {
+            image_preview.protocol.type = "sixel";
+            message_user_color = true;
+            notifications.enabled = true;
+            open_command = ["xdg-open"];
+            username_display = "displayname";
+            layout.style = "restore";
+          };
+        };
       };
     };
 
