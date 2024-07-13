@@ -161,17 +161,18 @@ in {
 
       [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-      local grey='242'
-      local red='#FF5C57'
-      local yellow='#F3F99D'
-      local blue='#57C7FF'
-      local magenta='#FF6AC1'
-      local cyan='#9AEDFE'
-      local white='#F1F1F0'
+      local grey='#525252'
+      local red='#EE5396'
+      local yellow='#42b65'
+      local blue='#33B1FF'
+      local magenta='#FF5C57'
+      local cyan='#3DDBD9'
+      local white='#F2F4F8'
 
       typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
         dir
         vcs
+        nix_shell
         prompt_char
       )
 
@@ -188,14 +189,16 @@ in {
 
       typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=false
 
-      typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=$magenta
-      typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=$red
+      typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS}_FOREGROUND=$red
+      typeset -g POWERLEVEL9K_PROMPT_CHAR_ERROR_{VIINS,VICMD,VIVIS}_FOREGROUND=$magenta
       typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIINS_CONTENT_EXPANSION='λ'
       typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VICMD_CONTENT_EXPANSION='Λ'
       typeset -g POWERLEVEL9K_PROMPT_CHAR_{OK,ERROR}_VIVIS_CONTENT_EXPANSION='Λ'
       typeset -g POWERLEVEL9K_PROMPT_CHAR_OVERWRITE_STATE=false
 
       typeset -g POWERLEVEL9K_DIR_FOREGROUND=$blue
+
+      typeset -g POWERLEVEL9K_NIX_SHELL_FOREGROUND=$cyan
 
       typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE="%F{$white}%n%f%F{$grey}@%m%f"
       typeset -g POWERLEVEL9K_CONTEXT_TEMPLATE="%F{$grey}%n@%m%f"
@@ -216,7 +219,8 @@ in {
       typeset -g POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-untracked git-aheadbehind)
       typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
       typeset -g POWERLEVEL9K_VCS_COMMIT_ICON='@'
-      typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED}_ICON=
+      typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED}_ICON=
+      typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
       typeset -g POWERLEVEL9K_VCS_DIRTY_ICON='*'
       typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':⇣'
       typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=':⇡'
