@@ -86,16 +86,10 @@ in {
           layout = {
             style = "config";
             tabs = [
-              {
-                split = [
-                  {window = "#gen-ani-cli:matrix.org";}
-                ];
-              }
-              {
-                split = [
-                  {window = "@mrfluffy:mrfluffy.xyz";}
-                ];
-              }
+              {window = "!JWluPDcFzVMlxykpoI:matrix.org";}
+              {window = "#gen-ani-cli:matrix.org";}
+              {window = "@mrfluffy:mrfluffy.xyz";}
+              {window = "@nannk:synapse.nannk.xyz";}
             ];
           };
         };

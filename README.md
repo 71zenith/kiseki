@@ -8,13 +8,11 @@
   </a>
 </p>
 
-<h3 align="center">This repo contains the nix flakes to build an identical copy of my system.</h3>
-
-**BREAKING -**
+**BREAKING-**
 commits below [`b4000db`](https://github.com/71zenith/nix-dots/tree/b4000db955f1c73714f25b612128b5c3d2c2050f) shall not work due to moving of
 wallpapers to separate repo.
 
-**BREAKING -**
+**BREAKING-**
 commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
 with dimming being a substitute.
 
