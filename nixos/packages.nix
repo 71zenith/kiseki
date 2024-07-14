@@ -2,9 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  ani-cli = pkgs.callPackage ../../../pkgs/ani-cli.nix {};
-in {
+}: {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Custom
@@ -22,6 +20,7 @@ in {
     duf
     fd
     file
+    sd
     ## helpful
     gcc
     sqlite

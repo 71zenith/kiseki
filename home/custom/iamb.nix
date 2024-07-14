@@ -6,7 +6,6 @@
 }: let
   inherit
     (lib)
-    types
     mkEnableOption
     mkPackageOption
     mkOption

@@ -6,7 +6,7 @@
 }: let
   rgb = color: "rgb(${color})";
   inherit (config.stylix.base16Scheme) palette;
-  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
 in {
   # FIX: do not anger me; fuck hyprpaper
   services.hyprpaper.enable = lib.mkForce false;

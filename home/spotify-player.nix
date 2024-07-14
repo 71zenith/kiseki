@@ -2,15 +2,12 @@
   config,
   pkgs,
   ...
-}: let
-  spotify-player = pkgs.callPackage ../../../pkgs/spotify-player.nix {};
-in {
+}: {
   disabledModules = ["programs/spotify-player.nix"];
-  imports = [../../../modules/hm/spotify-player.nix];
+  imports = [./custom/spotify-player.nix];
 
   programs.spotify-player = {
     enable = true;
-    package = spotify-player;
     enableZshIntegration = true;
     settings = {
       client_id = "1bc0214aae08496bb50af4cd51aa2c94";

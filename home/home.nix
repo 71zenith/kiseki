@@ -2,10 +2,11 @@
   pkgs,
   config,
   lib,
+  myUserName,
   osConfig,
   ...
 }: let
-  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
 in {
   imports = [
     ./tools.nix
@@ -33,7 +34,7 @@ in {
   };
 
   home = {
-    username = osConfig.vals.myUserName;
+    username = myUserName;
 
     stateVersion = "24.11";
 

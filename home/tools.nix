@@ -5,10 +5,8 @@
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
-  # fcitx5-fluent = pkgs.callPackage ../../modules/nix-os/fcitx-fluent.nix {};
-  yazi-plugins = pkgs.callPackage ../../../pkgs/yazi-plugins.nix {};
 in {
-  imports = [../../../modules/hm/iamb.nix];
+  imports = [./custom/iamb.nix];
 
   stylix.targets = {
     zathura.enable = false;
@@ -131,7 +129,7 @@ in {
         ];
       };
       plugins = {
-        max-preview = "${yazi-plugins}/share/max-preview.yazi";
+        max-preview = "${pkgs.yazi-plugins}/share/max-preview.yazi";
       };
       settings = {
         manager = {

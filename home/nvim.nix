@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  plugins = import ../../../pkgs/plugins-nvim.nix {inherit pkgs;};
+  plugins = import ../pkgs/plugins-nvim.nix {inherit pkgs;};
 in {
   imports = [
-    ../../../modules/hm/neovide.nix
+    ./custom/neovide.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
   stylix.targets.nixvim.enable = false;

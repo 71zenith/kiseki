@@ -1,10 +1,10 @@
 {
   pkgs,
-  lib,
   config,
+  lib,
   ...
 }: let
-  scripts = import ../../../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
 in {
   programs = {
     zsh = {

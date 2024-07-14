@@ -124,6 +124,7 @@
         my-assets.overlays.default
         lem.overlays.default
         scraperwolf.overlays.default
+        (import ./pkgs/overlays.nix)
       ];
     };
   in {
@@ -148,7 +149,7 @@
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         flake-programs-sqlite.nixosModules.programs-sqlite
-        ./hosts/${pcName}/nixos/config.nix
+        ./nixos/config.nix
       ];
     };
   };

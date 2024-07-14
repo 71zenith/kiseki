@@ -2,7 +2,7 @@
   pkgs,
   inputs,
   config,
-  osConfig,
+  myUserName,
   ...
 }: let
   betterfox = pkgs.fetchFromGitHub {
@@ -11,7 +11,6 @@
     rev = "126.0";
     hash = "sha256-W0JUT3y55ro3yU23gynQSIu2/vDMVHX1TfexHj1Hv7Q=";
   };
-  inherit (osConfig.vals) myUserName;
 in {
   imports = [
     inputs.nur.nixosModules.nur

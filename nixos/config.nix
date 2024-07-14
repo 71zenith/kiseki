@@ -16,22 +16,11 @@
     inputs.nix-gaming.nixosModules.platformOptimizations
   ];
 
-  options.vals = {
-    pcName = lib.mkOption {
-      default = pcName;
-      type = lib.types.str;
-    };
-    myUserName = lib.mkOption {
-      default = myUserName;
-      type = lib.types.str;
-    };
-  };
-
   config = {
     sops = {
-      defaultSopsFile = ../../../secrets/secrets.yaml;
+      defaultSopsFile = ../secrets/secrets.yaml;
       defaultSopsFormat = "yaml";
-      age.sshKeyPaths = ["/home/${config.vals.myUserName}/.ssh/id_ed25519"];
+      age.sshKeyPaths = ["/home/${myUserName}/.ssh/id_ed25519"];
       secrets = {
         root_pass.neededForUsers = true;
         user_pass.neededForUsers = true;
@@ -40,17 +29,17 @@
         vpn_private_jp = {};
         vpn_private_us = {};
         vpn_private_nl = {};
-        discord_token = {owner = config.vals.myUserName;};
+        discord_token = {owner = myUserName;};
       };
       # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
       templates."credentials.json" = {
-        owner = config.vals.myUserName;
+        owner = myUserName;
         content = builtins.toJSON {
           username = config.sops.placeholder.spot_username;
           auth_type = 1;
           auth_data = config.sops.placeholder.spot_auth_data;
         };
-        path = "/home/${config.vals.myUserName}/.cache/spotify-player/credentials.json";
+        path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
       };
     };
 
@@ -147,7 +136,7 @@
         settings = rec {
           initial_session = {
             command = "${lib.getExe pkgs.hyprland}";
-            user = config.vals.myUserName;
+            user = myUserName;
           };
           default_session = initial_session;
         };
@@ -178,7 +167,7 @@
     };
 
     networking = {
-      hostName = config.vals.pcName;
+      hostName = pcName;
       wireless.enable = false;
       useNetworkd = true;
     };
@@ -187,7 +176,7 @@
       rtkit.enable = true;
       sudo.extraRules = [
         {
-          users = [config.vals.myUserName];
+          users = [myUserName];
           commands = [
             {
               command = "ALL";
@@ -257,7 +246,7 @@
       };
       nh = {
         enable = true;
-        flake = "/home/${config.vals.myUserName}/nix";
+        flake = "/home/${myUserName}/nix";
       };
 
       nix-ld.enable = true;
@@ -267,7 +256,7 @@
       root = {
         hashedPasswordFile = config.sops.secrets.root_pass.path;
       };
-      ${config.vals.myUserName} = {
+      ${myUserName} = {
         isNormalUser = true;
         description = "Mori Zen";
         shell = pkgs.zsh;
@@ -284,9 +273,11 @@
       useUserPackages = true;
       extraSpecialArgs = {
         inherit inputs;
+        inherit myUserName;
+        inherit pcName;
         inherit nurNoPkgs;
       };
-      users.${config.vals.myUserName} = import ../hm/home.nix;
+      users.${myUserName} = import ../home/home.nix;
     };
 
     hardware = {
@@ -320,7 +311,7 @@
       cpu.amd.updateMicrocode = true;
     };
 
-    nixpkgs.config = import ../hm/nixpkgs.nix;
+    nixpkgs.config = import ../home/nixpkgs.nix;
 
     # NOTE: wacom fix
     # hardware.opentabletdriver.enable = true;
