@@ -70,17 +70,22 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 
 ## Rusty tools
-- [eza](https://github.com/eza-community/eza) - ls alter
-- [duf](https://github.com/muesli/duf) - df alter
-- [zoxide](https://github.com/ajeetdsouza/zoxide) - smarter cd
-- [dust](https://github.com/bootandy/dust) - du alter
-- [fd](https://github.com/sharkdp/fd) - find alter
-- [rg](https://github.com/BurstSushi/ripgrep) - grep alter
+| Name                                               | Description      |
+|----------------------------------------------------|------------------|
+| [eza](https://github.com/eza-community/eza)        | ls alter         |
+| [duf](https://github.com/muesli/duf)               | df alter         |
+| [zoxide](https://github.com/ajeetdsouza/zoxide)    | smarter cd       |
+| [dust](https://github.com/bootandy/dust)           | du alter         |
+| [fd](https://github.com/sharkdp/fd)                | find alter       |
+| [rg](https://github.com/BurstSushi/ripgrep)        | grep alter       |
+| [sd](https://github.com/chmln/sd)                  | sed alter        |
 
 
 ## Standardised config
-- [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon) - base16 theme
-- [zed-mono](https://github.com/zed-industries/zed-fonts) - monospace font
-- [kollektif](https://unblast.com/kollektif-sans-typeface/) - "everything else" font
-- [mamelon](https://moji-waku.com/mamelon/index.html) - "everything else" font for weebs
-- [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji) - "everything else" font for normies
+| Name                                                                    | Description                        |
+|-------------------------------------------------------------------------|------------------------------------|
+| [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
+| [zed-mono](https://github.com/zed-industries/zed-fonts)                 | monospace font                     |
+| [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
+| [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
+| [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
