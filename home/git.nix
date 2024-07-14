@@ -1,8 +1,12 @@
-{myUserName, ...}: {
+{
+  myUserName,
+  mailId,
+  ...
+}: {
   programs.git = {
     enable = true;
     userName = myUserName;
-    userEmail = "71zenith@proton.me";
+    userEmail = mailId;
     lfs.enable = true;
     aliases = {
       co = "checkout";

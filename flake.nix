@@ -89,6 +89,7 @@
     pcName = "izanagi";
     myUserName = "zen";
     matrixId = "@mori.zen:matrix.org";
+    mailId = "71zenith@proton.me";
 
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
@@ -141,6 +142,7 @@
         inherit pcName;
         inherit myUserName;
         inherit matrixId;
+        inherit mailId;
         inherit nurNoPkgs;
       };
       modules = with inputs; [

@@ -6,6 +6,7 @@
   pcName,
   myUserName,
   matrixId,
+  mailId,
   nurNoPkgs,
   ...
 }: {
@@ -277,6 +278,7 @@
         inherit myUserName;
         inherit pcName;
         inherit matrixId;
+        inherit mailId;
         inherit nurNoPkgs;
       };
       users.${myUserName} = import ../home/home.nix;

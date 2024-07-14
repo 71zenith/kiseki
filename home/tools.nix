@@ -109,8 +109,8 @@ in {
               "<Esc>" = ":cancel<CR>y";
               "z" = "<C-W>z";
               "t" = ":redact<CR>";
-              "<C-l>" = ":tabn<CR>";
-              "<C-h>" = ":tabp<CR>";
+              "<C-N>" = ":tabn<CR>";
+              "<C-P>" = ":tabp<CR>";
             };
           };
           layout = {
