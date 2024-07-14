@@ -8,15 +8,16 @@
   </a>
 </p>
 
-**BREAKING**
+<h3 align="center">This repo contains the nix flakes to build an identical copy of my system.</h3>
+
+**BREAKING -**
 commits below [`b4000db`](https://github.com/71zenith/nix-dots/tree/b4000db955f1c73714f25b612128b5c3d2c2050f) shall not work due to moving of
 wallpapers to separate repo.
 
-**BREAKING**
+**BREAKING -**
 commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
 with dimming being a substitute.
 
-This repo contains the nix flakes to build an identical copy of my system.
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot12.png?raw=true)
 
 <details><summary><b>More screenshots</b></summary>
@@ -35,38 +36,42 @@ previous iterations are in [assets/screenshot](https://github.com/71zenith/asset
 wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master/active).
 
 ## Nix components
-- [flakes](https://wiki.nixos.org/wiki/Flakes) - channel manager
-- [home-manager](https://github.com/nix-community/home-manager) - manage dots
-- [stylix](https://github.com/danth/stylix) - auto themer
-- [nix-colors](https://github.com/Misterio77/nix-colors) - base 16 scheme
-- [nixvim](https://github.com/nix-community/nixvim) - nvim config in nix
-- [nur](https://github.com/nix-community/NUR) - nix user repository
-- [nh](https://github.com/viperML/nh) - nix helper
-- [sops-nix](https://github.com/Mic92/sops-nix) - secrets manager
-- [nix-output-monitor](https://github.com/maralorn/nix-output-monitor) - fancy nix output
-- [direnv](https://github.com/nix-community/nix-direnv) - auto env switcher
+| Name                                                                   | Description                 |
+|------------------------------------------------------------------------|-----------------------------|
+| [flakes](https://wiki.nixos.org/wiki/Flakes)                           | channel manager             |
+| [home-manager](https://github.com/nix-community/home-manager)          | manage dots                 |
+| [stylix](https://github.com/danth/stylix)                              | auto themer                 |
+| [nix-colors](https://github.com/Misterio77/nix-colors)                 | base 16 scheme              |
+| [nixvim](https://github.com/nix-community/nixvim)                      | nvim config in nix          |
+| [nur](https://github.com/nix-community/NUR)                            | nix user repository         |
+| [nh](https://github.com/viperML/nh)                                    | nix helper                  |
+| [sops-nix](https://github.com/Mic92/sops-nix)                          | secrets manager             |
+| [nix-output-monitor](https://github.com/maralorn/nix-output-monitor)   | fancy nix output            |
+| [direnv](https://github.com/nix-community/nix-direnv)                  | auto env switcher           |
 
 
 ## Programs
-- [hyprland](https://github.com/hyprwm/Hyprland) - compositor
-- [firefox](https://www.mozilla.org/en-US/firefox/) - web browser
-- [neovim](https://github.com/neovim/neovim) - primary main essential principal text editor
-- [neovide](https://github.com/neovide/neovide) - neovim gui
-- [foot](https://codeberg.org/dnkl/foot) - terminal
-- [waybar](https://github.com/Alexays/Waybar) - status bar
-- [nautilus](https://gitlab.gnome.org/GNOME/nautilus) - gui file manager
-- [yazi](https://github.com/sxyazi/yazi) - tui file manager
-- [btop](https://github.com/aristocratos/btop) - resource monitor
-- [zathura](https://pwmt.org/projects/zathura) - pdf/epub viewer
-- [mpv](https://github.com/mpv-player/mpv) - media player(da goat)
-- [zsh](http://www.zsh.org) - shell
-- [rofi](https://github.com/davatorium/rofi) - custom launcher
-- [spotify-player](https://github.com/aome510/spotify-player) - spotify tui(love it)
-- [calibre](https://github.com/kovidgoyal/calibre) - ebook manager
-- [fcitx5](https://github.com/fcitx/fcitx5) - japanese input
-- [mako](https://github.com/emersion/mako) - notification daemon
-- [fzf](https://github.com/junegunn/fzf) - fuzzy finder
-- [ani-cli](https://github.com/pystardust/ani-cli) - anime tool
+| Name                                                           | Description                                  |
+|----------------------------------------------------------------|----------------------------------------------|
+| [hyprland](https://github.com/hyprwm/Hyprland)                 | compositor                                   |
+| [firefox](https://www.mozilla.org/en-US/firefox/)              | web browser                                  |
+| [neovim](https://github.com/neovim/neovim)                     | primary main essential principal text editor |
+| [neovide](https://github.com/neovide/neovide)                  | neovim gui                                   |
+| [foot](https://codeberg.org/dnkl/foot)                         | terminal                                     |
+| [waybar](https://github.com/Alexays/Waybar)                    | status bar                                   |
+| [nautilus](https://gitlab.gnome.org/GNOME/nautilus)            | gui file manager                             |
+| [yazi](https://github.com/sxyazi/yazi)                         | tui file manager                             |
+| [btop](https://github.com/aristocratos/btop)                   | resource monitor                             |
+| [zathura](https://pwmt.org/projects/zathura)                   | pdf/epub viewer                              |
+| [mpv](https://github.com/mpv-player/mpv)                       | media player (da goat)                       |
+| [zsh](http://www.zsh.org)                                      | shell                                        |
+| [rofi](https://github.com/davatorium/rofi)                     | custom launcher                              |
+| [spotify-player](https://github.com/aome510/spotify-player)    | spotify tui (love it)                        |
+| [calibre](https://github.com/kovidgoyal/calibre)               | ebook manager                                |
+| [fcitx5](https://github.com/fcitx/fcitx5)                      | japanese input                               |
+| [mako](https://github.com/emersion/mako)                       | notification daemon                          |
+| [fzf](https://github.com/junegunn/fzf)                         | fuzzy finder                                 |
+| [ani-cli](https://github.com/pystardust/ani-cli)               | anime tool                                   |
 
 
 ## Rusty tools
