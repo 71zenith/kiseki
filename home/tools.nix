@@ -87,7 +87,7 @@ in {
             };
             users = {
               ${matrixId} = {
-                name = "thou himself";
+                name = "thou thyself";
                 color = "yellow";
               };
             };

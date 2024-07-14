@@ -67,7 +67,8 @@
   home.file = {
     "${config.xdg.configHome}/electron-flags.conf".text = ''
       --enable-features=WaylandWindowDecorations
-      --ozone-platform-hint=auto
+      --enable-features=UseOzonePlatform
+      --ozone-platform-hint=wayland
     '';
   };
 }
