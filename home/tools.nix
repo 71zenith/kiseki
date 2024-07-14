@@ -83,6 +83,19 @@ in {
             open_command = ["xdg-open"];
             username_display = "displayname";
           };
+          # NOTE: <S-Tab> does not work
+          macros = {
+            "normal|visual" = {
+              "V" = "<C-W>m";
+              "Z" = "<C-W>z";
+              "<Tab>" = "gt";
+              "<S-Tab>" = "gT";
+            };
+            "insert" = {
+              "<Tab>" = "<C-N>";
+              "<S-Tab>" = "<C-P>";
+            };
+          };
           layout = {
             style = "config";
             tabs = [
