@@ -77,7 +77,13 @@ in {
         profiles.main = {
           user_id = "@mori.zen:matrix.org";
           settings = {
-            image_preview.protocol.type = "sixel";
+            image_preview = {
+              protocol.type = "sixel";
+              size = {
+                height = 10;
+                width = 30;
+              };
+            };
             message_user_color = true;
             notifications.enabled = true;
             open_command = ["xdg-open"];
@@ -86,14 +92,19 @@ in {
           # NOTE: <S-Tab> does not work
           macros = {
             "normal|visual" = {
-              "V" = "<C-W>m";
-              "Z" = "<C-W>z";
-              "<Tab>" = "gt";
-              "<S-Tab>" = "gT";
+              "s" = "<C-W>m";
+              "l" = ":open<CR>";
+              "r" = ":react ";
+              "e" = ":edit<CR>";
+              "E" = ":reply<CR>";
+              "<Esc>" = ":cancel<CR>y";
+              "z" = "<C-W>z";
+              "<Tab>" = ":tabn";
+              "<S-Tab>" = ":tabp";
             };
             "insert" = {
-              "<Tab>" = "<C-N>";
-              "<S-Tab>" = "<C-P>";
+              "<C-k>" = "<C-N>";
+              "<C-j>" = "<C-P>";
             };
           };
           layout = {
