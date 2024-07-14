@@ -88,6 +88,7 @@
     ### DECLARE USER ###
     pcName = "izanagi";
     myUserName = "zen";
+    matrixId = "@mori.zen:matrix.org";
 
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
@@ -139,6 +140,7 @@
         inherit inputs;
         inherit pcName;
         inherit myUserName;
+        inherit matrixId;
         inherit nurNoPkgs;
       };
       modules = with inputs; [

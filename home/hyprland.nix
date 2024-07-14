@@ -75,9 +75,9 @@ in {
         "float, class:io.github.Qalculate.qalculate-qt"
         "size 70% 55%, class:io.github.Qalculate.qalculate-qt"
         "center, class:io.github.Qalculate.qalculate-qt"
-        "float, title:mixer"
-        "size 70% 50%, title:mixer"
-        "center, title:mixer"
+        "float, title:quick"
+        "size 80% 75%, title:quick"
+        "center, title:quick"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
@@ -200,7 +200,8 @@ in {
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
           "$mod1, g, exec, pkill glava || glava"
           "$mod1, r, exec, pkill qalculate-qt || qalculate-qt"
-          "$mod1, z, exec, pkill pulsemixer || footclient -T mixer pulsemixer"
+          "$mod1, z, exec, pkill pulsemixer || footclient -T quick pulsemixer"
+          "$mod1, comma, exec, pkill btop || footclient -T quick btop"
 
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"

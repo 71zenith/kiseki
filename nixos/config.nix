@@ -5,6 +5,7 @@
   lib,
   pcName,
   myUserName,
+  matrixId,
   nurNoPkgs,
   ...
 }: {
@@ -275,6 +276,7 @@
         inherit inputs;
         inherit myUserName;
         inherit pcName;
+        inherit matrixId;
         inherit nurNoPkgs;
       };
       users.${myUserName} = import ../home/home.nix;

@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  matrixId,
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
@@ -75,7 +76,7 @@ in {
       enable = true;
       settings = {
         profiles.main = {
-          user_id = "@mori.zen:matrix.org";
+          user_id = matrixId;
           settings = {
             image_preview = {
               protocol.type = "sixel";
@@ -84,14 +85,22 @@ in {
                 width = 30;
               };
             };
+            users = {
+              ${matrixId} = {
+                name = "thou himself";
+                color = "yellow";
+              };
+            };
             message_user_color = false;
             notifications.enabled = true;
             open_command = ["xdg-open"];
+            user_gutter_width = 20;
             username_display = "displayname";
           };
           # NOTE: <S-Tab> does not work
           macros = {
             "normal|visual" = {
+              "Q" = ":qa<CR>";
               "s" = "<C-W>m";
               "<C-o>" = ":open<CR>";
               "r" = ":react ";
