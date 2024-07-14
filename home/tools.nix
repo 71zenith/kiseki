@@ -84,7 +84,7 @@ in {
                 width = 30;
               };
             };
-            message_user_color = true;
+            message_user_color = false;
             notifications.enabled = true;
             open_command = ["xdg-open"];
             username_display = "displayname";
@@ -93,18 +93,15 @@ in {
           macros = {
             "normal|visual" = {
               "s" = "<C-W>m";
-              "l" = ":open<CR>";
+              "<C-o>" = ":open<CR>";
               "r" = ":react ";
               "e" = ":edit<CR>";
               "E" = ":reply<CR>";
               "<Esc>" = ":cancel<CR>y";
               "z" = "<C-W>z";
-              "<Tab>" = ":tabn";
-              "<S-Tab>" = ":tabp";
-            };
-            "insert" = {
-              "<C-k>" = "<C-N>";
-              "<C-j>" = "<C-P>";
+              "t" = ":redact<CR>";
+              "<C-l>" = ":tabn<CR>";
+              "<C-h>" = ":tabp<CR>";
             };
           };
           layout = {
