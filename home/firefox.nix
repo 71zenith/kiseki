@@ -185,6 +185,11 @@ in {
                 url = "https://discord.com/channels/@me";
               }
               {
+                name = "Element";
+                keyword = "el";
+                url = "https://app.element.io";
+              }
+              {
                 name = "Nhentai";
                 keyword = "nh";
                 url = "https://nhentai.net";
