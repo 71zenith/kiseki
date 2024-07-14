@@ -28,7 +28,7 @@
             "7" = "七";
             "8" = "八";
             "music" = "";
-            "neorg" = "";
+            "matrix" = "󰭻";
           };
           persistent-workspaces = {
             "1" = [];

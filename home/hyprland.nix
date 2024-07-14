@@ -83,7 +83,7 @@ in {
       ];
       workspace = [
         "special:music, on-created-empty:footclient spotify_player"
-        "special:neorg, on-created-empty:footclient nvim -c 'Neorg index'"
+        "special:matrix, on-created-empty:footclient iamb"
       ];
       input = {
         kb_options = "caps:escape,altwin:swap_lalt_lwin";
@@ -234,11 +234,11 @@ in {
           "$mod3, p, swapnext,prev"
 
           "$mod2, 9, movetoworkspacesilent, special:music"
-          "$mod2, 0, movetoworkspacesilent, special:neorg"
+          "$mod2, 0, movetoworkspacesilent, special:matrix"
           "$mod1, 9, togglespecialworkspace, music"
-          "$mod1, 0, togglespecialworkspace, neorg"
+          "$mod1, 0, togglespecialworkspace, matrix"
           "$mod2, return, togglespecialworkspace, music"
-          "$mod3, return, togglespecialworkspace, neorg"
+          "$mod3, return, togglespecialworkspace, matrix"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
             ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
