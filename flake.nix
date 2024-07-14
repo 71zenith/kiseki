@@ -124,7 +124,7 @@
         my-assets.overlays.default
         lem.overlays.default
         scraperwolf.overlays.default
-        (import ./pkgs/overlays.nix)
+        (import ./pkgs/overlay.nix)
       ];
     };
   in {

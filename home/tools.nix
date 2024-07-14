@@ -82,7 +82,28 @@ in {
             notifications.enabled = true;
             open_command = ["xdg-open"];
             username_display = "displayname";
-            layout.style = "restore";
+          };
+          layout = {
+            style = "config";
+            tabs = [
+              {
+                split = [
+                  {window = "#gen-ani-cli:matrix.org";}
+                  {window = "#general:example.org";}
+                ];
+              }
+              {
+                split = [
+                  {
+                    split = [
+                      {window = "#room3:example.org";}
+                      {window = "#room4:example.org";}
+                    ];
+                  }
+                  {window = "@user:example.org";}
+                ];
+              }
+            ];
           };
         };
       };
