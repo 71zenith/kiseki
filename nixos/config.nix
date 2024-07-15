@@ -47,12 +47,14 @@
   nix = {
     settings = {
       auto-optimise-store = true;
-      experimental-features = ["nix-command" "flakes"];
+      experimental-features = ["nix-command" "flakes" "repl-flake"];
       warn-dirty = false;
       trusted-users = ["root" "@wheel"];
       log-lines = 30;
       http-connections = 50;
     };
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    registry.nixpkgs.flake = inputs.nixpkgs;
     gc = {
       automatic = true;
       dates = "weekly";

@@ -8,12 +8,15 @@
   imports = [
     inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
+  console.useXkbConfig = true;
+
   services = {
     xserver = {
       xkb = {
         layout = "us";
         variant = "";
       };
+      xkbOptions = "caps:escape,altwin:swap_lalt_lwin";
       videoDrivers = ["nvidia"];
     };
 
