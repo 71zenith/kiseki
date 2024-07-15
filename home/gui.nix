@@ -14,7 +14,6 @@ in {
     zathura.enable = false;
   };
 
-
   # TODO: downgrade the package below 5.1.9
   # i18n.inputMethod = {
   #   enabled = "fcitx5";
