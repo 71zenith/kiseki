@@ -9,7 +9,8 @@
   scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
 in {
   imports = [
-    ./tools.nix
+    ./cli.nix
+    ./gui.nix
     ./mpv.nix
     ./zsh.nix
     ./waybar.nix

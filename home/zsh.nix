@@ -132,26 +132,6 @@ in {
       };
       autocd = true;
     };
-
-    zoxide = {
-      enable = true;
-      enableZshIntegration = true;
-    };
-
-    bat.enable = true;
-
-    eza = {
-      enable = true;
-      enableZshIntegration = true;
-      git = true;
-      icons = true;
-      extraOptions = ["--hyperlink"];
-    };
-
-    fzf = {
-      enable = true;
-      enableZshIntegration = true;
-    };
   };
   xdg.configFile."zsh/p10k.zsh".text = ''
     'builtin' 'local' '-a' 'p10k_config_opts'

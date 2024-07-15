@@ -7,21 +7,14 @@
   plugins = import ../pkgs/plugins-nvim.nix {inherit pkgs;};
 in {
   imports = [
-    ./custom/neovide.nix
     inputs.nixvim.homeManagerModules.nixvim
   ];
-  stylix.targets.nixvim.enable = false;
+  stylix.targets = {
+    nixvim.enable = false;
+    vim.enable = false;
+  };
+
   programs = {
-    neovide = {
-      enable = true;
-      settings = {
-        srgb = true;
-        font = {
-          normal = [config.stylix.fonts.monospace.name];
-          size = 15;
-        };
-      };
-    };
     nixvim = {
       enable = true;
       luaLoader.enable = true;
