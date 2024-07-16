@@ -3,9 +3,6 @@
   pkgs,
   ...
 }: {
-  disabledModules = ["programs/spotify-player.nix"];
-  imports = [./custom/spotify-player.nix];
-
   programs.spotify-player = {
     enable = true;
     enableZshIntegration = true;

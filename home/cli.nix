@@ -3,8 +3,6 @@
   matrixId,
   ...
 }: {
-  imports = [./custom/iamb.nix];
-
   programs = {
     btop = {
       enable = true;

@@ -6,11 +6,6 @@
 }: let
   inherit (config.stylix.base16Scheme) palette;
 in {
-  imports = [
-    ./custom/neovide.nix
-    ./custom/satty.nix
-  ];
-
   stylix.targets = {
     zathura.enable = false;
   };
