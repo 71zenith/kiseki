@@ -1,5 +1,4 @@
 {
-  pkgs,
   config,
   inputs,
   pcName,
@@ -107,6 +106,8 @@
       };
     };
   };
+
+  boot.kernelModules = ["nvidia_uvm"];
 
   boot.kernel.sysctl = {
     "kernel.sysrq" = 0;
