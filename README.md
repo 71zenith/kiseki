@@ -49,39 +49,40 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 
 ## Programs
-| Name                                                           | Description                                  |
-|----------------------------------------------------------------|----------------------------------------------|
-| [hyprland](https://github.com/hyprwm/Hyprland)                 | compositor                                   |
-| [firefox](https://www.mozilla.org/en-US/firefox/)              | web browser                                  |
-| [neovim](https://github.com/neovim/neovim)                     | primary main essential principal text editor |
-| [neovide](https://github.com/neovide/neovide)                  | neovim gui                                   |
-| [foot](https://codeberg.org/dnkl/foot)                         | terminal                                     |
-| [waybar](https://github.com/Alexays/Waybar)                    | status bar                                   |
-| [nautilus](https://gitlab.gnome.org/GNOME/nautilus)            | gui file manager                             |
-| [yazi](https://github.com/sxyazi/yazi)                         | tui file manager                             |
-| [btop](https://github.com/aristocratos/btop)                   | resource monitor                             |
-| [zathura](https://pwmt.org/projects/zathura)                   | pdf/epub viewer                              |
-| [mpv](https://github.com/mpv-player/mpv)                       | media player (da goat)                       |
-| [zsh](http://www.zsh.org)                                      | shell                                        |
-| [rofi](https://github.com/davatorium/rofi)                     | custom launcher                              |
-| [spotify-player](https://github.com/aome510/spotify-player)    | spotify tui (love it)                        |
-| [calibre](https://github.com/kovidgoyal/calibre)               | ebook manager                                |
-| [fcitx5](https://github.com/fcitx/fcitx5)                      | japanese input                               |
-| [mako](https://github.com/emersion/mako)                       | notification daemon                          |
-| [fzf](https://github.com/junegunn/fzf)                         | fuzzy finder                                 |
-| [ani-cli](https://github.com/pystardust/ani-cli)               | anime tool                                   |
+| Name                                                           | Description             |
+|----------------------------------------------------------------|-------------------------|
+| [hyprland](https://github.com/hyprwm/Hyprland)                 | compositor              |
+| [firefox](https://www.mozilla.org/en-US/firefox/)              | web browser             |
+| [neovide](https://github.com/neovide/neovide)                  | neovim gui              |
+| [foot](https://codeberg.org/dnkl/foot)                         | terminal                |
+| [zathura](https://pwmt.org/projects/zathura)                   | pdf/epub viewer         |
+| [mpv](https://github.com/mpv-player/mpv)                       | media player (da goat)  |
+| [rofi](https://github.com/davatorium/rofi)                     | custom launcher         |
+| [satty](https://github.com/gabm/Satty)                         | annotation tool         |
+| [calibre](https://github.com/kovidgoyal/calibre)               | ebook manager           |
+| [fcitx5](https://github.com/fcitx/fcitx5)                      | japanese input          |
+| [mako](https://github.com/emersion/mako)                       | notification daemon     |
+| [nautilus](https://gitlab.gnome.org/GNOME/nautilus)            | gui file manager        |
+| [neovim](https://github.com/neovim/neovim)                     | main text editor        |
+| [iamb](https://github.com/ulyssa/iamb)                         | tui matrix client       |
+| [fzf](https://github.com/junegunn/fzf)                         | fuzzy finder            |
+| [ani-cli](https://github.com/pystardust/ani-cli)               | anime tool              |
+| [zsh](http://www.zsh.org)                                      | shell                   |
+| [spotify-player](https://github.com/aome510/spotify-player)    | spotify tui (love it)   |
+| [yazi](https://github.com/sxyazi/yazi)                         | tui file manager        |
+| [btop](https://github.com/aristocratos/btop)                   | resource monitor        |
 
 
 ## Rusty tools
-| Name                                               | Description      |
-|----------------------------------------------------|------------------|
-| [eza](https://github.com/eza-community/eza)        | ls alter         |
-| [duf](https://github.com/muesli/duf)               | df alter         |
-| [zoxide](https://github.com/ajeetdsouza/zoxide)    | smarter cd       |
-| [dust](https://github.com/bootandy/dust)           | du alter         |
-| [fd](https://github.com/sharkdp/fd)                | find alter       |
-| [rg](https://github.com/BurstSushi/ripgrep)        | grep alter       |
-| [sd](https://github.com/chmln/sd)                  | sed alter        |
+| Name                                               | Description    |
+|----------------------------------------------------|----------------|
+| [eza](https://github.com/eza-community/eza)        | ls alter       |
+| [duf](https://github.com/muesli/duf)               | df alter       |
+| [zoxide](https://github.com/ajeetdsouza/zoxide)    | smarter cd     |
+| [dust](https://github.com/bootandy/dust)           | du alter       |
+| [fd](https://github.com/sharkdp/fd)                | find alter     |
+| [rg](https://github.com/BurstSushi/ripgrep)        | grep alter     |
+| [sd](https://github.com/chmln/sd)                  | sed alter      |
 
 
 ## Standardised config
