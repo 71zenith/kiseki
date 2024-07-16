@@ -184,12 +184,8 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs;
-      inherit myUserName;
-      inherit pcName;
-      inherit matrixId;
-      inherit mailId;
-      inherit nurNoPkgs;
+      inherit inputs nurNoPkgs;
+      inherit pcName myUserName matrixId mailId;
     };
     users.${myUserName} = import ../home;
   };

@@ -138,12 +138,8 @@
     };
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit inputs;
-        inherit pcName;
-        inherit myUserName;
-        inherit matrixId;
-        inherit mailId;
-        inherit nurNoPkgs;
+        inherit inputs nurNoPkgs;
+        inherit pcName myUserName matrixId mailId;
       };
       modules = with inputs; [
         caches
