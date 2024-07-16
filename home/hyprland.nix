@@ -77,11 +77,12 @@ in {
         "float, class:io.github.Qalculate.qalculate-qt"
         "size 70% 55%, class:io.github.Qalculate.qalculate-qt"
         "center, class:io.github.Qalculate.qalculate-qt"
-        "float, title:quick"
-        "size 80% 75%, title:quick"
-        "center, title:quick"
+        "float, class:quick"
+        "size 80% 75%, class:quick"
+        "center, class:quick"
         "size 85% 80%, class:com.gabm.satty"
         "center, class:com.gabm.satty"
+        "center, class:pop"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
@@ -194,7 +195,6 @@ in {
         [
           "$mod1, Print, exec, grimblast --notify copy screen"
           "$mod4, Print, exec, grimblast --notify edit area"
-          "$mod1, return, exec, footclient"
 
           "$mod2, f, exec, firefox"
           "$mod2, v, exec, neovide"
@@ -205,8 +205,11 @@ in {
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
           "$mod1, g, exec, pkill glava || glava"
           "$mod1, r, exec, pkill qalculate-qt || qalculate-qt"
-          "$mod1, z, exec, pkill pulsemixer || footclient -T quick pulsemixer"
-          "$mod1, comma, exec, pkill btop || footclient -T quick btop"
+          "$mod1, z, exec, pkill pulsemixer || footclient -a quick pulsemixer"
+
+          "$mod1, return, exec, footclient"
+          "$mod1, comma, exec, pkill btop || footclient -a quick btop"
+          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c pop 'footclient -a pop'"
 
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
@@ -220,8 +223,8 @@ in {
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"
           "$mod1, t, fullscreen,"
-          "$mod2, t, fullscreen,1"
           "$mod1, f, fakefullscreen"
+          "$mod2, t, fullscreen,1"
           "$mod2, q, exit,"
           "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
@@ -238,10 +241,10 @@ in {
           "$mod3, n, swapnext"
           "$mod3, p, swapnext,prev"
 
-          "$mod2, 9, movetoworkspacesilent, special:music"
-          "$mod2, 0, movetoworkspacesilent, special:matrix"
           "$mod1, 9, togglespecialworkspace, music"
           "$mod1, 0, togglespecialworkspace, matrix"
+          "$mod2, 9, movetoworkspacesilent, special:music"
+          "$mod2, 0, movetoworkspacesilent, special:matrix"
           "$mod2, return, togglespecialworkspace, music"
           "$mod3, return, togglespecialworkspace, matrix"
         ]
