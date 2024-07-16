@@ -40,14 +40,6 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages32 = with pkgs; [
-        pkgsi686Linux.mesa.drivers
-      ];
-      extraPackages = with pkgs; [
-        libva
-        vaapiVdpau
-        libvdpau-va-gl
-      ];
     };
 
     nvidia = {
