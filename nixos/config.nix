@@ -139,7 +139,7 @@
 
   console = {
     earlySetup = true;
-    font = "${pkgs.terminus_font}/share/consolefonts/ter-122n.psf.gz";
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     packages = with pkgs; [terminus_font];
   };
 
@@ -190,7 +190,7 @@
       inherit mailId;
       inherit nurNoPkgs;
     };
-    users.${myUserName} = import ../home/home.nix;
+    users.${myUserName} = import ../home;
   };
 
   nixpkgs.config = import ../home/nixpkgs.nix;

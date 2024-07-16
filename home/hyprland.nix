@@ -2,6 +2,7 @@
   pkgs,
   config,
   lib,
+  osConfig,
   ...
 }: let
   rgb = color: "rgb(${color})";
@@ -22,6 +23,7 @@ in {
         "__GLX_VENDOR_LIBRARY_NAME,nvidia"
         "WLR_NO_HARDWARE_CURSORS,1"
         "NIXOS_OZONE_WL,1"
+        "GRIMBLAST_EDITOR,satty --filename"
         "ELECTRON_OZONE_PLATFORM_HINT,auto"
         "MOZ_ENABLE_WAYLAND,1"
         "NVD_BACKEND,direct"
@@ -78,6 +80,8 @@ in {
         "float, title:quick"
         "size 80% 75%, title:quick"
         "center, title:quick"
+        "size 85% 80%, class:com.gabm.satty"
+        "center, class:com.gabm.satty"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
@@ -86,7 +90,7 @@ in {
         "special:matrix, on-created-empty:footclient iamb"
       ];
       input = {
-        kb_options = "caps:escape,altwin:swap_lalt_lwin";
+        kb_options = osConfig.services.xserver.xkbOptions;
         repeat_rate = 60;
         repeat_delay = 250;
         force_no_accel = 1;
@@ -189,6 +193,7 @@ in {
       bind =
         [
           "$mod1, Print, exec, grimblast --notify copy screen"
+          "$mod4, Print, exec, grimblast --notify edit area"
           "$mod1, return, exec, footclient"
 
           "$mod2, f, exec, firefox"

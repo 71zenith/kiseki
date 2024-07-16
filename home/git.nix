@@ -55,6 +55,18 @@
       core = {
         whitespace = "trailing-space,space-before-tab";
       };
+      pull.ff = "only";
+      branch.autoSetupMerge = true;
+      merge.conflictStyle = "diff3";
+      rebase = {
+        autoSquash = true;
+        autoStash = true;
+      };
+      push = {
+        default = "current";
+        autoSetupRemote = true;
+        followTags = true;
+      };
       url = {
         "https://github.com/".insteadOf = "github:";
         "ssh://git@github.com/".pushInsteadOf = "github:";

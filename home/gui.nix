@@ -8,6 +8,7 @@
 in {
   imports = [
     ./custom/neovide.nix
+    ./custom/satty.nix
   ];
 
   stylix.targets = {
@@ -27,8 +28,23 @@ in {
         srgb = true;
         font = {
           normal = [config.stylix.fonts.monospace.name];
-          size = 15;
+          size = config.stylix.fonts.sizes.terminal;
         };
+      };
+    };
+
+    satty = {
+      enable = true;
+      settings = {
+        general = {
+          early-exit = true;
+          initial-tool = "brush";
+          copy-command = "wl-copy";
+          annotation-size-factor = 1;
+          save-after-copy = false;
+          primary-highlighter = "block";
+        };
+        font.family = config.stylix.fonts.sansSerif.name;
       };
     };
 
@@ -61,9 +77,13 @@ in {
         recolor-lightcolor = "rgba(256,256,256,0)";
       };
       mappings = {
-        i = "recolor";
+        "h" = "feedkeys '<C-Left>'";
+        "j" = "feedkeys '<C-Down>'";
+        "k" = "feedkeys '<C-Up>'";
+        "l" = "feedkeys '<C-Right>'";
+        "i" = "recolor";
+        "f" = "toggle_fullscreen";
         "[fullscreen] i" = "recolor";
-        f = "toggle_fullscreen";
         "[fullscreen] f" = "toggle_fullscreen";
       };
     };

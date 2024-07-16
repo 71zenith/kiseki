@@ -15,6 +15,14 @@
       };
     };
 
+    less = {
+      enable = true;
+      keys = ''
+        h left-scroll
+        l right-scroll
+      '';
+    };
+
     direnv = {
       enable = true;
       enableZshIntegration = true;
@@ -109,11 +117,21 @@
           }
           {
             run = ''shell "$SHELL" --block --confirm'';
-            on = ["<C-s>"];
+            on = ["w"];
           }
           {
             run = "plugin --sync max-preview";
             on = ["T"];
+          }
+          {
+            run = "tasks_show";
+            on = ["W"];
+          }
+        ];
+        tasks.prepend_keymap = [
+          {
+            run = "close";
+            on = ["W"];
           }
         ];
       };

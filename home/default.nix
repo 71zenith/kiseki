@@ -46,6 +46,7 @@ in {
     sessionVariables = {
       MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g";
       MANROFFOPT = "-P -c";
+      LESS = "-R --use-color";
     };
   };
   fonts.fontconfig = {inherit (osConfig.fonts.fontconfig) defaultFonts;};
