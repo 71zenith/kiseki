@@ -8,8 +8,6 @@
   imports = [
     inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
-  console.useXkbConfig = true;
-
   services = {
     xserver = {
       xkb = {

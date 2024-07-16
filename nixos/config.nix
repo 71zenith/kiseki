@@ -9,7 +9,9 @@
   mailId,
   nurNoPkgs,
   ...
-}: {
+}: let
+  home = user: "/home/${user}";
+in {
   imports = [
     ./boot.nix
     ./hardware.nix
@@ -21,7 +23,7 @@
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.sshKeyPaths = ["/home/${myUserName}/.ssh/id_ed25519"];
+    age.sshKeyPaths = ["${home myUserName}/.ssh/id_ed25519"];
     secrets = {
       root_pass.neededForUsers = true;
       user_pass.neededForUsers = true;
@@ -40,7 +42,7 @@
         auth_type = 1;
         auth_data = config.sops.placeholder.spot_auth_data;
       };
-      path = "/home/${myUserName}/.cache/spotify-player/credentials.json";
+      path = "${home myUserName}/.cache/spotify-player/credentials.json";
     };
   };
 
@@ -141,10 +143,9 @@
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
     packages = with pkgs; [terminus_font];
+    useXkbConfig = true;
   };
 
-  # NOTE: for systemd completion
-  environment.pathsToLink = ["/share/zsh"];
   programs = {
     zsh.enable = true;
 
@@ -159,7 +160,7 @@
 
     nh = {
       enable = true;
-      flake = "/home/${myUserName}/nix";
+      flake = "${home myUserName}/nix";
     };
 
     nix-ld.enable = true;
