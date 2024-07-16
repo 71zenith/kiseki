@@ -8,6 +8,7 @@
     # Custom
     config.nur.repos.mic92.hello-nur
     ani-cli
+
     # Cli
     ## internet
     aria2
@@ -15,12 +16,14 @@
     wget
     yt-dlp
     rsync
+
     ## utils
     dust
     duf
     fd
     file
     sd
+
     ## helpful
     gcc
     sqlite
@@ -38,18 +41,21 @@
     sops
     translate-shell
     zoxide
+
     ## nix
     nitch
     nix-init
     nix-output-monitor
     nurl
     nvd
+
     ## compression
     zip
     unzip
     rar
     unrar
     _7zz
+
     # gui
     calibre
     qalculate-qt
@@ -60,33 +66,40 @@
     glava
     nsxiv
     qbittorrent
+
     ## games
     heroic
     prismlauncher
     steam-run
     protonup-qt
+
     ### emulators
     desmume
     mgba
     snes9x-gtk
     #config.nur.repos.chigyutendies.citra-nightly
+
     # libs
     libnotify
     gtk3
     libsixel
     openssl
     xwayland
+
     # dev
     ## docs
     man-pages
     man-pages-posix
+
     ## langs
     python3
     zig
+
     ## editors
     neovim
     lem-sdl2
     zed-editor
+
     # disabled
     # logseq  NOTE: NOTES
     # openmw  NOTE: morrowind
