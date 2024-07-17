@@ -91,9 +91,6 @@
           layout = {
             style = "config";
             tabs = [
-              {window = "!JWluPDcFzVMlxykpoI:matrix.org";}
-              {window = "!tOWyKLILvZUrnrhovA:matrix.org";}
-              {window = "!mVGiciUDlnEmaxEOry:matrix.org";}
               {window = "#gen-ani-cli:matrix.org";}
               {window = "@mrfluffy:mrfluffy.xyz";}
               {window = "@nannk:synapse.nannk.xyz";}
