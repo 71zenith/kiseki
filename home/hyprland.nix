@@ -12,28 +12,10 @@ in {
   # FIX: do not anger me; fuck hyprpaper
   services.hyprpaper.enable = lib.mkForce false;
   stylix.targets.hyprpaper.enable = lib.mkForce false;
-
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    plugins = with pkgs; [hyprlandPlugins.hyprbars];
     settings = {
-      plugin = {
-        hyprbars = {
-          bar_height = 28;
-          bar_text_font = config.stylix.fonts.monospace.name;
-          bar_text_size = config.stylix.fonts.sizes.terminal;
-          bar_color = rgb palette.base00;
-          "col.text" = rgb palette.base07;
-          bar_part_of_window = true;
-          bar_button_padding = 8;
-          hyprbars-button = [
-            "${rgb palette.base0A}, 22, 󰥓, hyprctl dispatch killactive"
-            "${rgb palette.base0B}, 22, , hyprctl dispatch togglefloating"
-            "${rgb palette.base0D}, 22, 󰹞, hyprctl dispatch fullscreen 0"
-          ];
-        };
-      };
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
         "XDG_SESSION_TYPE,wayland"
@@ -102,7 +84,6 @@ in {
         "size 85% 80%, class:com.gabm.satty"
         "center, class:com.gabm.satty"
         "center, class:pop"
-        "plugin:hyprbars:nobar, floating:0"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
@@ -229,7 +210,7 @@ in {
 
           "$mod1, return, exec, footclient"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
-          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c pop 'footclient -a pop'; hyprctl dispatch bringactivetotop"
+          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c pop 'footclient -a pop'"
 
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
