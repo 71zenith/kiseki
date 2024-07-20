@@ -7,7 +7,6 @@
     enable = true;
     userName = myUserName;
     userEmail = mailId;
-    lfs.enable = true;
     aliases = {
       co = "checkout";
       cd = "clone --depth=1";

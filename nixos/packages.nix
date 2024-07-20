@@ -7,7 +7,6 @@
   environment.systemPackages = with pkgs; [
     # Custom
     config.nur.repos.mic92.hello-nur
-    ani-cli
 
     # Cli
     ## internet
@@ -16,6 +15,7 @@
     wget
     yt-dlp
     rsync
+    ani-cli
 
     ## utils
     dust
@@ -59,13 +59,13 @@
     # gui
     calibre
     qalculate-qt
-    dvd-zig
     firefox
     librewolf
     nautilus
     glava
     nsxiv
     qbittorrent
+    dvd-zig
 
     ## games
     heroic
@@ -101,7 +101,8 @@
     zed-editor
 
     # disabled
-    # logseq  NOTE: NOTES
-    # openmw  NOTE: morrowind
+    #vesktop  #NOTE: discord
+    #logseq   #NOTE: NOTES
+    #openmw   #NOTE: morrowind
   ];
 }
