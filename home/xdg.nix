@@ -69,6 +69,7 @@
       --enable-features=WaylandWindowDecorations
       --enable-features=UseOzonePlatform
       --ozone-platform-hint=wayland
+      --disable-gpu-compositing
     '';
   };
 }

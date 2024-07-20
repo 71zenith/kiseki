@@ -8,6 +8,7 @@
 }: let
   scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
 in {
+  stylix.targets.kde.enable = false;
   imports = [
     ./modules
     ./cli.nix
@@ -72,7 +73,7 @@ in {
   };
   xdg.portal = {
     enable = true;
-    config.common.default = ["gtk" "hyprland"];
+    config.common.default = ["hyprland" "gtk"];
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
   };

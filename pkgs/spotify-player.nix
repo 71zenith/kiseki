@@ -37,8 +37,8 @@ assert lib.assertOneOf "withAudioBackend" withAudioBackend ["" "alsa" "pulseaudi
     src = fetchFromGitHub {
       owner = "aome510";
       repo = pname;
-      rev = "ed9c4d476909b0755c5b1902b504f5ec6dd125ef";
-      hash = "sha256-tzaQ9Du3CZvwgaHXqZQ9b70fW8SUlZ/V+4NIH5N3fCw=";
+      rev = "58a5ace777293ed04fb0da44075a27d777822501";
+      hash = "sha256-2BTnCjM9WTn9bJJ0bWIdwGrrRCdFBpSuCBb32qL71qc=";
     };
 
     cargoHash = "sha256-7vximGisIIXBrwHXSWQjO08OraaweG7ZT6v+gVdYGVc=";
