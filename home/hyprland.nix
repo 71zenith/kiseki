@@ -204,7 +204,6 @@ in {
 
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
-          "$mod1, g, exec, pkill glava || tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg"
           "$mod1, r, exec, pkill qalculate-qt || qalculate-qt"
           "$mod1, z, exec, pkill pulsemixer || footclient -T quick pulsemixer"
 
@@ -220,6 +219,7 @@ in {
           "$mod1, i, exec, ${scripts.transLiner}"
           "$mod1, y, exec, ${scripts.copyTwit}"
           "$mod1, v, exec, ${scripts.clipShow}"
+          "$mod1, g, exec, ${scripts.glavaShow}"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"

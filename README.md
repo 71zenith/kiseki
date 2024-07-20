@@ -8,11 +8,11 @@
   </a>
 </p>
 
-**BREAKING-**
+**BREAKING**
 commits below [`b4000db`](https://github.com/71zenith/nix-dots/tree/b4000db955f1c73714f25b612128b5c3d2c2050f) shall not work due to moving of
 wallpapers to separate repo.
 
-**BREAKING-**
+**BREAKING**
 commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
 with dimming being a substitute.
 
@@ -32,6 +32,23 @@ with dimming being a substitute.
 previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
 
 wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master/active).
+
+## Highlights
+- full [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR) for extra goodies
+- [oxocarbonied](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
+- custom [home-manager](https://github.com/nix-community/home-manager) modules for [iamb](https://github.com/ulyssa/iamb), [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide)
+- nixified vim with [nixvim](https://github.com/nix-community/nixvim)
+- passwords with [sops-nix](https://github.com/Mic92/sops-nix)
+- nix helper integration like [nh](https://github.com/viperML/nh) and [nix-output-monitor](https://github.com/maralorn/nix-output-monitor)
+- tightly integrated [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces
+- [glava](https://github.com/jarcode-foss/glava) with on the fly color based on current song
+- [firefox](https://www.mozilla.org/en-US/firefox/) with declarative config
+- advanced [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculation, sending files to discord, clipboard with image support, wallpaper switcher
+- niche scripts to open/download media from the internet, [OCR](https://github.com/tesseract-ocr/tesseract) and [translating text](https://github.com/soimort/translate-shell)
+- [zsh](http://www.zsh.org) and [foot](https://codeberg.org/dnkl/foot) setup to select command output, select files from output and navigate smartly.
+- [mpv](https://github.com/mpv-player/mpv) with upscaling, youtube helpers and fancy ui
+
+<details><summary><b>Detailed Software usage</b></summary>
 
 ## Nix components
 | Name                                                                   | Description                 |
@@ -84,6 +101,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [fd](https://github.com/sharkdp/fd)                | find alter     |
 | [rg](https://github.com/BurstSushi/ripgrep)        | grep alter     |
 | [sd](https://github.com/chmln/sd)                  | sed alter      |
+
+</details>
 
 
 ## Standardised config
