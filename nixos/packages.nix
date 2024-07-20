@@ -62,7 +62,7 @@
     dvd-zig
     firefox
     librewolf
-    gnome.nautilus
+    nautilus
     glava
     nsxiv
     qbittorrent

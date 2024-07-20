@@ -66,6 +66,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [neovim](https://github.com/neovim/neovim)                     | main text editor        |
 | [iamb](https://github.com/ulyssa/iamb)                         | tui matrix client       |
 | [fzf](https://github.com/junegunn/fzf)                         | fuzzy finder            |
+| [glava](https://github.com/jarcode-foss/glava)                 | audio visualizer        |
 | [ani-cli](https://github.com/pystardust/ani-cli)               | anime tool              |
 | [zsh](http://www.zsh.org)                                      | shell                   |
 | [spotify-player](https://github.com/aome510/spotify-player)    | spotify tui (love it)   |

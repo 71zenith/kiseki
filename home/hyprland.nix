@@ -92,7 +92,7 @@ in {
         "special:matrix, on-created-empty:footclient iamb"
       ];
       input = {
-        kb_options = osConfig.services.xserver.xkbOptions;
+        kb_options = osConfig.services.xserver.xkb.options;
         repeat_rate = 60;
         repeat_delay = 250;
         force_no_accel = 1;
@@ -204,7 +204,7 @@ in {
 
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
           "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
-          "$mod1, g, exec, pkill glava || glava"
+          "$mod1, g, exec, pkill glava || tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg"
           "$mod1, r, exec, pkill qalculate-qt || qalculate-qt"
           "$mod1, z, exec, pkill pulsemixer || footclient -T quick pulsemixer"
 

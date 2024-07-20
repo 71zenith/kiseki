@@ -24,6 +24,7 @@
         sleep 1
         curl "$(playerctl -p spotify_player metadata mpris:artUrl)" > /tmp/cover.jpg
         pkill -RTMIN+8 waybar
+        magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null >/tmp/cover.info
       '';
       device = {
         name = "ur mom";

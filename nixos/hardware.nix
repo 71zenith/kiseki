@@ -12,8 +12,8 @@
       xkb = {
         layout = "us";
         variant = "";
+        options = "caps:escape,altwin:swap_lalt_lwin";
       };
-      xkbOptions = "caps:escape,altwin:swap_lalt_lwin";
       videoDrivers = ["nvidia"];
     };
 
