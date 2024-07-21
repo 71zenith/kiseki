@@ -5,6 +5,7 @@
   lib,
   pcName,
   myUserName,
+  myName,
   matrixId,
   mailId,
   nurNoPkgs,
@@ -172,7 +173,7 @@ in {
     };
     ${myUserName} = {
       isNormalUser = true;
-      description = "Mori Zen";
+      description = myName;
       shell = pkgs.zsh;
       hashedPasswordFile = config.sops.secrets.user_pass.path;
       extraGroups = ["wheel" "libvirtd" "input"];
@@ -185,7 +186,7 @@ in {
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs nurNoPkgs;
-      inherit pcName myUserName matrixId mailId;
+      inherit pcName myUserName myName matrixId mailId;
     };
     users.${myUserName} = import ../home;
   };

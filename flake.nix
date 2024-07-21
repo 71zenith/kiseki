@@ -88,6 +88,7 @@
     ### DECLARE USER ###
     pcName = "izanagi";
     myUserName = "zen";
+    myName = "Mori Zen";
     matrixId = "@mori.zen:matrix.org";
     mailId = "71zenith@proton.me";
 
@@ -137,7 +138,7 @@
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs nurNoPkgs;
-        inherit pcName myUserName matrixId mailId;
+        inherit pcName myUserName myName matrixId mailId;
       };
       modules = with inputs; [
         caches
