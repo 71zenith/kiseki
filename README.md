@@ -1,4 +1,4 @@
-<h2 align="center">:snowflake: Zen's Flakes :snowflake:</h2>
+<h2 align="center">:snowflake: flakes with minimal abstraction :snowflake:</h2>
 
 <p align="center">
     <a href="https://nixos.org/">

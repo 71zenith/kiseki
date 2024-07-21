@@ -24,6 +24,7 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
+      silent.enable = true;
       nix-direnv.enable = true;
     };
 
