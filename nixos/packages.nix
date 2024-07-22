@@ -58,13 +58,14 @@
 
     # gui
     calibre
-    qalculate-qt
+    vesktop
     firefox
     librewolf
+    qbittorrent
     nautilus
+    qalculate-qt
     glava
     nsxiv
-    qbittorrent
     dvd-zig
 
     ## games
@@ -101,7 +102,6 @@
     zed-editor
 
     # disabled
-    #vesktop  #NOTE: discord
     #logseq   #NOTE: NOTES
     #openmw   #NOTE: morrowind
   ];

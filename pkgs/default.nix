@@ -4,11 +4,6 @@ self: super: {
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
 
-  vesktop = super.vesktop.overrideAttrs {flags = ["--disable-gpu-compositing"];};
-  heroic = super.heroic.overrideAttrs {flags = ["--disable-gpu-compositing"];};
-  logseq = super.logseq.overrideAttrs {flags = ["--disable-gpu-compositing"];};
-  spotify = super.spotify.overrideAttrs {flags = ["--disable-gpu-compositing"];};
-
   #NOTE: fuck glava; version below has --pipe and **actually** builds (fuck meson too)
   glava = super.glava.overrideAttrs {
     src = super.fetchFromGitHub {
