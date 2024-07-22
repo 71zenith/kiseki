@@ -17,7 +17,6 @@ in {
     ./zsh.nix
     ./waybar.nix
     ./nvim.nix
-    ./emacs.nix
     ./git.nix
     ./rofi.nix
     ./xdg.nix
