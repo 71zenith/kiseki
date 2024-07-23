@@ -28,6 +28,12 @@ in {
       };
     };
 
+    emacs = {
+      enable = true;
+      package = pkgs.emacs29-pgtk;
+      extraPackages = epkgs: [epkgs.vterm];
+    };
+
     satty = {
       enable = true;
       settings = {

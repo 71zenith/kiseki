@@ -106,6 +106,7 @@ in {
       ];
       shellAliases = {
         nv = "nvim";
+        v = "emacs -nw";
         up = "nh os switch";
         del = "nh clean all --nogcroots";
         ss = "nh search";

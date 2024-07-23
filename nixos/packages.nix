@@ -86,6 +86,7 @@
     libsixel
     openssl
     xwayland
+    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
 
     # dev
     ## docs
@@ -102,7 +103,7 @@
     zed-editor
 
     # disabled
-    #logseq   #NOTE: NOTES
-    #openmw   #NOTE: morrowind
+    #logseq   # NOTE: NOTES
+    #openmw   # NOTE: morrowind
   ];
 }
