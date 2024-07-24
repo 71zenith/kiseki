@@ -85,7 +85,7 @@
     nixpkgs,
     ...
   } @ inputs: let
-    ### DECLARE USER ###
+    ### NOTE: DECLARE USER ###
     pcName = "izanagi";
     myUserName = "zen";
     myName = "Mori Zen";

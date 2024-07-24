@@ -199,6 +199,7 @@ in {
 
           "$mod2, f, exec, firefox"
           "$mod2, v, exec, neovide"
+          "$mod2, e, exec, emacs"
           "$mod2, i, exec, $setwall"
           "$mod2, o, exec, rofi -theme preview -show filebrowser -selected-row 1"
 
