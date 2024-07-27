@@ -86,9 +86,13 @@
     libsixel
     openssl
     xwayland
-    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
 
     # dev
+    ## doom emacs
+    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
+    wordnet
+    cmigemo
+
     ## docs
     man-pages
     man-pages-posix
