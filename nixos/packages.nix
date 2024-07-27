@@ -17,30 +17,29 @@
     rsync
     ani-cli
 
-    ## utils
+    ## unix utils
     dust
     duf
     fd
     file
     sd
+    ripgrep
 
     ## helpful
     gcc
+    ffmpeg
+    imagemagick
     sqlite
     grimblast
     cliphist
-    ffmpeg
-    pulsemixer
-    imagemagick
-    nvtopPackages.nvidia
+    xdg-utils
+    sops
+    swww
     playerctl
     wl-clipboard
-    xdg-utils
-    swww
-    ripgrep
-    sops
     translate-shell
-    zoxide
+    pulsemixer
+    nvtopPackages.nvidia
 
     ## nix
     nitch
@@ -79,6 +78,7 @@
     mgba
     snes9x-gtk
     #config.nur.repos.chigyutendies.citra-nightly
+    #config.nur.repos.chigyutendies.suyu-dev
 
     # libs
     libnotify
@@ -107,7 +107,7 @@
     zed-editor
 
     # disabled
-    #logseq   # NOTE: NOTES
-    #openmw   # NOTE: morrowind
+    #logseq
+    #openmw
   ];
 }

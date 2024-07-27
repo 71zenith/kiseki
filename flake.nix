@@ -17,13 +17,6 @@
         home-manager.follows = "home-manager";
       };
     };
-    neorg = {
-      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs = {
@@ -120,7 +113,6 @@
     overlays = {
       nixpkgs.overlays = with inputs; [
         prismlauncher.overlays.default
-        neorg.overlays.default
         dvd-zig.overlays.default
         my-assets.overlays.default
         lem.overlays.default

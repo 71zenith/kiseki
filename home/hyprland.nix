@@ -9,7 +9,7 @@
   inherit (config.stylix.base16Scheme) palette;
   scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
 in {
-  # FIX: do not anger me; fuck hyprpaper
+  # FIXME: do not anger me; fuck hyprpaper
   services.hyprpaper.enable = lib.mkForce false;
   stylix.targets.hyprpaper.enable = lib.mkForce false;
   wayland.windowManager.hyprland = {
@@ -45,7 +45,7 @@ in {
       "$mod4" = "ALT";
       "$setwall" = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       monitor = [
-        # FIX: annoying ahh kernel bug
+        # FIXME: annoying ahh kernel bug
         "Unknown-1,disabled"
         "HDMI-A-1,1920x1080@75.00,0x0,1"
       ];
