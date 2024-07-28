@@ -39,6 +39,7 @@
     translate-shell
     pulsemixer
     nvtopPackages.nvidia
+    lutgen
 
     ## nix
     nitch
@@ -66,6 +67,7 @@
     glava
     nsxiv
     dvd-zig
+    gimp
 
     ## games
     heroic
@@ -92,6 +94,9 @@
     (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
     wordnet
     cmigemo
+    ### lsp
+    nil
+    zls
 
     ## docs
     man-pages
