@@ -125,7 +125,7 @@ in {
       };
       binds.workspace_back_and_forth = true;
       general = {
-        gaps_in = 6;
+        gaps_in = 5;
         gaps_out = 8;
         border_size = 0;
         "col.active_border" = lib.mkForce (rgb palette.base0A);

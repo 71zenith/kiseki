@@ -33,7 +33,6 @@
     grimblast
     cliphist
     xdg-utils
-    sops
     swww
     playerctl
     wl-clipboard
@@ -47,6 +46,7 @@
     nix-output-monitor
     nurl
     nvd
+    sops
 
     ## compression
     zip

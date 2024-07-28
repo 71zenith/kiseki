@@ -85,18 +85,18 @@
       };
     };
     style = ''
-            * {
-      border: none;
-              border-radius: 0;
-              min-height: 0;
-            }
-          window#waybar {
-            transition-property: background-color;
-            transition-duration: 0.1s;
-          }
-          window#waybar.hidden {
-      opacity: 0.1;
-          }
+      * {
+        border: none;
+        border-radius: 0;
+        min-height: 0;
+      }
+      window#waybar {
+        transition-property: background-color;
+        transition-duration: 0.1s;
+      }
+      window#waybar.hidden {
+        opacity: 0.1;
+      }
       #clock,
       #mpris,
       #network,
@@ -105,57 +105,57 @@
       #pulseaudio.muted,
       #workspaces,
       #network.disconnected {
-      color: @base05;
-      padding: 2px 5px;
-               border-radius: 5px;
-               background-color: alpha(@base00, 0.0);
+        color: @base05;
+        padding: 2px 5px;
+        border-radius: 5px;
+        background-color: alpha(@base00, 0.0);
 
-               margin-left: 5px;
-               margin-right: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
 
-               margin-top: 2px;
-               margin-bottom: 2px;
+        margin-top: 2px;
+        margin-bottom: 2px;
       }
       #workspaces button {
-      color: @base04;
-             box-shadow: inset 0 -3px transparent;
-             padding-right: 6px;
-             padding-left: 6px;
-      transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+        color: @base04;
+        box-shadow: inset 0 -3px transparent;
+        padding-right: 6px;
+        padding-left: 6px;
+        transition: all 0.1s cubic-bezier(0.55, -0.68, 0.48, 1.68);
       }
       #workspaces button.empty {
-      color: @base03;
+        color: @base03;
       }
       #workspaces button.active {
-      color: @base0B;
+        color: @base0B;
       }
       #mpris {
-      color: @base09;
+        color: @base09;
       }
       #pulseaudio {
-      color: @base0D;
+        color: @base0D;
       }
       #pulseaudio.muted {
-      color: @base0A;
+        color: @base0A;
       }
       #network {
-      color: @base0F;
+        color: @base0F;
       }
       #network.disconnected {
-      color: @base0A;
+        color: @base0A;
       }
       #clock.time {
-      color: @base0E;
+        color: @base0E;
       }
       #clock.date {
-      color: @base08;
+        color: @base08;
       }
       tooltip {
-      padding: 5px;
-               background-color: alpha(@base01, 0.75);
+        padding: 5px;
+        background-color: alpha(@base01, 0.75);
       }
       tooltip label {
-      padding: 5px;
+        padding: 5px;
       }
       #tray > .passive {
         -gtk-icon-effect: dim;
