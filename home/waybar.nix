@@ -14,7 +14,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["custom/gammastep" "hyprland/workspaces" "hyprland/window"];
+        modules-left = ["group/custom" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["image" "group/music"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
         "hyprland/workspaces" = {
@@ -88,19 +88,43 @@
             done
           '';
         };
+        "group/custom" = {
+          orientation = "horizontal";
+          drawer = {};
+          modules = [
+            "custom/toggle"
+            "custom/gammastep"
+            "custom/osk"
+          ];
+        };
+        "custom/toggle" = {
+          format = "";
+        };
+        "custom/osk" = {
+          return-type = "json";
+          format = "";
+          signal = 10;
+          exec = pkgs.writeShellScript "updateOsk" ''
+            if pgrep wvkbd >/dev/null; then
+              echo "{ \"class\" : \"on\", \"tooltip\" : \"deactivate wvbkd\" }"
+            else
+              echo "{ \"class\" : \"off\", \"tooltip\" : \"activate wvbkd\" }"
+            fi
+          '';
+          on-click = pkgs.writeShellScript "oskToggle" ''
+            pkill wvkbd-mobintl || setsid wvkbd-mobintl -L 200 --bg "161616" --fg "262626" --press "ff7eb6" --fg-sp "393939" --press-sp "33b1ff" --alpha 240 --text "f2f4f8" --text-sp "f2f4f8" &
+            pkill -RTMIN+10 waybar
+          '';
+        };
         "custom/gammastep" = {
           return-type = "json";
-          format = "{icon}";
-          format-icons = {
-            "on" = "";
-            "off" = "";
-          };
+          format = "";
           signal = 9;
-          exec = pkgs.writeShellScript "updateIcon" ''
+          exec = pkgs.writeShellScript "updateGamma" ''
             if pgrep gammastep >/dev/null; then
-              echo "{ \"alt\" : \"on\", \"tooltip\" : \"deactivate gammastep\" }"
+              echo "{ \"class\" : \"on\", \"tooltip\" : \"deactivate gammastep\" }"
             else
-              echo "{ \"alt\" : \"off\", \"tooltip\" : \"activate gammastep\" }"
+              echo "{ \"class\" : \"off\", \"tooltip\" : \"activate gammastep\" }"
             fi
           '';
           on-click = pkgs.writeShellScript "gammaToggle" ''
@@ -146,7 +170,9 @@
         #pulseaudio,
         #pulseaudio.muted,
         #workspaces,
+        #custom-toggle,
         #custom-gammastep,
+        #custom-osk,
         #network.disconnected {
           color: @base05;
           padding: 2px 5px;
@@ -179,10 +205,6 @@
         #pulseaudio {
           color: @base0D;
         }
-        #custom-gammastep {
-          margin-right: 0px;
-          color: @base0C;
-        }
         #pulseaudio.muted {
           color: @base0A;
         }
@@ -211,6 +233,23 @@
         #tray > .needs-attention {
           -gtk-icon-effect: highlight;
           background-color: @base0A;
+        }
+        #custom-toggle {
+          margin-right: 0px;
+          color: @base0E;
+        }
+        #custom-gammastep,
+        #custom-osk {
+          margin-left: 2px;
+          margin-right: 2px;
+        }
+        #custom-gammastep.off,
+        #custom-osk.off {
+          color: @base06;
+        }
+        #custom-gammastep.on,
+        #custom-osk.on {
+          color: @base0F;
         }
         #custom-progress {
           font-size: 2.5px;
