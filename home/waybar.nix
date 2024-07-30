@@ -48,7 +48,6 @@
         };
         "hyprland/window" = {
           icon = true;
-          icon-size = 27;
           rewrite = {
             ".+" = "";
           };
@@ -92,7 +91,7 @@
         "image" = {
           on-click = "nsxiv /tmp/cover.jpg";
           path = "/tmp/cover.jpg";
-          size = 32;
+          size = 29;
           signal = 8;
         };
         "mpris" = {
@@ -153,6 +152,7 @@
           color: @base0B;
         }
         #mpris {
+          margin-top: 2px;
           color: @base09;
         }
         #pulseaudio {
@@ -187,15 +187,17 @@
           -gtk-icon-effect: highlight;
           background-color: @base0A;
         }
-      ''
-      + builtins.concatStringsSep "\n" (builtins.map (p: ''
-        #custom-progress.cent${toString p} {
-          font-size: 0.5px;
+        #custom-progress {
+          font-size: 2.5px;
           margin-left: 10px;
           margin-right: 10px;
           margin-top: 2px;
-          background: linear-gradient(to right, @base04 ${toString p}%, alpha(@base01,0.0) ${toString p}.1%);
-          color: transparent;
+          color: transparent
+        }
+      ''
+      + builtins.concatStringsSep "\n" (builtins.map (p: ''
+        #custom-progress.cent${toString p} {
+          background: linear-gradient(to right, @base07 ${toString p}%, @base01 ${toString p}.1%);
         }
       '') (lib.range 0 100));
   };
