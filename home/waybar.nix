@@ -14,7 +14,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["hyprland/workspaces" "hyprland/window"];
+        modules-left = ["custom/gammastep" "hyprland/workspaces" "hyprland/window"];
         modules-center = ["image" "group/music"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
         "hyprland/workspaces" = {
@@ -88,6 +88,26 @@
             done
           '';
         };
+        "custom/gammastep" = {
+          return-type = "json";
+          format = "{icon}";
+          format-icons = {
+            "on" = "";
+            "off" = "";
+          };
+          signal = 9;
+          exec = pkgs.writeShellScript "updateIcon" ''
+            if pgrep gammastep >/dev/null; then
+              echo "{ \"alt\" : \"on\", \"tooltip\" : \"deactivate gammastep\" }"
+            else
+              echo "{ \"alt\" : \"off\", \"tooltip\" : \"activate gammastep\" }"
+            fi
+          '';
+          on-click = pkgs.writeShellScript "gammaToggle" ''
+            pkill gammastep || setsid gammastep -O 4500 &
+            pkill -RTMIN+9 waybar
+          '';
+        };
         "image" = {
           on-click = "nsxiv /tmp/cover.jpg";
           path = "/tmp/cover.jpg";
@@ -126,6 +146,7 @@
         #pulseaudio,
         #pulseaudio.muted,
         #workspaces,
+        #custom-gammastep,
         #network.disconnected {
           color: @base05;
           padding: 2px 5px;
@@ -157,6 +178,10 @@
         }
         #pulseaudio {
           color: @base0D;
+        }
+        #custom-gammastep {
+          margin-right: 0px;
+          color: @base0C;
         }
         #pulseaudio.muted {
           color: @base0A;

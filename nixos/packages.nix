@@ -40,6 +40,7 @@
     pulsemixer
     nvtopPackages.nvidia
     lutgen
+    gammastep
 
     ## nix
     nitch
