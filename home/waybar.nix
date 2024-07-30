@@ -14,9 +14,9 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["group/custom" "hyprland/workspaces" "hyprland/window"];
+        modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-center = ["image" "group/music"];
-        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "tray"];
+        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "group/custom" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -89,15 +89,18 @@
           '';
         };
         "group/custom" = {
-          orientation = "horizontal";
-          drawer = {};
+          orientation = "inherit";
+          drawer = {
+            transition-left-to-right = false;
+            transition-duration = 250;
+          };
           modules = [
             "custom/toggle"
-            "custom/gammastep"
-            "custom/osk"
-            "custom/dvd"
             "custom/off"
             "custom/again"
+            "custom/dvd"
+            "custom/osk"
+            "custom/gammastep"
           ];
         };
         "custom/toggle" = {
@@ -257,8 +260,9 @@
           background-color: @base0A;
         }
         #custom-toggle {
+          font-size: 80%;
           margin-right: 0px;
-          color: @base0E;
+          margin-left: 0px;
         }
         #custom-dvd:hover,
         #custom-off:hover,
@@ -279,13 +283,13 @@
         #custom-dvd,
         #custom-off,
         #custom-again,
-        #custom-gammastep.off,
-        #custom-osk.off {
-          color: @base06;
-        }
         #custom-gammastep.on,
         #custom-osk.on {
-          color: @base0F;
+          color: @base06;
+        }
+        #custom-gammastep.off,
+        #custom-osk.off {
+          color: @base02;
         }
         #custom-progress {
           font-size: 2.5px;
