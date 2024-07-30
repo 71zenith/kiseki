@@ -95,10 +95,17 @@
             "custom/toggle"
             "custom/gammastep"
             "custom/osk"
+            "custom/dvd"
           ];
         };
         "custom/toggle" = {
           format = "";
+          tooltip-format = "open quick settings";
+        };
+        "custom/dvd" = {
+          format = "";
+          on-click = "dvd";
+          tooltip-format = "activate dvd";
         };
         "custom/osk" = {
           return-type = "json";
@@ -171,6 +178,7 @@
         #pulseaudio.muted,
         #workspaces,
         #custom-toggle,
+        #custom-dvd,
         #custom-gammastep,
         #custom-osk,
         #network.disconnected {
@@ -238,11 +246,13 @@
           margin-right: 0px;
           color: @base0E;
         }
+        #custom-dvd,
         #custom-gammastep,
         #custom-osk {
           margin-left: 2px;
           margin-right: 2px;
         }
+        #custom-dvd,
         #custom-gammastep.off,
         #custom-osk.off {
           color: @base06;

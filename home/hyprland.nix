@@ -84,6 +84,7 @@ in {
         "size 85% 80%, class:com.gabm.satty"
         "center, class:com.gabm.satty"
         "center, class:pop"
+        "idleinhibit always, title:raylib-zig dvd animation"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
       ];
