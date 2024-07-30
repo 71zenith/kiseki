@@ -260,6 +260,14 @@
           margin-right: 0px;
           color: @base0E;
         }
+        #custom-dvd:hover,
+        #custom-off:hover,
+        #custom-again:hover,
+        #custom-gammastep:hover,
+        #custom-osk:hover {
+          border-radius: 0px;
+          background-color: @base01;
+        }
         #custom-dvd,
         #custom-off,
         #custom-again,

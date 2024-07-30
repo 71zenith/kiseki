@@ -243,7 +243,6 @@ in {
           "$mod2, Tab, cyclenext,prev"
           "$mod3, n, swapnext"
           "$mod3, p, swapnext,prev"
-          "$mod1, slash, workspace, previous"
 
           "$mod1, 9, togglespecialworkspace, music"
           "$mod1, 0, togglespecialworkspace, matrix"
