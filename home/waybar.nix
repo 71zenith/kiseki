@@ -96,11 +96,23 @@
             "custom/gammastep"
             "custom/osk"
             "custom/dvd"
+            "custom/off"
+            "custom/again"
           ];
         };
         "custom/toggle" = {
           format = "";
           tooltip-format = "open quick settings";
+        };
+        "custom/off" = {
+          format = "";
+          on-click = "poweroff";
+          tooltip-format = "poweroff";
+        };
+        "custom/again" = {
+          format = "";
+          on-click = "reboot";
+          tooltip-format = "reboot";
         };
         "custom/dvd" = {
           format = "";
@@ -179,6 +191,8 @@
         #workspaces,
         #custom-toggle,
         #custom-dvd,
+        #custom-off,
+        #custom-again,
         #custom-gammastep,
         #custom-osk,
         #network.disconnected {
@@ -247,12 +261,16 @@
           color: @base0E;
         }
         #custom-dvd,
+        #custom-off,
+        #custom-again,
         #custom-gammastep,
         #custom-osk {
           margin-left: 2px;
           margin-right: 2px;
         }
         #custom-dvd,
+        #custom-off,
+        #custom-again,
         #custom-gammastep.off,
         #custom-osk.off {
           color: @base06;
