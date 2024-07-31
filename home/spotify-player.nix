@@ -16,7 +16,7 @@
       theme = config.stylix.base16Scheme.slug;
       seek_duration_secs = 10;
       playback_window_position = "Bottom";
-      liked_icon = " ";
+      liked_icon = "󰋑 ";
       border_type = "Hidden";
       progress_bar_type = "Rectangle";
       cover_img_scale = 1.5;
@@ -120,6 +120,10 @@
           block_title = {
             fg = "BrightGreen";
             modifiers = ["Italic" "Bold"];
+          };
+          like = {
+            fg = "Red";
+            modifiers = ["Bold"];
           };
           playback_track = {
             fg = "BrightMagenta";

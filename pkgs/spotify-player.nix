@@ -32,16 +32,16 @@
 assert lib.assertOneOf "withAudioBackend" withAudioBackend ["" "alsa" "pulseaudio" "rodio" "portaudio" "jackaudio" "rodiojack" "sdl" "gstreamer"];
   rustPlatform.buildRustPackage rec {
     pname = "spotify-player";
-    version = "0.19.1";
+    version = "unstable-2024-07-30";
 
     src = fetchFromGitHub {
       owner = "aome510";
       repo = pname;
-      rev = "58a5ace777293ed04fb0da44075a27d777822501";
-      hash = "sha256-2BTnCjM9WTn9bJJ0bWIdwGrrRCdFBpSuCBb32qL71qc=";
+      rev = "fdb846e86e040b7d6ea45b0f578dd1ce7abd0008";
+      hash = "sha256-VTr556pl7UoViGuIGmB//bRulc0CnAAZK39AMct3TGA=";
     };
 
-    cargoHash = "sha256-7vximGisIIXBrwHXSWQjO08OraaweG7ZT6v+gVdYGVc=";
+    cargoHash = "sha256-bp79DbBdf6eGiDA1FFRk9ikonMbpPjcRF8RjIaZ/YfQ=";
 
     nativeBuildInputs =
       [

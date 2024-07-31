@@ -8,6 +8,7 @@
 in {
   stylix.targets = {
     zathura.enable = false;
+    emacs.enable = false;
   };
 
   # i18n.inputMethod = {

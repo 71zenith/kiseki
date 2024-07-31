@@ -22,9 +22,20 @@ in {
       vimAlias = true;
       defaultEditor = true;
       colorschemes.oxocarbon.enable = true;
+      performance = {
+        combinePlugins = {
+          enable = true;
+          standalonePlugins = ["nvim-treesitter" "nvim-treesitter-textobjects"];
+        };
+        byteCompileLua = {
+          enable = true;
+          nvimRuntime = true;
+          plugins = true;
+        };
+      };
       extraConfigLuaPre = ''
         local luasnip = require("luasnip")
-        local tele = require("telescope.actions")
+        local telescope = require("telescope.actions")
       '';
       extraConfigLuaPost = ''
         require("buffer_manager").setup({ focus_alternate_buffer = true,})
@@ -151,8 +162,8 @@ in {
           preConfig = ''
             local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
             for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+              local hl = "DiagnosticSign" .. type
+              vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
           '';
           servers = {
@@ -328,12 +339,24 @@ in {
         luasnip.enable = true;
         which-key = {
           enable = true;
-          registrations = {
-            "<leader>f" = "FILES";
-            "<leader>l" = "LSP";
-            "<leader>g" = "GIT";
-            "<leader>w" = "WINDOW";
-          };
+          settings.spec = [
+            {
+              __unkeyed-1 = "<leader>f";
+              desc = "FILES";
+            }
+            {
+              __unkeyed-1 = "<leader>g";
+              desc = "GIT";
+            }
+            {
+              __unkeyed-1 = "<leader>l";
+              desc = "LSP";
+            }
+            {
+              __unkeyed-1 = "<leader>w";
+              desc = "WINDOW";
+            }
+          ];
         };
         treesitter = {
           enable = true;
@@ -516,11 +539,15 @@ in {
                 name = "buffer";
                 keyword_length = 3;
               }
+              {
+                name = "luasnip";
+                keyword_length = 3;
+              }
             ];
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
-              luasnip.lsp_expand(args.body)
+                luasnip.lsp_expand(args.body)
               end
             '';
             mapping = {
@@ -570,16 +597,16 @@ in {
               mappings = {
                 i = {
                   "<C-j>" = {
-                    __raw = "tele.move_selection_next";
+                    __raw = "telescope.move_selection_next";
                   };
                   "<C-h>" = {
-                    __raw = "tele.close";
+                    __raw = "telescope.close";
                   };
                   "<C-l>" = {
-                    __raw = "tele.select_default";
+                    __raw = "telescope.select_default";
                   };
                   "<C-k>" = {
-                    __raw = "tele.move_selection_previous";
+                    __raw = "telescope.move_selection_previous";
                   };
                 };
               };
