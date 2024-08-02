@@ -6,9 +6,8 @@
 }: let
   plugins = import ../pkgs/plugins-nvim.nix {inherit pkgs;};
 in {
-  imports = [
-    inputs.nixvim.homeManagerModules.nixvim
-  ];
+  imports = [inputs.nixvim.homeManagerModules.nixvim];
+
   stylix.targets = {
     nixvim.enable = false;
     vim.enable = false;
@@ -263,7 +262,6 @@ in {
         surround.enable = true;
         lastplace.enable = true;
         lspkind.enable = true;
-        friendly-snippets.enable = true;
         lsp-format.enable = true;
         none-ls = {
           enable = true;
@@ -395,11 +393,11 @@ in {
                 query = "@assignment.inner";
                 desc = "Select inner part of an assignment";
               };
-              "ll" = {
+              "aj" = {
                 query = "@assignment.lhs";
                 desc = "Select left hand side of an assignment";
               };
-              "rl" = {
+              "ak" = {
                 query = "@assignment.rhs";
                 desc = "Select right hand side of an assignment";
               };

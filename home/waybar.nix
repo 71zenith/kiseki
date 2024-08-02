@@ -14,7 +14,7 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["hyprland/workspaces" "hyprland/window"];
+        modules-left = ["hyprland/workspaces" "hyprland/window" "privacy"];
         modules-center = ["image" "group/music"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "group/custom" "tray"];
         "hyprland/workspaces" = {
@@ -83,7 +83,7 @@
           return-type = "json";
           exec = pkgs.writeShellScript "centWay" ''
             while :; do
-              echo "{ \"text\" : \"_\" , \"class\" : \"$(playerctl --player spotify_player metadata --format 'cent{{ (position / 100) / (mpris:length / 100) * 100 }}' | cut -d. -f1)\" }"
+              echo "{ \"text\" : \"_\" , \"class\" : \"$(playerctl --ignore-player firefox metadata --format 'cent{{ (position / 100) / (mpris:length / 100) * 100 }}' | cut -d. -f1)\" }"
               sleep 3
             done
           '';
@@ -98,7 +98,7 @@
             "custom/toggle"
             "custom/off"
             "custom/again"
-            "custom/dvd"
+            "idle_inhibitor"
             "custom/osk"
             "custom/gammastep"
           ];
@@ -117,10 +117,17 @@
           on-click = "reboot";
           tooltip-format = "reboot";
         };
-        "custom/dvd" = {
-          format = "";
-          on-click = "dvd";
-          tooltip-format = "activate dvd";
+        "idle_inhibitor" = {
+          format = "{icon}";
+          on-click-right = "dvd";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
+        "privacy" = {
+          icon-size = 16;
+          icon-spacing = 6;
         };
         "custom/osk" = {
           return-type = "json";
@@ -193,7 +200,8 @@
         #pulseaudio.muted,
         #workspaces,
         #custom-toggle,
-        #custom-dvd,
+        #idle_inhibitor,
+        #privacy,
         #custom-off,
         #custom-again,
         #custom-gammastep,
@@ -264,7 +272,7 @@
           margin-right: 0px;
           margin-left: 0px;
         }
-        #custom-dvd:hover,
+        #idle_inhibitor:hover,
         #custom-off:hover,
         #custom-again:hover,
         #custom-gammastep:hover,
@@ -272,7 +280,8 @@
           border-radius: 0px;
           background-color: @base01;
         }
-        #custom-dvd,
+        #idle_inhibitor,
+        #privacy,
         #custom-off,
         #custom-again,
         #custom-gammastep,
@@ -280,13 +289,15 @@
           margin-left: 2px;
           margin-right: 2px;
         }
-        #custom-dvd,
+        #idle_inhibitor.activated,
+        #privacy-item,
         #custom-off,
         #custom-again,
         #custom-gammastep.on,
         #custom-osk.on {
           color: @base06;
         }
+        #idle_inhibitor.deactivated,
         #custom-gammastep.off,
         #custom-osk.off {
           color: @base02;
