@@ -134,7 +134,9 @@ in {
       autocd = true;
     };
   };
-  xdg.configFile."zsh/p10k.zsh".text = ''
+  xdg.configFile."zsh/p10k.zsh".text = let
+    escape = ''''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'';
+  in ''
     'builtin' 'local' '-a' 'p10k_config_opts'
     [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
     [[ ! -o 'sh_glob'         ]] || p10k_config_opts+=('sh_glob')
@@ -212,7 +214,7 @@ in {
       typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':⇣'
       typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=':⇡'
       typeset -g POWERLEVEL9K_VCS_{COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=1
-      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='​''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'
+      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${escape}'
 
       typeset -g POWERLEVEL9K_TIME_FOREGROUND=$grey
       typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
