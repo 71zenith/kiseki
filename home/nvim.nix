@@ -33,9 +33,14 @@ in {
           plugins = true;
         };
       };
-      extraConfigLuaPost = ''
+      extraConfigLuaPre = ''
         require("buffer_manager").setup({ focus_alternate_buffer = true})
         require("which-key").setup({icons = {rules = false}})
+      '';
+      extraConfigLuaPost = ''
+        require("cmp").event:on(
+          'confirm_done',
+          require("nvim-autopairs.completion.cmp").on_confirm_done())
       '';
       # HACK: till upstream fix arrives
       highlight = {
@@ -133,6 +138,7 @@ in {
       plugins = {
         nix.enable = false;
         nvim-bqf.enable = true;
+        nvim-autopairs.enable = true;
         todo-comments.enable = true;
         barbecue = {
           enable = true;
@@ -350,12 +356,7 @@ in {
           enable = true;
           lspInterop = {
             enable = true;
-            peekDefinitionCode = {
-              "gd" = {
-                query = "@function.outer";
-                desc = "Hover [d]efinition";
-              };
-            };
+            peekDefinitionCode."gd" = querydesc "@function.outer" "Hover definition";
           };
           select = {
             enable = true;
