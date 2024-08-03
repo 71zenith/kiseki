@@ -5,6 +5,7 @@
   ...
 }: let
   plugins = import ../pkgs/plugins-nvim.nix {inherit pkgs;};
+  querydesc = query: desc: {inherit query desc;};
 in {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
 
@@ -32,17 +33,9 @@ in {
           plugins = true;
         };
       };
-      extraConfigLuaPre = ''
-        local luasnip = require("luasnip")
-        local telescope = require("telescope.actions")
-      '';
       extraConfigLuaPost = ''
-        require("buffer_manager").setup({ focus_alternate_buffer = true,})
-        local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-        local cmp = require('cmp')
-        cmp.event:on(
-          'confirm_done',
-          cmp_autopairs.on_confirm_done())
+        require("buffer_manager").setup({ focus_alternate_buffer = true})
+        require("which-key").setup({icons = {rules = false}})
       '';
       # HACK: till upstream fix arrives
       highlight = {
@@ -139,22 +132,16 @@ in {
       extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager];
       plugins = {
         nix.enable = false;
-        hop.enable = true;
-        nvim-autopairs = {
-          enable = true;
-          settings.check_ts = true;
-        };
         nvim-bqf.enable = true;
         todo-comments.enable = true;
         barbecue = {
           enable = true;
           leadCustomSection = ''
             function()
-            return {{" ","WinBar"}}
+              return {{" ","WinBar"}}
             end
           '';
         };
-        flash.enable = true;
         dressing.enable = true;
         lsp = {
           enable = true;
@@ -258,14 +245,12 @@ in {
             };
           };
         };
-        diffview.enable = true;
         surround.enable = true;
         lastplace.enable = true;
         lspkind.enable = true;
         lsp-format.enable = true;
         none-ls = {
           enable = true;
-          enableLspFormat = true;
           sources = {
             formatting = {alejandra.enable = true;};
             diagnostics = {statix.enable = true;};
@@ -291,20 +276,11 @@ in {
         };
         neogit = {
           enable = true;
-          settings = {
-            integrations.diffview = true;
-            integrations.telescope = true;
-            commit_editor.kind = "floating";
-            commit_popup.kind = "floating";
-            preview_buffer.kind = "floating";
-            popup.kind = "floating";
-            log_view.kind = "floating";
-            description_editor.kind = "floating";
-          };
+          settings.integrations.telescope = true;
         };
         lualine = {
           enable = true;
-          disabledFiletypes.statusline = ["alpha" "trouble" "telescope" "oil"];
+          disabledFiletypes.statusline = ["alpha" "trouble" "telescope" "oil" "toggleterm"];
           sectionSeparators = {
             left = "";
             right = "";
@@ -375,7 +351,7 @@ in {
           lspInterop = {
             enable = true;
             peekDefinitionCode = {
-              "gD" = {
+              "gd" = {
                 query = "@function.outer";
                 desc = "Hover [d]efinition";
               };
@@ -385,138 +361,48 @@ in {
             enable = true;
             lookahead = true;
             keymaps = {
-              "a=" = {
-                query = "@assignment.outer";
-                desc = "Select outer part of an assignment";
-              };
-              "i=" = {
-                query = "@assignment.inner";
-                desc = "Select inner part of an assignment";
-              };
-              "aj" = {
-                query = "@assignment.lhs";
-                desc = "Select left hand side of an assignment";
-              };
-              "ak" = {
-                query = "@assignment.rhs";
-                desc = "Select right hand side of an assignment";
-              };
-              "ai" = {
-                query = "@conditional.outer";
-                desc = "Select outer part of a conditional";
-              };
-              "ii" = {
-                query = "@conditional.inner";
-                desc = "Select inner part of a conditional";
-              };
-              "il" = {
-                query = "@loop.inner";
-                desc = "Select inner part of a loop";
-              };
-              "al" = {
-                query = "@loop.outer";
-                desc = "Select outer part of a loop";
-              };
-              "aa" = {
-                query = "@parameter.outer";
-                desc = "Select outer part of a parameter";
-              };
-              "ia" = {
-                query = "@parameter.inner";
-                desc = "Select inner part of a parameter";
-              };
-              "af" = {
-                query = "@function.outer";
-                desc = "Select outer part of a function";
-              };
-              "if" = {
-                query = "@function.inner";
-                desc = "Select inner part of a function";
-              };
-              "am" = {
-                query = "@call.outer";
-                desc = "Select outer part of a method";
-              };
-              "im" = {
-                query = "@call.inner";
-                desc = "Select inner part of a method";
-              };
+              "a=" = querydesc "@assignment.outer" "Select outer part of an assignment";
+              "i=" = querydesc "@assignment.inner" "Select inner part of an assignment";
+              "aj" = querydesc "@assignment.lhs" "Select left hand side of an assignment";
+              "ak" = querydesc "@assignment.rhs" "Select right hand side of an assignment";
+              "ai" = querydesc "@conditional.outer" "Select outer part of a conditional";
+              "ii" = querydesc "@conditional.inner" "Select inner part of a conditional";
+              "il" = querydesc "@loop.inner" "Select inner part of a loop";
+              "al" = querydesc "@loop.outer" "Select outer part of a loop";
+              "aa" = querydesc "@parameter.outer" "Select outer part of a parameter";
+              "ia" = querydesc "@parameter.inner" "Select inner part of a parameter";
+              "af" = querydesc "@function.outer" "Select outer part of a function";
+              "if" = querydesc "@function.inner" "Select inner part of a function";
+              "am" = querydesc "@call.outer" "Select outer part of a method";
+              "im" = querydesc "@call.inner" "Select inner part of a method";
             };
           };
           move = {
             enable = true;
             setJumps = true;
             gotoNextStart = {
-              "]f" = {
-                query = "@function.outer";
-                desc = "Next function call start";
-              };
-              "]m" = {
-                query = "@call.outer";
-                desc = "Next method call start";
-              };
-              "]l" = {
-                query = "@loop.outer";
-                desc = "Next loop start";
-              };
-              "]i" = {
-                query = "@conditional.outer";
-                desc = "Next conditional start";
-              };
+              "]f" = querydesc "@function.outer" "Next function call start";
+              "]m" = querydesc "@call.outer" "Next method call start";
+              "]l" = querydesc "@loop.outer" "Next loop start";
+              "]i" = querydesc "@conditional.outer" "Next conditional start";
             };
             gotoPreviousStart = {
-              "[f" = {
-                query = "@function.outer";
-                desc = "Previous function call start";
-              };
-              "[m" = {
-                query = "@call.outer";
-                desc = "Previous method call start";
-              };
-              "[l" = {
-                query = "@loop.outer";
-                desc = "Previous loop start";
-              };
-              "[i" = {
-                query = "@conditional.outer";
-                desc = "Previous conditional start";
-              };
+              "[f" = querydesc "@function.outer" "Previous function call start";
+              "[m" = querydesc "@call.outer" "Previous method call start";
+              "[l" = querydesc "@loop.outer" "Previous loop start";
+              "[i" = querydesc "@conditional.outer" "Previous conditional start";
             };
             gotoPreviousEnd = {
-              "[F" = {
-                query = "@function.outer";
-                desc = "Previous function call end";
-              };
-              "[M" = {
-                query = "@call.outer";
-                desc = "Previous method call end";
-              };
-              "[L" = {
-                query = "@loop.outer";
-                desc = "Previous loop end";
-              };
-              "[I" = {
-                query = "@conditional.outer";
-                desc = "Previous conditional end";
-              };
+              "[F" = querydesc "@function.outer" "Previous function call end";
+              "[M" = querydesc "@call.outer" "Previous method call end";
+              "[L" = querydesc "@loop.outer" "Previous loop end";
+              "[I" = querydesc "@conditional.outer" "Previous conditional end";
             };
             gotoNextEnd = {
-              "]M" = {
-                query = "@call.outer";
-                desc = "Next method call end";
-              };
-              "]F" = {
-                query = "@function.outer";
-                desc = "Next function call end";
-              };
-              "]L" = {
-                query = "@loop.outer";
-                desc = "Next loop end";
-              };
-              "]I" = {
-                query = "@conditional.outer";
-                desc = "Next conditional end";
-              };
+              "]M" = querydesc "@call.outer" "Next method call end";
+              "]F" = querydesc "@function.outer" "Next function call end";
+              "]L" = querydesc "@loop.outer" "Next loop end";
+              "]I" = querydesc "@conditional.outer" "Next conditional end";
             };
           };
         };
@@ -545,7 +431,7 @@ in {
             matching.disallow_fullfuzzy_matching = true;
             snippet.expand = ''
               function(args)
-                luasnip.lsp_expand(args.body)
+                require('luasnip').lsp_expand(args.body)
               end
             '';
             mapping = {
@@ -563,8 +449,8 @@ in {
                   cmp.mapping(function(fallback)
                   if cmp.visible() then
                     cmp.select_next_item()
-                  elseif luasnip.locally_jumpable(1) then
-                    luasnip.jump(1)
+                  elseif require('luasnip').locally_jumpable(1) then
+                    require('luasnip').jump(1)
                   else
                     fallback()
                   end
@@ -574,8 +460,8 @@ in {
                   cmp.mapping(function(fallback)
                   if cmp.visible() then
                     cmp.select_prev_item()
-                  elseif luasnip.locally_jumpable(-1) then
-                    luasnip.jump(-1)
+                  elseif require('luasnip').locally_jumpable(-1) then
+                    require('luasnip').jump(-1)
                   else
                     fallback()
                   end
@@ -586,29 +472,15 @@ in {
         };
         telescope = {
           enable = true;
-          extensions = {
-            frecency.enable = true;
-            frecency.settings.db_validate_threshold = 200;
+          extensions.frecency = {
+            enable = true;
+            settings.db_validate_threshold = 200;
           };
-          settings = {
-            defaults = {
-              mappings = {
-                i = {
-                  "<C-j>" = {
-                    __raw = "telescope.move_selection_next";
-                  };
-                  "<C-h>" = {
-                    __raw = "telescope.close";
-                  };
-                  "<C-l>" = {
-                    __raw = "telescope.select_default";
-                  };
-                  "<C-k>" = {
-                    __raw = "telescope.move_selection_previous";
-                  };
-                };
-              };
-            };
+          settings.defaults.mappings.i = {
+            "<C-j>".__raw = "require('telescope.actions').move_selection_next";
+            "<C-h>".__raw = "require('telescope.actions').close";
+            "<C-l>".__raw = "require('telescope.actions').select_default";
+            "<C-k>".__raw = "require('telescope.actions').move_selection_previous";
           };
         };
       };
@@ -617,37 +489,37 @@ in {
           key = "<leader>fo";
           mode = "n";
           action = "<CMD>Telescope<CR>";
-          options.desc = "[O]pen Telescope";
+          options.desc = "Open Telescope";
         }
         {
           key = "<leader>ls";
           mode = "n";
           action = "<CMD>Telescope lsp_document_symbols<CR>";
-          options.desc = "Document [s]ymbols";
+          options.desc = "Document symbols";
         }
         {
           key = "<leader>la";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.code_action()<CR>";
-          options.desc = "Show code [a]ctions";
+          options.desc = "Show code actions";
         }
         {
           key = "<leader>lr";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.rename()<CR>";
-          options.desc = "[R]ename symbol";
+          options.desc = "Rename symbol";
         }
         {
           key = "<leader>lg";
           mode = "n";
           action = "<CMD>lua vim.diagnostic.setqflist()<CR>";
-          options.desc = "Dia[g]nostics qflist";
+          options.desc = "Diagnostics qflist";
         }
         {
           key = "<leader>ld";
           mode = "n";
           action = "<CMD>lua vim.diagnostic.open_float()<CR>";
-          options.desc = "Hover [d]iagnostics";
+          options.desc = "Hover diagnostics";
         }
         {
           key = "<leader>ln";
@@ -659,13 +531,13 @@ in {
           key = "<leader>li";
           mode = "n";
           action = "<CMD>Telescope lsp_implementations<CR>";
-          options.desc = "Goto [i]mplementations";
+          options.desc = "Goto implementations";
         }
         {
           key = "<leader>le";
           mode = "n";
           action = "<CMD>Telescope lsp_references<CR>";
-          options.desc = "List r[e]ferences";
+          options.desc = "List references";
         }
         {
           key = "<leader>b";
@@ -778,31 +650,31 @@ in {
           key = "<leader>fc";
           mode = "n";
           action = "<CMD>Telescope grep_string<CR>";
-          options.desc = "Find string under [c]ursor";
+          options.desc = "Find string under cursor";
         }
         {
           key = "<leader>ft";
           mode = "n";
           action = "<CMD>TodoTelescope<CR>";
-          options.desc = "[T]odo Telescope";
+          options.desc = "Todo Telescope";
         }
         {
           key = "<leader>fg";
           mode = "n";
           action = "<CMD>Telescope live_grep<CR>";
-          options.desc = "Live [g]rep";
+          options.desc = "Live grep";
         }
         {
           key = "<leader>fr";
           mode = "n";
           action = "<CMD>Telescope frecency<CR>";
-          options.desc = "Fr[e]cency files";
+          options.desc = "Frecency files";
         }
         {
           key = "<leader>fe";
           mode = "n";
           action = "<CMD>Telescope oldfiles<CR>";
-          options.desc = "R[e]cent files";
+          options.desc = "Recent files";
         }
         {
           key = "<leader>fu";
@@ -820,19 +692,19 @@ in {
           key = "<leader>ff";
           mode = "n";
           action = "<CMD>Telescope fd<CR>";
-          options.desc = "Find [f]iles";
+          options.desc = "Find files";
         }
         {
           key = "<leader>fn";
           mode = "n";
           action = "<CMD>ene<CR>";
-          options.desc = "[N]ew file";
+          options.desc = "New file";
         }
         {
           key = "<leader>o";
           mode = "n";
           action = "<CMD>lua require('oil').toggle_float()<CR>";
-          options.desc = "Open [o]il";
+          options.desc = "Open oil";
         }
         {
           key = "]g";
@@ -850,7 +722,7 @@ in {
           key = "<leader>gg";
           mode = "n";
           action = "<CMD>Neogit<CR>";
-          options.desc = "Open Neo[g]it";
+          options.desc = "Open Neogit";
         }
         {
           key = "<leader>gR";
@@ -868,37 +740,37 @@ in {
           key = "<leader>gS";
           mode = ["v" "n"];
           action = "<CMD>Gitsigns stage_buffer<CR>";
-          options.desc = "[S]tage buffer";
+          options.desc = "Stage buffer";
         }
         {
           key = "<leader>gs";
           mode = "n";
           action = "<CMD>Gitsigns stage_hunk<CR>";
-          options.desc = "[S]tage hunk";
+          options.desc = "Stage hunk";
         }
         {
           key = "<leader>gu";
           mode = "n";
           action = "<CMD>Gitsigns undo_stage_hunk<CR>";
-          options.desc = "[U]nstage hunk";
+          options.desc = "Unstage hunk";
         }
         {
           key = "<leader>gp";
           mode = "n";
           action = "<CMD>Gitsigns preview_hunk<CR>";
-          options.desc = "[P]review hunk";
+          options.desc = "Preview hunk";
         }
         {
           key = "<leader>gr";
           mode = ["v" "n"];
           action = "<CMD>Gitsigns reset_hunk<CR>";
-          options.desc = "[R]eset hunk";
+          options.desc = "Reset hunk";
         }
         {
           key = "<leader>wv";
           mode = "n";
           action = "<C-w>v";
-          options.desc = "Split window [v]ertically";
+          options.desc = "Split window vertically";
         }
         {
           key = "[t";
@@ -928,19 +800,19 @@ in {
           key = "<leader>wc";
           mode = "n";
           action = "<CMD>close!<CR>";
-          options.desc = "Close [c]urrent split";
+          options.desc = "Close current split";
         }
         {
           key = "<leader>wh";
           mode = "n";
           action = "<C-w>s";
-          options.desc = "Split window [h]orizontally";
+          options.desc = "Split window horizontally";
         }
         {
           key = "<leader>wn";
           mode = "n";
           action = "<CMD>tabnew<CR>";
-          options.desc = "Open [n]ew tab";
+          options.desc = "Open new tab";
         }
         {
           key = "<leader>-";
@@ -1095,40 +967,10 @@ in {
           options.desc = "Prev quickfix";
         }
         {
-          key = "<leader>ap";
-          mode = "n";
-          action = "<CMD>HopPattern<CR>";
-          options.desc = "Jump to [p]attern";
-        }
-        {
-          key = "<leader>aa";
-          mode = "n";
-          action = "<CMD>HopPatternCurrentLine<CR>";
-          options.desc = "Jump to pattern in current line";
-        }
-        {
-          key = "<leader>al";
-          mode = "n";
-          action = "<CMD>HopLineStart<CR>";
-          options.desc = "Jump to [l]ine";
-        }
-        {
-          key = "<leader>as";
-          mode = "n";
-          action = "<CMD>HopCamelCaseCurrentLine<CR>";
-          options.desc = "Jump to word in current line";
-        }
-        {
-          key = "<leader>aw";
-          mode = "n";
-          action = "<CMD>HopWord<CR>";
-          options.desc = "Jump to [w]ord";
-        }
-        {
           key = "<leader>v";
           mode = ["n" "t"];
           action = "<CMD>1ToggleTerm direction=float name=はい <CR>";
-          options.desc = "Open termi[n]al";
+          options.desc = "Open terminal";
         }
         {
           key = "<leader>.";
