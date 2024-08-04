@@ -13,10 +13,7 @@
         package = pkgs.my-fonts;
         name = "Kollektif";
       };
-      sansSerif = {
-        package = pkgs.my-fonts;
-        inherit (serif) name;
-      };
+      sansSerif = serif;
       monospace = {
         package = pkgs.my-fonts;
         name = "Geist Mono";

@@ -170,6 +170,8 @@
         "mpris" = {
           format = "{status_icon} {title}";
           format-paused = "{status_icon} <i>{title}</i>";
+          on-scroll-up = "playerctld shift";
+          on-scroll-down = "playerctld unshift";
           max-length = 80;
           status-icons = {
             playing = "";

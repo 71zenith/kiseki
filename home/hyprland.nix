@@ -174,8 +174,8 @@ in {
         "$mod1, d, exec, playerctl next --player=spotify_player"
         "$mod1, a, exec, playerctl previous --player=spotify_player"
         "$mod1, s, exec, playerctl play-pause"
-        "$mod1, n, exec, playerctld shift up"
-        "$mod1, m, exec, playerctld shift down"
+        "$mod1, n, exec, playerctld shift"
+        "$mod1, m, exec, playerctld unshift"
       ];
       binde = [
         "$mod2, l, resizeactive, 40 0"
