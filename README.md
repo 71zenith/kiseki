@@ -39,7 +39,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 - 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [iamb](https://github.com/ulyssa/iamb), [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords with [sops-nix](https://github.com/Mic92/sops-nix)
-- 🎼 tightly integrated [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) cover and progress bar and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces
+- 🎼 [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces
 - 📊 [glava](https://github.com/jarcode-foss/glava) with on the fly color based on current song
 - 🌐 [firefox](https://www.mozilla.org/en-US/firefox/) with declarative config
 - 🚀 advanced [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculations, sending files to discord, clipboard with images, wallpaper switcher
@@ -108,7 +108,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                                    | Description                        |
 |-------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
-| [zed-mono](https://github.com/zed-industries/zed-fonts)                 | monospace font                     |
+| [geist-mono](https://vercel.com/font)                                   | monospace font                     |
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |

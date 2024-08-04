@@ -19,7 +19,7 @@
       };
       monospace = {
         package = pkgs.my-fonts;
-        name = "Zed Mono";
+        name = "Geist Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;

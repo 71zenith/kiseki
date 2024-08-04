@@ -5,7 +5,7 @@
   ...
 }: let
   plugins = import ../pkgs/plugins-nvim.nix {inherit pkgs;};
-  querydesc = query: desc: {inherit query desc;};
+  queryDesc = query: desc: {inherit query desc;};
 in {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
 
@@ -356,54 +356,54 @@ in {
           enable = true;
           lspInterop = {
             enable = true;
-            peekDefinitionCode."gd" = querydesc "@function.outer" "Hover definition";
+            peekDefinitionCode."gd" = queryDesc "@function.outer" "Hover definition";
           };
           select = {
             enable = true;
             lookahead = true;
             keymaps = {
-              "a=" = querydesc "@assignment.outer" "Select outer part of an assignment";
-              "i=" = querydesc "@assignment.inner" "Select inner part of an assignment";
-              "aj" = querydesc "@assignment.lhs" "Select left hand side of an assignment";
-              "ak" = querydesc "@assignment.rhs" "Select right hand side of an assignment";
-              "ai" = querydesc "@conditional.outer" "Select outer part of a conditional";
-              "ii" = querydesc "@conditional.inner" "Select inner part of a conditional";
-              "il" = querydesc "@loop.inner" "Select inner part of a loop";
-              "al" = querydesc "@loop.outer" "Select outer part of a loop";
-              "aa" = querydesc "@parameter.outer" "Select outer part of a parameter";
-              "ia" = querydesc "@parameter.inner" "Select inner part of a parameter";
-              "af" = querydesc "@function.outer" "Select outer part of a function";
-              "if" = querydesc "@function.inner" "Select inner part of a function";
-              "am" = querydesc "@call.outer" "Select outer part of a method";
-              "im" = querydesc "@call.inner" "Select inner part of a method";
+              "a=" = queryDesc "@assignment.outer" "Select outer part of an assignment";
+              "i=" = queryDesc "@assignment.inner" "Select inner part of an assignment";
+              "aj" = queryDesc "@assignment.lhs" "Select left hand side of an assignment";
+              "ak" = queryDesc "@assignment.rhs" "Select right hand side of an assignment";
+              "ai" = queryDesc "@conditional.outer" "Select outer part of a conditional";
+              "ii" = queryDesc "@conditional.inner" "Select inner part of a conditional";
+              "il" = queryDesc "@loop.inner" "Select inner part of a loop";
+              "al" = queryDesc "@loop.outer" "Select outer part of a loop";
+              "aa" = queryDesc "@parameter.outer" "Select outer part of a parameter";
+              "ia" = queryDesc "@parameter.inner" "Select inner part of a parameter";
+              "af" = queryDesc "@function.outer" "Select outer part of a function";
+              "if" = queryDesc "@function.inner" "Select inner part of a function";
+              "am" = queryDesc "@call.outer" "Select outer part of a method";
+              "im" = queryDesc "@call.inner" "Select inner part of a method";
             };
           };
           move = {
             enable = true;
             setJumps = true;
             gotoNextStart = {
-              "]f" = querydesc "@function.outer" "Next function call start";
-              "]m" = querydesc "@call.outer" "Next method call start";
-              "]l" = querydesc "@loop.outer" "Next loop start";
-              "]i" = querydesc "@conditional.outer" "Next conditional start";
+              "]f" = queryDesc "@function.outer" "Next function call start";
+              "]m" = queryDesc "@call.outer" "Next method call start";
+              "]l" = queryDesc "@loop.outer" "Next loop start";
+              "]i" = queryDesc "@conditional.outer" "Next conditional start";
             };
             gotoPreviousStart = {
-              "[f" = querydesc "@function.outer" "Previous function call start";
-              "[m" = querydesc "@call.outer" "Previous method call start";
-              "[l" = querydesc "@loop.outer" "Previous loop start";
-              "[i" = querydesc "@conditional.outer" "Previous conditional start";
+              "[f" = queryDesc "@function.outer" "Previous function call start";
+              "[m" = queryDesc "@call.outer" "Previous method call start";
+              "[l" = queryDesc "@loop.outer" "Previous loop start";
+              "[i" = queryDesc "@conditional.outer" "Previous conditional start";
             };
             gotoPreviousEnd = {
-              "[F" = querydesc "@function.outer" "Previous function call end";
-              "[M" = querydesc "@call.outer" "Previous method call end";
-              "[L" = querydesc "@loop.outer" "Previous loop end";
-              "[I" = querydesc "@conditional.outer" "Previous conditional end";
+              "[F" = queryDesc "@function.outer" "Previous function call end";
+              "[M" = queryDesc "@call.outer" "Previous method call end";
+              "[L" = queryDesc "@loop.outer" "Previous loop end";
+              "[I" = queryDesc "@conditional.outer" "Previous conditional end";
             };
             gotoNextEnd = {
-              "]M" = querydesc "@call.outer" "Next method call end";
-              "]F" = querydesc "@function.outer" "Next function call end";
-              "]L" = querydesc "@loop.outer" "Next loop end";
-              "]I" = querydesc "@conditional.outer" "Next conditional end";
+              "]M" = queryDesc "@call.outer" "Next method call end";
+              "]F" = queryDesc "@function.outer" "Next function call end";
+              "]L" = queryDesc "@loop.outer" "Next loop end";
+              "]I" = queryDesc "@conditional.outer" "Next conditional end";
             };
           };
         };
