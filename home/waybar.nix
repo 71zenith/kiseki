@@ -84,7 +84,7 @@
           exec = pkgs.writeShellScript "centWay" ''
             while :; do
               echo "{ \"text\" : \"_\" , \"class\" : \"$(playerctl --ignore-player firefox metadata --format 'cent{{ (position / 100) / (mpris:length / 100) * 100 }}' | cut -d. -f1)\" }"
-              sleep 3
+              sleep 2.5
             done
           '';
         };
@@ -164,7 +164,7 @@
         "image" = {
           on-click = "nsxiv /tmp/cover.jpg";
           path = "/tmp/cover.jpg";
-          size = 29;
+          size = 30;
           signal = 8;
         };
         "mpris" = {

@@ -15,17 +15,20 @@
       default_device = "ur-mom";
       theme = config.stylix.base16Scheme.slug;
       seek_duration_secs = 10;
-      playback_window_position = "Bottom";
       liked_icon = "󰋑 ";
       border_type = "Hidden";
       progress_bar_type = "Rectangle";
-      cover_img_scale = 1.7;
+      cover_img_scale = 1.9;
+      cover_img_length = 10;
       player_event_hook_command.command = pkgs.writeShellScript "waybarHook" ''
         sleep 1
         curl "$(playerctl -p spotify_player metadata mpris:artUrl)" > /tmp/cover.jpg
         pkill -RTMIN+8 waybar
         magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null >/tmp/cover.info
       '';
+      layout = {
+        playback_window_position = "Bottom";
+      };
       device = {
         name = "ur mom";
         device_type = "speaker";

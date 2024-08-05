@@ -122,7 +122,7 @@ in {
         mv = "mv -iv";
         cp = "cp -ivr";
         c = "clear";
-        df = "duf";
+        df = "duf -hide special";
         mkdir = "mkdir -pv";
         d = "sudo";
         du = "dust";

@@ -88,6 +88,7 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
 
+
     # HACK: nur prevent infinite recursion
     nurNoPkgs = import inputs.nur {
       nurpkgs = import nixpkgs {inherit system;};

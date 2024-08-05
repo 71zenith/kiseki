@@ -16,7 +16,7 @@ wallpapers to separate repo.
 commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
 with dimming being a substitute.
 
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot14.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot15.png?raw=true)
 
 <details><summary><b>More screenshots(somewhat outdated)</b></summary>
 

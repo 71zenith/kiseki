@@ -422,11 +422,11 @@ in {
               }
               {
                 name = "buffer";
-                keyword_length = 3;
+                keyword_length = 4;
               }
               {
                 name = "luasnip";
-                keyword_length = 3;
+                keyword_length = 2;
               }
             ];
             matching.disallow_fullfuzzy_matching = true;
