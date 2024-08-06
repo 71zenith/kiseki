@@ -27,20 +27,18 @@ assert withMpv || withVlc || withIina;
 
     src = fetchFromGitHub {
       owner = "pystardust";
-      repo = "ani-cli";
+      repo = pname;
       rev = "267880fc936d8c2eccfb81944ec4854a7ea79a5a";
       hash = "sha256-DGy2zC2MAH4JHqqpDYyG84jlow5XBx73hM6QSDlUvVo=";
     };
 
     nativeBuildInputs = [makeWrapper];
-    runtimeDependencies = let
-      player =
-        lib.optional withMpv mpv
-        ++ lib.optional withVlc vlc
-        ++ lib.optional withIina iina;
-    in
+    buildInputs =
+      lib.optional withMpv mpv
+      ++ lib.optional withVlc vlc
+      ++ lib.optional withIina iina;
+    runtimeDependencies =
       [gnugrep gnused curl fzf ffmpeg aria2]
-      ++ player
       ++ lib.optional chromecastSupport catt
       ++ lib.optional syncSupport syncplay;
     installPhase = ''

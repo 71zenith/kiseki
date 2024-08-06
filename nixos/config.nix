@@ -159,6 +159,8 @@ in {
       platformOptimizations.enable = true;
     };
 
+    gamemode.enable = true;
+
     nh = {
       enable = true;
       flake = "${home myUserName}/nix";
