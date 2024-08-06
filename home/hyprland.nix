@@ -15,6 +15,13 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    extraConfig = ''
+      submap = close
+      bind = ,mouse:272, killactive
+      bind = ,mouse:272, submap, reset
+      bind = ,mouse:273, submap, reset
+      submap = reset
+    '';
     settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"

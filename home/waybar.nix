@@ -16,7 +16,7 @@
         position = "top";
         modules-left = ["hyprland/workspaces" "hyprland/window" "privacy"];
         modules-center = ["image" "group/music"];
-        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "group/custom" "tray"];
+        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -99,6 +99,7 @@
             "custom/off"
             "custom/again"
             "idle_inhibitor"
+            "custom/close"
             "custom/osk"
             "custom/gammastep"
           ];
@@ -111,6 +112,11 @@
           format = "";
           on-click = "poweroff";
           tooltip-format = "poweroff";
+        };
+        "custom/close" = {
+          format = "";
+          on-click = "hyprctl dispatch submap close";
+          tooltip-format = "close window";
         };
         "custom/again" = {
           format = "";
@@ -204,10 +210,12 @@
         #custom-toggle,
         #idle_inhibitor,
         #privacy,
+        #gamemode,
         #custom-off,
         #custom-again,
         #custom-gammastep,
         #custom-osk,
+        #custom-close,
         #network.disconnected {
           color: @base05;
           padding: 2px 5px;
@@ -219,6 +227,9 @@
 
           margin-top: 2px;
           margin-bottom: 2px;
+        }
+        #window {
+          margin-bottom: 3px;
         }
         #workspaces button {
           color: @base04;
@@ -269,6 +280,7 @@
           -gtk-icon-effect: highlight;
           background-color: @base0A;
         }
+        #gamemode,
         #custom-toggle {
           font-size: 80%;
           margin-right: 0px;
@@ -278,6 +290,7 @@
         #custom-off:hover,
         #custom-again:hover,
         #custom-gammastep:hover,
+        #custom-close:hover,
         #custom-osk:hover {
           border-radius: 0px;
           background-color: @base01;
@@ -287,6 +300,7 @@
         #custom-off,
         #custom-again,
         #custom-gammastep,
+        #custom-close,
         #custom-osk {
           margin-left: 2px;
           margin-right: 2px;
@@ -296,6 +310,7 @@
         #custom-off,
         #custom-again,
         #custom-gammastep.on,
+        #custom-close,
         #custom-osk.on {
           color: @base06;
         }
