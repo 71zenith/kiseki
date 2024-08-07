@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -169,6 +170,7 @@
         };
         "image" = {
           on-click = "nsxiv /tmp/cover.jpg";
+          on-click-right = "pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx";
           path = "/tmp/cover.jpg";
           size = 30;
           signal = 8;

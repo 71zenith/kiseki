@@ -3,6 +3,7 @@
   imports = [
     ./iamb.nix
     ./satty.nix
+    ./sptlrx.nix
     ./neovide.nix
     ./spotify-player.nix
   ];

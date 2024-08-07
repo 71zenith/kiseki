@@ -16,7 +16,7 @@ wallpapers to separate repo.
 commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
 with dimming being a substitute.
 
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot15.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot16.png?raw=true)
 
 <details><summary><b>More screenshots(somewhat outdated)</b></summary>
 
@@ -36,11 +36,11 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 ## Highlights
 - ⚙️  full [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR) for extra goodies
 - 🎨 [oxocarbonified](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
-- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [iamb](https://github.com/ulyssa/iamb), [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide)
+- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [iamb](https://github.com/ulyssa/iamb), [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide), [sptlrx](https://github.com/raitonoberu/sptlrx)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords with [sops-nix](https://github.com/Mic92/sops-nix)
 - 🎼 [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces
-- 📊 [glava](https://github.com/jarcode-foss/glava) with on the fly color based on current song
+- 📊 [glava](https://github.com/jarcode-foss/glava) with on the fly color based on current song and synced lyrics support
 - 🌐 [firefox](https://www.mozilla.org/en-US/firefox/) with declarative config
 - 🚀 advanced [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculations, sending files to discord, clipboard with images, wallpaper switcher
 - 🈂️ niche scripts to open/download media from the internet, [OCR](https://github.com/tesseract-ocr/tesseract) and [translating text](https://github.com/soimort/translate-shell)
