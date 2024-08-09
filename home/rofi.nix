@@ -10,12 +10,10 @@
     package = pkgs.rofi-wayland;
     plugins = with pkgs; [
       # HACK: temporary fix until ABI update
-      (rofi-emoji.override {
-        rofi-unwrapped = rofi-wayland-unwrapped;
-      })
       (rofi-calc.override {
         rofi-unwrapped = rofi-wayland-unwrapped;
       })
+      rofi-emoji-wayland
     ];
     extraConfig = {
       modi = "drun,calc,window,emoji,run";
