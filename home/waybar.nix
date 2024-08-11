@@ -15,9 +15,9 @@
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["hyprland/workspaces" "hyprland/window" "privacy"];
+        modules-left = ["hyprland/workspaces" "hyprland/window"];
         modules-center = ["image" "group/music"];
-        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "tray"];
+        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "privacy" "gamemode" "group/custom" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -134,7 +134,7 @@
         };
         "privacy" = {
           icon-size = 16;
-          icon-spacing = 6;
+          icon-spacing = 5;
         };
         "custom/osk" = {
           return-type = "json";
@@ -231,7 +231,7 @@
           margin-bottom: 2px;
         }
         #window {
-          margin-bottom: 3px;
+          margin-bottom: 2px;
         }
         #workspaces button {
           color: @base04;
@@ -298,7 +298,6 @@
           background-color: @base01;
         }
         #idle_inhibitor,
-        #privacy,
         #custom-off,
         #custom-again,
         #custom-gammastep,
