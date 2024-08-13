@@ -30,9 +30,9 @@
       };
     };
     opacity = {
-      terminal = 0.80;
+      terminal = 0.90;
       popups = 0.90;
-      desktop = 0.80;
+      desktop = 0.90;
     };
     cursor = {
       package = pkgs.phinger-cursors;

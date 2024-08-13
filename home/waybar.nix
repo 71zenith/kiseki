@@ -3,7 +3,9 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
+in {
   stylix.targets.waybar = {
     enableLeftBackColors = false;
     enableRightBackColors = false;
@@ -106,6 +108,7 @@
         };
         "custom/toggle" = {
           format = "";
+          on-click = "pkill rofi || rofi -show drun";
           tooltip-format = "open quick settings";
         };
         "custom/off" = {
@@ -169,8 +172,9 @@
           '';
         };
         "image" = {
-          on-click = "nsxiv /tmp/cover.jpg";
+          on-click = "pkill nsxiv || nsxiv /tmp/cover.jpg";
           on-click-right = "pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx";
+          on-click-middle = scripts.glavaShow;
           path = "/tmp/cover.jpg";
           size = 30;
           signal = 8;
