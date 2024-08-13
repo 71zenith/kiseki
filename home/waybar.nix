@@ -110,6 +110,7 @@ in {
         "custom/toggle" = {
           format = "";
           on-click = "pkill rofi || rofi -show drun";
+          on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
         };
         "custom/off" = {
