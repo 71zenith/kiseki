@@ -8,7 +8,7 @@
   </a>
 </p>
 
-*nis being a homophone of nix and the developer behind my favourite game franchise*
+*nis being a homophone of nix and the developer behind my favourite game franchise*[^1]
 
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot16.png?raw=true)
@@ -108,3 +108,14 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
+
+
+## Resources
+- standard nix stuff: nixoswiki, zero-to-nix, discourse
+- configs: notashelf[^2], diniamo[^3], fufexan[^4]
+
+
+[^1]: https://www.falcom.co.jp/
+[^2]: https://github.com/notashelf/nyx
+[^3]: https://github.com/diniamo/niqs
+[^4]: https://github.com/fufexan/dotfiles
