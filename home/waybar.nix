@@ -55,7 +55,15 @@ in {
           };
         };
         "tray" = {spacing = 10;};
-        "clock#time" = {format = "{:%H:%M}";};
+        "clock#time" = {
+          format = "{:%H:%M}";
+          tooltip-format = "{tz_list}";
+          timezones = [
+            "Asia/Kolkata"
+            "Europe/Berlin"
+            "Asia/Tokyo"
+          ];
+        };
         "clock#date" = {
           format = "{:%a %d %b}";
           tooltip-format = "<tt><big>{calendar}</big></tt>";
