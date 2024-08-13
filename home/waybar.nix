@@ -116,7 +116,7 @@ in {
           ];
         };
         "custom/toggle" = {
-          format = "";
+          format = "";
           on-click = "pkill rofi || rofi -show drun";
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
@@ -154,6 +154,7 @@ in {
         "privacy" = {
           icon-size = 16;
           icon-spacing = 5;
+          on-click = "pkill glava";
         };
         "custom/osk" = {
           return-type = "json";
@@ -304,12 +305,6 @@ in {
           -gtk-icon-effect: highlight;
           background-color: @base0A;
         }
-        #gamemode,
-        #custom-toggle {
-          font-size: 80%;
-          margin-right: 0px;
-          margin-left: 0px;
-        }
         #idle_inhibitor:hover,
         #custom-shot:hover,
         #custom-off:hover,
@@ -339,6 +334,15 @@ in {
         #custom-close,
         #custom-osk.on {
           color: @base06;
+        }
+        #privacy,
+        #gamemode,
+        #custom-toggle {
+          margin-right: 0px;
+          margin-left: 0px;
+        }
+        #custom-toggle {
+          color: @base09;
         }
         #idle_inhibitor.deactivated,
         #custom-gammastep.off,
