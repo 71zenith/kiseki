@@ -33,7 +33,6 @@
             "7" = "七";
             "8" = "八";
             "music" = "";
-            "matrix" = "󰭻";
           };
           persistent-workspaces = {
             "1" = [];

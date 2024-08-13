@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  matrixId,
   ...
 }: {
   programs = {
@@ -75,60 +74,6 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
-    };
-
-    iamb = {
-      enable = true;
-      settings = {
-        profiles.main = {
-          user_id = matrixId;
-          settings = {
-            image_preview = {
-              protocol.type = "sixel";
-              size = {
-                height = 10;
-                width = 30;
-              };
-            };
-            users = {
-              ${matrixId} = {
-                name = "thou thyself";
-                color = "yellow";
-              };
-            };
-            message_user_color = false;
-            notifications.enabled = true;
-            open_command = ["xdg-open"];
-            user_gutter_width = 20;
-            username_display = "displayname";
-          };
-          # NOTE: <S-Tab> does not work
-          macros = {
-            "normal|visual" = {
-              "Q" = ":qa<CR>";
-              "s" = "<C-W>m";
-              "<C-o>" = ":open<CR>";
-              "r" = ":react ";
-              "e" = ":edit<CR>";
-              "E" = ":reply<CR>";
-              "<Esc>" = ":cancel<CR>y";
-              "z" = "<C-W>z";
-              "t" = ":redact<CR>";
-              "<C-N>" = ":tabn<CR>";
-              "<C-P>" = ":tabp<CR>";
-            };
-          };
-          layout = {
-            style = "config";
-            tabs = [
-              {window = "!JWluPDcFzVMlxykpoI:matrix.org";}
-              {window = "#gen-ani-cli:matrix.org";}
-              {window = "@mrfluffy:mrfluffy.xyz";}
-              {window = "@nannk:synapse.nannk.xyz";}
-            ];
-          };
-        };
-      };
     };
 
     yazi = {

@@ -6,7 +6,6 @@
   pcName,
   myUserName,
   myName,
-  matrixId,
   mailId,
   nurNoPkgs,
   ...
@@ -188,7 +187,7 @@ in {
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs nurNoPkgs;
-      inherit pcName myUserName myName matrixId mailId;
+      inherit pcName myUserName myName mailId;
     };
     users.${myUserName} = import ../home;
   };

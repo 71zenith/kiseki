@@ -36,7 +36,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 ## Highlights
 - ⚙️  full [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR) for extra goodies
 - 🎨 [oxocarbonified](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
-- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [iamb](https://github.com/ulyssa/iamb), [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide), [sptlrx](https://github.com/raitonoberu/sptlrx)
+- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide), [sptlrx](https://github.com/raitonoberu/sptlrx)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords with [sops-nix](https://github.com/Mic92/sops-nix)
 - 🎼 [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces
@@ -80,7 +80,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [mako](https://github.com/emersion/mako)                       | notification daemon     |
 | [nautilus](https://gitlab.gnome.org/GNOME/nautilus)            | gui file manager        |
 | [neovim](https://github.com/neovim/neovim)                     | main text editor        |
-| [iamb](https://github.com/ulyssa/iamb)                         | tui matrix client       |
+| [sptlrx](https://github.com/raitonoberu/sptlrx)                | lyrics tui              |
 | [fzf](https://github.com/junegunn/fzf)                         | fuzzy finder            |
 | [glava](https://github.com/jarcode-foss/glava)                 | audio visualizer        |
 | [ani-cli](https://github.com/pystardust/ani-cli)               | anime tool              |

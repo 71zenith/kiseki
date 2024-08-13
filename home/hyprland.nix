@@ -97,7 +97,6 @@ in {
       ];
       workspace = [
         "special:music, on-created-empty:footclient spotify_player"
-        "special:matrix, on-created-empty:footclient iamb"
       ];
       input = {
         kb_options = osConfig.services.xserver.xkb.options;
@@ -253,11 +252,8 @@ in {
           "$mod3, p, swapnext,prev"
 
           "$mod1, 9, togglespecialworkspace, music"
-          "$mod1, 0, togglespecialworkspace, matrix"
           "$mod2, 9, movetoworkspacesilent, special:music"
-          "$mod2, 0, movetoworkspacesilent, special:matrix"
           "$mod2, return, togglespecialworkspace, music"
-          "$mod3, return, togglespecialworkspace, matrix"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
             ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));

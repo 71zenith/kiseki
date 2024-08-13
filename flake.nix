@@ -82,12 +82,10 @@
     pcName = "izanagi";
     myUserName = "zen";
     myName = "Mori Zen";
-    matrixId = "@mori.zen:matrix.org";
     mailId = "71zenith@proton.me";
 
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
-
 
     # HACK: nur prevent infinite recursion
     nurNoPkgs = import inputs.nur {
@@ -131,7 +129,7 @@
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs nurNoPkgs;
-        inherit pcName myUserName myName matrixId mailId;
+        inherit pcName myUserName myName mailId;
       };
       modules = with inputs; [
         caches
