@@ -111,11 +111,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 
 ## Resources
-- standard nix stuff: nixoswiki, zero-to-nix, discourse
-- configs: notashelf[^2], diniamo[^3], fufexan[^4]
+- standard nix stuff: [nixoswiki](https://wiki.nixos.org), [zero-to-nix](https://zero-to-nix.com), [discourse](https://discourse.nixos.org/).
+- configs: [notashelf](https://github.com/notashelf/nyx), [diniamo](https://github.com/diniamo/niqs), [fufexan](https://github.com/fufexan/dotfiles), and anything that comes on [gh search](https://github.com/search?q=nix+dotfiles+lang%3ANix+&type=repositories).
 
 
-[^1]: https://www.falcom.co.jp/
-[^2]: https://github.com/notashelf/nyx
-[^3]: https://github.com/diniamo/niqs
-[^4]: https://github.com/fufexan/dotfiles
+[^1]: https://www.falcom.co.jp/kiseki
