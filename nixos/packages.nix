@@ -41,6 +41,7 @@
     nvtopPackages.nvidia
     lutgen
     gammastep
+    hyprpicker
     wvkbd
 
     ## nix

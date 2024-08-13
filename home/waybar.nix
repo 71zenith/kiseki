@@ -147,10 +147,11 @@
               echo "{ \"class\" : \"off\", \"tooltip\" : \"activate wvbkd\" }"
             fi
           '';
-          on-click = pkgs.writeShellScript "oskToggle" ''
-            pkill wvkbd-mobintl || setsid wvkbd-mobintl -L 200 --bg "161616" --fg "262626" --press "ff7eb6" --fg-sp "393939" --press-sp "33b1ff" --alpha 240 --text "f2f4f8" --text-sp "f2f4f8" &
-            pkill -RTMIN+10 waybar
-          '';
+          on-click = with config.stylix.base16Scheme.palette;
+            pkgs.writeShellScript "oskToggle" ''
+              pkill wvkbd-mobintl || setsid wvkbd-mobintl -L 200 --bg ${base00} --fg ${base01} --press ${base0C} --fg-sp ${base02} --press-sp ${base0B} --alpha 240 --text ${base05} --text-sp ${base05} &
+              pkill -RTMIN+10 waybar
+            '';
         };
         "custom/gammastep" = {
           return-type = "json";
