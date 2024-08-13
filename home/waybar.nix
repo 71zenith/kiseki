@@ -194,7 +194,7 @@ in {
           on-click-right = "pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx";
           on-click-middle = scripts.glavaShow;
           path = "/tmp/cover.jpg";
-          size = 30;
+          size = 31;
           signal = 8;
         };
         "mpris" = {
@@ -315,6 +315,9 @@ in {
           border-radius: 0px;
           background-color: @base01;
         }
+        #privacy,
+        #gamemode,
+        #custom-toggle,
         #idle_inhibitor,
         #custom-off,
         #custom-shot,
@@ -322,8 +325,8 @@ in {
         #custom-gammastep,
         #custom-close,
         #custom-osk {
-          margin-left: 2px;
-          margin-right: 2px;
+          margin-left: 1px;
+          margin-right: 1px;
         }
         #idle_inhibitor.activated,
         #privacy-item,
@@ -335,14 +338,8 @@ in {
         #custom-osk.on {
           color: @base06;
         }
-        #privacy,
-        #gamemode,
         #custom-toggle {
-          margin-right: 0px;
-          margin-left: 0px;
-        }
-        #custom-toggle {
-          color: @base09;
+          color: @base0F;
         }
         #idle_inhibitor.deactivated,
         #custom-gammastep.off,
