@@ -101,6 +101,7 @@ in {
             "custom/off"
             "custom/again"
             "idle_inhibitor"
+            "custom/shot"
             "custom/close"
             "custom/osk"
             "custom/gammastep"
@@ -115,6 +116,13 @@ in {
           format = "";
           on-click = "poweroff";
           tooltip-format = "poweroff";
+        };
+        "custom/shot" = {
+          format = "";
+          on-click = "grimblast --notify copy area";
+          on-click-right = "grimblast --notify copy screen";
+          on-click-middle = "grimblast --notify edit area";
+          tooltip-format = "screenshot";
         };
         "custom/close" = {
           format = "";
@@ -220,6 +228,7 @@ in {
         #custom-off,
         #custom-again,
         #custom-gammastep,
+        #custom-shot,
         #custom-osk,
         #custom-close,
         #network.disconnected {
@@ -293,6 +302,7 @@ in {
           margin-left: 0px;
         }
         #idle_inhibitor:hover,
+        #custom-shot:hover,
         #custom-off:hover,
         #custom-again:hover,
         #custom-gammastep:hover,
@@ -303,6 +313,7 @@ in {
         }
         #idle_inhibitor,
         #custom-off,
+        #custom-shot,
         #custom-again,
         #custom-gammastep,
         #custom-close,
@@ -314,6 +325,7 @@ in {
         #privacy-item,
         #custom-off,
         #custom-again,
+        #custom-shot,
         #custom-gammastep.on,
         #custom-close,
         #custom-osk.on {
