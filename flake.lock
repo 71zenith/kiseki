@@ -515,11 +515,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1723516097,
-        "narHash": "sha256-v3+rerpWOkUNNPbGN5bFJu1K63VfaYwCDXgSIzq1W7s=",
+        "lastModified": 1723528613,
+        "narHash": "sha256-3nUex+go/GK8Vsb3CS41VK9DlMxd7Um6CUUMlcdnoaU=",
         "owner": "71zenith",
         "repo": "assets",
-        "rev": "02242ae4b3bbe299bf88dc91af76f675829f30c0",
+        "rev": "0540d3f0eb243451bbcdeb28804ff3b1cfdeaef6",
         "type": "github"
       },
       "original": {
