@@ -3,18 +3,13 @@
 <p align="center">
     <a href="https://nixos.org/">
         <img src="https://img.shields.io/badge/NixOS-24.11-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
-    <img src="https://img.shields.io/github/last-commit/71zenith/nix-dots?style=for-the-badge&labelColor=dde1e6&color=161616"/>
-    <img src="https://img.shields.io/github/repo-size/71zenith/nix-dots?style=for-the-badge&labelColor=dde1e6&color=161616"/>
+    <img src="https://img.shields.io/github/last-commit/71zenith/nis?style=for-the-badge&labelColor=dde1e6&color=161616"/>
+    <img src="https://img.shields.io/github/repo-size/71zenith/nis?style=for-the-badge&labelColor=dde1e6&color=161616"/>
   </a>
 </p>
 
-**BREAKING**
-commits below [`b4000db`](https://github.com/71zenith/nix-dots/tree/b4000db955f1c73714f25b612128b5c3d2c2050f) shall not work due to moving of
-wallpapers to separate repo.
+*nis being a homophone of nix and the developer behind my favourite game franchise*
 
-**BREAKING**
-commits after [`572bb57`](https://github.com/71zenith/nix-dots/tree/572bb5783334bc753c511c11b504746c8ed69ed5) have window borders removed
-with dimming being a substitute.
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot16.png?raw=true)
 
@@ -72,6 +67,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [neovide](https://github.com/neovide/neovide)                  | neovim gui              |
 | [foot](https://codeberg.org/dnkl/foot)                         | terminal                |
 | [zathura](https://pwmt.org/projects/zathura)                   | pdf/epub viewer         |
+| [waybar](https://github.com/Alexays/Waybar)                    | status bar              |
 | [mpv](https://github.com/mpv-player/mpv)                       | media player (da goat)  |
 | [rofi](https://github.com/davatorium/rofi)                     | custom launcher         |
 | [satty](https://github.com/gabm/Satty)                         | annotation tool         |
