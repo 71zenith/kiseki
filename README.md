@@ -11,7 +11,7 @@
 *nis being a homophone of nix and the developer behind my favourite game franchise*[^1]
 
 
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot16.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot17.png?raw=true)
 
 <details><summary><b>More screenshots(somewhat outdated)</b></summary>
 
