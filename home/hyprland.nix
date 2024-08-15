@@ -64,6 +64,7 @@ in {
         "wl-paste --type image --watch cliphist store &"
         "$setwall &"
       ];
+      exec = ["${lib.getExe pkgs.xorg.xrdb} -merge $HOME/.Xresources &"];
       windowrule = [
         "noblur, GLava"
         "noborder, GLava"
@@ -96,7 +97,7 @@ in {
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
-        "special:music, on-created-empty:footclient spotify_player"
+        "special:music, on-created-empty:footclient -o 'main.font=${config.stylix.fonts.monospace.name}:size=${builtins.toString (config.stylix.fonts.sizes.terminal + 2)}' spotify_player"
       ];
       input = {
         kb_options = osConfig.services.xserver.xkb.options;
