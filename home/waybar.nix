@@ -18,7 +18,7 @@ in {
         layer = "top";
         position = "top";
         modules-left = ["hyprland/workspaces" "hyprland/window"];
-        modules-center = ["image" "group/music"];
+        modules-center = ["image#cover" "group/music"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "privacy" "gamemode" "group/custom" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
@@ -105,7 +105,7 @@ in {
             transition-duration = 250;
           };
           modules = [
-            "custom/toggle"
+            "image#toggle"
             "custom/off"
             "custom/again"
             "idle_inhibitor"
@@ -115,8 +115,9 @@ in {
             "custom/gammastep"
           ];
         };
-        "custom/toggle" = {
-          format = "";
+        "image#toggle" = {
+          path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          size = 19;
           on-click = "pkill rofi || rofi -show drun";
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
@@ -189,7 +190,7 @@ in {
             pkill -RTMIN+9 waybar
           '';
         };
-        "image" = {
+        "image#cover" = {
           on-click = "pkill nsxiv || nsxiv /tmp/cover.jpg";
           on-click-right = "pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx";
           on-click-middle = scripts.glavaShow;
@@ -231,7 +232,7 @@ in {
         #pulseaudio,
         #pulseaudio.muted,
         #workspaces,
-        #custom-toggle,
+        #image.toggle,
         #idle_inhibitor,
         #privacy,
         #gamemode,
@@ -317,7 +318,7 @@ in {
         }
         #privacy,
         #gamemode,
-        #custom-toggle,
+        #image.toggle,
         #idle_inhibitor,
         #custom-off,
         #custom-shot,
@@ -337,9 +338,6 @@ in {
         #custom-close,
         #custom-osk.on {
           color: @base06;
-        }
-        #custom-toggle {
-          color: @base0F;
         }
         #idle_inhibitor.deactivated,
         #custom-gammastep.off,

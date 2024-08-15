@@ -15,8 +15,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs.my-fonts;
-        name = "Geist Mono";
+        package = pkgs.miracode;
+        name = "Miracode";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
