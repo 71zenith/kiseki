@@ -46,9 +46,9 @@
 
     ## nix
     nitch
-    nix-init
     nix-output-monitor
     nurl
+    nix-tree
     nvd
     sops
 
@@ -111,7 +111,7 @@
 
     ## editors
     neovim
-    lem-sdl2
+    lem-ncurses
     zed-editor
 
     # disabled

@@ -67,7 +67,7 @@
           };
           after.foreground = base03;
         };
-        mpris.players = ["spotify_player"];
+        mpris.players = ["spotify_player" "mpv"];
       };
     };
 

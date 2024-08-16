@@ -36,6 +36,7 @@ in {
       extraConfigLuaPre = ''
         require("buffer_manager").setup({ focus_alternate_buffer = true})
         require("which-key").setup({icons = {rules = false}})
+        require("nvim-paredit").setup({use_default_keys = true})
       '';
       extraConfigLuaPost = ''
         require("cmp").event:on(
@@ -134,7 +135,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager];
+      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager nvim-paredit vim-jack-in vim-dispatch];
       plugins = {
         nix.enable = false;
         nvim-bqf.enable = true;
@@ -253,13 +254,19 @@ in {
         };
         surround.enable = true;
         lastplace.enable = true;
-        lspkind.enable = true;
         lsp-format.enable = true;
+        conjure.enable = true;
         none-ls = {
           enable = true;
           sources = {
-            formatting = {alejandra.enable = true;};
-            diagnostics = {statix.enable = true;};
+            formatting = {
+              alejandra.enable = true;
+              zprint.enable = true;
+            };
+            diagnostics = {
+              statix.enable = true;
+              clj_kondo.enable = true;
+            };
           };
         };
         noice = {

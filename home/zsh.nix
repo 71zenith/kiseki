@@ -114,6 +114,7 @@ in {
         nn = "nom build";
         qq = "nvd list";
         fl = "nix flake";
+        im = "img2sixel";
         pm = "pulsemixer";
         s = "sudo systemctl";
         cat = "bat -p -P";

@@ -97,7 +97,7 @@ in {
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
-        "special:music, on-created-empty:footclient -o 'main.font=${config.stylix.fonts.monospace.name}:size=${builtins.toString (config.stylix.fonts.sizes.terminal + 2)}' spotify_player"
+        "special:music, on-created-empty:footclient -o 'main.font=${config.stylix.fonts.monospace.name}:size=17' spotify_player"
       ];
       input = {
         kb_options = osConfig.services.xserver.xkb.options;
@@ -234,8 +234,8 @@ in {
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"
           "$mod1, t, fullscreen,"
-          "$mod1, f, fakefullscreen"
-          "$mod2, t, fullscreen,1"
+          "$mod1, f, fullscreenstate, -1 2"
+          "$mod2, t, fullscreen, 1"
           "$mod2, q, exit,"
           "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
@@ -244,13 +244,13 @@ in {
           "$mod1, mouse_up, workspace, r-1"
 
           "$mod1, l, cyclenext,"
-          "$mod1, h, cyclenext,prev"
+          "$mod1, h, cyclenext, prev"
           "$mod1, Tab, cyclenext,"
           "$mod1, Tab, bringactivetotop,"
           "$mod2, Tab, bringactivetotop,"
-          "$mod2, Tab, cyclenext,prev"
+          "$mod2, Tab, cyclenext, prev"
           "$mod3, n, swapnext"
-          "$mod3, p, swapnext,prev"
+          "$mod3, p, swapnext, prev"
 
           "$mod1, 9, togglespecialworkspace, music"
           "$mod2, 9, movetoworkspacesilent, special:music"

@@ -29,15 +29,6 @@ in {
       hash = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
     };
   };
-  nvim-paredit = buildVimPlugin {
-    name = "nvim-paredit";
-    src = fetchFromGitHub {
-      owner = "julienvincent";
-      repo = "nvim-paredit";
-      rev = "8dd4ffd6ee0d798026f9ad6cf04344560207b9f1";
-      hash = "sha256-Zo40MOBSkLFSaK+x6iiNXhV9c/yNCi2jckl5VOpBDU8=";
-    };
-  };
   img-clip = buildVimPlugin {
     name = "img-clip";
     src = fetchFromGitHub {
