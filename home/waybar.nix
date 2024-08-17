@@ -17,7 +17,7 @@ in {
       mainBar = {
         layer = "top";
         position = "top";
-        modules-left = ["hyprland/workspaces" "hyprland/window"];
+        modules-left = ["hyprland/workspaces" "group/win"];
         modules-center = ["image#cover" "group/music"];
         modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "privacy" "gamemode" "group/custom" "tray"];
         "hyprland/workspaces" = {
@@ -47,6 +47,21 @@ in {
             "8" = [];
           };
           ignore-workspaces = ["special:hdrop"];
+        };
+        "group/win" = {
+          orientation = "inherit";
+          drawer.transition-duration = 250;
+          modules = [
+            "hyprland/window"
+            "wlr/taskbar"
+          ];
+        };
+        "wlr/taskbar" = {
+          active-first = true;
+          markup = true;
+          on-click = "activate";
+          on-click-middle = "close";
+          icon-size = 24;
         };
         "hyprland/window" = {
           icon = true;
@@ -231,6 +246,7 @@ in {
         #tray,
         #pulseaudio,
         #pulseaudio.muted,
+        #taskbar,
         #workspaces,
         #image.toggle,
         #idle_inhibitor,
@@ -256,6 +272,8 @@ in {
         }
         #window {
           margin-bottom: 2px;
+          margin-right: 0px;
+          padding-right: 0px;
         }
         #workspaces button {
           color: @base04;
@@ -293,11 +311,11 @@ in {
           color: @base08;
         }
         tooltip {
-          padding: 5px;
+          padding: 3px;
           background-color: alpha(@base01, 0.75);
         }
         tooltip label {
-          padding: 5px;
+          padding: 3px;
         }
         #tray > .passive {
           -gtk-icon-effect: dim;
@@ -307,6 +325,7 @@ in {
           background-color: @base0A;
         }
         #idle_inhibitor:hover,
+        #taskbar button:hover,
         #custom-shot:hover,
         #custom-off:hover,
         #custom-again:hover,
@@ -316,6 +335,7 @@ in {
           border-radius: 0px;
           background-color: @base01;
         }
+        #taskbar button,
         #privacy,
         #gamemode,
         #image.toggle,
@@ -328,6 +348,11 @@ in {
         #custom-osk {
           margin-left: 1px;
           margin-right: 1px;
+        }
+        #taskbar {
+          margin-bottom: 2px;
+          margin-left: 0px;
+          padding-left: 0px;
         }
         #idle_inhibitor.activated,
         #privacy-item,

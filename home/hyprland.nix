@@ -91,7 +91,7 @@ in {
         "center, title:quick"
         "size 85% 80%, class:com.gabm.satty"
         "center, class:com.gabm.satty"
-        "center, class:pop"
+        "center, class:terminal"
         "idleinhibit always, title:raylib-zig dvd animation"
         "tile, class:Nsxiv,xwayland:1"
         "tile, title:Neovide,class:neovide"
@@ -219,7 +219,7 @@ in {
           "$mod1, return, exec, footclient"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
           "$mod1, slash, exec, pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx"
-          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c pop 'footclient -a pop'"
+          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c terminal 'footclient -a terminal'"
 
           "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
