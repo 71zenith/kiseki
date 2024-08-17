@@ -165,10 +165,12 @@ in {
     ([ -n "$id" ] && pulsemixer --id $id --toggle-mute) || (tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg)
   '';
   changeCover = writeShellScript "changeCover" ''
-    playerctl --ignore-player firefox metadata --format '{{mpris:artUrl}}' -F | while read -r new_url; do
-      curl "$new_url" > /tmp/cover.jpg
-      pkill -RTMIN+8 waybar
-      magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null > /tmp/cover.info
+    playerctl metadata --format '{{playerName}} {{mpris:artUrl}}' -F  --ignore-player firefox | while read -r player url; do
+      if ([ "$player" = "mpv" ] || [ "$player" = "spotify_player" ]) && [ -n "$url" ]; then
+        curl "$url" > /tmp/cover.jpg
+        pkill -RTMIN+8 waybar
+        magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null > /tmp/cover.info
+      fi
     done
   '';
 }
