@@ -19,7 +19,7 @@ in {
         position = "top";
         modules-left = ["hyprland/workspaces" "group/win"];
         modules-center = ["image#cover" "group/music"];
-        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "privacy" "gamemode" "group/custom" "tray"];
+        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "privacy" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -61,6 +61,7 @@ in {
           markup = true;
           on-click = "activate";
           on-click-middle = "close";
+          ignore-list = ["GLava"];
           icon-size = 24;
         };
         "hyprland/window" = {

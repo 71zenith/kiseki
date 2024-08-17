@@ -164,4 +164,11 @@ in {
     id=$(pulsemixer -l | grep glava | sed -nE 's/.*ID: (.+?), Name.*/\1/p')
     ([ -n "$id" ] && pulsemixer --id $id --toggle-mute) || (tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg)
   '';
+  changeCover = writeShellScript "changeCover" ''
+    playerctl --ignore-player firefox metadata --format '{{mpris:artUrl}}' -F | while read -r new_url; do
+      curl "$new_url" > /tmp/cover.jpg
+      pkill -RTMIN+8 waybar
+      magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null > /tmp/cover.info
+    done
+  '';
 }
