@@ -1,19 +1,17 @@
 {
   pkgs,
   lib,
-  args ? "-no-warn -no-autocorrect -b",
-  langs ? "eng+jpn+jpn_vert+kor+kor_vert+deu+rus",
 }: let
   inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
-    ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} -l ${langs} - - | wl-copy
+    ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} -l eng+jpn+jpn_vert+kor+kor_vert+deu+rus - - | wl-copy
     echo "$(wl-paste)"
     notify-send -- "$(wl-paste)"
   '';
   transLiner = writeShellScript "transLiner" ''
-    wl-paste | trans ${args} | wl-copy
+    wl-paste | trans -no-warn -no-autocorrect -b | wl-copy
     echo "$(wl-paste)"
     notify-send -- "$(wl-paste)"
   '';
@@ -31,7 +29,7 @@ in {
         notify-send 'Clipboard content is not media'
         exit 1
         ;;
-        esac
+    esac
   '';
   copyTwit = writeShellScript "copyTwit" ''
     url=$(wl-paste | sed 's/x.com/twitter.com/g')
