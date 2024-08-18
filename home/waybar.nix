@@ -45,6 +45,7 @@ in {
             "6" = [];
             "7" = [];
             "8" = [];
+            "special:music" = [];
           };
           ignore-workspaces = ["special:hdrop"];
         };
