@@ -10,7 +10,6 @@
 
 *nis being a homophone of nix and the developer behind my favourite game franchise*[^1]
 
-
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot17.png?raw=true)
 
 <details><summary><b>More screenshots(somewhat outdated)</b></summary>
@@ -22,6 +21,7 @@
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/3.png?raw=true)
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/4.png?raw=true)
+
 </details>
 
 previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
@@ -29,6 +29,7 @@ previous iterations are in [assets/screenshot](https://github.com/71zenith/asset
 wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master/active).
 
 ## Highlights
+
 - ⚙️  full [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR) for extra goodies
 - 🎨 [oxocarbonified](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
 - 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide), [sptlrx](https://github.com/raitonoberu/sptlrx)
@@ -45,6 +46,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 <details><summary><b>Detailed Software usage</b></summary>
 
 ## Nix components
+
 | Name                                                                   | Description                 |
 |------------------------------------------------------------------------|-----------------------------|
 | [flakes](https://wiki.nixos.org/wiki/Flakes)                           | channel manager             |
@@ -58,8 +60,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [nix-output-monitor](https://github.com/maralorn/nix-output-monitor)   | fancy nix output            |
 | [direnv](https://github.com/nix-community/nix-direnv)                  | auto env switcher           |
 
-
 ## Programs
+
 | Name                                                           | Description             |
 |----------------------------------------------------------------|-------------------------|
 | [hyprland](https://github.com/hyprwm/Hyprland)                 | compositor              |
@@ -85,8 +87,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [yazi](https://github.com/sxyazi/yazi)                         | tui file manager        |
 | [btop](https://github.com/aristocratos/btop)                   | resource monitor        |
 
-
 ## Rusty tools
+
 | Name                                               | Description    |
 |----------------------------------------------------|----------------|
 | [eza](https://github.com/eza-community/eza)        | ls alter       |
@@ -99,8 +101,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 </details>
 
-
 ## Standardised config
+
 | Name                                                                    | Description                        |
 |-------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
@@ -109,10 +111,9 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
 
-
 ## Resources
+
 - standard nix stuff: [nixoswiki](https://wiki.nixos.org), [zero-to-nix](https://zero-to-nix.com), [discourse](https://discourse.nixos.org/).
 - configs: [notashelf](https://github.com/notashelf/nyx), [diniamo](https://github.com/diniamo/niqs), [fufexan](https://github.com/fufexan/dotfiles), and anything that comes on [gh search](https://github.com/search?q=nix+dotfiles+lang%3ANix+&type=repositories).
-
 
 [^1]: https://www.falcom.co.jp/kiseki

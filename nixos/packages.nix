@@ -62,7 +62,6 @@
     # gui
     calibre
     vesktop
-    firefox
     librewolf
     qbittorrent
     nautilus
