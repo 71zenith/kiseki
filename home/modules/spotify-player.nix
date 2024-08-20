@@ -16,7 +16,7 @@
   cfg = config.programs.spotify-player;
   tomlFormat = pkgs.formats.toml {};
 in {
-  meta.maintainers = with lib.hm.maintainers; [_71zenith];
+  meta.maintainers = with lib.maintainers; [_71zenith];
   options.programs.spotify-player = {
     enable = mkEnableOption "spotify-player";
 

@@ -14,7 +14,7 @@
   cfg = config.programs.satty;
   tomlFormat = pkgs.formats.toml {};
 in {
-  meta.maintainers = with lib.hm.maintainers; [_71zenith];
+  meta.maintainers = with lib.maintainers; [_71zenith];
   options.programs.satty = {
     enable = mkEnableOption "satty";
 

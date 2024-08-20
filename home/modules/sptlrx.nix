@@ -14,7 +14,7 @@
   cfg = config.programs.sptlrx;
   yamlFormat = pkgs.formats.yaml {};
 in {
-  meta.maintainers = with lib.hm.maintainers; [_71zenith];
+  meta.maintainers = with lib.maintainers; [_71zenith];
   options.programs.sptlrx = {
     enable = mkEnableOption "sptlrx";
 

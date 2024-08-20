@@ -30,6 +30,17 @@
       border = "no";
       keepaspect-window = "no";
     };
+    scriptOpts = {
+      youtube-search = {
+        key_youtube_search_replace = "CTRL+SHIFT+s";
+        key_youtube_music_search_replace = "";
+        key_youtube_search_append = "";
+        key_youtube_music_search_append = "";
+        key_search_results_update = "";
+        search_results = 1;
+        osd_message_duration = 0;
+      };
+    };
     bindings = {
       "l" = "seek 5";
       "h" = "seek -5";
@@ -64,17 +75,19 @@
       "CTRL+0" = ''
         no-osd change-list glsl-shaders clr ""; show-text "GLSL shaders cleared"'';
     };
-    scripts = with pkgs.mpvScripts; [
-      mpris
-      autoload
-      mpv-cheatsheet
-      youtube-upnext
-      memo
-      reload
-      uosc
-      webtorrent-mpv-hook
-      thumbfast
-      sponsorblock
-    ];
+    scripts = with pkgs.mpvScripts;
+      [
+        mpris
+        autoload
+        mpv-cheatsheet
+        youtube-upnext
+        memo
+        reload
+        uosc
+        webtorrent-mpv-hook
+        thumbfast
+        sponsorblock
+      ]
+      ++ [pkgs.mpv-youtube-search];
   };
 }
