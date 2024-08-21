@@ -35,6 +35,7 @@ in {
             "7" = "七";
             "8" = "八";
             "music" = "";
+            "mpv" = "";
           };
           persistent-workspaces = {
             "1" = [];

@@ -94,6 +94,7 @@ in {
         "center, class:foot"
         "idleinhibit always, title:raylib-zig dvd animation"
         "tile, class:Nsxiv,xwayland:1"
+        "workspace special:mpv silent, initialTitle:mpvplay"
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
@@ -212,11 +213,12 @@ in {
           "$mod2, o, exec, rofi -theme preview -show filebrowser -selected-row 1"
 
           "$mod1, c, exec, rofi -show calc -modi calc -no-show-math -no-sort -calc-command 'echo '{result}' | wl-copy'"
-          "$mod1, e, exec, mpv ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\""
+          "$mod1, e, exec, echo ytdl://ytsearch:\"$(playerctl metadata --format '{{artist}} {{title}} {{album}}')\" | wl-copy && ${scripts.openMedia}"
           "$mod1, r, exec, pkill qalculate-qt || qalculate-qt"
           "$mod1, z, exec, pkill pulsemixer || footclient -T quick pulsemixer"
 
           "$mod1, return, exec, footclient"
+          "$mod1, semicolon, exec, mpv --input-ipc-server=/tmp/mpvsocket --no-resume-playback --player-operation-mode=pseudo-gui"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
           "$mod1, slash, exec, pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx"
           "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a foot'"
@@ -255,6 +257,9 @@ in {
           "$mod1, 9, togglespecialworkspace, music"
           "$mod2, 9, movetoworkspacesilent, special:music"
           "$mod2, return, togglespecialworkspace, music"
+          "$mod1, 0, togglespecialworkspace, mpv"
+          "$mod2, 0, movetoworkspacesilent, special:mpv"
+          "$mod3, return, togglespecialworkspace, mpv"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
             ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));

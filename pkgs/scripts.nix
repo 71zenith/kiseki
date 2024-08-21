@@ -2,7 +2,7 @@
   pkgs,
   lib,
 }: let
-  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5;
+  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5 socat;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
@@ -19,14 +19,19 @@ in {
     case "$(wl-paste --list-types)" in
       *text*)
         notify-send 'Opening URL'
-        mpv $(wl-paste) || notify-send "Not a valid URL !!"
+        if [ -e /tmp/mpvsocket ]; then
+          echo "loadfile $(wl-paste)" | ${_ socat} - /tmp/mpvsocket
+        else
+          mpv "$(wl-paste)" --title="mpvplay" --no-resume-playback --input-ipc-server="/tmp/mpvsocket" || notify-send "Not a valid URL !!"
+          rm -rf /tmp/mpvsocket
+        fi
         ;;
       *image*)
         notify-send 'Opening image'
         wl-paste | mpv -
         ;;
       *)
-        notify-send 'Clipboard content is not media'
+        wl-paste | xdg-open || notify-send 'Clipboard content is not media'
         exit 1
         ;;
     esac
