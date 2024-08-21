@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
 in {
   systemd.user.services.changeCover = {
     Unit = {

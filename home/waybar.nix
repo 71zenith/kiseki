@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
 in {
   stylix.targets.waybar = {
     enableLeftBackColors = false;
@@ -210,7 +210,7 @@ in {
         };
         "image#cover" = {
           on-click = "pkill nsxiv || nsxiv /tmp/cover.jpg";
-          on-click-right = "pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx";
+          on-click-right = "pkill sptlrx || ${scripts.openFoot} 30 -T quick sptlrx";
           on-click-middle = scripts.glavaShow;
           path = "/tmp/cover.jpg";
           size = 31;

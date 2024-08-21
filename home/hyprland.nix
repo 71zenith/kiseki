@@ -7,7 +7,7 @@
 }: let
   rgb = color: "rgb(${color})";
   inherit (config.stylix.base16Scheme) palette;
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
 in {
   # FIXME: do not anger me; fuck hyprpaper
   services.hyprpaper.enable = lib.mkForce false;
@@ -98,7 +98,7 @@ in {
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
-        "special:music, on-created-empty:footclient spotify_player"
+        "special:music, on-created-empty:${scripts.openFoot} 18 spotify_player"
       ];
       input = {
         kb_options = osConfig.services.xserver.xkb.options;
@@ -220,7 +220,7 @@ in {
           "$mod1, return, exec, footclient"
           "$mod1, semicolon, exec, mpv --input-ipc-server=/tmp/mpvsocket --no-resume-playback --player-operation-mode=pseudo-gui"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
-          "$mod1, slash, exec, pkill sptlrx || footclient -T quick -o 'main.font=${config.stylix.fonts.monospace.name}:size=30' sptlrx"
+          "$mod1, slash, exec, pkill sptlrx || ${scripts.openFoot} 30 -T quick sptlrx"
           "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a foot'"
 
           "$mod1, b, exec, ${scripts.disSend}"

@@ -6,7 +6,7 @@
   osConfig,
   ...
 }: let
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
 in {
   stylix.targets.kde.enable = false;
   imports = [

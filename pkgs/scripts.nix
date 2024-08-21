@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
 }: let
@@ -175,5 +176,11 @@ in {
         magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null > /tmp/cover.info
       fi
     done
+  '';
+  openFoot = writeShellScript "openFoot" ''
+    size=$1
+    shift
+    run=$*
+    footclient -o "main.font=${config.stylix.fonts.monospace.name}:size=$size" $run
   '';
 }
