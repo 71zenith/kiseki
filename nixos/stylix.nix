@@ -15,8 +15,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs.miracode;
-        name = "Miracode";
+        package = pkgs.fantasque-sans-mono;
+        name = "Fantasque Sans Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -26,7 +26,7 @@
         applications = 14;
         desktop = 14;
         popups = 14;
-        terminal = 15;
+        terminal = 16;
       };
     };
     opacity = {

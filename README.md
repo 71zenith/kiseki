@@ -106,7 +106,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                                    | Description                        |
 |-------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
-| [miracode](https://github.com/IdreesInc/Miracode)                       | monospace font                     |
+| [fantasque-sans](https://github.com/belluzj/fantasque-sans)             | monospace font                     |
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
