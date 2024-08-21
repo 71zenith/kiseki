@@ -8,13 +8,11 @@
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "128.0";
-    hash = "sha256-Xbe9gHO8Kf9C+QnWhZr21kl42rXUQzqSDIn99thO1kE=";
+    rev = "129.0";
+    hash = "sha256-hpkEO5BhMVtINQG8HN4xqfas/R6q5pYPZiFK8bilIDs=";
   };
 in {
-  imports = [
-    inputs.nur.nixosModules.nur
-  ];
+  imports = [inputs.nur.nixosModules.nur];
   programs.firefox = {
     enable = true;
 
@@ -212,12 +210,12 @@ in {
               }
               {
                 name = "YouTube";
-                keyword = "yt";
+                keyword = "yo";
                 url = "https://YouTube.com";
               }
               {
                 name = "Whatsapp";
-                keyword = "wh";
+                keyword = "we";
                 url = "https://web.whatsapp.com";
               }
             ];
