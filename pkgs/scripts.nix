@@ -61,27 +61,6 @@ in {
       act_on_rofi "$(build_rofi "STATUS: <b>ON</b> <i>$ga</i>")" "$ga"
     fi
   '';
-  disSend = writeShellScript "disSend" ''
-    DISCORD_URL='https://discord.com/api/v10'
-    DISCORD_SERVER_ID=931186431215435807
-    DISCORD_TOKEN=$(cat /run/secrets/discord_token)
-    send() {
-      curl -s "$DISCORD_URL/channels/$chan_id/messages" -H "Authorization: $DISCORD_TOKEN" -H "Accept: application/json" -H "Content-Type: multipart/form-data" -X POST -F "$1"
-    }
-    selchan() {
-      chans=$(curl -s "$DISCORD_URL/guilds/$DISCORD_SERVER_ID/channels" -H "Authorization: $DISCORD_TOKEN" | tr '{}' '\n' | sed -nE 's|.*"id":"([^"]*)".*type":0.*last_message_id.*"name":"([^"]*)".*|\1 \2|p' )
-      chan=$(echo "$chans" | cut -d' ' -f2 | rofi -dmenu -i -p "Select Channel" -filter 2>/dev/null)
-      chan_id=$(printf "%s" "$chans" | grep "$chan" | cut -d' ' -f1)
-    }
-    f=$(rofi -show filebrowser -filebrowser-command 'echo' -filebrowser-directory ~/. -selected-row 1 2>/dev/null)
-    test -d "$f" && f=$(nsxiv -top "$f")
-    [ -z "$f" ] && notify-send "Exiting!!!" && exit 1
-    selchan
-    IFS="
-    "
-    [ -n "$f" ] && for i in $f; do send "file=@$i"; done && notify-send "Uploaded $f to Discord in $chan" && exit 0
-    notify-send "Exiting!!!" && exit 1
-  '';
   _4khd = writeShellScriptBin "4khd" ''
     player=debug
     while [ $# -gt 0 ]; do
@@ -122,7 +101,6 @@ in {
     done
   '';
   clipShow = writeShellScript "clipShow" ''
-    export CLIP=true
     tmp_dir="/tmp/cliphist"
     rm -rf "$tmp_dir"
     mkdir -p "$tmp_dir"
@@ -136,7 +114,7 @@ in {
     }
     1
     EOF
-    cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview | cliphist decode | wl-copy
+    cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview -theme-str 'element { children: [element-text]; } icon-current-entry { enabled: true; size: 35%; } window { width: 1200px; } listview { lines: 15; spacing: 4px; }' | cliphist decode | wl-copy
   '';
   fzfComp = writeShellScript "fzfComp" ''
     rm -rf /tmp/comsole 2>&1 >/dev/null
@@ -151,7 +129,6 @@ in {
     done | uniq
   '';
   epubOpen = writeShellScript "epubOpen" ''
-    export EPUB=true
     epubs=$(fd -e=epub . ~/kindle/)
     IFS="
     "
@@ -162,7 +139,7 @@ in {
     for i in $epubs; do
       image="$(dirname "$i")/cover.jpg"
       echo -en "''${i%.epub}\0icon\x1f$image\n"
-    done | rofi -i -dmenu -display-column-separator "/" -display-columns 7 -theme preview -p "" | open
+    done | rofi -i -dmenu -display-column-separator "/" -display-columns 7 -theme preview -p "" -theme-str 'icon-current-entry { size: 35%;}' | open
   '';
   glavaShow = writeShellScript "glavaShow" ''
     id=$(pulsemixer -l | grep glava | sed -nE 's/.*ID: (.+?), Name.*/\1/p')
@@ -187,14 +164,20 @@ in {
     [ -z "$*" ] && query=$(rofi -dmenu -l 0 -p "" -mesg "Enter your search" | tr ' ' '+') || query=$(printf "%s" "$*" | tr ' ' '+')
     [ -z "$query" ] && exit 1
     srch="https://nyaa.land/?q=$query&f=0&c=1_0"
+    notify-send "Searching nyaa"
     data=$(curl -Ls "$srch")
     title=$(echo "$data" | ${_ htmlq} tr 'td[colspan]' -r 'a[class]' a -a title)
     magnet=$(echo "$data" | ${_ htmlq} tr td a -a href | grep "^magnet:")
     details=$(echo "$data" | ${_ htmlq} tr 'td[class="text-center"]' -r 'td[data-timestamp]' -r a -w -t | grep -v '^$' | paste - - - - -d / | cut -d/ -f1,2,3 | sed -nE 's|([^/]+)/([^/]+)/([^/]+)$|[\1/\2/\3]|p')
-
+    [ -z "$title" ] && notify-send "No search results" && exit 1
     paste <(echo "$title") <(echo "$details") <(echo "$magnet") -d '\t' | grep -v '/0/' \
       | rofi -i -no-custom -dmenu -theme-str 'window { width: 1000px; } element { children: [element-text];} listview { lines: 12;}' \
         -ellipsize-mode middle -p "" -matching glob \
-        -display-column-separator "\t" -display-columns 1,2 | cut -f3 | xargs mpv
+        -display-column-separator "\t" -display-columns 1,2 | while read -r entry; do
+      notify-send "Opening $(echo "$entry" | cut -f1)"
+      setsid mpv "$(echo "$entry" | cut -f3)"
+      exit 0
+    done
+    notify-send "No search results" && exit 1
   '';
 }

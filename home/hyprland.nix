@@ -223,7 +223,6 @@ in {
           "$mod1, slash, exec, pkill sptlrx || ${scripts.openFoot} 30 -T quick sptlrx"
           "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a foot'"
 
-          "$mod1, b, exec, ${scripts.disSend}"
           "$mod1, o, exec, ${scripts.wlOcr}"
           "$mod1, p, exec, ${scripts.openMedia}"
           "$mod1, u, exec, ${scripts.rofiGuard}"
@@ -232,7 +231,7 @@ in {
           "$mod1, y, exec, ${scripts.copyTwit}"
           "$mod1, v, exec, ${scripts.clipShow}"
           "$mod1, g, exec, ${scripts.glavaShow}"
-          "$mod1, apostrophe, exec, ${scripts.torMpv}"
+          "$mod1, b, exec, ${scripts.torMpv}"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"

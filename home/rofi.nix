@@ -278,26 +278,5 @@
         command: "swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2";
       }
     }
-    @media (enabled: env(EPUB, false)) {
-      icon-current-entry {
-        size: 35%;
-      }
-    }
-    @media (enabled: env(CLIP, false)) {
-      element {
-        children: [element-text];
-      }
-      icon-current-entry {
-        enabled: true;
-        size: 35%;
-      }
-      window {
-        width: 1200px;
-      }
-      listview {
-        lines: 15;
-        spacing: 4px;
-      }
-    }
   '';
 }
