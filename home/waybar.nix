@@ -338,7 +338,6 @@ in {
           border-radius: 0px;
           background-color: @base01;
         }
-        #taskbar button,
         #privacy,
         #gamemode,
         #image.toggle,
@@ -356,6 +355,9 @@ in {
           margin-bottom: 2px;
           margin-left: 0px;
           padding-left: 0px;
+        }
+        #taskbar button {
+          margin-bottom: 2px;
         }
         #idle_inhibitor.activated,
         #privacy-item,
