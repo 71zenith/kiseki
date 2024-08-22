@@ -31,6 +31,9 @@
       keepaspect-window = "no";
     };
     scriptOpts = {
+      webtorrent = {
+        path = "${config.xdg.cacheHome}/mpv";
+      };
       youtube-search = {
         key_youtube_search_replace = "CTRL+SHIFT+s";
         key_youtube_music_search_replace = "";

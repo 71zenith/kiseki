@@ -3,7 +3,7 @@
   pkgs,
   lib,
 }: let
-  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5 socat;
+  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5 socat htmlq;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
@@ -182,5 +182,19 @@ in {
     shift
     run=$*
     footclient -o "main.font=${config.stylix.fonts.monospace.name}:size=$size" $run
+  '';
+  torMpv = writeShellScript "torMpv" ''
+    [ -z "$*" ] && query=$(rofi -dmenu -l 0 -p "" -mesg "Enter your search" | tr ' ' '+') || query=$(printf "%s" "$*" | tr ' ' '+')
+    [ -z "$query" ] && exit 1
+    srch="https://nyaa.land/?q=$query&f=0&c=1_0"
+    data=$(curl -Ls "$srch")
+    title=$(echo "$data" | ${_ htmlq} tr 'td[colspan]' -r 'a[class]' a -a title)
+    magnet=$(echo "$data" | ${_ htmlq} tr td a -a href | grep "^magnet:")
+    details=$(echo "$data" | ${_ htmlq} tr 'td[class="text-center"]' -r 'td[data-timestamp]' -r a -w -t | grep -v '^$' | paste - - - - -d / | cut -d/ -f1,2,3 | sed -nE 's|([^/]+)/([^/]+)/([^/]+)$|[\1/\2/\3]|p')
+
+    paste <(echo "$title") <(echo "$details") <(echo "$magnet") -d '\t' | grep -v '/0/' \
+      | rofi -i -no-custom -dmenu -theme-str 'window { width: 1000px; } element { children: [element-text];} listview { lines: 12;}' \
+        -ellipsize-mode middle -p "" -matching glob \
+        -display-column-separator "\t" -display-columns 1,2 | cut -f3 | xargs mpv
   '';
 }

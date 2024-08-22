@@ -232,6 +232,7 @@ in {
           "$mod1, y, exec, ${scripts.copyTwit}"
           "$mod1, v, exec, ${scripts.clipShow}"
           "$mod1, g, exec, ${scripts.glavaShow}"
+          "$mod1, apostrophe, exec, ${scripts.torMpv}"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"
