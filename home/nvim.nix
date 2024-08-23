@@ -512,6 +512,12 @@ in {
           options.desc = "Show code actions";
         }
         {
+          key = "<leader>lo";
+          mode = "n";
+          action = "<CMD>lua vim.lsp.buf.definition()<CR>";
+          options.desc = "Goto definition";
+        }
+        {
           key = "<leader>lr";
           mode = "n";
           action = "<CMD>lua vim.lsp.buf.rename()<CR>";
