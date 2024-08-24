@@ -32,6 +32,7 @@ in {
       vpn_private_jp = {};
       vpn_private_us = {};
       vpn_private_nl = {};
+      spot_client_id = {owner = myUserName;};
     };
     # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
     templates."credentials.json" = {

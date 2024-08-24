@@ -12,7 +12,7 @@ in {
       After = ["graphical-session-pre.target"];
     };
     Service = {
-      ExecStart = "${scripts.changeCover}";
+      ExecStart = scripts.changeCover;
       Restart = "always";
       RestartSec = "5s";
     };
@@ -24,7 +24,7 @@ in {
     enable = true;
     enableZshIntegration = true;
     settings = {
-      client_id = "1bc0214aae08496bb50af4cd51aa2c94";
+      client_id_command = "cat /run/secrets/spot_client_id";
       client_port = 8080;
       play_icon = " ";
       pause_icon = " ";
@@ -41,7 +41,7 @@ in {
         playback_window_position = "Bottom";
       };
       device = {
-        name = "ur mom";
+        name = "lain";
         device_type = "speaker";
         bitrate = 320;
         audio_cache = false;

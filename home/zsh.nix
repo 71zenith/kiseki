@@ -135,7 +135,7 @@ in {
       autocd = true;
     };
   };
-  xdg.configFile."zsh/p10k.zsh".text = let
+  xdg.configFile."zsh/p10k.zsh".text = with config.lib.stylix.colors.withHashtag; let
     escape = ''''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'';
   in ''
     'builtin' 'local' '-a' 'p10k_config_opts'
@@ -151,13 +151,13 @@ in {
 
       [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-      local grey='#525252'
-      local red='#EE5396'
-      local yellow='#42b65'
-      local blue='#33B1FF'
-      local magenta='#FF5C57'
-      local cyan='#3DDBD9'
-      local white='#F2F4F8'
+      local grey=${base03}
+      local red=${base0A}
+      local yellow=${base0D}
+      local blue=${base0B}
+      local cyan=${base08}
+      local white=${base05}
+      local magenta=${base0C}
 
       typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
         dir

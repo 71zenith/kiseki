@@ -82,6 +82,7 @@
     pcName = "izanagi";
     myUserName = "zen";
     myName = "Mori Zen";
+    nixName = pkgs.lib.maintainers._71zenith;
     mailId = "71zenith@proton.me";
 
     system = "x86_64-linux";
@@ -116,7 +117,7 @@
         my-assets.overlays.default
         lem.overlays.default
         scraperwolf.overlays.default
-        (import ./pkgs)
+        (import ./pkgs {inherit nixName;})
       ];
     };
   in {

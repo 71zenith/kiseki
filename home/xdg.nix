@@ -1,6 +1,7 @@
 {config, ...}: {
   xdg = {
     enable = true;
+    mime.enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = let
@@ -62,10 +63,7 @@
       templates = "${config.home.homeDirectory}/.local/share/templates";
       publicShare = "${config.home.homeDirectory}/.local/share/public";
     };
-    mime.enable = true;
-  };
-  home.file = {
-    "${config.xdg.configHome}/electron-flags.conf".text = ''
+    configFile."electron-flags.conf".text = ''
       --enable-features=WaylandWindowDecorations
       --enable-features=UseOzonePlatform
       --ozone-platform-hint=wayland

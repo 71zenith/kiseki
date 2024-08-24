@@ -3,6 +3,7 @@
   fetchFromGitHub,
   unstableGitUpdater,
   buildLua,
+  nixName,
 }:
 buildLua rec {
   pname = "mpv-youtube-search";
@@ -19,6 +20,6 @@ buildLua rec {
     description = "Search youtube from MPV";
     homepage = "https://github.com/willswats/mpv-youtube-search";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [_71zenith];
+    maintainers = [nixName];
   };
 }

@@ -19,6 +19,7 @@
   iina,
   chromecastSupport ? false,
   syncSupport ? false,
+  nixName,
 }:
 assert withMpv || withVlc || withIina;
   stdenvNoCC.mkDerivation rec {
@@ -33,14 +34,17 @@ assert withMpv || withVlc || withIina;
     };
 
     nativeBuildInputs = [makeWrapper];
+
     buildInputs =
       lib.optional withMpv mpv
       ++ lib.optional withVlc vlc
       ++ lib.optional withIina iina;
+
     runtimeDependencies =
       [gnugrep gnused curl fzf ffmpeg aria2]
       ++ lib.optional chromecastSupport catt
       ++ lib.optional syncSupport syncplay;
+
     installPhase = ''
       runHook preInstall
 
@@ -54,12 +58,12 @@ assert withMpv || withVlc || withIina;
 
       runHook postInstall
     '';
-    meta = with lib; {
+    meta = {
       homepage = "https://github.com/pystardust/ani-cli";
       description = "A cli tool to browse and play anime";
-      license = licenses.gpl3Plus;
-      maintainers = with maintainers; [_71zenith];
-      platforms = platforms.unix;
+      license = lib.licenses.gpl3Plus;
+      maintainers = [nixName];
+      platforms = lib.platforms.unix;
       mainProgram = "ani-cli";
     };
   }

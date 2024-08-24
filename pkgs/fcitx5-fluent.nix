@@ -2,39 +2,31 @@
   stdenvNoCC,
   fetchFromGitHub,
   lib,
+  nixName,
 }:
-stdenvNoCC.mkDerivation (finalAttrs: {
+stdenvNoCC.mkDerivation rec {
   pname = "fcitx5-fluentdark";
   version = "v0.4.0";
 
   src = fetchFromGitHub {
     owner = "Reverier-Xu";
     repo = "FluentDark-fcitx5";
-    rev = finalAttrs.version;
+    rev = version;
     hash = "sha256-wefleY3dMM3rk1/cZn36n2WWLuRF9dTi3aeDDNiR6NU=";
   };
 
   installPhase = ''
-    install -Dm644 FluentDark/arrow.png $out/share/fcitx5/themes/FluentDark/arrow.png
-    install -Dm644 FluentDark/back.png $out/share/fcitx5/themes/FluentDark/back.png
-    install -Dm644 FluentDark/next.png $out/share/fcitx5/themes/FluentDark/next.png
-    install -Dm644 FluentDark/panel.png $out/share/fcitx5/themes/FluentDark/panel.png
-    install -Dm644 FluentDark/radio.png $out/share/fcitx5/themes/FluentDark/radio.png
-    install -Dm644 FluentDark/theme.conf $out/share/fcitx5/themes/FluentDark/theme.conf
+    mkdir -p $out/share/fcitx5/themes/FluentDark/
+    cp -r FluentDark/* $out/share/fcitx5/themes/FluentDark/
 
-    # FluentDark-solid
-    install -Dm644 FluentDark-solid/arrow.png $out/share/fcitx5/themes/FluentDark-solid/arrow.png
-    install -Dm644 FluentDark-solid/back.png $out/share/fcitx5/themes/FluentDark-solid/back.png
-    install -Dm644 FluentDark-solid/next.png $out/share/fcitx5/themes/FluentDark-solid/next.png
-    install -Dm644 FluentDark-solid/panel.png $out/share/fcitx5/themes/FluentDark-solid/panel.png
-    install -Dm644 FluentDark-solid/radio.png $out/share/fcitx5/themes/FluentDark-solid/radio.png
-    install -Dm644 FluentDark-solid/theme.conf $out/share/fcitx5/themes/FluentDark-solid/theme.conf
+    mkdir -p $out/share/fcitx5/themes/FluentDark-solid/
+    cp -r FluentDark-solid/* $out/share/fcitx5/themes/FluentDark-solid/
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Fcitx5 theme based on Fluent Dark Colors";
     homepage = "https://github.com/Reverier-Xu/FluentDark-fcitx5";
-    maintainers = with maintainers; [_71zenith];
-    platforms = platforms.all;
+    maintainers = [nixName];
+    platforms = lib.platforms.all;
   };
-})
+}

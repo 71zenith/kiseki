@@ -2,6 +2,7 @@
   lib,
   stdenv,
   fetchFromGitHub,
+  nixName,
 }:
 stdenv.mkDerivation {
   pname = "yazi-plugins";
@@ -13,16 +14,17 @@ stdenv.mkDerivation {
     rev = "06e5fe1c7a2a4009c483b28b298700590e7b6784";
     hash = "sha256-jg8+GDsHOSIh8QPYxCvMde1c1D9M78El0PljSerkLQc=";
   };
+
   installPhase = ''
     mkdir -p $out/share
     cp -r *.yazi $out/share
   '';
 
-  meta = with lib; {
+  meta = {
     description = "Place code snippets from docs into this monorepo, so that users can update more easily via package manager";
     homepage = "https://github.com/yazi-rs/plugins";
-    maintainers = with maintainers; [_71zenith];
+    maintainers = [nixName];
     mainProgram = "yazi-plugins";
-    platforms = platforms.all;
+    platforms = lib.platforms.all;
   };
 }
