@@ -18,6 +18,11 @@ in {
     extraConfig = ''
       submap = close
       bind = ,mouse:272, killactive
+      bind = ,l, cyclenext,
+      bind = ,h, cyclenext, prev
+      bind = ,return, killactive
+      bind = ,return, submap, reset
+      bind = ,escape, submap, reset
       bind = ,mouse:272, submap, reset
       bind = ,mouse:273, submap, reset
       submap = reset
@@ -57,14 +62,16 @@ in {
         "HDMI-A-1,1920x1080@75.00,0x0,1"
       ];
       exec-once = [
-        "pgrep waybar || waybar &"
         "foot --server &"
         "swww-daemon --format xrgb"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "$setwall &"
       ];
-      exec = ["${lib.getExe pkgs.xorg.xrdb} -merge $HOME/.Xresources &"];
+      exec = [
+        "pgrep waybar || waybar &"
+        "${lib.getExe pkgs.xorg.xrdb} -merge $HOME/.Xresources &"
+      ];
       windowrule = [
         "noblur, GLava"
         "noborder, GLava"
@@ -209,6 +216,9 @@ in {
           "$mod2, f, exec, firefox"
           "$mod2, v, exec, neovide"
           "$mod2, e, exec, emacs"
+          "$mod2, p, exec, qbittorrent"
+          "$mod2, g, exec, heroic"
+          "$mod2, b, submap, close"
           "$mod2, i, exec, $setwall"
           "$mod2, o, exec, rofi -theme preview -show filebrowser -selected-row 1"
 
