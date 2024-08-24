@@ -62,7 +62,7 @@
     # gui
     calibre
     vesktop
-    librewolf
+    #librewolf
     qbittorrent
     nautilus
     qalculate-qt
@@ -84,13 +84,6 @@
     #config.nur.repos.chigyutendies.citra-nightly
     #config.nur.repos.chigyutendies.suyu-dev
 
-    # libs
-    libnotify
-    gtk3
-    libsixel
-    openssl
-    xwayland
-
     # dev
     ## doom emacs
     (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
@@ -99,6 +92,13 @@
     ### lsp
     nil
     zls
+
+    ## libs
+    libnotify
+    gtk3
+    libsixel
+    openssl
+    xwayland
 
     ## docs
     man-pages
