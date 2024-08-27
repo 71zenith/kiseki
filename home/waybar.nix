@@ -99,6 +99,7 @@ in {
           on-click = "pulsemixer --toggle-mute";
           on-scroll-up = "pulsemixer --change-volume +5";
           on-scroll-down = "pulsemixer --change-volume -5";
+          on-click-right = "pkill pulsemixer || footclient -T quick pulsemixer";
         };
         "group/music" = {
           orientation = "vertical";

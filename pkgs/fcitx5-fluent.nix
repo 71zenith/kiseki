@@ -4,14 +4,14 @@
   lib,
   nixName,
 }:
-stdenvNoCC.mkDerivation rec {
+stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "fcitx5-fluentdark";
   version = "v0.4.0";
 
   src = fetchFromGitHub {
     owner = "Reverier-Xu";
     repo = "FluentDark-fcitx5";
-    rev = version;
+    rev = finalAttrs.version;
     hash = "sha256-wefleY3dMM3rk1/cZn36n2WWLuRF9dTi3aeDDNiR6NU=";
   };
 
@@ -29,4 +29,4 @@ stdenvNoCC.mkDerivation rec {
     maintainers = [nixName];
     platforms = lib.platforms.all;
   };
-}
+})

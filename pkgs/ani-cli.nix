@@ -22,26 +22,28 @@
   nixName,
 }:
 assert withMpv || withVlc || withIina;
-  stdenvNoCC.mkDerivation rec {
+  stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "ani-cli";
-    version = "unstable-2024-07-29";
+    version = "4.9";
 
     src = fetchFromGitHub {
       owner = "pystardust";
-      repo = pname;
-      rev = "267880fc936d8c2eccfb81944ec4854a7ea79a5a";
-      hash = "sha256-DGy2zC2MAH4JHqqpDYyG84jlow5XBx73hM6QSDlUvVo=";
+      repo = finalAttrs.pname;
+      rev = "v${finalAttrs.version}";
+      hash = "sha256-7zuepWTtrFp9RW3zTSjPzyJ9e+09PdKgwcnV+DqPEUY=";
     };
 
     nativeBuildInputs = [makeWrapper];
+    buildInputs = [] ++ lib.optional withMpv mpv;
 
-    buildInputs =
-      lib.optional withMpv mpv
-      ++ lib.optional withVlc vlc
-      ++ lib.optional withIina iina;
-
-    runtimeDependencies =
+    runtimeDependencies = let
+      player =
+        []
+        ++ lib.optional withVlc vlc
+        ++ lib.optional withIina iina;
+    in
       [gnugrep gnused curl fzf ffmpeg aria2]
+      ++ player
       ++ lib.optional chromecastSupport catt
       ++ lib.optional syncSupport syncplay;
 
@@ -49,10 +51,8 @@ assert withMpv || withVlc || withIina;
       runHook preInstall
 
       install -Dm755 ani-cli $out/bin/ani-cli
-
       wrapProgram $out/bin/ani-cli \
-        --prefix PATH : ${lib.makeBinPath runtimeDependencies}
-
+        --prefix PATH : ${lib.makeBinPath finalAttrs.runtimeDependencies}
       mkdir -p "$out/share/man/man1/"
       cp *1 "$out/share/man/man1/"
 
@@ -66,4 +66,4 @@ assert withMpv || withVlc || withIina;
       platforms = lib.platforms.unix;
       mainProgram = "ani-cli";
     };
-  }
+  })
