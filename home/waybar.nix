@@ -211,7 +211,7 @@ in {
         };
         "image#cover" = {
           on-click = "pkill nsxiv || nsxiv /tmp/cover.jpg";
-          on-click-right = "pkill sptlrx || ${scripts.openFoot} 30 -T quick sptlrx";
+          on-click-right = "spotify_player like";
           on-click-middle = scripts.glavaShow;
           path = "/tmp/cover.jpg";
           size = 31;

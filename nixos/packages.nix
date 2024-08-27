@@ -30,19 +30,20 @@
     ffmpeg
     imagemagick
     sqlite
-    grimblast
-    cliphist
     xdg-utils
-    swww
     playerctl
-    wl-clipboard
     translate-shell
     pulsemixer
     nvtopPackages.nvidia
     lutgen
     gammastep
+    grimblast
+    cliphist
     hyprpicker
+    swww
+    wl-clipboard
     wvkbd
+    eww
 
     ## nix
     nitch

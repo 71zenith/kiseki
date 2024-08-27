@@ -10,7 +10,7 @@
 
 *nis being a homophone of nix and the developer behind my favourite game franchise*[^1]
 
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot17.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot18.png?raw=true)
 
 <details><summary><b>More screenshots(somewhat outdated)</b></summary>
 
@@ -35,7 +35,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 - 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide), [sptlrx](https://github.com/raitonoberu/sptlrx)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords with [sops-nix](https://github.com/Mic92/sops-nix)
-- 🎼 [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces
+- 🎼 [spotify-player](https://github.com/aome510/spotify-player) support with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar and [hyprland](https://github.com/hyprwm/Hyprland) special workspaces and [eww](https://github.com/elkowar/eww) lyrics widget
 - 📊 [glava](https://github.com/jarcode-foss/glava) with on the fly color based on current song and synced lyrics support
 - 🌐 [firefox](https://www.mozilla.org/en-US/firefox/) with declarative config
 - 🚀 advanced [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculations, sending files to discord, clipboard with images, wallpaper switcher
@@ -71,6 +71,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [zathura](https://pwmt.org/projects/zathura)                   | pdf/epub viewer         |
 | [waybar](https://github.com/Alexays/Waybar)                    | status bar              |
 | [mpv](https://github.com/mpv-player/mpv)                       | media player (da goat)  |
+| [eww](https://github.com/elkowar/eww)                          | widget                  |
 | [rofi](https://github.com/davatorium/rofi)                     | custom launcher         |
 | [satty](https://github.com/gabm/Satty)                         | annotation tool         |
 | [calibre](https://github.com/kovidgoyal/calibre)               | ebook manager           |

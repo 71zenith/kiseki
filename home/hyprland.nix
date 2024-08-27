@@ -64,6 +64,7 @@ in {
       exec-once = [
         "foot --server &"
         "swww-daemon --format xrgb"
+        "eww open lyrics &"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "$setwall &"
@@ -230,7 +231,6 @@ in {
           "$mod1, return, exec, footclient"
           "$mod1, semicolon, exec, mpv --input-ipc-server=/tmp/mpvsocket --no-resume-playback --player-operation-mode=pseudo-gui"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
-          "$mod1, slash, exec, pkill sptlrx || ${scripts.openFoot} 30 -T quick sptlrx"
           "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a foot'"
 
           "$mod1, o, exec, ${scripts.wlOcr}"
