@@ -162,7 +162,7 @@ in {
 
     nh = {
       enable = true;
-      flake = "${home myUserName}/nis";
+      flake = "${home myUserName}/kiseki";
     };
 
     nix-ld.enable = true;

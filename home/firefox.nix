@@ -31,6 +31,8 @@ in {
           localcdn
           clearurls
           privacy-badger
+          don-t-fuck-with-paste
+          skip-redirect
           search-by-image
           tridactyl
           ublock-origin

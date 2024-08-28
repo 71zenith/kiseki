@@ -3,12 +3,12 @@
 <p align="center">
     <a href="https://nixos.org/">
         <img src="https://img.shields.io/badge/NixOS-24.11-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
-    <img src="https://img.shields.io/github/last-commit/71zenith/nis?style=for-the-badge&labelColor=dde1e6&color=161616"/>
-    <img src="https://img.shields.io/github/repo-size/71zenith/nis?style=for-the-badge&labelColor=dde1e6&color=161616"/>
+    <img src="https://img.shields.io/github/last-commit/71zenith/kiseki?style=for-the-badge&labelColor=dde1e6&color=161616"/>
+    <img src="https://img.shields.io/github/repo-size/71zenith/kiseki?style=for-the-badge&labelColor=dde1e6&color=161616"/>
   </a>
 </p>
 
-*nis being a homophone of nix and the developer behind my favourite game franchise*[^1]
+*kiseki being my favourite game franchise*[^1]
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot18.png?raw=true)
 
