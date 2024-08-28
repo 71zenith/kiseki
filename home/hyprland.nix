@@ -64,13 +64,13 @@ in {
       exec-once = [
         "foot --server &"
         "swww-daemon --format xrgb"
-        "eww open lyrics &"
         "wl-paste --type text --watch cliphist store &"
         "wl-paste --type image --watch cliphist store &"
         "$setwall &"
       ];
       exec = [
         "pgrep waybar || waybar &"
+        "pgrep eww || eww open lyrics &"
         "${lib.getExe pkgs.xorg.xrdb} -merge $HOME/.Xresources &"
       ];
       windowrule = [
@@ -101,6 +101,7 @@ in {
         "center, class:com.gabm.satty"
         "center, class:foot"
         "idleinhibit always, title:raylib-zig dvd animation"
+        "idleinhibit always, class:steam_app_0"
         "tile, class:Nsxiv,xwayland:1"
         "workspace special:mpv silent, initialTitle:mpvplay"
         "tile, title:Neovide,class:neovide"

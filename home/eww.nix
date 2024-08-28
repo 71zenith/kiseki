@@ -26,9 +26,10 @@
 
     .btn {
       font-family: "Kaushan Script", "Rampart One";
-      font-size: 48px;
+      font-size: 46px;
       color: ${base0A};
       &:hover {
+        font-size: 50px;
         color: ${base0B};
       }
     }

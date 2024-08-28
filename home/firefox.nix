@@ -29,9 +29,10 @@ in {
           foxyproxy-standard
           i-dont-care-about-cookies
           localcdn
+          clearurls
           privacy-badger
           search-by-image
-          vimium-c
+          tridactyl
           ublock-origin
           config.nur.repos.rycee.firefox-addons."10ten-ja-reader"
         ];
