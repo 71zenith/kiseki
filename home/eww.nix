@@ -1,4 +1,11 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
+  scripts = import ../pkgs/scripts.nix {inherit config lib pkgs;};
+in {
   xdg.configFile."eww/eww.yuck".text = ''
     (defwindow lyrics
               :monitor 0
@@ -13,6 +20,7 @@
       (box
         (button :class "btn"
                 :onclick "echo ''${text} | wl-copy"
+                :onrightclick "echo ''${text} | wl-copy && setsid ${scripts.transLiner} &"
                 (label :text text))))
 
     (deflisten text "sptlrx pipe")

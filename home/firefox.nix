@@ -34,7 +34,7 @@ in {
           don-t-fuck-with-paste
           skip-redirect
           search-by-image
-          tridactyl
+          vimium-c
           ublock-origin
           config.nur.repos.rycee.firefox-addons."10ten-ja-reader"
         ];
