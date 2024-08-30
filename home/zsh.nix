@@ -115,6 +115,7 @@ in {
         qq = "nvd list";
         fl = "nix flake";
         im = "img2sixel";
+        ns = "nsxiv";
         pm = "pulsemixer";
         s = "sudo systemctl";
         cat = "bat -p -P";

@@ -19,10 +19,10 @@ in {
         (wid :raw romaji :class "btn2"))
 
     (defwidget wid [raw class]
-      (box
+      (box :spacing 0
         (button :class class
                 :onclick "echo ''${raw} | wl-copy"
-                :onrightclick "echo ''${raw} | wl-copy && setsid ${scripts.transLiner} -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi --verbose &"
+                :onrightclick "echo ''${raw} | wl-copy && setsid ${scripts.transLiner} &"
                 (label :text raw))))
 
     (deflisten text "sptlrx pipe")
