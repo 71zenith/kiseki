@@ -15,15 +15,14 @@ in {
               :stacking "bg"
         (widget))
 
-
     (defwidget widget []
       (box
         (button :class "btn"
                 :onclick "echo ''${text} | wl-copy"
-                :onrightclick "echo ''${text} | wl-copy && setsid ${scripts.transLiner} &"
-                (label :justify "center" :text text))))
+                :onrightclick "echo ''${text} | wl-copy && setsid ${scripts.transLiner} -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi --verbose &"
+                (label :text text))))
 
-    (deflisten text "${scripts.genRomaji}")
+    (deflisten text "sptlrx pipe")
   '';
   xdg.configFile."eww/eww.scss".text = with config.lib.stylix.colors.withHashtag; ''
     * {

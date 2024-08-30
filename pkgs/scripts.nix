@@ -12,7 +12,7 @@ in {
     notify-send -- "$(wl-paste)"
   '';
   transLiner = writeShellScript "transLiner" ''
-    wl-paste | trans -no-warn -no-autocorrect -b | wl-copy
+    wl-paste | trans -no-warn -no-autocorrect -b $* | wl-copy
     echo "$(wl-paste)"
     notify-send -- "$(wl-paste)"
   '';
@@ -179,8 +179,5 @@ in {
       exit 0
     done
     notify-send "No search results" && exit 1
-  '';
-  genRomaji = writeShellScript "genRomaji" ''
-    sptlrx pipe | stdbuf -oL trans -show-translation N -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi | stdbuf -oL awk 'NR % 3 == 0 {next} {printf "%s\\n", $0} NR % 3 == 2 {print ""}'
   '';
 }
