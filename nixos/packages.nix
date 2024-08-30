@@ -63,7 +63,7 @@
     # gui
     calibre
     vesktop
-    #librewolf
+    librewolf
     qbittorrent
     nautilus
     qalculate-qt

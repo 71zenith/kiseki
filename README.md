@@ -10,7 +10,7 @@
 
 *kiseki being my favourite game franchise*[^1]
 
-![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot18.png?raw=true)
+![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot19.png?raw=true)
 
 <details><summary><b>More screenshots(somewhat outdated)</b></summary>
 
@@ -36,7 +36,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords/secrets with [sops-nix](https://github.com/Mic92/sops-nix)
 - 🎼 [spotify-player](https://github.com/aome510/spotify-player) with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar
-- 📊 [glava](https://github.com/jarcode-foss/glava) with cover image palette and [eww](https://github.com/elkowar/eww) synced lyrics widget
+- 📊 [glava](https://github.com/jarcode-foss/glava) with cover image palette and [eww](https://github.com/elkowar/eww) synced lyrics(with romaji) widget
 - 🌐 hardened [firefox](https://www.mozilla.org/en-US/firefox/) with declarative config
 - 🚀 [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculations, clipboard/wallpaper with images, nyaa search
 - 🈂️ scripts to open/download media from the internet, [OCR](https://github.com/tesseract-ocr/tesseract) and [translating text](https://github.com/soimort/translate-shell)
