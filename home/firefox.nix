@@ -11,6 +11,12 @@
     rev = "129.0";
     hash = "sha256-hpkEO5BhMVtINQG8HN4xqfas/R6q5pYPZiFK8bilIDs=";
   };
+  minimal-arc = pkgs.fetchFromGitHub {
+    owner = "zayihu";
+    repo = "Minimal-Arc";
+    rev = "c528e3f35faaa3edb55eacbf63f4bb9f4db499fd";
+    hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
+  };
 in {
   imports = [inputs.nur.nixosModules.nur];
   programs.firefox = {
@@ -27,7 +33,7 @@ in {
           mal-sync
           to-google-translate
           foxyproxy-standard
-          i-dont-care-about-cookies
+          istilldontcareaboutcookies
           localcdn
           clearurls
           privacy-badger
@@ -36,6 +42,7 @@ in {
           search-by-image
           vimium-c
           ublock-origin
+          sidebery
           config.nur.repos.rycee.firefox-addons."10ten-ja-reader"
         ];
         settings = {
@@ -52,6 +59,7 @@ in {
           "accessibility.typeaheadfind.enablesound" = false;
           "layers.acceleration.force-enabled" = true;
           "general.autoScroll" = true;
+          "extensions.autoDisableScopes" = 0;
 
           # TELEMETRY
           "browser.newtabpage.activity-stream.feeds.telemetry" = false;
@@ -147,7 +155,7 @@ in {
               {
                 name = "NixOS Wiki";
                 keyword = "nw";
-                url = "https://wiki.nixos.org/wiki/Linux_kernel";
+                url = "https://wiki.nixos.org/wiki/";
               }
               {
                 name = "Home-Manager";
@@ -286,6 +294,19 @@ in {
         extraConfig = ''
           ${builtins.readFile "${betterfox}/Fastfox.js"}
           ${builtins.readFile "${betterfox}/Peskyfox.js"}
+        '';
+        userChrome = with config.lib.stylix.colors.withHashtag; ''
+          ${builtins.readFile "${minimal-arc}/chrome/userChrome.css"}
+          html {
+            --custom-bg-dark: ${base00};
+            --custom-bg: ${base00};
+          }
+          #nav-bar {
+            padding-block-start: 0px !important;
+            border: none !important;
+            box-shadow: none !important;
+            background: transparent !important;
+          }
         '';
       };
     };
