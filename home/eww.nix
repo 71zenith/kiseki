@@ -21,9 +21,9 @@ in {
         (button :class "btn"
                 :onclick "echo ''${text} | wl-copy"
                 :onrightclick "echo ''${text} | wl-copy && setsid ${scripts.transLiner} &"
-                (label :text text))))
+                (label :justify "center" :text text))))
 
-    (deflisten text "sptlrx pipe")
+    (deflisten text "${scripts.genRomaji}")
   '';
   xdg.configFile."eww/eww.scss".text = with config.lib.stylix.colors.withHashtag; ''
     * {
