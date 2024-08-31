@@ -3,7 +3,6 @@
   fetchFromGitHub,
   unstableGitUpdater,
   buildLua,
-  nixName,
 }:
 buildLua (finalAttrs: {
   pname = "mpv-youtube-search";
@@ -20,6 +19,6 @@ buildLua (finalAttrs: {
     description = "Search youtube from MPV";
     homepage = "https://github.com/willswats/mpv-youtube-search";
     license = lib.licenses.mit;
-    maintainers = [nixName];
+    maintainers = [lib.maintainers._71zenith];
   };
 })

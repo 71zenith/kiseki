@@ -1,8 +1,8 @@
-{nixName, ...}: self: super: {
-  yazi-plugins = self.callPackage ./yazi-plugins.nix {inherit nixName;};
-  fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {inherit nixName;};
-  ani-cli = self.callPackage ./ani-cli.nix {inherit nixName;};
-  mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua nixName;};
+self: super: {
+  yazi-plugins = self.callPackage ./yazi-plugins.nix {};
+  fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
+  ani-cli = self.callPackage ./ani-cli.nix {};
+  mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
 
   spotify-player = super.spotify-player.overrideAttrs (oldAttrs: {
     version = "unstable-2024-08-25";

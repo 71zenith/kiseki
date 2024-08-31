@@ -19,7 +19,6 @@
   iina,
   chromecastSupport ? false,
   syncSupport ? false,
-  nixName,
 }:
 assert withMpv || withVlc || withIina;
   stdenvNoCC.mkDerivation (finalAttrs: {
@@ -62,7 +61,7 @@ assert withMpv || withVlc || withIina;
       homepage = "https://github.com/pystardust/ani-cli";
       description = "A cli tool to browse and play anime";
       license = lib.licenses.gpl3Plus;
-      maintainers = [nixName];
+      maintainers = [lib.maintainers._71zenith];
       platforms = lib.platforms.unix;
       mainProgram = "ani-cli";
     };

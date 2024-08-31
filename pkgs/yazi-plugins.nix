@@ -2,7 +2,6 @@
   lib,
   stdenv,
   fetchFromGitHub,
-  nixName,
 }:
 stdenv.mkDerivation {
   pname = "yazi-plugins";
@@ -23,7 +22,7 @@ stdenv.mkDerivation {
   meta = {
     description = "Place code snippets from docs into this monorepo, so that users can update more easily via package manager";
     homepage = "https://github.com/yazi-rs/plugins";
-    maintainers = [nixName];
+    maintainers = [lib.maintainers._71zenith];
     mainProgram = "yazi-plugins";
     platforms = lib.platforms.all;
   };
