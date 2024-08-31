@@ -47,7 +47,7 @@ in {
         ];
         settings = {
           "intl.accept_languages" = "en-US,en";
-          "browser.startup.page" = 3;
+          "browser.startup.page" = "https://71zenith.github.io/";
           "browser.aboutConfig.showWarning" = false;
           "browser.display.use_document_fonts" = 0;
           "browser.ctrlTab.sortByRecentlyUsed" = false;
