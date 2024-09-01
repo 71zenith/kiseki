@@ -78,6 +78,9 @@
     steam-run
     protonup-qt
 
+    ### vns
+    onscripter-en
+
     ### emulators
     desmume
     mgba

@@ -4,6 +4,16 @@ self: super: {
   ani-cli = self.callPackage ./ani-cli.nix {};
   mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
 
+  onscripter-en = super.onscripter-en.overrideAttrs (oldAttrs: {
+    version = "unstable-2024-07-21";
+    src = super.fetchFromGitHub {
+      owner = "Galladite27";
+      repo = oldAttrs.pname;
+      rev = "398b0328efe1e060301e7f8bfd2623c202646dd3";
+      hash = "sha256-AqvKiqRzA5ICu1BT3PW7PCSwsgzFsg1DunNErKi4SoI=";
+    };
+  });
+
   spotify-player = super.spotify-player.overrideAttrs (oldAttrs: {
     version = "unstable-2024-08-25";
     src = super.fetchFromGitHub {
