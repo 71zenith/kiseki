@@ -12,7 +12,7 @@
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/screenshot19.png?raw=true)
 
-<details><summary><b>More screenshots(somewhat outdated)</b></summary>
+<details><summary><b>More screenshots</b></summary>
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/1.png?raw=true)
 
@@ -21,6 +21,8 @@
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/3.png?raw=true)
 
 ![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/4.png?raw=true)
+
+![](https://github.com/71zenith/walls/blob/master/screenshot/workflow/5.png?raw=true)
 
 </details>
 

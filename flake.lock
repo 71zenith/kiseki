@@ -536,17 +536,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1725174026,
-        "narHash": "sha256-Mmrc/oFwjvkg6xCNlaoXWwiW/TfVLx5Y/W3xiB3x9ic=",
-        "ref": "refs/heads/master",
-        "rev": "d46babbb991d2872ba08b1559af4e3aa1165e19a",
-        "revCount": 56,
-        "type": "git",
-        "url": "ssh://git@github.com/71zenith/assets.git"
+        "lastModified": 1725182857,
+        "narHash": "sha256-AHHOKrxAdgVHRiTMzCNj3hW4b4HjczTp4IUc9OR1C6s=",
+        "owner": "71zenith",
+        "repo": "assets",
+        "rev": "5bcbab1d2f74e6284e6f60d3d672388d06c4f8e9",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/71zenith/assets.git"
+        "owner": "71zenith",
+        "repo": "assets",
+        "type": "github"
       }
     },
     "nix-colors": {

@@ -59,7 +59,7 @@
       };
     };
     my-assets = {
-      url = "git+ssh://git@github.com/71zenith/assets.git";
+      url = "github:71zenith/assets";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
