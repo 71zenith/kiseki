@@ -34,6 +34,7 @@ self: super: {
       hash = "sha256-FLOM8RKm8lWSqZSZm4nJwIJm/zbDQ8A7FoR7AJ+tkpc=";
     };
   });
+
   #NOTE: fuck glava; version below has --pipe and **actually** builds (fuck meson too)
   glava = super.glava.overrideAttrs (oldAttrs: {
     version = "unstable-no-meson";

@@ -17,14 +17,18 @@ in {
     notify-send -- "$(wl-paste)"
   '';
   openMedia = writeShellScript "openMedia" ''
+    trap 'rm -rf /tmp/mpvsocket' EXIT TERM KILL
     case "$(wl-paste --list-types)" in
       *text*)
         notify-send 'Opening URL'
-        if [ -e /tmp/mpvsocket ]; then
-          echo "loadfile $(wl-paste)" | ${_ socat} - /tmp/mpvsocket
+        if [ -e "$(wl-paste)" ]; then
+          wl-paste | xargs -0 xdg-open || notify-send 'Clipboard content is not media'
         else
-          mpv "$(wl-paste)" --title="mpvplay" --no-resume-playback --input-ipc-server="/tmp/mpvsocket" || notify-send "Not a valid URL !!"
-          rm -rf /tmp/mpvsocket
+          if [ -e /tmp/mpvsocket ]; then
+            echo "loadfile $(wl-paste)" | ${_ socat} - /tmp/mpvsocket
+          else
+            mpv "$(wl-paste)" --title="mpvplay" --no-resume-playback --input-ipc-server="/tmp/mpvsocket" || notify-send "Not a valid URL !!"
+          fi
         fi
         ;;
       *image*)
@@ -32,7 +36,7 @@ in {
         wl-paste | mpv -
         ;;
       *)
-        wl-paste | xdg-open || notify-send 'Clipboard content is not media'
+        wl-paste | xargs -0 xdg-open || notify-send 'Clipboard content is not media'
         exit 1
         ;;
     esac
