@@ -536,17 +536,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1725086053,
-        "narHash": "sha256-mt7x2Su5zCA7bzSPBRb1r7c2s+H9e1WOsPl4ykMcQos=",
-        "owner": "71zenith",
-        "repo": "assets",
-        "rev": "6ec1ea3399160a79a5168682e5f86156827bf3f7",
-        "type": "github"
+        "lastModified": 1725174026,
+        "narHash": "sha256-Mmrc/oFwjvkg6xCNlaoXWwiW/TfVLx5Y/W3xiB3x9ic=",
+        "ref": "refs/heads/master",
+        "rev": "d46babbb991d2872ba08b1559af4e3aa1165e19a",
+        "revCount": 56,
+        "type": "git",
+        "url": "ssh://git@github.com/71zenith/assets.git"
       },
       "original": {
-        "owner": "71zenith",
-        "repo": "assets",
-        "type": "github"
+        "type": "git",
+        "url": "ssh://git@github.com/71zenith/assets.git"
       }
     },
     "nix-colors": {
@@ -702,11 +702,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1725161660,
-        "narHash": "sha256-K0sqIq2BHo+OlYQoRMw8g+qtQOb1TvGjazS4NtQF6gk=",
+        "lastModified": 1725163455,
+        "narHash": "sha256-QwDlmuA3vhlhKdWktC8N3heQ1/IpIJoSuxbR/fwrlnw=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "45a53f457546d3c0bf3c4f4673cb53bb78279a07",
+        "rev": "95056bd9e4c879ba8a20a1842efcb010e7633a09",
         "type": "github"
       },
       "original": {
@@ -806,32 +806,8 @@
         "nixvim": "nixvim",
         "nur": "nur",
         "prismlauncher": "prismlauncher",
-        "scraperwolf": "scraperwolf",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
-      }
-    },
-    "scraperwolf": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1719926116,
-        "narHash": "sha256-nA8Id9gVmIKdISwnZqIbYCy7grg9A8PQYSjBE2tG9es=",
-        "owner": "71zenith",
-        "repo": "scraperwolf",
-        "rev": "6938b6d727021de01d015bb63284dbe5ac100fe7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "71zenith",
-        "repo": "scraperwolf",
-        "type": "github"
       }
     },
     "sops-nix": {

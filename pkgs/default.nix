@@ -4,6 +4,17 @@ self: super: {
   ani-cli = self.callPackage ./ani-cli.nix {};
   mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
 
+  librewolf = super.librewolf.override {
+    extraPrefs = ''
+      pref("devtools.source-map.client-service.enabled", false);
+      pref("librewolf.console.logging_disabled", true)
+      pref("devtools.toolbox.host", "window");
+      pref("privacy.resistFingerprinting", false);
+      pref("webgl.disabled", false);
+      pref("librewolf.debugger.force_detach", true);
+    '';
+  };
+
   onscripter-en = super.onscripter-en.overrideAttrs (oldAttrs: {
     version = "unstable-2024-07-21";
     src = super.fetchFromGitHub {

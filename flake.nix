@@ -59,14 +59,7 @@
       };
     };
     my-assets = {
-      url = "github:71zenith/assets";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-    scraperwolf = {
-      url = "github:71zenith/scraperwolf";
+      url = "git+ssh://git@github.com/71zenith/assets.git";
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-utils.follows = "flake-utils";
@@ -116,7 +109,6 @@
         dvd-zig.overlays.default
         my-assets.overlays.default
         lem.overlays.default
-        scraperwolf.overlays.default
         (import ./pkgs)
       ];
     };
@@ -129,7 +121,7 @@
     };
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit inputs nurNoPkgs;
+        inherit inputs nurNoPkgs nixName;
         inherit pcName myUserName myName mailId;
       };
       modules = with inputs; [
