@@ -19,7 +19,7 @@ in {
         position = "top";
         modules-left = ["hyprland/workspaces" "group/win"];
         modules-center = ["image#cover" "group/music"];
-        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "privacy" "tray"];
+        modules-right = ["network" "custom/weather" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "privacy" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -108,6 +108,15 @@ in {
             "custom/progress"
           ];
         };
+        "custom/weather" = {
+          return-type = "json";
+          exec = pkgs.writeShellScript "tempNow" ''
+            temp="$(curl -Ls "https://wttr.in/Kolkata?format=%f+%C" | tr -d '+')"
+            tooltip="$(curl -Ls "https://wttr.in/Kolkata?format=4")"
+            echo "{ \"text\" : \"$temp\", \"tooltip\" : \"$tooltip\" }"
+          '';
+          interval = 360;
+        };
         "custom/progress" = {
           return-type = "json";
           exec = pkgs.writeShellScript "centWay" ''
@@ -136,7 +145,7 @@ in {
         };
         "image#toggle" = {
           path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          size = 19;
+          size = 20;
           on-click = "pkill rofi || rofi -show drun";
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
@@ -246,20 +255,17 @@ in {
           opacity: .1;
         }
 
-        #clock, #mpris, #network, #tray, #pulseaudio, #pulseaudio.muted, #taskbar, #workspaces,
-        #image.toggle, #idle_inhibitor, #privacy, #gamemode, #custom-off, #custom-again,
+        #clock, #mpris, #network, #tray, #pulseaudio, #pulseaudio.muted, #workspaces, #image.toggle,
+        #idle_inhibitor, #privacy, #gamemode, #custom-off, #custom-again, #custom-weather,
         #custom-gammastep, #custom-shot, #custom-osk, #custom-close, #network.disconnected {
           color: @base05;
-          padding: 2px 5px;
-          border-radius: 5px;
+          padding: 2px 4px;
           background-color: alpha(@base00, 0);
-          margin: 2px 5px;
+          margin: 2px 4px;
         }
 
-        #window {
-          margin-bottom: 2px;
-          margin-right: 0;
-          padding-right: 0;
+        #image.cover {
+          margin: 4px;
         }
 
         #workspaces button {
@@ -302,6 +308,10 @@ in {
           color: @base0E;
         }
 
+        #custom-weather {
+          color: @base03;
+        }
+
         #clock.date {
           color: @base08;
         }
@@ -330,9 +340,15 @@ in {
           background-color: @base01;
         }
 
-        #privacy, #gamemode, #image.toggle, #idle_inhibitor, #custom-off, #custom-shot,
+        #privacy, #gamemode, #idle_inhibitor, #custom-off, #custom-shot,
         #custom-again, #custom-gammastep, #custom-close, #custom-osk {
           margin: 0 1px;
+        }
+
+        #window {
+          margin-bottom: 2px;
+          margin-right: 0;
+          padding-right: 0;
         }
 
         #taskbar {
@@ -342,7 +358,7 @@ in {
         }
 
         #taskbar button {
-          margin-bottom: 2px;
+          padding: 0 7px 0 7px;
         }
 
         #idle_inhibitor.activated, #privacy-item, #custom-off, #custom-again, #custom-shot,
@@ -356,7 +372,7 @@ in {
 
         #custom-progress {
           font-size: 2.5px;
-          margin: 2px 10px 0;
+          margin: 2px 8px 0;
           color: transparent;
         }
       ''
