@@ -241,32 +241,24 @@ in {
     };
     style =
       ''
-        * {
-          border: none;
-          border-radius: 0;
-          min-height: 0;
-        }
+        * { border: 0; border-radius: 0; min-height: 0; }
 
-        window#waybar {
+        #waybar {
           transition: background-color .1s;
         }
 
-        window#waybar.hidden {
-          opacity: .1;
-        }
+        #waybar.hidden { opacity: .1; }
 
-        #clock, #mpris, #network, #tray, #pulseaudio, #pulseaudio.muted, #workspaces, #image.toggle,
+        #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
         #idle_inhibitor, #privacy, #gamemode, #custom-off, #custom-again, #custom-weather,
-        #custom-gammastep, #custom-shot, #custom-osk, #custom-close, #network.disconnected {
+        #custom-gammastep, #custom-shot, #custom-osk, #custom-close {
           color: @base05;
           padding: 2px 4px;
           background-color: alpha(@base00, 0);
           margin: 2px 4px;
         }
 
-        #image.cover {
-          margin: 4px;
-        }
+        #image.cover { margin: 4px; }
 
         #workspaces button {
           color: @base04;
@@ -275,73 +267,39 @@ in {
           transition: all .1s cubic-bezier(.55, -.68, .48, 1.68);
         }
 
-        #workspaces button.empty {
-          color: @base03;
-        }
+        #workspaces button.empty { color: @base03; }
+        #workspaces button.active { color: @base0B; }
 
-        #workspaces button.active {
-          color: @base0B;
-        }
-
-        #mpris {
-          margin-top: 2px;
-          color: @base09;
-        }
-
-        #pulseaudio {
-          color: @base0D;
-        }
-
-        #pulseaudio.muted {
-          color: @base0A;
-        }
-
-        #network {
-          color: @base0F;
-        }
-
-        #network.disconnected {
-          color: @base0A;
-        }
-
-        #clock.time {
-          color: @base0E;
-        }
-
-        #custom-weather {
-          color: @base03;
-        }
-
-        #clock.date {
-          color: @base08;
-        }
+        #mpris { margin-top: 2px; color: @base09; }
+        #pulseaudio { color: @base0D; }
+        #pulseaudio.muted { color: @base0A; }
+        #network { color: @base0F; }
+        #network.disconnected { color: @base0A; }
+        #clock.time { color: @base0E; }
+        #custom-weather { color: @base03; }
+        #clock.date { color: @base08; }
 
         tooltip {
           padding: 3px;
           background-color: alpha(@base01, .75);
         }
 
-        tooltip label {
-          padding: 3px;
-        }
+        tooltip label { padding: 3px; }
 
-        #tray > .passive {
-          -gtk-icon-effect: dim;
-        }
-
+        #tray > .passive { -gtk-icon-effect: dim; }
         #tray > .needs-attention {
           -gtk-icon-effect: highlight;
           background-color: @base0A;
         }
 
-        #idle_inhibitor:hover, #taskbar button:hover, #custom-shot:hover, #custom-off:hover,
-        #custom-again:hover, #custom-gammastep:hover, #custom-close:hover, #custom-osk:hover {
-          border-radius: 0;
+        #idle_inhibitor:hover, #taskbar button:hover,
+        #custom-off:hover, #custom-again:hover, #custom-shot:hover,
+        #custom-gammastep:hover, #custom-close:hover, #custom-osk:hover {
           background-color: @base01;
         }
 
-        #privacy, #gamemode, #idle_inhibitor, #custom-off, #custom-shot,
-        #custom-again, #custom-gammastep, #custom-close, #custom-osk {
+        #idle_inhibitor, #custom-off, #custom-again, #custom-shot,
+        #custom-gammastep, #custom-close, #custom-osk {
           margin: 0 1px;
         }
 
@@ -357,12 +315,10 @@ in {
           padding-left: 0;
         }
 
-        #taskbar button {
-          padding: 0 7px 0 7px;
-        }
+        #taskbar button { padding: 0 7px; }
 
-        #idle_inhibitor.activated, #privacy-item, #custom-off, #custom-again, #custom-shot,
-        #custom-gammastep.on, #custom-close, #custom-osk.on {
+        #idle_inhibitor.activated, #privacy-item, #custom-off, #custom-again,
+        #custom-shot, #custom-gammastep.on, #custom-close, #custom-osk.on {
           color: @base06;
         }
 
@@ -374,8 +330,7 @@ in {
           font-size: 2.5px;
           margin: 2px 8px 0;
           color: transparent;
-        }
-      ''
+        }''
       + builtins.concatStringsSep "\n" (builtins.map (p: ''
         #custom-progress.cent${toString p} {
           background: linear-gradient(to right, @base07 ${toString p}%, @base01 ${toString p}.1%);
