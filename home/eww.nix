@@ -1,10 +1,13 @@
 {
   config,
-  pkgs,
   lib,
+  pkgs,
   ...
 }: let
   scripts = import ../pkgs/scripts.nix {inherit config lib pkgs;};
+  genRomaji = pkgs.writeShellScript "genRomaji" ''
+    sptlrx pipe | stdbuf -oL trans -show-translation N -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi | stdbuf -oL awk 'NR % 3 == 2 {printf "%s\\n\n", $0}'
+  '';
 in {
   xdg.configFile."eww/eww.yuck".text = ''
     (defwindow lyrics
@@ -26,7 +29,7 @@ in {
                 (label :text raw))))
 
     (deflisten text "sptlrx pipe")
-    (deflisten romaji "${scripts.genRomaji}")
+    (deflisten romaji "${genRomaji}")
   '';
   xdg.configFile."eww/eww.scss".text = with config.lib.stylix.colors.withHashtag; ''
     * {

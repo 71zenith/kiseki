@@ -149,15 +149,6 @@ in {
     id=$(pulsemixer -l | grep glava | sed -nE 's/.*ID: (.+?), Name.*/\1/p')
     ([ -n "$id" ] && pulsemixer --id $id --toggle-mute) || (tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg)
   '';
-  changeCover = writeShellScript "changeCover" ''
-    playerctl metadata --format '{{playerName}} {{mpris:artUrl}}' -F  --ignore-player firefox | while read -r player url; do
-      if ([ "$player" = "mpv" ] || [ "$player" = "spotify_player" ]) && [ -n "$url" ]; then
-        curl "$url" > /tmp/cover.jpg
-        pkill -RTMIN+8 waybar
-        magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null > /tmp/cover.info
-      fi
-    done
-  '';
   openFoot = writeShellScript "openFoot" ''
     size=$1
     shift
@@ -183,9 +174,6 @@ in {
       exit 0
     done
     notify-send "No search results" && exit 1
-  '';
-  genRomaji = writeShellScript "genRomaji" ''
-    sptlrx pipe | stdbuf -oL trans -show-translation N -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi | stdbuf -oL awk 'NR % 3 == 2 {printf "%s\\n\n", $0}'
   '';
   copyPalette = let
     colors = builtins.concatStringsSep "\n" (
