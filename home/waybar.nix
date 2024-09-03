@@ -1,4 +1,5 @@
 {
+  osConfig,
   config,
   pkgs,
   lib,
@@ -77,7 +78,7 @@ in {
           format = "{:%H:%M}";
           tooltip-format = "{tz_list}";
           timezones = [
-            "Asia/Kolkata"
+            osConfig.time.timeZone
             "Europe/Berlin"
             "Asia/Tokyo"
           ];
@@ -111,8 +112,8 @@ in {
         "custom/weather" = {
           return-type = "json";
           exec = pkgs.writeShellScript "tempNow" ''
-            temp="$(curl -Ls "https://wttr.in/Kolkata?format=%f+%C" | tr -d '+')"
-            tooltip="$(curl -Ls "https://wttr.in/Kolkata?format=4")"
+            temp="$(curl -Ls "wttr.in?format=%c%f" | tr -d '+')"
+            tooltip="$(curl -Ls "wttr.in?format=4")"
             echo "{ \"text\" : \"$temp\", \"tooltip\" : \"$tooltip\" }"
           '';
           interval = 360;
