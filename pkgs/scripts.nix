@@ -41,7 +41,7 @@ in {
         ;;
     esac
   '';
-  copyTwit = writeShellScript "copyTwit" ''
+  copyVid = writeShellScript "copyVid" ''
     url=$(wl-paste | sed 's/x.com/twitter.com/g')
     notify-send "Downloading..."
     ! yt-dlp -f "best[ext=mp4]" --embed-thumbnail --force-overwrites "$url" --paths "/tmp" --output send.mp4 && notify-send "Not a valid URL !!" && exit 1
@@ -187,4 +187,13 @@ in {
   genRomaji = writeShellScript "genRomaji" ''
     sptlrx pipe | stdbuf -oL trans -show-translation N -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi | stdbuf -oL awk 'NR % 3 == 2 {printf "%s\\n\n", $0}'
   '';
+  copyPalette = let
+    colors = builtins.concatStringsSep "\n" (
+      builtins.map (color: "<span foreground='#${toString color}' weight='heavy'>#${toString color}</span>")
+      (builtins.attrValues config.stylix.base16Scheme.palette)
+    );
+  in
+    writeShellScript "copyPalette" ''
+      echo "${colors}" | rofi -i -no-custom -dmenu -theme-str 'listview { columns: 2; lines: 8; } window { width: 500px; }' -markup-rows -p "🎨" -mesg "Choose a color" | cut -d\' -f2 | wl-copy && echo "fg = $(wl-paste)" > /tmp/cover.info
+    '';
 }
