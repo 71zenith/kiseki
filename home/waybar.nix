@@ -228,15 +228,13 @@ in {
           signal = 8;
         };
         "mpris" = {
-          format = "{status_icon} {title}";
-          format-paused = "{status_icon} <i>{title}</i>";
+          format = "{dynamic}";
+          format-paused = "<span foreground='${config.lib.stylix.colors.withHashtag.base02}'><i>{dynamic}</i></span>";
+          dynamic-order = ["title" "artist"];
+          dynamic-separator = "<span foreground='${config.lib.stylix.colors.withHashtag.base03}' weight='heavy'> • </span>";
           on-scroll-up = "playerctld shift";
           on-scroll-down = "playerctld unshift";
-          max-length = 80;
-          status-icons = {
-            playing = "";
-            paused = "";
-          };
+          max-length = 100;
         };
       };
     };
@@ -259,7 +257,7 @@ in {
           margin: 2px 4px;
         }
 
-        #image.cover { margin: 4px; }
+        #image.cover { margin: 4px 0;}
 
         #workspaces button {
           color: @base04;
@@ -318,7 +316,9 @@ in {
 
         #taskbar button { padding: 0 7px; }
 
-        #idle_inhibitor.activated, #privacy-item, #custom-off, #custom-again,
+        #privacy, #gamemode, #image.toggle {margin: 0 2px 0 2px; padding: 0 2px 0 2px;}
+
+        #idle_inhibitor.activated, #custom-off, #custom-again,
         #custom-shot, #custom-gammastep.on, #custom-close, #custom-osk.on {
           color: @base06;
         }
@@ -329,7 +329,7 @@ in {
 
         #custom-progress {
           font-size: 2.5px;
-          margin: 2px 8px 0;
+          margin: 2px 7px 0;
           color: transparent;
         }''
       + builtins.concatStringsSep "\n" (builtins.map (p: ''
