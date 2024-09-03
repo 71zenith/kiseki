@@ -3,7 +3,7 @@
   pkgs,
   lib,
 }: let
-  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5 socat htmlq;
+  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5 socat;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
@@ -170,9 +170,9 @@ in {
     srch="https://nyaa.land/?q=$query&f=0&c=1_0"
     notify-send "Searching nyaa"
     data=$(curl -Ls "$srch")
-    title=$(echo "$data" | ${_ htmlq} tr 'td[colspan]' -r 'a[class]' a -a title)
-    magnet=$(echo "$data" | ${_ htmlq} tr td a -a href | grep "^magnet:")
-    details=$(echo "$data" | ${_ htmlq} tr 'td[class="text-center"]' -r 'td[data-timestamp]' -r a -w -t | grep -v '^$' | paste - - - - -d / | cut -d/ -f1,2,3 | sed -nE 's|([^/]+)/([^/]+)/([^/]+)$|[\1/\2/\3]|p')
+    title=$(echo "$data" | sed -nE 's|<a href="/view/.*title="([^"]+)">([^<]+)</a>|\1|p')
+    magnet=$(echo "$data" | sed -nE 's|<a href="([^"]+)"><i class="fa fa-fw fa-magnet">.*|\1|p')
+    details=$(echo "$data" | sed -nE 's|<td class="text-center">([^<]+)</td>|\1|p' | paste - - - - -d / | cut -d/ -f1,2,3 | sed -nE 's|([^/]+)/([^/]+)/([^/]+)$|[\1/\2/\3]|p')
     [ -z "$title" ] && notify-send "No search results" && exit 1
     paste <(echo "$title") <(echo "$details") <(echo "$magnet") -d '\t' | grep -v '/0/' \
       | rofi -i -no-custom -dmenu -theme-str 'window { width: 1000px; } element { children: [element-text];} listview { lines: 12;}' \
