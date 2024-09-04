@@ -5,7 +5,6 @@
   ...
 }: let
   plugins = import ../pkgs/plugins-nvim.nix {inherit pkgs;};
-  queryDesc = query: desc: {inherit query desc;};
 in {
   imports = [inputs.nixvim.homeManagerModules.nixvim];
 
@@ -143,11 +142,13 @@ in {
         todo-comments.enable = true;
         barbecue = {
           enable = true;
-          leadCustomSection = ''
-            function()
-              return {{" ","WinBar"}}
-            end
-          '';
+          settings = {
+            lead_custom_section = ''
+              function()
+                return {{" ","WinBar"}}
+              end
+            '';
+          };
         };
         dressing.enable = true;
         lsp = {
@@ -359,7 +360,9 @@ in {
             };
           };
         };
-        treesitter-textobjects = {
+        treesitter-textobjects = let
+          queryDesc = query: desc: {inherit query desc;};
+        in {
           enable = true;
           lspInterop = {
             enable = true;
