@@ -29,15 +29,6 @@ in {
       hash = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
     };
   };
-  img-clip = buildVimPlugin {
-    name = "img-clip";
-    src = fetchFromGitHub {
-      owner = "HakonHarnes";
-      repo = "img-clip.nvim";
-      rev = "c55f988972be0027316889c57ffe49f2bf8f67fd";
-      hash = "sha256-sl//iua0S4hdulopAjOOe7xh/iEuQeNRlNECxcc6rXk=";
-    };
-  };
   incline-nvim = buildVimPlugin {
     name = "incline-nvim";
     src = fetchFromGitHub {

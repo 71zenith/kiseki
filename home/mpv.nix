@@ -53,7 +53,7 @@
       "j" = "seek -60";
       "]" = "add speed 0.1";
       "[" = "add speed -0.1";
-      "f" = "script-binding memo-history";
+      "g" = "script-binding memo-history";
       "tab" = "script-binding uosc/toggle-ui";
       "c" = "script-binding uosc/chapters";
       "q" = "script-binding uosc/stream-quality";

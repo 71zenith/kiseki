@@ -112,7 +112,7 @@ in {
         "custom/weather" = {
           return-type = "json";
           exec = pkgs.writeShellScript "tempNow" ''
-            temp="$(curl -Ls "wttr.in?format=%c%f" | tr -d '+')"
+            temp="$(curl -Ls "wttr.in?format=%f" | tr -d '+')"
             tooltip="$(curl -Ls "wttr.in?format=4")"
             echo "{ \"text\" : \"$temp\", \"tooltip\" : \"$tooltip\" }"
           '';
@@ -227,11 +227,11 @@ in {
           size = 31;
           signal = 8;
         };
-        "mpris" = {
+        "mpris" = with config.lib.stylix.colors.withHashtag; {
           format = "{dynamic}";
-          format-paused = "<span foreground='${config.lib.stylix.colors.withHashtag.base02}'><i>{dynamic}</i></span>";
+          format-paused = "<span foreground='${base02}'><i>{dynamic}</i></span>";
           dynamic-order = ["title" "artist"];
-          dynamic-separator = "<span foreground='${config.lib.stylix.colors.withHashtag.base03}' weight='heavy'> • </span>";
+          dynamic-separator = "<span foreground='${base03}' weight='heavy'> • </span>";
           on-scroll-up = "playerctld shift";
           on-scroll-down = "playerctld unshift";
           max-length = 100;
@@ -283,23 +283,22 @@ in {
           background-color: alpha(@base01, .75);
         }
 
-        tooltip label { padding: 3px; }
-
         #tray > .passive { -gtk-icon-effect: dim; }
         #tray > .needs-attention {
           -gtk-icon-effect: highlight;
           background-color: @base0A;
         }
 
-        #idle_inhibitor:hover, #taskbar button:hover,
-        #custom-off:hover, #custom-again:hover, #custom-shot:hover,
-        #custom-gammastep:hover, #custom-close:hover, #custom-osk:hover {
-          background-color: @base01;
-        }
 
         #idle_inhibitor, #custom-off, #custom-again, #custom-shot,
         #custom-gammastep, #custom-close, #custom-osk {
           margin: 0 1px;
+        }
+
+        #idle_inhibitor:hover, #taskbar button:hover,
+        #custom-off:hover, #custom-again:hover, #custom-shot:hover,
+        #custom-gammastep:hover, #custom-close:hover, #custom-osk:hover {
+          background-color: @base01;
         }
 
         #window {
