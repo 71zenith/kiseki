@@ -327,7 +327,7 @@ in {
         }
 
         #custom-progress {
-          font-size: 2.5px;
+          font-size: 2pt;
           margin: 2px 7px 0;
           color: transparent;
         }''
