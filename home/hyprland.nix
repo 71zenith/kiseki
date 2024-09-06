@@ -241,10 +241,11 @@ in {
           "$mod1, w, exec, ${scripts.epubOpen}"
           "$mod1, i, exec, ${scripts.transLiner}"
           "$mod1, y, exec, ${scripts.copyVid}"
-          "$mod1, bracketleft, exec, ${scripts.copyPalette}"
           "$mod1, v, exec, ${scripts.clipShow}"
           "$mod1, g, exec, ${scripts.glavaShow}"
           "$mod1, b, exec, ${scripts.torMpv}"
+          "$mod1, bracketleft, exec, ${scripts.copyPalette} glava"
+          "$mod1, bracketright, exec, ${scripts.copyPalette} eww"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"

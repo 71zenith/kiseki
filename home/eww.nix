@@ -9,25 +9,32 @@
     sptlrx pipe | stdbuf -oL trans -show-translation N -show-translation-phonetics N -show-alternatives N -show-prompt-message N -show-languages N -no-auto -no-init -no-ansi | stdbuf -oL awk 'NR % 3 == 2 {printf "%s\\n\n", $0}'
   '';
 in {
-  xdg.configFile."eww/eww.yuck".text = ''
+  xdg.configFile."eww/eww.yuck".text = with config.lib.stylix.colors.withHashtag; ''
     (defwindow lyrics
               :monitor 0
               :geometry (geometry :y "70px" :anchor "bottom center")
               :stacking "bg"
-        (wid :raw text :class "btn1"))
+        (lyr))
     (defwindow romaji
               :monitor 0
               :geometry (geometry :y "20px" :anchor "bottom center")
               :stacking "bg"
-        (wid :raw romaji :class "btn2"))
+        (rom))
 
-    (defwidget wid [raw class]
+    (defwidget lyr []
       (box :spacing 0
-        (button :class class
-                :onclick "echo ''${raw} | wl-copy"
-                :onrightclick "echo ''${raw} | wl-copy && setsid ${scripts.transLiner} &"
-                (label :text raw))))
+        (button :class "btn1"
+                :onclick "echo ''${text} | wl-copy"
+                :onrightclick "echo ''${text} | wl-copy && setsid ${scripts.transLiner} &"
+                :css "button {color: ''${col}}"
+                (label :text text))))
 
+    (defwidget rom []
+      (box :spacing 0
+        (button :class "btn2"
+                (label :text romaji))))
+
+    (defvar col "${base0A}")
     (deflisten text "sptlrx pipe")
     (deflisten romaji "${genRomaji}")
   '';
@@ -40,7 +47,6 @@ in {
     }
     .btn1 {
       font-size: 46px;
-      color: ${base0A};
       &:hover {
         font-size: 50px;
         color: ${base0B};

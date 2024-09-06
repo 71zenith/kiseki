@@ -102,13 +102,6 @@ in {
           on-scroll-down = "pulsemixer --change-volume -5";
           on-click-right = "pkill pulsemixer || footclient -T quick pulsemixer";
         };
-        "group/music" = {
-          orientation = "vertical";
-          modules = [
-            "mpris"
-            "custom/progress"
-          ];
-        };
         "custom/weather" = {
           return-type = "json";
           exec = pkgs.writeShellScript "tempNow" ''
@@ -117,15 +110,6 @@ in {
             echo "{ \"text\" : \"$temp\", \"tooltip\" : \"$tooltip\" }"
           '';
           interval = 360;
-        };
-        "custom/progress" = {
-          return-type = "json";
-          exec = pkgs.writeShellScript "centWay" ''
-            while :; do
-              echo "{ \"text\" : \"_\" , \"class\" : \"$(playerctl --ignore-player firefox metadata --format 'cent{{ (position / 100) / (mpris:length / 100) * 100 }}' | cut -d. -f1)\" }"
-              sleep 2.5
-            done
-          '';
         };
         "group/custom" = {
           orientation = "inherit";
@@ -219,13 +203,12 @@ in {
             pkill -RTMIN+9 waybar
           '';
         };
-        "image#cover" = {
-          on-click = "pkill nsxiv || nsxiv /tmp/cover.jpg";
-          on-click-right = "spotify_player like";
-          on-click-middle = scripts.glavaShow;
-          path = "/tmp/cover.jpg";
-          size = 31;
-          signal = 8;
+        "group/music" = {
+          orientation = "vertical";
+          modules = [
+            "mpris"
+            "custom/progress"
+          ];
         };
         "mpris" = with config.lib.stylix.colors.withHashtag; {
           format = "{dynamic}";
@@ -235,6 +218,23 @@ in {
           on-scroll-up = "playerctld shift";
           on-scroll-down = "playerctld unshift";
           max-length = 100;
+        };
+        "custom/progress" = {
+          return-type = "json";
+          exec = pkgs.writeShellScript "centWay" ''
+            while :; do
+              echo "{ \"text\" : \"_\" , \"class\" : \"$(playerctl --ignore-player firefox metadata --format 'cent{{ (position / 100) / (mpris:length / 100) * 100 }}' | cut -d. -f1)\" }"
+              sleep 2.5
+            done
+          '';
+        };
+        "image#cover" = {
+          on-click = "pkill nsxiv || nsxiv /tmp/cover.jpg";
+          on-click-right = "spotify_player like";
+          on-click-middle = scripts.glavaShow;
+          path = "/tmp/cover.jpg";
+          size = 31;
+          signal = 8;
         };
       };
     };

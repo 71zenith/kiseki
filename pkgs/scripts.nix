@@ -182,6 +182,7 @@ in {
     );
   in
     writeShellScript "copyPalette" ''
-      echo "${colors}" | rofi -i -dmenu -theme-str 'listview { columns: 2; lines: 8; } window { width: 500px; }' -markup-rows -p "🎨" -mesg "Choose a color" | cut -d\' -f2 | wl-copy && echo "fg = $(wl-paste)" > /tmp/cover.info
+      echo "${colors}" | rofi -i -dmenu -theme-str 'listview { columns: 2; lines: 8; } window { width: 500px; }' -markup-rows -p "🎨" -mesg "Choose a color" | cut -d\' -f2 | wl-copy &&
+      ([ "$1" = "glava" ] && echo "fg = $(wl-paste)" > /tmp/cover.info || eww update col="$(wl-paste)")
     '';
 }
