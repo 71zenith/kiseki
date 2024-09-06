@@ -132,6 +132,7 @@
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         flake-programs-sqlite.nixosModules.programs-sqlite
+        nix-gaming.nixosModules.platformOptimizations
         (import ./nixos/config.nix)
       ];
     };

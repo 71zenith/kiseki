@@ -17,7 +17,6 @@ in {
     ./hardware.nix
     ./packages.nix
     ./stylix.nix
-    inputs.nix-gaming.nixosModules.platformOptimizations
   ];
 
   sops = {

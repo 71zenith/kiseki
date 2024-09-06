@@ -12,7 +12,7 @@ in {
     notify-send -- "$(wl-paste)"
   '';
   transLiner = writeShellScript "transLiner" ''
-    wl-paste | trans -no-warn -no-autocorrect -b | wl-copy
+    wl-paste | trans -no-warn -no-autocorrect -b -t en | wl-copy
     echo "$(wl-paste)"
     notify-send -- "$(wl-paste)"
   '';

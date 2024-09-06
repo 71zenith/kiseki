@@ -1,8 +1,22 @@
-self: super: {
+self: super: let
+  wrapElectron = packageName:
+    super.${packageName}.overrideAttrs (oldAttrs: {
+      nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [super.makeWrapper];
+      postFixup = ''
+        ${oldAttrs.postFixup or ""}
+        wrapProgram $out/bin/${packageName} \
+          --add-flags "--disable-gpu-compositing"
+      '';
+    });
+in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
   mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
+
+  vesktop = wrapElectron "vesktop";
+  spotify = wrapElectron "spotify";
+  vscode = wrapElectron "vscode";
 
   librewolf = super.librewolf.override {
     extraPrefs = ''
