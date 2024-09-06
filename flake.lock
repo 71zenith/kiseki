@@ -1,5 +1,28 @@
 {
   "nodes": {
+    "assets": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1725602326,
+        "narHash": "sha256-sK6hOarnpOBUiDlUpoxrUYxZufED7aRGIxyceYTxz0E=",
+        "owner": "71zenith",
+        "repo": "assets",
+        "rev": "58bec5f3f888c1af4960b55460d4ab34c514586e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "71zenith",
+        "repo": "assets",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -526,29 +549,6 @@
         "type": "github"
       }
     },
-    "my-assets": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1725595834,
-        "narHash": "sha256-8QbUPA1PkPRa8w6PVwQu8inh3nG2331yqJgY7vRyXMI=",
-        "owner": "71zenith",
-        "repo": "assets",
-        "rev": "2caef03a8a53209e4650213a88e1a4b8a1b8778a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "71zenith",
-        "repo": "assets",
-        "type": "github"
-      }
-    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -794,12 +794,12 @@
     },
     "root": {
       "inputs": {
+        "assets": "assets",
         "dvd-zig": "dvd-zig",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "lem": "lem",
-        "my-assets": "my-assets",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs",

@@ -115,8 +115,8 @@
 
     ## editors
     neovim
-    lem-ncurses
     zed-editor
+    #lem-ncurses
 
     # disabled
     #logseq

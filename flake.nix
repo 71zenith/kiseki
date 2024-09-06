@@ -1,5 +1,5 @@
 {
-  description = "NIS";
+  description = "crossbell cathedral";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
@@ -58,7 +58,7 @@
         flake-utils.follows = "flake-utils";
       };
     };
-    my-assets = {
+    assets = {
       url = "github:71zenith/assets";
       inputs = {
         nixpkgs.follows = "nixpkgs";
@@ -107,7 +107,7 @@
       nixpkgs.overlays = with inputs; [
         prismlauncher.overlays.default
         dvd-zig.overlays.default
-        my-assets.overlays.default
+        assets.overlays.default
         lem.overlays.default
         (import ./pkgs)
       ];
