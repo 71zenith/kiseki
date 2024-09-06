@@ -276,7 +276,7 @@ in {
           "$mod3, return, togglespecialworkspace, mpv"
         ]
         ++ (builtins.concatLists (builtins.genList (x: let
-            ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+            ws = let c = (x + 1) / 10; in toString (x + 1 - (c * 10));
           in [
             "$mod1, ${ws}, workspace, ${toString (x + 1)}"
             "$mod2, ${ws}, movetoworkspacesilent, ${toString (x + 1)}"

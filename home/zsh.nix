@@ -114,7 +114,7 @@ in {
         nn = "nom build";
         qq = "nvd list";
         fl = "nix flake";
-        im = "img2sixel";
+        im = "timg -p s";
         ns = "nsxiv";
         pm = "pulsemixer";
         s = "sudo systemctl";

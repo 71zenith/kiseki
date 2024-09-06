@@ -53,6 +53,7 @@
       "j" = "seek -60";
       "]" = "add speed 0.1";
       "[" = "add speed -0.1";
+      "w" = "cycle-values speed 1 2";
       "g" = "script-binding memo-history";
       "tab" = "script-binding uosc/toggle-ui";
       "c" = "script-binding uosc/chapters";

@@ -331,7 +331,7 @@ in {
           margin: 2px 7px 0;
           color: transparent;
         }''
-      + builtins.concatStringsSep "\n" (builtins.map (p: ''
+      + builtins.concatStringsSep "\n" (map (p: ''
         #custom-progress.cent${toString p} {
           background: linear-gradient(to right, @base07 ${toString p}%, @base01 ${toString p}.1%);
         }

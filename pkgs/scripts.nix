@@ -177,7 +177,7 @@ in {
   '';
   copyPalette = let
     colors = builtins.concatStringsSep "\n" (
-      builtins.map (color: "<span foreground='#${toString color}' weight='heavy'>#${toString color}</span>")
+      map (color: "<span foreground='#${toString color}' weight='heavy'>#${toString color}</span>")
       (builtins.attrValues config.stylix.base16Scheme.palette)
     );
   in

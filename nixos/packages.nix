@@ -27,6 +27,7 @@
 
     ## helpful
     gcc
+    timg
     ffmpeg
     imagemagick
     sqlite
