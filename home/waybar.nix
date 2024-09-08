@@ -111,6 +111,11 @@ in {
           '';
           interval = 360;
         };
+        "privacy" = {
+          icon-size = 16;
+          icon-spacing = 5;
+          on-click = "pkill glava";
+        };
         "group/custom" = {
           orientation = "inherit";
           drawer = {
@@ -119,10 +124,7 @@ in {
           };
           modules = [
             "image#toggle"
-            "custom/off"
-            "custom/again"
-            "idle_inhibitor"
-            "custom/shot"
+            "custom/reboot"
             "custom/close"
             "custom/osk"
             "custom/gammastep"
@@ -139,40 +141,16 @@ in {
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
         };
-        "custom/off" = {
-          format = "";
-          on-click = "poweroff";
-          tooltip-format = "poweroff";
-        };
-        "custom/shot" = {
-          format = "";
-          on-click = "grimblast --notify copy area";
-          on-click-right = "grimblast --notify copy screen";
-          on-click-middle = "grimblast --notify edit area";
-          tooltip-format = "screenshot";
-        };
         "custom/close" = {
           format = "";
           on-click = "hyprctl dispatch submap close";
           tooltip-format = "close window";
         };
-        "custom/again" = {
+        "custom/reboot" = {
           format = "";
           on-click = "reboot";
-          tooltip-format = "reboot";
-        };
-        "idle_inhibitor" = {
-          format = "{icon}";
-          on-click-right = "dvd";
-          format-icons = {
-            activated = "";
-            deactivated = "";
-          };
-        };
-        "privacy" = {
-          icon-size = 16;
-          icon-spacing = 5;
-          on-click = "pkill glava";
+          on-click-right = "poweroff";
+          tooltip-format = "reboot/poweroff";
         };
         "custom/osk" = {
           return-type = "json";
@@ -253,8 +231,8 @@ in {
         #waybar.hidden { opacity: .1; }
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
-        #idle_inhibitor, #privacy, #gamemode, #custom-off, #custom-again, #custom-weather,
-        #custom-gammastep, #custom-shot, #custom-osk, #custom-close {
+        #privacy, #gamemode, #custom-reboot, #custom-weather,
+        #custom-gammastep, #custom-osk, #custom-close {
           color: @base05;
           padding: 2px 4px;
           background-color: alpha(@base00, 0);
@@ -294,14 +272,14 @@ in {
         }
 
 
-        #idle_inhibitor, #custom-off, #custom-again, #custom-shot,
-        #custom-gammastep, #custom-close, #custom-osk {
+        #custom-reboot, custom-gammastep, 
+        #custom-close, #custom-osk {
           margin: 0 1px;
         }
 
         #idle_inhibitor:hover, #taskbar button:hover,
-        #custom-off:hover, #custom-again:hover, #custom-shot:hover,
-        #custom-gammastep:hover, #custom-close:hover, #custom-osk:hover {
+        #custom-reboot:hover, #custom-gammastep:hover, 
+        #custom-close:hover, #custom-osk:hover {
           background-color: @base01;
         }
 
@@ -321,12 +299,12 @@ in {
 
         #privacy, #gamemode, #image.toggle {margin: 0 2px 0 2px; padding: 0 2px 0 2px;}
 
-        #idle_inhibitor.activated, #custom-off, #custom-again,
-        #custom-shot, #custom-gammastep.on, #custom-close, #custom-osk.on {
+        #idle_inhibitor.activated, #custom-reboot,
+        #custom-gammastep.on, #custom-close, #custom-osk.on {
           color: @base06;
         }
 
-        #idle_inhibitor.deactivated, #custom-gammastep.off, #custom-osk.off {
+        #custom-gammastep.off, #custom-osk.off {
           color: @base02;
         }
 
