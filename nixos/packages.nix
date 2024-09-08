@@ -5,9 +5,6 @@
 }: {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    # Custom
-    config.nur.repos.mic92.hello-nur
-
     # Cli
     ## internet
     aria2
@@ -34,6 +31,7 @@
     xdg-utils
     playerctl
     translate-shell
+    config.nur.repos.mic92.hello-nur
     pulsemixer
     nvtopPackages.nvidia
     lutgen
@@ -70,7 +68,6 @@
     qalculate-qt
     glava
     nsxiv
-    dvd-zig
     gimp
 
     ## games

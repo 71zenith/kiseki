@@ -174,29 +174,6 @@
         "type": "github"
       }
     },
-    "dvd-zig": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1725086089,
-        "narHash": "sha256-TkrPfuZLGMOK63VDNKUTyw0bkMrTe5+W0RUjfAFGD6E=",
-        "owner": "71zenith",
-        "repo": "dvd-zig",
-        "rev": "c39f4617f0e49695b5716e55a719dd53e82ff8af",
-        "type": "github"
-      },
-      "original": {
-        "owner": "71zenith",
-        "repo": "dvd-zig",
-        "type": "github"
-      }
-    },
     "flake-compat": {
       "locked": {
         "lastModified": 1696426674,
@@ -510,29 +487,6 @@
         "type": "github"
       }
     },
-    "lem": {
-      "inputs": {
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1718615663,
-        "narHash": "sha256-G3UBFCu7MnZNdE/CeBNX6UPvEBSKkjdUaayLucguWhA=",
-        "owner": "71zenith",
-        "repo": "lem-flake",
-        "rev": "3e63e73cd4f7441046b9542b3786a6306be849b3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "71zenith",
-        "repo": "lem-flake",
-        "type": "github"
-      }
-    },
     "libnbtplusplus": {
       "flake": false,
       "locked": {
@@ -795,11 +749,9 @@
     "root": {
       "inputs": {
         "assets": "assets",
-        "dvd-zig": "dvd-zig",
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
-        "lem": "lem",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs",

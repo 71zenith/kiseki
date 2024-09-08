@@ -44,20 +44,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     ### MY FLAKES ###
-    lem = {
-      url = "github:71zenith/lem-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
-    dvd-zig = {
-      url = "github:71zenith/dvd-zig";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     assets = {
       url = "github:71zenith/assets";
       inputs = {
@@ -106,9 +92,7 @@
     overlays = {
       nixpkgs.overlays = with inputs; [
         prismlauncher.overlays.default
-        dvd-zig.overlays.default
         assets.overlays.default
-        lem.overlays.default
         (import ./pkgs)
       ];
     };
@@ -132,7 +116,6 @@
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         flake-programs-sqlite.nixosModules.programs-sqlite
-        nix-gaming.nixosModules.platformOptimizations
         (import ./nixos/config.nix)
       ];
     };

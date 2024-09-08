@@ -108,6 +108,48 @@ in {
         };
       };
     };
+    hyprlock = let
+      rgb = color: "rgb(${color})";
+    in {
+      enable = true;
+      settings = {
+        input-field = {
+          size = "300, 60";
+          outline_thickness = 4;
+          dots_size = 0.30;
+          dots_spacing = 0.30;
+          dots_center = true;
+          outer_color = rgb palette.base01;
+          inner_color = rgb palette.base04;
+          font_color = rgb palette.base01;
+          fade_on_empty = false;
+          placeholder_text = "<i>enter pass...</i>";
+          hide_input = false;
+          rounding = 0;
+          check_color = rgb palette.base0A;
+          fail_color = rgb palette.base0A;
+          fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
+          fail_timeout = 1500;
+          fail_transition = 200;
+
+          position = "0, -20";
+          halign = "center";
+          valign = "center";
+        };
+
+        label = {
+          text = "ごきげんよう $DESC";
+          text_align = "center";
+          color = rgb palette.base04;
+          font_size = 30;
+          font_family = "Kaushan Script";
+
+          position = "0, 80";
+          halign = "center";
+          valign = "center";
+        };
+      };
+    };
   };
 
   services = {
@@ -120,7 +162,7 @@ in {
         };
         listener = {
           timeout = 300;
-          on-timeout = "${lib.getExe pkgs.dvd-zig}";
+          on-timeout = "${lib.getExe pkgs.hyprlock}";
         };
       };
     };
