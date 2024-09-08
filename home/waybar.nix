@@ -124,8 +124,8 @@ in {
           };
           modules = [
             "image#toggle"
-            "custom/reboot"
-            "custom/close"
+            "custom/power"
+            "custom/mouse"
             "custom/osk"
             "custom/gammastep"
           ];
@@ -141,12 +141,14 @@ in {
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
         };
-        "custom/close" = {
-          format = "";
+        "custom/mouse" = {
+          format = "󰍽";
           on-click = "hyprctl dispatch submap close";
-          tooltip-format = "close window";
+          on-click-right = "hyprctl dispatch submap move";
+          on-click-middle = "hyprctl dispatch submap resize";
+          tooltip-format = "close/resize/move window";
         };
-        "custom/reboot" = {
+        "custom/power" = {
           format = "";
           on-click = "reboot";
           on-click-right = "poweroff";
@@ -231,8 +233,8 @@ in {
         #waybar.hidden { opacity: .1; }
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
-        #privacy, #gamemode, #custom-reboot, #custom-weather,
-        #custom-gammastep, #custom-osk, #custom-close {
+        #privacy, #gamemode, #custom-power, #custom-weather,
+        #custom-gammastep, #custom-osk, #custom-mouse {
           color: @base05;
           padding: 2px 4px;
           background-color: alpha(@base00, 0);
@@ -272,14 +274,14 @@ in {
         }
 
 
-        #custom-reboot, custom-gammastep, 
-        #custom-close, #custom-osk {
+        #custom-power, custom-gammastep, 
+        #custom-mouse, #custom-osk {
           margin: 0 1px;
         }
 
-        #idle_inhibitor:hover, #taskbar button:hover,
-        #custom-reboot:hover, #custom-gammastep:hover, 
-        #custom-close:hover, #custom-osk:hover {
+        #taskbar button:hover,
+        #custom-power:hover, #custom-gammastep:hover, 
+        #custom-mouse:hover, #custom-osk:hover {
           background-color: @base01;
         }
 
@@ -299,9 +301,9 @@ in {
 
         #privacy, #gamemode, #image.toggle {margin: 0 2px 0 2px; padding: 0 2px 0 2px;}
 
-        #idle_inhibitor.activated, #custom-reboot,
-        #custom-gammastep.on, #custom-close, #custom-osk.on {
-          color: @base06;
+        #custom-power, #custom-gammastep.on,
+        #custom-mouse, #custom-osk.on {
+          color: @base09;
         }
 
         #custom-gammastep.off, #custom-osk.off {

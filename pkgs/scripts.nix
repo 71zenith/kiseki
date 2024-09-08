@@ -118,7 +118,7 @@ in {
     }
     1
     EOF
-    cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview -theme-str 'element { children: [element-text]; } icon-current-entry { enabled: true; size: 35%; } window { width: 1200px; } listview { lines: 15; spacing: 4px; }' | cliphist decode | wl-copy
+    cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview -theme-str 'element { children: [element-text]; } icon-current-entry { enabled: true; size: 35%; } window { width: 1500px; } listview { lines: 15; spacing: 5px; }' | cliphist decode | wl-copy
   '';
   fzfComp = writeShellScript "fzfComp" ''
     rm -rf /tmp/comsole 2>&1 >/dev/null

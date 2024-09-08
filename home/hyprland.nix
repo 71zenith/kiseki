@@ -18,12 +18,16 @@ in {
     extraConfig = ''
       submap = close
       bind = ,mouse:272, killactive
-      bind = ,l, cyclenext,
-      bind = ,h, cyclenext, prev
-      bind = ,return, killactive
-      bind = ,return, submap, reset
       bind = ,escape, submap, reset
       bind = ,mouse:272, submap, reset
+      bind = ,mouse:273, submap, reset
+      submap = reset
+      submap = move
+      bindm = ,mouse:272, movewindow
+      bind = ,mouse:273, submap, reset
+      submap = reset
+      submap = resize
+      bindm = ,mouse:272, resizewindow
       bind = ,mouse:273, submap, reset
       submap = reset
     '';
