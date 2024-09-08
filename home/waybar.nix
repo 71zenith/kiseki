@@ -129,9 +129,13 @@ in {
           ];
         };
         "image#toggle" = {
-          path = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+          exec = pkgs.writeShellScript "floatOrToggle" ''
+            [ -e "/tmp/hypr.float" ] && echo ${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg || echo ${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg
+          '';
+          signal = 11;
           size = 20;
           on-click = "pkill rofi || rofi -show drun";
+          on-click-middle = scripts.floatToggle;
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
         };

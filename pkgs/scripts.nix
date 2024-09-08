@@ -155,6 +155,14 @@ in {
     run=$*
     footclient -o "main.font=${config.stylix.fonts.monospace.name}:size=$size" $run
   '';
+  floatToggle = writeShellScript "floatToggle" ''
+    if [ -e "/tmp/hypr.float" ]; then
+      hyprctl keyword windowrulev2 "unset,class:.*" && rm -rf /tmp/hypr.float
+    else
+      hyprctl keyword windowrulev2 "float,class:.*" && touch /tmp/hypr.float
+    fi
+    pkill -RTMIN+11 waybar
+  '';
   torMpv = writeShellScript "torMpv" ''
     [ -z "$*" ] && query=$(rofi -dmenu -l 0 -p "" -mesg "Enter your search" | tr ' ' '+') || query=$(printf "%s" "$*" | tr ' ' '+')
     [ -z "$query" ] && exit 1

@@ -246,6 +246,7 @@ in {
           "$mod1, b, exec, ${scripts.torMpv}"
           "$mod1, bracketleft, exec, ${scripts.copyPalette} glava"
           "$mod1, bracketright, exec, ${scripts.copyPalette} eww"
+          "$mod1, apostrophe, exec, ${scripts.floatToggle}"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"
