@@ -184,13 +184,15 @@ in {
     notify-send "No search results" && exit 1
   '';
   copyPalette = let
-    colors = builtins.concatStringsSep "\n" (
-      map (color: "<span foreground='#${toString color}' weight='heavy'>#${toString color}</span>")
-      (builtins.attrValues config.stylix.base16Scheme.palette)
+    colorsWithNames = builtins.concatStringsSep "\n" (
+      map
+      (colorName: let
+        colorValue = config.stylix.base16Scheme.palette.${colorName};
+      in "<span foreground='#${toString colorValue}' weight='heavy'>#${toString colorValue} (${builtins.substring 4 2 colorName})</span>")
+      (builtins.attrNames config.stylix.base16Scheme.palette)
     );
   in
     writeShellScript "copyPalette" ''
-      echo "${colors}" | rofi -i -dmenu -theme-str 'listview { columns: 2; lines: 8; } window { width: 500px; }' -markup-rows -p "🎨" -mesg "Choose a color" | cut -d\' -f2 | wl-copy &&
-      ([ "$1" = "glava" ] && echo "fg = $(wl-paste)" > /tmp/cover.info || eww update col="$(wl-paste)")
+      echo "${colorsWithNames}" | rofi -i -dmenu -theme-str 'listview { columns: 2; lines: 8; } window { width: 500px; }' -markup-rows -p "🎨" -mesg "Choose a color" | cut -d\' -f2 | wl-copy && ([ "$1" = "glava" ] && echo "fg = $(wl-paste)" > /tmp/cover.info || eww update col="$(wl-paste)")
     '';
 }
