@@ -143,10 +143,10 @@ in {
         };
         "custom/mouse" = {
           format = "󰍽";
-          on-click = "hyprctl dispatch submap close";
-          on-click-right = "hyprctl dispatch submap move";
-          on-click-middle = "hyprctl dispatch submap resize";
-          tooltip-format = "close/resize/move window";
+          on-click = "hyprctl dispatch submap move";
+          on-click-middle = "hyprctl dispatch submap close";
+          on-click-right = "hyprctl dispatch submap resize";
+          tooltip-format = "move/close/resize window";
         };
         "custom/power" = {
           format = "";

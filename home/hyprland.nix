@@ -234,7 +234,6 @@ in {
           "$mod1, z, exec, pkill pulsemixer || footclient -T quick pulsemixer"
 
           "$mod1, return, exec, footclient"
-          "$mod1, semicolon, exec, mpv --input-ipc-server=/tmp/mpvsocket --no-resume-playback --player-operation-mode=pseudo-gui"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
           "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a foot'"
           "$mod1, slash, exec, eww open romaji --toggle"

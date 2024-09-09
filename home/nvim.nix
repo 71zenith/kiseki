@@ -294,34 +294,38 @@ in {
         };
         lualine = {
           enable = true;
-          disabledFiletypes.statusline = ["alpha" "trouble" "telescope" "oil" "toggleterm"];
-          sectionSeparators = {
-            left = "";
-            right = "";
-          };
-          componentSeparators = {
-            left = "";
-            right = "";
-          };
-          sections = {
-            lualine_a = [
-              {name = "fancy_mode";}
-            ];
-            lualine_b = [
-              {name = "fancy_branch";}
-              {name = "fancy_diff";}
-              {name = "fancy_diagnostics";}
-            ];
-            lualine_y = [
-              {name = "fancy_filetype";}
-            ];
-            lualine_x = [
-              {name = "fancy_macro";}
-              {name = "fancy_lsp_servers";}
-            ];
-            lualine_z = [
-              {name = "fancy_location";}
-            ];
+          settings = {
+            options = {
+              disabled_filetypes = ["alpha" "trouble" "telescope" "oil" "toggleterm"];
+              section_separators = {
+                left = "";
+                right = "";
+              };
+              component_separators = {
+                left = "";
+                right = "";
+              };
+            };
+            sections = {
+              lualine_a = [
+                "fancy_mode"
+              ];
+              lualine_b = [
+                "fancy_branch"
+                "fancy_diff"
+                "fancy_diagnostics"
+              ];
+              lualine_y = [
+                "fancy_filetype"
+              ];
+              lualine_x = [
+                "fancy_macro"
+                "fancy_lsp_servers"
+              ];
+              lualine_z = [
+                "fancy_location"
+              ];
+            };
           };
         };
         luasnip.enable = true;

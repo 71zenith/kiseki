@@ -117,6 +117,7 @@ in {
           size = "300, 60";
           outline_thickness = 4;
           dots_size = 0.30;
+          dots_rounding = 0;
           dots_spacing = 0.30;
           dots_center = true;
           outer_color = rgb palette.base01;
@@ -138,7 +139,7 @@ in {
         };
 
         label = {
-          text = "ごきげんよう $DESC";
+          text = "Hello, $DESC";
           text_align = "center";
           color = rgb palette.base04;
           font_size = 30;
