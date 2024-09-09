@@ -16,17 +16,17 @@ in {
     enable = true;
     systemd.enable = true;
     extraConfig = ''
-      submap = close
+      submap = 
       bind = ,mouse:272, killactive
       bind = ,escape, submap, reset
       bind = ,mouse:272, submap, reset
       bind = ,mouse:273, submap, reset
       submap = reset
-      submap = move
+      submap = 
       bindm = ,mouse:272, movewindow
       bind = ,mouse:273, submap, reset
       submap = reset
-      submap = resize
+      submap = 󰙖
       bindm = ,mouse:272, resizewindow
       bind = ,mouse:273, submap, reset
       submap = reset
@@ -224,7 +224,6 @@ in {
           "$mod2, e, exec, emacs"
           "$mod2, p, exec, qbittorrent"
           "$mod2, g, exec, heroic"
-          "$mod2, b, submap, close"
           "$mod2, i, exec, $setwall"
           "$mod2, o, exec, rofi -theme preview -show filebrowser -selected-row 1"
 
@@ -249,7 +248,7 @@ in {
           "$mod1, b, exec, ${scripts.torMpv}"
           "$mod1, bracketleft, exec, ${scripts.copyPalette} glava"
           "$mod1, bracketright, exec, ${scripts.copyPalette} eww"
-          "$mod1, apostrophe, exec, ${scripts.floatToggle}"
+          "$mod1, semicolon, exec, ${scripts.floatToggle}"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"
@@ -257,8 +256,8 @@ in {
           "$mod1, f, fullscreenstate, -1 2"
           "$mod2, t, fullscreen, 1"
           "$mod2, q, exit,"
-          "$mod2, r, exec, hyprctl reload"
           "$mod2, s, togglefloating,"
+          "$mod2, r, exec, hyprctl reload"
 
           "$mod1, mouse_down, workspace, r+1"
           "$mod1, mouse_up, workspace, r-1"

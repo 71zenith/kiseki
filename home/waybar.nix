@@ -125,7 +125,7 @@ in {
           modules = [
             "image#toggle"
             "custom/power"
-            "custom/mouse"
+            "hyprland/submap"
             "custom/osk"
             "custom/gammastep"
           ];
@@ -141,12 +141,12 @@ in {
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
           tooltip-format = "open quick settings";
         };
-        "custom/mouse" = {
-          format = "󰍽";
-          on-click = "hyprctl dispatch submap move";
-          on-click-middle = "hyprctl dispatch submap close";
-          on-click-right = "hyprctl dispatch submap resize";
-          tooltip-format = "move/close/resize window";
+        "hyprland/submap" = {
+          always-on = true;
+          default-submap = "󰇀";
+          on-click = "hyprctl dispatch submap ";
+          on-click-middle = "hyprctl dispatch submap ";
+          on-click-right = "hyprctl dispatch submap 󰙖";
         };
         "custom/power" = {
           format = "";
@@ -167,7 +167,7 @@ in {
           '';
           on-click = with config.stylix.base16Scheme.palette;
             pkgs.writeShellScript "oskToggle" ''
-              pkill wvkbd-mobintl || setsid wvkbd-mobintl -L 200 --bg ${base00} --fg ${base01} --press ${base0C} --fg-sp ${base02} --press-sp ${base0B} --alpha 240 --text ${base05} --text-sp ${base05} &
+              pkill wvkbd-mobintl || setsid wvkbd-mobintl -L 200 --bg ${base00} --fg ${base01} --press ${base0C} --fg-sp ${base02} --press-sp ${base0B} --alpha 240 --text ${base05} --text-sp ${base05} --fn "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.desktop}" &
               pkill -RTMIN+10 waybar
             '';
         };
@@ -234,7 +234,7 @@ in {
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
         #privacy, #gamemode, #custom-power, #custom-weather,
-        #custom-gammastep, #custom-osk, #custom-mouse {
+        #custom-gammastep, #custom-osk, #submap {
           color: @base05;
           padding: 2px 4px;
           background-color: alpha(@base00, 0);
@@ -275,13 +275,13 @@ in {
 
 
         #custom-power, custom-gammastep, 
-        #custom-mouse, #custom-osk {
+        #submap, #custom-osk {
           margin: 0 1px;
         }
 
         #taskbar button:hover,
         #custom-power:hover, #custom-gammastep:hover, 
-        #custom-mouse:hover, #custom-osk:hover {
+        #submap:hover, #custom-osk:hover {
           background-color: @base01;
         }
 
@@ -302,7 +302,7 @@ in {
         #privacy, #gamemode, #image.toggle {margin: 0 2px 0 2px; padding: 0 2px 0 2px;}
 
         #custom-power, #custom-gammastep.on,
-        #custom-mouse, #custom-osk.on {
+        #submap, #custom-osk.on {
           color: @base09;
         }
 

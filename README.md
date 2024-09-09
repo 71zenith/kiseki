@@ -69,6 +69,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                           | Description             |
 |----------------------------------------------------------------|-------------------------|
 | [hyprland](https://github.com/hyprwm/Hyprland)                 | compositor              |
+| [hyprlock](https://github.com/hyprwm/hyprlock)                 | lock screen             |
 | [firefox](https://www.mozilla.org/en-US/firefox/)              | web browser             |
 | [neovide](https://github.com/neovide/neovide)                  | neovim gui              |
 | [foot](https://codeberg.org/dnkl/foot)                         | terminal                |
