@@ -26,7 +26,7 @@ in {
         (button :class "btn1"
                 :onclick "echo ''${text} | wl-copy"
                 :onrightclick "echo ''${text} | wl-copy && setsid ${scripts.transLiner} &"
-                :css "button {color: ''${col}}"
+                :css "button {color: ''${col}; &:hover {color: ${base0B};}}"
                 (label :text text))))
 
     (defwidget rom []
@@ -49,7 +49,6 @@ in {
       font-size: 46px;
       &:hover {
         font-size: 50px;
-        color: ${base0B};
       }
     }
     .btn2 {
