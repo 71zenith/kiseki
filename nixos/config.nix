@@ -164,7 +164,10 @@ in {
       flake = "${home myUserName}/kiseki";
     };
 
-    nix-ld.enable = true;
+    nix-ld = {
+      enable = true;
+      package = pkgs.nix-ld-rs;
+    };
   };
 
   users.users = {

@@ -5,6 +5,7 @@
 }: {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    config.nur.repos.mic92.hello-nur
     # Cli
     ## internet
     aria2
@@ -14,7 +15,7 @@
     rsync
     ani-cli
 
-    ## unix utils
+    ## rusty unix
     dust
     duf
     fd
@@ -24,18 +25,19 @@
 
     ## helpful
     gcc
-    timg
-    ffmpeg
-    imagemagick
-    sqlite
     xdg-utils
+    ffmpeg
+    nvtopPackages.nvidia
+    sqlite
+    timg
+    imagemagick
     playerctl
     translate-shell
-    config.nur.repos.mic92.hello-nur
     pulsemixer
-    nvtopPackages.nvidia
     lutgen
     gammastep
+
+    ## wayland
     grimblast
     cliphist
     hyprpicker
@@ -76,7 +78,7 @@
     steam-run
     protonup-qt
 
-    ### vns
+    ### VNs
     onscripter-en
 
     ### emulators
@@ -91,6 +93,7 @@
     (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
     wordnet
     cmigemo
+
     ### lsp
     nil
     zls

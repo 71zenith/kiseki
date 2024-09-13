@@ -36,7 +36,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 - ⚙️  [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR)
 - 🎨 [oxocarbonified](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
-- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty), [neovide](https://github.com/neovide/neovide), [sptlrx](https://github.com/raitonoberu/sptlrx)
+- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty), [sptlrx](https://github.com/raitonoberu/sptlrx)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords/secrets with [sops-nix](https://github.com/Mic92/sops-nix)
 - 🎼 [spotify-player](https://github.com/aome510/spotify-player) with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar
