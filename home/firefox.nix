@@ -14,8 +14,8 @@
   minimal-arc = pkgs.fetchFromGitHub {
     owner = "zayihu";
     repo = "Minimal-Arc";
-    rev = "c528e3f35faaa3edb55eacbf63f4bb9f4db499fd";
-    hash = "sha256-nS+eU+x+m2rnhk2Up5d1UwTr+9qfr3pEd3uS4ehuGv0=";
+    rev = "ccdb8ed51c0c9bd0d1894564ccc2b6499166c0cc";
+    hash = "sha256-bRuHyEnz0Iev7/bry7IuSVjStWT9EsFgB2FIzJJhAZw=";
   };
 in {
   imports = [inputs.nur.nixosModules.nur];
