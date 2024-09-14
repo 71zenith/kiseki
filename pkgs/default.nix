@@ -12,6 +12,7 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
+  dra-cla = self.callPackage ./dra-cla.nix {};
   mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
 
   vesktop = wrapElectron "vesktop";

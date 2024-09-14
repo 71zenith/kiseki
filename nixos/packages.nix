@@ -14,6 +14,7 @@
     yt-dlp
     rsync
     ani-cli
+    dra-cla
 
     ## rusty unix
     dust
