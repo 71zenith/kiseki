@@ -5,12 +5,13 @@
         <img src="https://img.shields.io/badge/NixOS-24.11-informational.svg?style=for-the-badge&logo=nixos&color=161616&logoColor=42be65&labelColor=dde1e6"></a>
     <img src="https://img.shields.io/github/last-commit/71zenith/kiseki?style=for-the-badge&labelColor=dde1e6&color=161616"/>
     <img src="https://img.shields.io/github/repo-size/71zenith/kiseki?style=for-the-badge&labelColor=dde1e6&color=161616"/>
+    <img src="https://img.shields.io/github/languages/code-size/71zenith/kiseki?color=161616&style=for-the-badge&labelColor=dde1e6"/>
   </a>
 </p>
 
 *kiseki being my favourite game franchise*[^1]
 
-![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot21.png?raw=true)
+![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot22.png?raw=true)
 
 <details><summary><b>More screenshots</b></summary>
 
@@ -36,12 +37,12 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 - ⚙️  [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR)
 - 🎨 [oxocarbonified](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
-- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty), [sptlrx](https://github.com/raitonoberu/sptlrx)
+- 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty) and [sptlrx](https://github.com/raitonoberu/sptlrx)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
 - 🔑 passwords/secrets with [sops-nix](https://github.com/Mic92/sops-nix)
 - 🎼 [spotify-player](https://github.com/aome510/spotify-player) with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar
 - 📊 [glava](https://github.com/jarcode-foss/glava) with cover image palette and [eww](https://github.com/elkowar/eww) synced lyrics(with romaji) widget
-- 🌐 hardened [firefox](https://www.mozilla.org/en-US/firefox/) with declarative config
+- 🌐 hardened [firefox](https://www.mozilla.org/en-US/firefox/) with custom css and declarative config
 - 🚀 [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculations, clipboard/wallpaper with images, nyaa search
 - 🈂️ scripts to open/download media from the internet, [OCR](https://github.com/tesseract-ocr/tesseract) and [translating text](https://github.com/soimort/translate-shell)
 - 🐚 [zsh](http://www.zsh.org) and [foot](https://codeberg.org/dnkl/foot) setup to select command output, select files from screen.

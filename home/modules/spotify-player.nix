@@ -57,7 +57,7 @@ in {
       "spotify-player/theme.toml" = mkIf (cfg.themes != []) {
         source = tomlFormat.generate "spotify-player-theme" {inherit (cfg) themes;};
       };
-      "spotify-player/keymap.toml" = mkIf (cfg.keymaps != []) {
+      "spotify-player/keymap.toml" = mkIf (cfg.keymaps != [] || cfg.actions != []) {
         source = tomlFormat.generate "spotify-player-keymap" {
           inherit (cfg) keymaps;
           inherit (cfg) actions;

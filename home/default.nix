@@ -42,6 +42,10 @@ in {
 
     stateVersion = "24.11";
 
+    sessionPath = [
+      "${config.xdg.configHome}/emacs/bin"
+    ];
+
     packages = [
       scripts._4khd
     ];

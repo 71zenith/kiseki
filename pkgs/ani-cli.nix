@@ -19,20 +19,21 @@
   iina,
   chromecastSupport ? false,
   syncSupport ? false,
+  installShellFiles,
 }:
 assert withMpv || withVlc || withIina;
   stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "ani-cli";
-    version = "4.9";
+    version = "2024-09-14";
 
     src = fetchFromGitHub {
       owner = "pystardust";
       repo = finalAttrs.pname;
-      rev = "v${finalAttrs.version}";
-      hash = "sha256-7zuepWTtrFp9RW3zTSjPzyJ9e+09PdKgwcnV+DqPEUY=";
+      rev = "b9c6eb9e90a2e881208363b49c93271eeb2df8c7";
+      hash = "sha256-cOkT2p1CeY41fNi5X9c+avCmptB8ZFzDsGWPlqZEFBo=";
     };
 
-    nativeBuildInputs = [makeWrapper];
+    nativeBuildInputs = [makeWrapper installShellFiles];
     buildInputs = [] ++ lib.optional withMpv mpv;
 
     runtimeDependencies = let
@@ -52,8 +53,11 @@ assert withMpv || withVlc || withIina;
       install -Dm755 ani-cli $out/bin/ani-cli
       wrapProgram $out/bin/ani-cli \
         --prefix PATH : ${lib.makeBinPath finalAttrs.runtimeDependencies}
-      mkdir -p "$out/share/man/man1/"
-      cp *1 "$out/share/man/man1/"
+      installManPage ani-cli.1
+
+      installShellCompletion --cmd ani-cli \
+        --bash _ani-cli-bash \
+        --zsh _ani-cli-zsh
 
       runHook postInstall
     '';
