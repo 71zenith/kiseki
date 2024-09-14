@@ -225,90 +225,50 @@ in {
     style =
       ''
         * { border: 0; border-radius: 0; min-height: 0; }
-
-        #waybar {
-          transition: background-color .1s;
-        }
-
+        #waybar { transition: background-color .1s; }
         #waybar.hidden { opacity: .1; }
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
-        #privacy, #gamemode, #custom-power, #custom-weather,
-        #custom-gammastep, #custom-osk, #submap {
+        #privacy, #gamemode, #custom-power, #custom-weather, #custom-gammastep, #custom-osk, #submap {
           color: @base05;
           padding: 2px 4px;
           background-color: alpha(@base00, 0);
           margin: 2px 4px;
         }
 
-        #image.cover { margin: 4px 0;}
-
+        #image.cover { margin: 4px 0; }
         #workspaces button {
           color: @base04;
           box-shadow: inset 0 -3px transparent;
           padding: 0 6px;
           transition: all .1s cubic-bezier(.55, -.68, .48, 1.68);
         }
-
         #workspaces button.empty { color: @base03; }
         #workspaces button.active { color: @base0B; }
 
         #mpris { margin-top: 1px; color: @base09; }
         #pulseaudio { color: @base0D; }
-        #pulseaudio.muted { color: @base0A; }
+        #pulseaudio.muted, #network.disconnected { color: @base0A; }
         #network { color: @base0F; }
-        #network.disconnected { color: @base0A; }
         #clock.time { color: @base0E; }
         #custom-weather { color: @base03; }
         #clock.date { color: @base08; }
 
-        tooltip {
-          padding: 3px;
-          background-color: alpha(@base01, .75);
-        }
-
+        tooltip { padding: 3px; background-color: alpha(@base01, .75); }
         #tray > .passive { -gtk-icon-effect: dim; }
-        #tray > .needs-attention {
-          -gtk-icon-effect: highlight;
-          background-color: @base0A;
-        }
+        #tray > .needs-attention { -gtk-icon-effect: highlight; background-color: @base0A; }
 
+        #custom-power, #custom-gammastep, #submap, #custom-osk { margin: 0 1px; }
+        #taskbar button:hover, #custom-power:hover, #custom-gammastep:hover, 
+        #submap:hover, #custom-osk:hover { background-color: @base01; }
 
-        #custom-power, custom-gammastep, 
-        #submap, #custom-osk {
-          margin: 0 1px;
-        }
-
-        #taskbar button:hover,
-        #custom-power:hover, #custom-gammastep:hover, 
-        #submap:hover, #custom-osk:hover {
-          background-color: @base01;
-        }
-
-        #window {
-          margin-bottom: 2px;
-          margin-right: 0;
-          padding-right: 0;
-        }
-
-        #taskbar {
-          margin-bottom: 2px;
-          margin-left: 0;
-          padding-left: 0;
-        }
-
+        #window { margin-bottom: 2px; margin-right: 0; padding-right: 0; }
+        #taskbar { margin-bottom: 2px; margin-left: 0; padding-left: 0; }
         #taskbar button { padding: 0 7px; }
 
-        #privacy, #gamemode, #image.toggle {margin: 0 2px 0 2px; padding: 0 2px 0 2px;}
-
-        #custom-power, #custom-gammastep.on,
-        #submap, #custom-osk.on {
-          color: @base09;
-        }
-
-        #custom-gammastep.off, #custom-osk.off {
-          color: @base02;
-        }
+        #privacy, #gamemode, #image.toggle { margin: 0 2px; padding: 0 2px; }
+        #custom-power, #custom-gammastep.on, #submap, #custom-osk.on { color: @base09; }
+        #custom-gammastep.off, #custom-osk.off { color: @base02; }
 
         #custom-progress {
           font-size: 2pt;
