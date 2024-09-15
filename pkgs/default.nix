@@ -17,6 +17,7 @@ in {
 
   vesktop = wrapElectron "vesktop";
   spotify = wrapElectron "spotify";
+  logseq = wrapElectron "logseq";
   vscode = wrapElectron "vscode";
 
   librewolf = super.librewolf.override {
