@@ -54,6 +54,7 @@ in {
       MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g";
       MANROFFOPT = "-P -c";
       LESS = "-R --use-color";
+      CACHIX_AUTH_TOKEN = "$(cat /run/secrets/cachix_token)";
     };
   };
   fonts.fontconfig = {inherit (osConfig.fonts.fontconfig) defaultFonts;};

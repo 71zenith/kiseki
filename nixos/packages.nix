@@ -54,6 +54,7 @@
     nix-tree
     nvd
     sops
+    cachix
 
     ## compression
     zip
