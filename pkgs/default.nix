@@ -12,8 +12,16 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
-  dra-cla = self.callPackage ./dra-cla.nix {};
   mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
+
+  dra-cla = (super.dra-cla.override {mpv = null;}).overrideAttrs (oldAttrs: {
+    src = super.fetchFromGitHub {
+      owner = "CoolnsX";
+      repo = oldAttrs.pname;
+      rev = "24d7eaa5d433bc2cbbba4f23552cd812506fefee";
+      hash = "sha256-BmBQSkLSq+BaxkzXEy3hlI3qNq2NCIoGKDKt7gyDz+s=";
+    };
+  });
 
   vesktop = wrapElectron "vesktop";
   spotify = wrapElectron "spotify";
@@ -50,6 +58,17 @@ in {
       hash = "sha256-FLOM8RKm8lWSqZSZm4nJwIJm/zbDQ8A7FoR7AJ+tkpc=";
     };
   });
+
+  # sptlrx = super.sptlrx.overrideAttrs (oldAttrs: {
+  #   version = "unstable-2024-04-17";
+  #   src = super.fetchFromGitHub {
+  #     owner = "raitonoberu";
+  #     repo = oldAttrs.pname;
+  #     rev = "c03f1cb220936a06dec44069bfb01bf66b72c3d4";
+  #     hash = "sha256-6QaEx4pQnoELe6J/yukr+G0IhZxIjl4IF1cWzJYQVO4=";
+  #   };
+  #   vendorHash = "sha256-pExSQcYjqliZZg/91t52yk6UJ4QCbpToMpONIFUNkwc=";
+  # });
 
   #NOTE: fuck glava; version below has --pipe and **actually** builds (fuck meson too)
   glava = super.glava.overrideAttrs (oldAttrs: {
