@@ -59,16 +59,17 @@ in {
     };
   });
 
-  # sptlrx = super.sptlrx.overrideAttrs (oldAttrs: {
-  #   version = "unstable-2024-04-17";
-  #   src = super.fetchFromGitHub {
-  #     owner = "raitonoberu";
-  #     repo = oldAttrs.pname;
-  #     rev = "c03f1cb220936a06dec44069bfb01bf66b72c3d4";
-  #     hash = "sha256-6QaEx4pQnoELe6J/yukr+G0IhZxIjl4IF1cWzJYQVO4=";
-  #   };
-  #   vendorHash = "sha256-pExSQcYjqliZZg/91t52yk6UJ4QCbpToMpONIFUNkwc=";
-  # });
+  sptlrx = super.sptlrx.overrideAttrs (oldAttrs: {
+    version = "unstable-2024-07-23";
+    src = super.fetchFromGitHub {
+      owner = "raitonoberu";
+      repo = oldAttrs.pname;
+      rev = "c03f1cb220936a06dec44069bfb01bf66b72c3d4";
+      hash = "sha256-6QaEx4pQnoELe6J/yukr+G0IhZxIjl4IF1cWzJYQVO4=";
+    };
+    vendorHash = "sha256-pExSQcYjqliZZg/91t52yk6UJ4QCbpToMpONIFUNkwc=";
+    checkPhase = null;
+  });
 
   #NOTE: fuck glava; version below has --pipe and **actually** builds (fuck meson too)
   glava = super.glava.overrideAttrs (oldAttrs: {
