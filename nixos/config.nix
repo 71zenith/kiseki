@@ -22,21 +22,20 @@ in {
 
   sops = {
     defaultSopsFile = ../secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
     age.sshKeyPaths = ["${home myUserName}/.ssh/id_ed25519"];
     secrets = {
       root_pass.neededForUsers = true;
       user_pass.neededForUsers = true;
-      spot_username = {};
-      spot_auth_data = {};
       vpn_private_jp = {};
       vpn_private_us = {};
       vpn_private_nl = {};
+      spot_username = {};
+      spot_auth_data = {};
       spot_client_id = {owner = myUserName;};
       cachix_token = {owner = myUserName;};
     };
     # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
-    templates."credentials.json" = {
+    templates."spotify-player" = {
       owner = myUserName;
       content = builtins.toJSON {
         username = config.sops.placeholder.spot_username;

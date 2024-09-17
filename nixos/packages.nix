@@ -15,6 +15,7 @@
     rsync
     ani-cli
     dra-cla
+    nhentai
 
     ## rusty unix
     dust
@@ -23,6 +24,7 @@
     file
     sd
     ripgrep
+    jaq
 
     ## helpful
     gcc
