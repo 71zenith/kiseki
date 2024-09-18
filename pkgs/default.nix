@@ -12,6 +12,7 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
+  ani-skip = self.callPackage ./ani-skip.nix {inherit (super.mpvScripts) buildLua;};
   mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
 
   dra-cla = (super.dra-cla.override {mpv = null;}).overrideAttrs (oldAttrs: {

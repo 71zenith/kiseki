@@ -92,6 +92,6 @@
         thumbfast
         sponsorblock
       ]
-      ++ [pkgs.mpv-youtube-search];
+      ++ (with pkgs; [mpv-youtube-search ani-skip]);
   };
 }

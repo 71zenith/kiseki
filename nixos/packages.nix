@@ -14,6 +14,7 @@
     yt-dlp
     rsync
     ani-cli
+    ani-skip
     dra-cla
     nhentai
 
