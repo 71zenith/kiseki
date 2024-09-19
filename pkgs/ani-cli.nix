@@ -11,11 +11,13 @@
   ffmpeg,
   fzf,
   aria2,
+  ani-skip,
   withMpv ? true,
   mpv,
   withVlc ? false,
   vlc,
   withIina ? false,
+  withSkip ? true,
   iina,
   chromecastSupport ? false,
   syncSupport ? false,
@@ -24,13 +26,13 @@
 assert withMpv || withVlc || withIina;
   stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "ani-cli";
-    version = "2024-09-14";
+    version = "2024-09-19";
 
     src = fetchFromGitHub {
       owner = "pystardust";
       repo = finalAttrs.pname;
-      rev = "b9c6eb9e90a2e881208363b49c93271eeb2df8c7";
-      hash = "sha256-cOkT2p1CeY41fNi5X9c+avCmptB8ZFzDsGWPlqZEFBo=";
+      rev = "5daa876a3c88544ee7a21aac4704e14be519c25a";
+      hash = "sha256-4+iy4Y2FpNMx0jc6IUf179lxHSXg28btdjj37wthJRI=";
     };
 
     nativeBuildInputs = [makeWrapper installShellFiles];
@@ -44,6 +46,7 @@ assert withMpv || withVlc || withIina;
     in
       [gnugrep gnused curl fzf ffmpeg aria2]
       ++ player
+      ++ lib.optional withSkip ani-skip
       ++ lib.optional chromecastSupport catt
       ++ lib.optional syncSupport syncplay;
 
@@ -56,8 +59,8 @@ assert withMpv || withVlc || withIina;
       installManPage ani-cli.1
 
       installShellCompletion --cmd ani-cli \
-        --bash _ani-cli-bash \
-        --zsh _ani-cli-zsh
+        --zsh _ani-cli-zsh \
+        --bash _ani-cli-bash
 
       runHook postInstall
     '';
