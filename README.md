@@ -11,7 +11,7 @@
 
 *kiseki being my favourite game franchise*[^1]
 
-![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot22.png?raw=true)
+![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot23.png?raw=true)
 
 <details><summary><b>More screenshots</b></summary>
 
