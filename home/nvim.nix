@@ -253,7 +253,7 @@ in {
             };
           };
         };
-        surround.enable = true;
+        vim-surround.enable = true;
         lastplace.enable = true;
         lsp-format.enable = true;
         conjure.enable = true;
