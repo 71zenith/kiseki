@@ -54,8 +54,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 | Name                                                                   | Description                 |
 |------------------------------------------------------------------------|-----------------------------|
-| [flakes](https://wiki.nixos.org/wiki/Flakes)                           | channel manager             |
-| [home-manager](https://github.com/nix-community/home-manager)          | manage dots                 |
+| [flakes](https://wiki.nixos.org/wiki/Flakes)                           | nix lifeline                |
+| [home-manager](https://github.com/nix-community/home-manager)          | dotfiles manager            |
 | [stylix](https://github.com/danth/stylix)                              | auto themer                 |
 | [nix-colors](https://github.com/Misterio77/nix-colors)                 | base 16 scheme              |
 | [nixvim](https://github.com/nix-community/nixvim)                      | nvim config in nix          |
@@ -117,6 +117,9 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
+| [rampart-one](https://www.freejapanesefont.com/rampart-one-download/)   | "stylized" font for weebs          |
+| [kaushan-script](https://fonts.google.com/specimen/Kaushan+Script)      | "stylized" font                    |
+| [typo_deco](https://eng.m.fontke.com/font/14781710/)                    | "stylized" font for korean         |
 
 ## Resources
 
