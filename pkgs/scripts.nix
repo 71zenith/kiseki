@@ -50,7 +50,7 @@ in {
   rofiGuard = writeShellScript "rofiGuard" ''
     build_rofi() {
       gv="$(systemctl list-unit-files --type=service --all | sed -nE 's/^(wg-quick.+).service.*/\1/p')"
-      echo "$gv" | rofi -dmenu -p "󰖂" -mesg "$1" -l "$(echo "$gv" | wc -l) -filter"
+      echo "$gv" | rofi -theme-str 'window { width: 300px; }' -dmenu -p "󰖂" -mesg "$1" -l "$(echo "$gv" | wc -l) -filter"
     }
     act_on_rofi() {
       [ -z "$1" ] && exit 1

@@ -87,7 +87,7 @@
         spacing = mkLiteral "0px";
         margin = mkLiteral "0px";
         padding = mkLiteral "0px";
-        border = mkLiteral "0px 0px 1px 0px";
+        border = mkLiteral "0px 0px 2px 0px";
         border-radius = mkLiteral "0px";
         border-color = mkLiteral "@border";
         background-color = mkLiteral "@background";
@@ -97,7 +97,7 @@
       "prompt" = {
         enabled = true;
         padding = mkLiteral "15px";
-        border = mkLiteral "0px 1px 0px 0px";
+        border = mkLiteral "0px 2px 0px 0px";
         border-radius = mkLiteral "0px";
         border-color = mkLiteral "@background-alt";
         background-color = mkLiteral "inherit";
@@ -124,7 +124,7 @@
         margin = mkLiteral "0px";
         padding = mkLiteral "0px";
         border = mkLiteral "0px solid";
-        border-radious = mkLiteral "0px";
+        border-radius = mkLiteral "0px";
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
       };
@@ -167,7 +167,7 @@
         spacing = mkLiteral "10px";
         margin = mkLiteral "0px";
         padding = mkLiteral "8px 15px";
-        border = mkLiteral "0px 0px 1px 0px";
+        border = mkLiteral "0px 0px 0px 0px";
         border-radius = mkLiteral "0px";
         border-color = mkLiteral "@border";
         background-color = mkLiteral "transparent";
