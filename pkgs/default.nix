@@ -80,5 +80,10 @@ in {
       rev = "c766c574a6e952aff96920f66892d0503281f8aa";
       sha256 = "sha256-Ay9p75z/bc2/2p6GkPiVGag0iMj/7w4loyr34iX98Z4=";
     };
+    postPatch = ''
+      substituteInPlace shaders/bars.glsl \
+        --replace "#define BAR_WIDTH 5" "#define BAR_WIDTH 8" \
+        --replace "#define BAR_GAP 1" "#define BAR_GAP 2"
+    '';
   });
 }
