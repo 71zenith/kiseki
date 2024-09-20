@@ -160,7 +160,7 @@ in {
       cursor = {
         no_hardware_cursors = true;
       };
-      blurls = ["waybar"];
+      blurls = ["waybar" "rofi"];
       animations = {
         enabled = true;
         bezier = [

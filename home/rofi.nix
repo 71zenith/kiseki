@@ -47,7 +47,7 @@
     in {
       "*" = with config.lib.stylix.colors.withHashtag; {
         font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.applications}";
-        background = mkLiteral base00;
+        background = with config.lib.stylix.colors; mkLiteral "rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, ${toString config.stylix.opacity.popups})";
         border = mkLiteral base01;
         background-alt = mkLiteral base01;
         foreground = mkLiteral base06;
@@ -90,7 +90,7 @@
         border = mkLiteral "0px 0px 2px 0px";
         border-radius = mkLiteral "0px";
         border-color = mkLiteral "@border";
-        background-color = mkLiteral "@background";
+        background-color = mkLiteral "transparent";
         text-color = mkLiteral "@foreground";
         children = mkLiteral "[prompt,entry]";
       };
@@ -133,7 +133,7 @@
         border-radius = mkLiteral "0px";
         border = mkLiteral "0px solid";
         border-color = mkLiteral "@border";
-        background-color = mkLiteral "@background-alt";
+        background-color = mkLiteral "transparent";
         text-color = mkLiteral "inherit";
         cursor = mkLiteral "pointer";
       };
