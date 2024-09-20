@@ -43,7 +43,7 @@ in {
       all: unset;
       margin: 20px;
       background-color: rgba(0,0,0,0);
-      font-family: "Kaushan Script", "Rampart One";
+      font-family: "Kaushan Script", "Rampart One", "Typo_Deco";
     }
     .btn1 {
       font-size: 46px;
