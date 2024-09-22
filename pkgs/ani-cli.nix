@@ -36,12 +36,11 @@ assert withMpv || withVlc || withIina;
     };
 
     nativeBuildInputs = [makeWrapper installShellFiles];
-    buildInputs = [] ++ lib.optional withMpv mpv;
+    buildInputs = lib.optional withMpv mpv;
 
     runtimeDependencies = let
       player =
-        []
-        ++ lib.optional withVlc vlc
+        lib.optional withVlc vlc
         ++ lib.optional withIina iina;
     in
       [gnugrep gnused curl fzf ffmpeg aria2]

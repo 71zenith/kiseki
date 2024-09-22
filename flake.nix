@@ -52,11 +52,7 @@
       };
     };
   };
-  outputs = {
-    self,
-    nixpkgs,
-    ...
-  } @ inputs: let
+  outputs = {nixpkgs, ...} @ inputs: let
     ### NOTE: DECLARE USER ###
     pcName = "izanagi";
     myUserName = "zen";

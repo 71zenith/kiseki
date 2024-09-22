@@ -23,7 +23,7 @@ in {
     package = mkPackageOption pkgs "spotify-player" {};
 
     settings = mkOption {
-      type = tomlFormat.type;
+      inherit (tomlFormat) type;
       default = {};
     };
     themes = mkOption {
