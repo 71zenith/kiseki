@@ -46,6 +46,8 @@ in {
     };
   };
 
+  networking.firewall.allowedTCPPorts = [5900];
+
   nix = {
     settings = {
       auto-optimise-store = true;

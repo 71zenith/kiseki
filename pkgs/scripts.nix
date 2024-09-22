@@ -183,6 +183,12 @@ in {
     done
     notify-send "No search results" && exit 1
   '';
+  openVNC = writeShellScript "openVNC" ''
+    set -e
+    wayvnc 0.0.0.0 &
+    notify-send "Starting VNC session"
+    trap 'notify-send "Ending VNC session unexpectedly"' EXIT
+  '';
   copyPalette = let
     colorsWithNames = builtins.concatStringsSep "\n" (
       map

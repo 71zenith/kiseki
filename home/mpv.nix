@@ -9,8 +9,7 @@
       osc = "no";
       osd-bar = "no";
       profile = "gpu-hq";
-      vo = "gpu-next";
-      gpu-api = "vulkan";
+      vo = "gpu";
       loop-file = "inf";
       hwdec = "vaapi";
       gpu-context = "wayland";
@@ -18,14 +17,6 @@
       cscale = "ewa_lanczossharp";
       save-position-on-quit = "yes";
       video-sync = "display-resample";
-      scale-antiring = 0.5;
-      dscale-antiring = 0.5;
-      cscale-antiring = 0.5;
-      deband = "yes";
-      deband-iterations = 4;
-      deband-threshold = 35;
-      deband-range = 16;
-      deband-grain = 4;
       interpolation = "yes";
       tscale = "oversample";
       slang = "en,eng";

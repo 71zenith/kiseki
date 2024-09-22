@@ -48,6 +48,7 @@
     wl-clipboard
     wvkbd
     eww
+    wayvnc
 
     ## nix
     nitch
