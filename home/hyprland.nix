@@ -246,10 +246,10 @@ in {
           "$mod1, v, exec, ${scripts.clipShow}"
           "$mod1, g, exec, ${scripts.glavaShow}"
           "$mod1, b, exec, ${scripts.torMpv}"
-          "$mod1, apostrophe, exec, ${scripts.openVNC}"
+          "$mod1, semicolon, exec, ${scripts.floatToggle}"
           "$mod1, bracketleft, exec, ${scripts.copyPalette} glava"
           "$mod1, bracketright, exec, ${scripts.copyPalette} eww"
-          "$mod1, semicolon, exec, ${scripts.floatToggle}"
+          "$mod1, apostrophe, exec, pkill wayvnc || ${scripts.openVNC}"
 
           "$mod1, q, killactive,"
           "$mod1, x, togglesplit,"

@@ -20,7 +20,7 @@ in {
         position = "top";
         modules-left = ["hyprland/workspaces" "group/win"];
         modules-center = ["image#cover" "group/music"];
-        modules-right = ["network" "custom/weather" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "privacy" "tray"];
+        modules-right = ["network" "pulseaudio" "clock#date" "clock#time" "gamemode" "group/custom" "privacy" "tray"];
         "hyprland/workspaces" = {
           format = "{icon}";
           show-special = true;
@@ -101,15 +101,6 @@ in {
           on-scroll-up = "pulsemixer --change-volume +5";
           on-scroll-down = "pulsemixer --change-volume -5";
           on-click-right = "pkill pulsemixer || footclient -T quick pulsemixer";
-        };
-        "custom/weather" = {
-          return-type = "json";
-          exec = pkgs.writeShellScript "tempNow" ''
-            temp="$(curl -Ls "wttr.in?format=%f" | tr -d '+')"
-            tooltip="$(curl -Ls "wttr.in?format=4")"
-            echo "{ \"text\" : \"$temp\", \"tooltip\" : \"$tooltip\" }"
-          '';
-          interval = 360;
         };
         "privacy" = {
           icon-size = 16;
@@ -229,7 +220,7 @@ in {
         #waybar.hidden { opacity: .1; }
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
-        #privacy, #gamemode, #custom-power, #custom-weather, #custom-gammastep, #custom-osk, #submap {
+        #privacy, #gamemode, #custom-power, #custom-gammastep, #custom-osk, #submap {
           color: @base05;
           padding: 2px 4px;
           background-color: alpha(@base00, 0);
@@ -251,7 +242,6 @@ in {
         #pulseaudio.muted, #network.disconnected { color: @base0A; }
         #network { color: @base0F; }
         #clock.time { color: @base0E; }
-        #custom-weather { color: @base03; }
         #clock.date { color: @base08; }
 
         tooltip { padding: 3px; background-color: alpha(@base01, .75); }

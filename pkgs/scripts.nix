@@ -187,7 +187,8 @@ in {
     set -e
     wayvnc 0.0.0.0 &
     notify-send "Starting VNC session"
-    trap 'notify-send "Ending VNC session unexpectedly"' EXIT
+    wait
+    trap 'notify-send "Ending VNC session"' EXIT
   '';
   copyPalette = let
     colorsWithNames = builtins.concatStringsSep "\n" (

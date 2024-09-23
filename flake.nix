@@ -96,7 +96,7 @@
     };
   in {
     devShell.${system} = pkgs.mkShell {
-      packages = with pkgs; [lolcat alejandra nil];
+      packages = with pkgs; [lolcat alejandra nil deadnix statix];
       shellHook = ''
         printf "\e[3m\e[1m%s\em\n" "1337 h4x0ring..." | lolcat
       '';
