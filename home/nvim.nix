@@ -35,6 +35,7 @@ in {
       extraConfigLuaPre = ''
         require("buffer_manager").setup({ focus_alternate_buffer = true})
         require("which-key").setup({icons = {rules = false}})
+        require("supermaven-nvim").setup({})
       '';
       extraConfigLuaPost = ''
         require("cmp").event:on(
@@ -133,7 +134,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager];
+      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager supermaven-nvim];
       plugins = {
         nix.enable = false;
         nvim-bqf.enable = true;
@@ -428,8 +429,12 @@ in {
           settings = {
             sources = [
               {
-                name = "nvim_lsp";
+                name = "supermaven";
                 keyword_length = 1;
+              }
+              {
+                name = "nvim_lsp";
+                keyword_length = 2;
               }
               {
                 name = "path";
