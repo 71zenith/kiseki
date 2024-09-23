@@ -123,10 +123,10 @@ in {
         };
         "image#toggle" = {
           exec = pkgs.writeShellScript "floatOrToggle" ''
-            [ -e "/tmp/hypr.float" ] && echo ${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg || echo ${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg
+            [ -e "/tmp/hypr.float" ] && echo ${pkgs.my-misc}/share/misc/defense_quartz.png || echo ${pkgs.my-misc}/share/misc/wind_quartz.png
           '';
           signal = 11;
-          size = 20;
+          size = 23;
           on-click = "pkill rofi || rofi -show drun";
           on-click-middle = scripts.floatToggle;
           on-click-right = "swww img $(fd . ${pkgs.my-walls}/share/wallpapers/ | sort -R | head -1) -f Mitchell -t any --transition-fps 75 --transition-duration 2";
