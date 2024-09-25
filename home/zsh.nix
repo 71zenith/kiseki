@@ -107,7 +107,9 @@ in {
       shellAliases = {
         nv = "nvim";
         v = "emacs -nw";
+        sr = "cd $(echo $NIX_PATH | cut -f2 -d=)";
         up = "nh os switch";
+        fd = "fd -p";
         del = "nh clean all --nogcroots";
         ss = "nh search";
         ts = "nix-shell --run zsh -p";
