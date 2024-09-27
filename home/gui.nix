@@ -22,7 +22,7 @@ in {
       settings = {
         srgb = true;
         font = {
-          normal = [config.stylix.fonts.monospace.name];
+          normal = [config.stylix.fonts.monospace.name "Mamelon"];
           size = config.stylix.fonts.sizes.terminal;
         };
       };
