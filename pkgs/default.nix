@@ -51,12 +51,12 @@ in {
   });
 
   spotify-player = super.spotify-player.overrideAttrs (oldAttrs: {
-    version = "unstable-2024-08-25";
+    version = "unstable-2024-09-27";
     src = super.fetchFromGitHub {
       owner = "aome510";
       repo = oldAttrs.pname;
-      rev = "9c47701cd6adc45c2d61721ccbdfae54ba67a523";
-      hash = "sha256-FLOM8RKm8lWSqZSZm4nJwIJm/zbDQ8A7FoR7AJ+tkpc=";
+      rev = "b202385153a80b3e9410f4fcb91b541e41f4136e";
+      hash = "sha256-O17czRq0YAvAB/c/3cKjIntHRYHLB9a8v6Cl/dC4HTc=";
     };
   });
 
