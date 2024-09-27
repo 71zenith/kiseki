@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  config,
   ...
 }: {
   stylix = {
@@ -42,9 +43,8 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = ["Kollektif" "Mamelon"];
+      sansSerif = [config.stylix.fonts.serif.name "Mamelon"];
       serif = sansSerif;
-      emoji = ["Noto Color Emoji"];
     };
     packages = with pkgs; [
       my-fonts

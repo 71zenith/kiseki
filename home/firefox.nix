@@ -1,6 +1,6 @@
 {
-  pkgs,
   inputs,
+  pkgs,
   config,
   myUserName,
   ...
@@ -182,7 +182,6 @@ in {
               urls = [{template = "https://search.brave.com/search?q={searchTerms}";}];
               definedAliases = ["@b"];
               iconUpdateURL = "https://brave.com/static-assets/images/brave-logo-sans-text.svg";
-              updateInterval = 24 * 60 * 60 * 1000;
             };
             "GitHub" = {
               urls = [{template = "https://github.com/search?q={searchTerms}&type=code";}];

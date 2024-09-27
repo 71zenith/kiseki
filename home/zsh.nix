@@ -51,7 +51,6 @@ in {
         }
         zle -N fzf-comp-widget
         bindkey "^O" fzf-comp-widget
-        setopt interactive_comments nomatch
         unsetopt beep extendedglob notify
         zstyle ':completion:*' menu select
         zstyle ':completion:*' matcher-list "m:{a-z0A-Z}={A-Za-z}"
@@ -138,7 +137,7 @@ in {
     };
   };
   xdg.configFile."zsh/p10k.zsh".text = with config.lib.stylix.colors.withHashtag; let
-    escape = ''''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'';
+    escaped = ''''${''${''${P9K_CONTENT/⇣* :⇡/⇣⇡}// }//:/ }'';
   in ''
     'builtin' 'local' '-a' 'p10k_config_opts'
     [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
@@ -217,7 +216,7 @@ in {
       typeset -g POWERLEVEL9K_VCS_INCOMING_CHANGES_ICON=':⇣'
       typeset -g POWERLEVEL9K_VCS_OUTGOING_CHANGES_ICON=':⇡'
       typeset -g POWERLEVEL9K_VCS_{COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=1
-      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${escape}'
+      typeset -g POWERLEVEL9K_VCS_CONTENT_EXPANSION='${escaped}'
 
       typeset -g POWERLEVEL9K_TIME_FOREGROUND=$grey
       typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'

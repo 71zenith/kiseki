@@ -40,7 +40,7 @@ in {
   home = {
     username = myUserName;
 
-    stateVersion = "24.11";
+    inherit (osConfig.system) stateVersion;
 
     sessionPath = [
       "${config.xdg.configHome}/emacs/bin"
@@ -70,6 +70,7 @@ in {
     @define-color accent_color ${base0A};
     @define-color accent_bg_color ${base0A};
   '';
+
   gtk = {
     enable = true;
     iconTheme = {
@@ -77,6 +78,7 @@ in {
       package = pkgs.papirus-icon-theme;
     };
   };
+
   xdg.portal = {
     enable = true;
     config.common.default = ["hyprland" "gtk"];

@@ -35,7 +35,7 @@ in {
       cachix_token = {owner = myUserName;};
     };
     # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
-    templates."spotify-player" = {
+    templates."credentials.json" = {
       owner = myUserName;
       content = builtins.toJSON {
         username = config.sops.placeholder.spot_username;
@@ -46,6 +46,7 @@ in {
     };
   };
 
+  #NOTE: VNC server
   networking.firewall.allowedTCPPorts = [5900];
 
   nix = {
@@ -95,12 +96,11 @@ in {
 
     greetd = {
       enable = true;
-      settings = rec {
-        initial_session = {
+      settings = {
+        default_session = {
           command = "${lib.getExe pkgs.hyprland}";
           user = myUserName;
         };
-        default_session = initial_session;
       };
     };
 
@@ -143,7 +143,6 @@ in {
   console = {
     earlySetup = true;
     font = "${pkgs.terminus_font}/share/consolefonts/ter-132n.psf.gz";
-    packages = with pkgs; [terminus_font];
     useXkbConfig = true;
   };
 

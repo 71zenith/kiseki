@@ -249,7 +249,7 @@ in {
         #tray > .needs-attention { -gtk-icon-effect: highlight; background-color: @base0A; }
 
         #custom-power, #custom-gammastep, #submap, #custom-osk { margin: 0 1px; }
-        #taskbar button:hover, #custom-power:hover, #custom-gammastep:hover, 
+        #taskbar button:hover, #custom-power:hover, #custom-gammastep:hover,
         #submap:hover, #custom-osk:hover { background-color: @base01; }
 
         #window { margin-bottom: 2px; margin-right: 0; padding-right: 0; }
