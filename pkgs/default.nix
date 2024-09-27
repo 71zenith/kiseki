@@ -1,4 +1,4 @@
-self: super: let
+{lib}: self: super: let
   wrapElectron = packageName:
     super.${packageName}.overrideAttrs (oldAttrs: {
       nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [super.makeWrapper];
@@ -12,8 +12,13 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
-  ani-skip = self.callPackage ./ani-skip.nix {inherit (super.mpvScripts) buildLua;};
-  mpv-youtube-search = self.callPackage ./mpv-youtube-search.nix {inherit (super.mpvScripts) buildLua;};
+
+  ani-skip = self.mpvScripts.callPackage ./ani-skip.nix {};
+  mpv-youtube-search = self.mpvScripts.callPackage ./mpv-youtube-search.nix {};
+
+  vesktop = wrapElectron "vesktop";
+  spotify = wrapElectron "spotify";
+  logseq = wrapElectron "logseq";
 
   dra-cla = (super.dra-cla.override {mpv = null;}).overrideAttrs (oldAttrs: {
     src = super.fetchFromGitHub {
@@ -23,10 +28,6 @@ in {
       hash = "sha256-BmBQSkLSq+BaxkzXEy3hlI3qNq2NCIoGKDKt7gyDz+s=";
     };
   });
-
-  vesktop = wrapElectron "vesktop";
-  spotify = wrapElectron "spotify";
-  logseq = wrapElectron "logseq";
 
   librewolf = super.librewolf.override {
     extraPrefs = ''
@@ -86,4 +87,23 @@ in {
         --replace "#define BAR_GAP 1" "#define BAR_GAP 2"
     '';
   });
+  nix-output-monitor = let
+    icons = {
+      "↑" = "f062";
+      "↓" = "f063";
+      "⏱" = "f520";
+      "⏵" = "f04b";
+      "✔" = "f00c";
+      "⏸" = "f04c";
+      "⚠" = "f071";
+      "∅" = "f1da";
+      "∑" = "f04a0";
+    };
+  in
+    super.nix-output-monitor.overrideAttrs {
+      postPatch = ''
+        substituteInPlace lib/NOM/Print.hs \
+          ${lib.concatLines (lib.mapAttrsToList (old: new: "--replace-fail '${old}' '\\x${new}' \\") icons)}
+      '';
+    };
 }

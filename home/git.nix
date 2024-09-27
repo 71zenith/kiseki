@@ -57,6 +57,7 @@
       pull.ff = "only";
       branch.autoSetupMerge = true;
       merge.conflictStyle = "diff3";
+      diff.colorMoved = "default";
       rebase = {
         autoSquash = true;
         autoStash = true;

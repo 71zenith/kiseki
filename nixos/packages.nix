@@ -6,6 +6,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     config.nur.repos.mic92.hello-nur
+
     # Cli
     ## internet
     aria2
@@ -91,7 +92,6 @@
     mgba
     snes9x-gtk
     #config.nur.repos.chigyutendies.citra-nightly
-    #config.nur.repos.chigyutendies.suyu-dev
 
     # dev
     ## doom emacs

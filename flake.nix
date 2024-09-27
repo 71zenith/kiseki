@@ -91,7 +91,7 @@
       nixpkgs.overlays = with inputs; [
         prismlauncher.overlays.default
         assets.overlays.default
-        (import ./pkgs)
+        (import ./pkgs {inherit (nixpkgs) lib;})
       ];
     };
   in {
