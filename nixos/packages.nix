@@ -91,6 +91,7 @@
     desmume
     mgba
     snes9x-gtk
+    duckstation
     #config.nur.repos.chigyutendies.citra-nightly
 
     # dev

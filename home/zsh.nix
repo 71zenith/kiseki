@@ -80,6 +80,7 @@ in {
       sessionVariables = {
         DIRENV_LOG_FORMAT = "";
         PROMPT_EOL_MARK = "󱞥";
+        FZF_DEFAULT_OPTS = "$FZF_DEFAULT_OPTS:,bg:-1";
       };
       plugins = [
         {
