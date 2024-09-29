@@ -172,7 +172,6 @@ in {
             pyright.enable = true;
             zls.enable = true;
             ruff-lsp.enable = true;
-            ccls.enable = true;
           };
         };
         gitsigns = {
@@ -258,17 +257,15 @@ in {
         vim-surround.enable = true;
         lastplace.enable = true;
         lsp-format.enable = true;
-        conjure.enable = true;
         none-ls = {
           enable = true;
           sources = {
             formatting = {
               alejandra.enable = true;
-              uncrustify.enable = true;
+              black.enable = true;
             };
             diagnostics = {
               statix.enable = true;
-              cppcheck.enable = true;
             };
           };
         };
@@ -309,24 +306,11 @@ in {
               };
             };
             sections = {
-              lualine_a = [
-                "fancy_mode"
-              ];
-              lualine_b = [
-                "fancy_branch"
-                "fancy_diff"
-                "fancy_diagnostics"
-              ];
-              lualine_y = [
-                "fancy_filetype"
-              ];
-              lualine_x = [
-                "fancy_macro"
-                "fancy_lsp_servers"
-              ];
-              lualine_z = [
-                "fancy_location"
-              ];
+              lualine_a = ["fancy_mode"];
+              lualine_b = ["fancy_branch" "fancy_diff" "fancy_diagnostics"];
+              lualine_y = ["fancy_filetype"];
+              lualine_x = ["fancy_macro" "fancy_lsp_servers"];
+              lualine_z = ["fancy_location"];
             };
           };
         };
