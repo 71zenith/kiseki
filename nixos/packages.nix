@@ -3,7 +3,6 @@
   config,
   ...
 }: {
-  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     config.nur.repos.mic92.hello-nur
 
@@ -117,12 +116,12 @@
 
     ## langs
     python3
-    python312Packages.ipython
+    python313Packages.ipython
     zig
 
     ## editors
     neovim
-    zed-editor
+    #zed-editor
     #lem-ncurses
 
     # disabled
