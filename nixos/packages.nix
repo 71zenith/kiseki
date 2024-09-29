@@ -116,7 +116,7 @@
 
     ## langs
     python3
-    python313Packages.ipython
+    python312Packages.ipython
     zig
 
     ## editors
