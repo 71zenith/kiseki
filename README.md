@@ -11,9 +11,12 @@
 
 *kiseki being my favourite game franchise*[^1]
 
-![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot23.png?raw=true)
+![](https://github.com/71zenith/assets/blob/master/screenshot/stacked.png?raw=true)
+*picture generated with [catwalk](https://github.com/catppuccin/catwalk)*
 
-<details><summary><b>More screenshots</b></summary>
+<details><summary><b>Individual screenshots</b></summary>
+
+![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot23.png?raw=true)
 
 ![](https://github.com/71zenith/assets/blob/master/screenshot/workflow/1.png?raw=true)
 
@@ -43,10 +46,10 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 - 🎼 [spotify-player](https://github.com/aome510/spotify-player) with [waybar](https://github.com/Alexays/Waybar) cover image and progress bar
 - 📊 [glava](https://github.com/jarcode-foss/glava) with cover image palette and [eww](https://github.com/elkowar/eww) synced lyrics(with romaji) widget
 - 🌐 hardened [firefox](https://www.mozilla.org/en-US/firefox/) with custom css and declarative config
-- 🚀 [rofi](https://github.com/davatorium/rofi) scripts for vpn, calculations, clipboard/wallpaper with images, nyaa search
-- 🈂️ scripts to open/download media from the internet, [OCR](https://github.com/tesseract-ocr/tesseract) and [translating text](https://github.com/soimort/translate-shell)
+- 🚀 [rofi](https://github.com/davatorium/rofi) scripts for vpn, clipboard/wallpaper with images, nyaa search and color palette
+- 🈂️ shell scripts to copy/download video from sites, [OCR](https://github.com/tesseract-ocr/tesseract) and [translating text](https://github.com/soimort/translate-shell)
 - 🐚 [zsh](http://www.zsh.org) and [foot](https://codeberg.org/dnkl/foot) setup to select command output, select files from screen.
-- ▶️  [mpv](https://github.com/mpv-player/mpv) with upscaling, youtube helpers and fancy ui
+- ▶️  [mpv](https://github.com/mpv-player/mpv) with upscaling, youtube helper scripts and fancy ui
 
 <details><summary><b>Detailed Software usage</b></summary>
 

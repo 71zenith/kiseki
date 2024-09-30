@@ -112,7 +112,7 @@ in {
         fd = "fd -p";
         del = "nh clean all --nogcroots";
         ss = "nh search";
-        ts = "nix-shell --run zsh -p";
+        "," = "nix-shell --run zsh -p";
         qq = "nvd list";
         fl = "nix flake";
         im = "timg -p s";
