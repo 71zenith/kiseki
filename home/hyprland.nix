@@ -139,6 +139,8 @@ in {
         blur = {
           enabled = true;
           noise = 0;
+          size = 2;
+          passes = 3;
         };
         drop_shadow = true;
         shadow_range = 15;
@@ -164,7 +166,7 @@ in {
       animations = {
         enabled = true;
         bezier = [
-          "overshot, 0.35, 0.9, 0.1, 1.05"
+          "overshot, 0.05, 0.9, 0.1, 1.05"
           "smoothOut, 0.36, 0, 0.66, -0.56"
           "smoothIn, 0.25, 1, 0.5, 1"
           "pace, 0.46, 1, 0.29, 0.99"

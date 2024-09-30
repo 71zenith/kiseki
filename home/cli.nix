@@ -116,6 +116,10 @@
           show_hidden = true;
         };
       };
+      theme = {
+        status.separator_open = "";
+        status.separator_close = "";
+      };
     };
   };
 }

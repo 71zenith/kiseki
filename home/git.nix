@@ -1,10 +1,12 @@
 {
+  pkgs,
   myUserName,
   mailId,
   ...
 }: {
   programs.git = {
     enable = true;
+    package = pkgs.gitFull;
     userName = myUserName;
     userEmail = mailId;
     aliases = {

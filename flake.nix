@@ -4,7 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    nur.url = "github:nix-community/NUR";
     nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -39,6 +38,10 @@
         utils.follows = "flake-utils";
       };
     };
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-gaming = {
       url = "github:fufexan/nix-gaming";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,11 +65,6 @@
 
     system = "x86_64-linux";
     pkgs = import nixpkgs {inherit system;};
-
-    # HACK: nur prevent infinite recursion
-    nurNoPkgs = import inputs.nur {
-      nurpkgs = import nixpkgs {inherit system;};
-    };
 
     caches = {
       nix.settings = {
@@ -103,14 +101,13 @@
     };
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
-        inherit inputs nurNoPkgs nixName;
+        inherit inputs nixName;
         inherit pcName myUserName myName mailId;
       };
       modules = with inputs; [
         caches
         overlays
         stylix.nixosModules.stylix
-        nur.nixosModules.nur
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         flake-programs-sqlite.nixosModules.programs-sqlite

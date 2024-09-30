@@ -18,7 +18,6 @@
     hash = "sha256-bRuHyEnz0Iev7/bry7IuSVjStWT9EsFgB2FIzJJhAZw=";
   };
 in {
-  imports = [inputs.nur.nixosModules.nur];
   programs.firefox = {
     enable = true;
 
@@ -27,7 +26,7 @@ in {
         id = 0;
         isDefault = true;
         name = myUserName;
-        extensions = with config.nur.repos.rycee.firefox-addons; [
+        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
           refined-github
           sponsorblock
           mal-sync
@@ -43,7 +42,7 @@ in {
           vimium-c
           ublock-origin
           sidebery
-          config.nur.repos.rycee.firefox-addons."10ten-ja-reader"
+          inputs.firefox-addons.packages.${pkgs.system}."10ten-ja-reader"
         ];
         settings = {
           "browser.startup.page" = "https://71zenith.github.io/";

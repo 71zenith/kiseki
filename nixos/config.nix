@@ -7,7 +7,6 @@
   myUserName,
   myName,
   mailId,
-  nurNoPkgs,
   ...
 }: let
   home = user: "/home/${user}";
@@ -189,7 +188,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs nurNoPkgs;
+      inherit inputs;
       inherit pcName myUserName myName mailId;
     };
     users.${myUserName} = import ../home;

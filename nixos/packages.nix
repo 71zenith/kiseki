@@ -1,11 +1,5 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
-    config.nur.repos.mic92.hello-nur
-
     # Cli
     ## internet
     aria2
@@ -91,7 +85,6 @@
     mgba
     snes9x-gtk
     duckstation
-    #config.nur.repos.chigyutendies.citra-nightly
 
     # dev
     ## doom emacs

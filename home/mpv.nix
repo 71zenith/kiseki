@@ -29,6 +29,13 @@
       demuxer-readahead-secs = "60";
       border = "no";
       keepaspect-window = "no";
+      deband = true;
+      deband-grain = 0;
+      deband-range = 12;
+      deband-threshold = 32;
+      dither-depth = "auto";
+      dither = "fruit";
+      screenshot-directory = config.xdg.userDirs.pictures;
     };
     scriptOpts = {
       webtorrent = {

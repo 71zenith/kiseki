@@ -489,512 +489,112 @@ in {
           };
         };
       };
-      keymaps = [
-        {
-          key = "<leader>fo";
-          mode = "n";
-          action = "<CMD>Telescope<CR>";
-          options.desc = "Open Telescope";
-        }
-        {
-          key = "<leader>ls";
-          mode = "n";
-          action = "<CMD>Telescope lsp_document_symbols<CR>";
-          options.desc = "Document symbols";
-        }
-        {
-          key = "<leader>la";
-          mode = "n";
-          action = "<CMD>lua vim.lsp.buf.code_action()<CR>";
-          options.desc = "Show code actions";
-        }
-        {
-          key = "<leader>lo";
-          mode = "n";
-          action = "<CMD>lua vim.lsp.buf.definition()<CR>";
-          options.desc = "Goto definition";
-        }
-        {
-          key = "<leader>lr";
-          mode = "n";
-          action = "<CMD>lua vim.lsp.buf.rename()<CR>";
-          options.desc = "Rename symbol";
-        }
-        {
-          key = "<leader>lg";
-          mode = "n";
-          action = "<CMD>lua vim.diagnostic.setqflist()<CR>";
-          options.desc = "Diagnostics qflist";
-        }
-        {
-          key = "<leader>ld";
-          mode = "n";
-          action = "<CMD>lua vim.diagnostic.open_float()<CR>";
-          options.desc = "Hover diagnostics";
-        }
-        {
-          key = "<leader>ln";
-          mode = "n";
-          action = "<CMD>Telescope diagnostics<CR>";
-          options.desc = "List diagnostics";
-        }
-        {
-          key = "<leader>li";
-          mode = "n";
-          action = "<CMD>Telescope lsp_implementations<CR>";
-          options.desc = "Goto implementations";
-        }
-        {
-          key = "<leader>le";
-          mode = "n";
-          action = "<CMD>Telescope lsp_references<CR>";
-          options.desc = "List references";
-        }
-        {
-          key = "<leader>b";
-          mode = "n";
-          action = "<CMD>lua require('buffer_manager.ui').toggle_quick_menu()<CR>";
-          options.desc = "Popup buffers";
-        }
-        {
-          key = "<C-k>";
-          mode = "n";
-          action = "<cmd>m .-2<cr>==";
-          options.desc = "Move up";
-        }
-        {
-          key = "<C-j>";
-          mode = "n";
-          action = "<cmd>m .+1<cr>==";
-          options.desc = "Move down";
-        }
-        {
-          key = "<C-j>";
-          mode = "i";
-          action = "<ESC><CMD>m .+1<cr>==gi";
-          options.desc = "Move down";
-        }
-        {
-          key = "<C-k>";
-          mode = "i";
-          action = "<ESC><CMD>m .-2<cr>==gi";
-          options.desc = "Move up";
-        }
-        {
-          key = "K";
-          mode = ["x" "v"];
-          action = ":move '<-2<CR>gv=gv";
-          options.desc = "Move up";
-        }
-        {
-          key = "==";
-          mode = "n";
-          action = "gg<S-v>G";
-          options.desc = "Select all";
-        }
-        {
-          key = "<";
-          mode = "v";
-          action = "<gv";
-        }
-        {
-          key = ">";
-          mode = "v";
-          action = ">gv";
-        }
-        {
-          key = "N";
-          mode = ["n" "x" "o"];
-          action = "Nzzzv";
-        }
-        {
-          key = "n";
-          mode = ["n" "x" "o"];
-          action = "nzzzv";
-        }
-        {
-          key = "<C-u>";
-          mode = ["n" "x" "o"];
-          action = "<C-u>zz";
-        }
-        {
-          key = "<C-d>";
-          mode = "n";
-          action = "<C-d>zz";
-        }
-        {
-          key = "p";
-          mode = "v";
-          action = "P";
-        }
-        {
-          key = "<Up>";
-          mode = ["n" "x"];
-          action = "v:count == 0 ? 'gk' : 'k'";
-          options = {expr = true;};
-        }
-        {
-          key = "<Down>";
-          mode = ["n" "x"];
-          action = "v:count == 0 ? 'gj' : 'j'";
-          options = {expr = true;};
-        }
-        {
-          key = "k";
-          mode = ["n" "x"];
-          action = "v:count == 0 ? 'gk' : 'k'";
-          options = {expr = true;};
-        }
-        {
-          key = "j";
-          mode = ["n" "x"];
-          action = "v:count == 0 ? 'gj' : 'j'";
-          options = {expr = true;};
-        }
-        {
-          key = "J";
-          mode = ["x" "v"];
-          options.desc = "Move down";
-          action = ":move '>+1<CR>gv=gv";
-        }
-        {
-          key = "<leader>fc";
-          mode = "n";
-          action = "<CMD>Telescope grep_string<CR>";
-          options.desc = "Find string under cursor";
-        }
-        {
-          key = "<leader>ft";
-          mode = "n";
-          action = "<CMD>TodoTelescope<CR>";
-          options.desc = "Todo Telescope";
-        }
-        {
-          key = "<leader>fg";
-          mode = "n";
-          action = "<CMD>Telescope live_grep<CR>";
-          options.desc = "Live grep";
-        }
-        {
-          key = "<leader>fr";
-          mode = "n";
-          action = "<CMD>Telescope frecency<CR>";
-          options.desc = "Frecency files";
-        }
-        {
-          key = "<leader>fe";
-          mode = "n";
-          action = "<CMD>Telescope oldfiles<CR>";
-          options.desc = "Recent files";
-        }
-        {
-          key = "<leader>fu";
-          mode = "n";
-          action = "<CMD>Telescope colorscheme<CR>";
-          options.desc = "Change colorscheme";
-        }
-        {
-          key = "<leader>fp";
-          mode = "n";
-          action = "<CMD>Telescope git_files<CR>";
-          options.desc = "Project files";
-        }
-        {
-          key = "<leader>ff";
-          mode = "n";
-          action = "<CMD>Telescope fd<CR>";
-          options.desc = "Find files";
-        }
-        {
-          key = "<leader>fn";
-          mode = "n";
-          action = "<CMD>ene<CR>";
-          options.desc = "New file";
-        }
-        {
-          key = "<leader>o";
-          mode = "n";
-          action = "<CMD>lua require('oil').toggle_float()<CR>";
-          options.desc = "Open oil";
-        }
-        {
-          key = "]g";
-          mode = "n";
-          action = "<CMD>Gitsigns prev_hunk<CR>";
-          options.desc = "Previous Git hunk";
-        }
-        {
-          key = "[g";
-          mode = "n";
-          action = "<CMD>Gitsigns next_hunk<CR>";
-          options.desc = "Next Git hunk";
-        }
-        {
-          key = "<leader>gg";
-          mode = "n";
-          action = "<CMD>Neogit<CR>";
-          options.desc = "Open Neogit";
-        }
-        {
-          key = "<leader>gR";
-          mode = "n";
-          action = "<CMD>Gitsigns reset_buffer<CR>";
-          options.desc = "Reset buffer";
-        }
-        {
-          key = "<leader>gd";
-          mode = "n";
-          action = "<CMD>Gitsigns toggle_deleted<CR>";
-          options.desc = "Toggle deleted";
-        }
-        {
-          key = "<leader>gS";
-          mode = ["v" "n"];
-          action = "<CMD>Gitsigns stage_buffer<CR>";
-          options.desc = "Stage buffer";
-        }
-        {
-          key = "<leader>gs";
-          mode = "n";
-          action = "<CMD>Gitsigns stage_hunk<CR>";
-          options.desc = "Stage hunk";
-        }
-        {
-          key = "<leader>gu";
-          mode = "n";
-          action = "<CMD>Gitsigns undo_stage_hunk<CR>";
-          options.desc = "Unstage hunk";
-        }
-        {
-          key = "<leader>gp";
-          mode = "n";
-          action = "<CMD>Gitsigns preview_hunk<CR>";
-          options.desc = "Preview hunk";
-        }
-        {
-          key = "<leader>gr";
-          mode = ["v" "n"];
-          action = "<CMD>Gitsigns reset_hunk<CR>";
-          options.desc = "Reset hunk";
-        }
-        {
-          key = "<leader>wv";
-          mode = "n";
-          action = "<C-w>v";
-          options.desc = "Split window vertically";
-        }
-        {
-          key = "[t";
-          mode = ["n" "t"];
-          action = "<CMD>tabp<CR>";
-          options.desc = "Previous tab";
-        }
-        {
-          key = "]t";
-          mode = ["n" "t"];
-          action = "<CMD>tabn<CR>";
-          options.desc = "Next tab";
-        }
-        {
-          key = "<leader>wd";
-          mode = ["n" "t"];
-          action = "<CMD>tabp<CR>";
-          options.desc = "Previous tab";
-        }
-        {
-          key = "<leader>wa";
-          mode = ["n" "t"];
-          action = "<CMD>tabn<CR>";
-          options.desc = "Next tab";
-        }
-        {
-          key = "<leader>wc";
-          mode = "n";
-          action = "<CMD>close!<CR>";
-          options.desc = "Close current split";
-        }
-        {
-          key = "<leader>wh";
-          mode = "n";
-          action = "<C-w>s";
-          options.desc = "Split window horizontally";
-        }
-        {
-          key = "<leader>wn";
-          mode = "n";
-          action = "<CMD>tabnew<CR>";
-          options.desc = "Open new tab";
-        }
-        {
-          key = "<leader>-";
-          mode = "n";
-          action = "<C-x>";
-          options.desc = "Decrement number";
-        }
-        {
-          key = "<leader>+";
-          mode = "n";
-          action = "<C-a>";
-          options.desc = "Increment number";
-        }
-        {
-          key = "<leader>wk";
-          mode = "n";
-          action = "<CMD>bd!<CR>";
-          options.desc = "Close current tab";
-        }
-        {
-          key = "<leader>wb";
-          mode = "n";
-          action = "<CMD>e #<CR>";
-          options.desc = "Switch to other buffer";
-        }
-        {
-          key = "[b";
-          mode = "n";
-          action = "<CMD>bprevious<CR>";
-          options.desc = "Previous buffer";
-        }
-        {
-          key = "]b";
-          mode = "n";
-          action = "<CMD>bnext<CR>";
-          options.desc = "Next buffer";
-        }
-        {
-          key = "]T";
-          mode = "n";
-          action = "<CMD>lua require('todo-comments').jump_next()<CR>";
-          options.desc = "Next TODO";
-        }
-        {
-          key = "[T";
-          mode = "n";
-          action = "<CMD>lua require('todo-comments').jump_prev()<CR>";
-          options.desc = "Prev TODO";
-        }
-        {
-          key = "<leader><leader>";
-          mode = ["n" "v"];
-          action = ":";
-          options.desc = "Open cmdline";
-        }
-        {
-          key = "<ESC>";
-          mode = "n";
-          action = "<CMD>noh<CR>";
-          options.desc = "Clear highlights";
-        }
-        {
-          key = "<leader>K";
-          mode = "n";
-          action = "<CMD>qa<CR>";
-          options.desc = "Quit";
-        }
-        {
-          key = "<leader>s";
-          mode = "n";
-          action = "<CMD>w<CR>";
-          options.desc = "Save Buffer";
-        }
-        {
-          key = "<C-h>";
-          mode = "n";
-          action = "<C-w>h";
-          options.desc = "Navigate to pane left";
-        }
-        {
-          key = "<C-l>";
-          mode = "n";
-          action = "<C-w>l";
-          options.desc = "Navigate to pane right";
-        }
-        {
-          key = "<C-k>";
-          mode = "n";
-          action = "<C-w>k";
-          options.desc = "Navigate to pane up";
-        }
-        {
-          key = "<C-j>";
-          mode = "n";
-          action = "<C-w>j";
-          options.desc = "Navigate to pane down";
-        }
-        {
-          key = "<C-Right>";
-          mode = "n";
-          action = "<CMD>vertical resize +2<CR>";
-          options.desc = "Resize pane right";
-        }
-        {
-          key = "<C-Left>";
-          mode = "n";
-          action = "<CMD>vertical resize -2<CR>";
-          options.desc = "Resize pane left";
-        }
-        {
-          key = "<C-Up>";
-          mode = "n";
-          action = "<CMD>resize +2<CR>";
-          options.desc = "Resize pane up";
-        }
-        {
-          key = "<C-Down>";
-          mode = "n";
-          action = "<CMD>resize -2<CR>";
-          options.desc = "Resize pane down";
-        }
-        {
-          key = "<C-j>";
-          mode = "c";
-          action = "<C-n>";
-        }
-        {
-          key = "<C-l>";
-          mode = "c";
-          action = "<CR>";
-        }
-        {
-          key = "<C-h>";
-          mode = "c";
-          action = "<ESC>";
-        }
-        {
-          key = "<C-k>";
-          mode = "c";
-          action = "<C-p>";
-        }
-        {
-          key = "]q";
-          mode = "n";
-          action = "<CMD>cnext<CR>";
-          options.desc = "Next quickfix";
-        }
-        {
-          key = "[q";
-          mode = "n";
-          action = "<CMD>cprev<CR>";
-          options.desc = "Prev quickfix";
-        }
-        {
-          key = "<leader>v";
-          mode = ["n" "t"];
-          action = "<CMD>1ToggleTerm direction=float name=はい <CR>";
-          options.desc = "Open terminal";
-        }
-        {
-          key = "<leader>.";
-          mode = ["n" "v"];
-          action = "~";
-          options.desc = "Change case";
-        }
-        {
-          key = "<C-BS>";
-          mode = ["n" "i" "c"];
-          action = "<C-w>";
-          options.desc = "Ctrl+Backspace to delete word";
-        }
+      keymaps = let
+        mkKeymapDesc = key: mode: action: desc: {
+          inherit key mode action;
+          options = {inherit desc;};
+        };
+        mkKeymapOpt = key: mode: action: opt: {
+          inherit key mode action;
+          options = opt;
+        };
+        mkKeymap = key: mode: action: {inherit key mode action;};
+      in [
+        (mkKeymapDesc "<leader>la" "n" "<CMD>lua vim.lsp.buf.code_action()<CR>" "Show code actions")
+        (mkKeymapDesc "<leader>lo" "n" "<CMD>lua vim.lsp.buf.definition()<CR>" "Goto definition")
+        (mkKeymapDesc "<leader>lr" "n" "<CMD>lua vim.lsp.buf.rename()<CR>" "Rename symbol")
+        (mkKeymapDesc "<leader>lg" "n" "<CMD>lua vim.diagnostic.setqflist()<CR>" "Diagnostics qflist")
+        (mkKeymapDesc "<leader>ld" "n" "<CMD>lua vim.diagnostic.open_float()<CR>" "Hover diagnostics")
+
+        (mkKeymapDesc "<leader>fo" "n" "<CMD>Telescope<CR>" "Open Telescope")
+        (mkKeymapDesc "<leader>ls" "n" "<CMD>Telescope lsp_document_symbols<CR>" "Document symbols")
+        (mkKeymapDesc "<leader>ln" "n" "<CMD>Telescope diagnostics<CR>" "List diagnostics")
+        (mkKeymapDesc "<leader>li" "n" "<CMD>Telescope lsp_implementations<CR>" "Goto implementations")
+        (mkKeymapDesc "<leader>le" "n" "<CMD>Telescope lsp_references<CR>" "List references")
+        (mkKeymapDesc "<leader>b" "n" "<CMD>lua require('buffer_manager.ui').toggle_quick_menu()<CR>" "Popup buffers")
+
+        (mkKeymapDesc "<leader>fn" "n" "<CMD>ene<CR>" "New file")
+        (mkKeymapDesc "<leader>o" "n" "<CMD>lua require('oil').toggle_float()<CR>" "Open oil")
+        (mkKeymapDesc "<C-k>" "n" "<cmd>m .-2<cr>==" "Move up")
+        (mkKeymapDesc "<C-j>" "n" "<cmd>m .+1<cr>==" "Move down")
+        (mkKeymapDesc "<C-j>" "i" "<ESC><CMD>m .+1<cr>==gi" "Move down")
+        (mkKeymapDesc "<C-k>" "i" "<ESC><CMD>m .-2<cr>==gi" "Move up")
+        (mkKeymapDesc "K" ["x" "v"] ":move '<-2<CR>gv=gv" "Move up")
+        (mkKeymapDesc "==" "n" "gg<S-v>G" "Select all")
+        (mkKeymapDesc "<" "v" "<gv" "Decrease indent")
+        (mkKeymapDesc ">" "v" ">gv" "Increase indent")
+
+        (mkKeymap "N" ["n" "x" "o"] "Nzzzv")
+        (mkKeymap "n" ["n" "x" "o"] "nzzzv")
+        (mkKeymap "<C-u>" ["n" "x" "o"] "<C-u>zz")
+        (mkKeymap "<C-d>" "n" "<C-d>zz")
+        (mkKeymap "p" "v" "P")
+
+        (mkKeymapOpt "<Up>" ["n" "x"] "v:count == 0 ? 'gk' : 'k'" {expr = true;})
+        (mkKeymapOpt "<Down>" ["n" "x"] "v:count == 0 ? 'gj' : 'j'" {expr = true;})
+        (mkKeymapOpt "k" ["n" "x"] "v:count == 0 ? 'gk' : 'k'" {expr = true;})
+        (mkKeymapOpt "j" ["n" "x"] "v:count == 0 ? 'gj' : 'j'" {expr = true;})
+
+        (mkKeymapDesc "J" ["x" "v"] ":move '>+1<CR>gv=gv" "Move down")
+        (mkKeymapDesc "<leader>fc" "n" "<CMD>Telescope grep_string<CR>" "Find string under cursor")
+        (mkKeymapDesc "<leader>ft" "n" "<CMD>TodoTelescope<CR>" "Todo Telescope")
+        (mkKeymapDesc "<leader>fg" "n" "<CMD>Telescope live_grep<CR>" "Live grep")
+        (mkKeymapDesc "<leader>fr" "n" "<CMD>Telescope frecency<CR>" "Frecency files")
+        (mkKeymapDesc "<leader>fe" "n" "<CMD>Telescope oldfiles<CR>" "Recent files")
+        (mkKeymapDesc "<leader>fu" "n" "<CMD>Telescope colorscheme<CR>" "Change colorscheme")
+        (mkKeymapDesc "<leader>fp" "n" "<CMD>Telescope git_files<CR>" "Project files")
+        (mkKeymapDesc "<leader>ff" "n" "<CMD>Telescope fd<CR>" "Find files")
+
+        (mkKeymapDesc "]g" "n" "<CMD>Gitsigns prev_hunk<CR>" "Previous Git hunk")
+        (mkKeymapDesc "[g" "n" "<CMD>Gitsigns next_hunk<CR>" "Next Git hunk")
+        (mkKeymapDesc "<leader>gg" "n" "<CMD>Neogit<CR>" "Open Neogit")
+        (mkKeymapDesc "<leader>gR" "n" "<CMD>Gitsigns reset_buffer<CR>" "Reset buffer")
+        (mkKeymapDesc "<leader>gd" "n" "<CMD>Gitsigns toggle_deleted<CR>" "Toggle deleted")
+        (mkKeymapDesc "<leader>gS" ["n" "v"] "<CMD>Gitsigns stage_buffer<CR>" "Stage buffer")
+        (mkKeymapDesc "<leader>gs" "n" "<CMD>Gitsigns stage_hunk<CR>" "Stage hunk")
+        (mkKeymapDesc "<leader>gu" "n" "<CMD>Gitsigns undo_stage_hunk<CR>" "Unstage hunk")
+        (mkKeymapDesc "<leader>gp" "n" "<CMD>Gitsigns preview_hunk<CR>" "Preview hunk")
+        (mkKeymapDesc "<leader>gr" ["n" "v"] "<CMD>Gitsigns reset_hunk<CR>" "Reset hunk")
+
+        (mkKeymapDesc "<leader>wv" "n" "<C-w>v" "Split window vertically")
+        (mkKeymapDesc "[t" ["n" "t"] "<CMD>tabp<CR>" "Previous tab")
+        (mkKeymapDesc "]t" ["n" "t"] "<CMD>tabn<CR>" "Next tab")
+        (mkKeymapDesc "<leader>wd" ["n" "t"] "<CMD>tabp<CR>" "Previous tab")
+        (mkKeymapDesc "<leader>wa" ["n" "t"] "<CMD>tabn<CR>" "Next tab")
+        (mkKeymapDesc "<leader>wc" "n" "<CMD>close!<CR>" "Close current split")
+        (mkKeymapDesc "<leader>wh" "n" "<C-w>s" "Split window horizontally")
+        (mkKeymapDesc "<leader>wn" "n" "<CMD>tabnew<CR>" "Open new tab")
+        (mkKeymapDesc "<leader>wk" "n" "<CMD>bd!<CR>" "Close current tab")
+        (mkKeymapDesc "<leader>wb" "n" "<CMD>e #<CR>" "Switch to other buffer")
+        (mkKeymapDesc "[b" "n" "<CMD>bprevious<CR>" "Previous buffer")
+        (mkKeymapDesc "]b" "n" "<CMD>bnext<CR>" "Next buffer")
+        (mkKeymapDesc "<C-h>" "n" "<C-w>h" "Navigate to pane left")
+        (mkKeymapDesc "<C-l>" "n" "<C-w>l" "Navigate to pane right")
+        (mkKeymapDesc "<C-k>" "n" "<C-w>k" "Navigate to pane up")
+        (mkKeymapDesc "<C-j>" "n" "<C-w>j" "Navigate to pane down")
+        (mkKeymapDesc "<C-Right>" "n" "<CMD>vertical resize +2<CR>" "Resize pane right")
+        (mkKeymapDesc "<C-Left>" "n" "<CMD>vertical resize -2<CR>" "Resize pane left")
+        (mkKeymapDesc "<C-Up>" "n" "<CMD>resize +2<CR>" "Resize pane up")
+        (mkKeymapDesc "<C-Down>" "n" "<CMD>resize -2<CR>" "Resize pane down")
+
+        (mkKeymapDesc "<leader>-" "n" "<C-x>" "Decrement number")
+        (mkKeymapDesc "<leader>+" "n" "<C-a>" "Increment number")
+        (mkKeymapDesc "]T" "n" "<CMD>lua require('todo-comments').jump_next()<CR>" "Next TODO")
+        (mkKeymapDesc "[T" "n" "<CMD>lua require('todo-comments').jump_prev()<CR>" "Prev TODO")
+        (mkKeymapDesc "<leader><leader>" ["n" "v"] ":" "Open cmdline")
+        (mkKeymapDesc "<ESC>" "n" "<CMD>noh<CR>" "Clear highlights")
+        (mkKeymapDesc "<leader>K" "n" "<CMD>qa<CR>" "Quit")
+        (mkKeymapDesc "<leader>s" "n" "<CMD>w<CR>" "Save Buffer")
+
+        (mkKeymap "<C-j>" "c" "<C-n>")
+        (mkKeymap "<C-l>" "c" "<CR>")
+        (mkKeymap "<C-h>" "c" "<ESC>")
+        (mkKeymap "<C-k>" "c" "<C-p>")
+        (mkKeymapDesc "]q" "n" "<CMD>cnext<CR>" "Next quickfix")
+        (mkKeymapDesc "[q" "n" "<CMD>cprev<CR>" "Prev quickfix")
+        (mkKeymapDesc "<leader>v" ["n" "t"] "<CMD>1ToggleTerm direction=float name=はい <CR>" "Open terminal")
+        (mkKeymapDesc "<leader>." ["n" "v"] "~" "Change case")
+        (mkKeymapDesc "<C-BS>" ["n" "i" "c"] "<C-w>" "Ctrl+Backspace to delete word")
       ];
     };
   };

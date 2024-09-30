@@ -38,7 +38,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 ## Highlights
 
-- ⚙️  [flakes](https://wiki.nixos.org/wiki/Flakes) setup with [nur](https://github.com/nix-community/NUR)
+- ⚙️  [flakes](https://wiki.nixos.org/wiki/Flakes) setup
 - 🎨 [oxocarbonified](https://github.com/nyoom-engineering/base16-oxocarbon) system with [stylix](https://github.com/danth/stylix)
 - 🏠 custom [home-manager](https://github.com/nix-community/home-manager) modules for [satty](https://github.com/gabm/Satty) and [sptlrx](https://github.com/raitonoberu/sptlrx)
 - 📝 nixified vim with [nixvim](https://github.com/nix-community/nixvim)
@@ -62,7 +62,6 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [stylix](https://github.com/danth/stylix)                              | auto themer                 |
 | [nix-colors](https://github.com/Misterio77/nix-colors)                 | base 16 scheme              |
 | [nixvim](https://github.com/nix-community/nixvim)                      | nvim config in nix          |
-| [nur](https://github.com/nix-community/NUR)                            | nix user repository         |
 | [nh](https://github.com/viperML/nh)                                    | nix helper                  |
 | [sops-nix](https://github.com/Mic92/sops-nix)                          | secrets manager             |
 | [nix-output-monitor](https://github.com/maralorn/nix-output-monitor)   | fancy nix output            |
