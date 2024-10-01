@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   programs = {
@@ -44,6 +45,11 @@
       ];
     };
 
+    fd = {
+      enable = true;
+      extraOptions = ["-p"];
+    };
+
     bat.enable = true;
 
     eza = {
@@ -83,6 +89,8 @@
     fzf = {
       enable = true;
       enableZshIntegration = true;
+      fileWidgetCommand = "fd -E .direnv -t f";
+      colors = {bg = lib.mkForce "-1";};
     };
 
     yazi = {

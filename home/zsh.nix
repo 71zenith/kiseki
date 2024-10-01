@@ -34,6 +34,7 @@ in {
           (( ZSH_SUBSHELL )) || osc7-pwd
         }
         add-zsh-hook -Uz chpwd chpwd-osc7-pwd
+
         bindkey '^[[Z' reverse-menu-complete
         bindkey "^?" autopair-delete
         bindkey '^H' backward-delete-word
@@ -41,9 +42,14 @@ in {
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
 
+        function ,() {
+          com=$1 && shift
+          nix run nixpkgs#$com -- $*
+        }
+
         function fzf-comp-widget() {
           local FZF_CTRL_T_COMMAND=${scripts.fzfComp}
-          local FZF_CTRL_T_OPTS="--bind 'focus:jump' --bind 'space:jump,jump:accept,jump-cancel:abort' --tac"
+          local FZF_CTRL_T_OPTS="--bind 'focus:jump' --bind 'space:jump,jump:accept' --tac"
           LBUFFER="''${LBUFFER}$(__fzf_select)"
           local ret=$?
           zle reset-prompt
@@ -51,6 +57,7 @@ in {
         }
         zle -N fzf-comp-widget
         bindkey "^O" fzf-comp-widget
+
         unsetopt beep extendedglob notify
         zstyle ':completion:*' menu select
         zstyle ':completion:*' matcher-list "m:{a-z0A-Z}={A-Za-z}"
@@ -59,6 +66,7 @@ in {
         zstyle ':completion:*' verbose true
         zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
         zstyle ':completion:*' use-cache on
+
         _comp_options+=(globdots)
         [[ ! -f "''${ZDOTDIR}/p10k.zsh" ]] || source "''${ZDOTDIR}/p10k.zsh"
       '';
@@ -80,7 +88,6 @@ in {
       sessionVariables = {
         DIRENV_LOG_FORMAT = "";
         PROMPT_EOL_MARK = "󱞥";
-        FZF_DEFAULT_OPTS = "$FZF_DEFAULT_OPTS:,bg:-1";
       };
       plugins = [
         {
@@ -109,10 +116,9 @@ in {
         v = "emacs -nw";
         sr = "cd $(echo $NIX_PATH | cut -f2 -d=)";
         up = "nh os switch";
-        fd = "fd -p";
         del = "nh clean all --nogcroots";
         ss = "nh search";
-        "," = "nix-shell --run zsh -p";
+        ts = "nix-shell --run zsh -p";
         qq = "nvd list";
         fl = "nix flake";
         im = "timg -p s";

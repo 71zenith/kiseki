@@ -3,11 +3,11 @@
   pkgs,
   lib,
 }: let
-  inherit (pkgs) writeShellScriptBin writeShellScript grim slurp wtype tesseract5 socat;
+  inherit (pkgs) writeShellScriptBin writeShellScript wtype tesseract5 socat;
   _ = lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
-    ${_ grim} -g "$(${_ slurp})" -t ppm - | ${_ tesseract5} -l eng+jpn+jpn_vert+kor+kor_vert+deu+rus - - | wl-copy
+    grimblast save area - | ${_ tesseract5} -l eng+jpn+jpn_vert+kor+kor_vert+deu+rus - - | wl-copy
     echo "$(wl-paste)"
     notify-send -- "$(wl-paste)"
   '';
@@ -105,26 +105,13 @@ in {
     done
   '';
   clipShow = writeShellScript "clipShow" ''
-    tmp_dir="/tmp/cliphist"
-    rm -rf "$tmp_dir"
-    mkdir -p "$tmp_dir"
-
-    read -r -d "" prog <<EOF
-    /^[0-9]+\s<meta http-equiv=/ { next }
-    match(\$0, /^([0-9]+)\s(\[\[\s)?binary.*(jpg|jpeg|png|bmp)/, grp) {
-        system("echo " grp[1] "\\\\\t | cliphist decode >$tmp_dir/"grp[1]"."grp[3])
-        print \$0"\0icon\x1f$tmp_dir/"grp[1]"."grp[3]
-        next
-    }
-    1
-    EOF
-    cliphist list | gawk "$prog" | rofi -dmenu -i -p '' -theme preview -theme-str 'element { children: [element-text]; } icon-current-entry { enabled: true; size: 35%; } window { width: 1500px; } listview { lines: 15; spacing: 5px; }' | cliphist decode | wl-copy
+    cliphist-rofi-img | rofi -dmenu -i -p '' -theme preview -theme-str 'element { children: [element-text]; } icon-current-entry { enabled: true; size: 35%; } window { width: 1500px; } listview { lines: 15; spacing: 5px; }' | cliphist decode | wl-copy
   '';
   fzfComp = writeShellScript "fzfComp" ''
-    rm -rf /tmp/comsole 2>&1 >/dev/null
+    rm -rf /tmp/console 2>&1 >/dev/null
     while [ -z $input ]; do
       ${_ wtype} -M ctrl -M shift f -m ctrl -m shift
-      input="$(tr ' ' '\n' < /tmp/comsole | tr -d \' | tr -d \" | tr -d \[ | tr -d \] | tr -d \{ | tr -d \} | tr -d \( | tr -d \) | tr -s '\n')"
+      input="$(tr ' ' '\n' < /tmp/console | tr -d \' | tr -d \" | tr -d \[ | tr -d \] | tr -d \{ | tr -d \} | tr -d \( | tr -d \) | sed 's|=|\n|' | tr -s '\n')"
     done
     IFS="
     "
