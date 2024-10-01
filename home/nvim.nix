@@ -168,6 +168,7 @@ in {
               enable = true;
               installCargo = true;
               installRustc = true;
+              settings.check.command = "clippy";
             };
             pyright.enable = true;
             zls.enable = true;

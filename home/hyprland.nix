@@ -173,7 +173,7 @@ in {
         ];
         animation = [
           "fade, 1, 3, smoothIn"
-          "windows, 1, 3, overshot"
+          "windowsIn, 1, 3, smoothIn"
           "windowsOut, 1, 3, smoothOut"
           "windowsMove, 1, 3, pace, slide"
           "workspaces, 1, 2, default"

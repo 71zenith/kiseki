@@ -6,10 +6,7 @@
 }: let
   inherit (config.stylix.base16Scheme) palette;
 in {
-  stylix.targets = {
-    zathura.enable = false;
-    emacs.enable = false;
-  };
+  stylix.targets.zathura.enable = false;
 
   # i18n.inputMethod = {
   #   enabled = "fcitx5";

@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1727113126,
-        "narHash": "sha256-4ULlJL3txclvpVMBKA53sU040HWvvozzZRa/JPeSRvI=",
+        "lastModified": 1727762721,
+        "narHash": "sha256-40nQRNx0B7CRigGEWHHEYz/EmGH+Pe8AqoH20Ih6Ts0=",
         "owner": "71zenith",
         "repo": "assets",
-        "rev": "842c6cb455bb17dd2226e78b0193f83d83dc66e8",
+        "rev": "253935a70660c7e18d024940f45bad88fcb747c3",
         "type": "github"
       },
       "original": {
@@ -128,7 +128,9 @@
     },
     "firefox-addons": {
       "inputs": {
-        "flake-utils": "flake-utils",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "nixpkgs": [
           "nixpkgs"
         ]
@@ -279,21 +281,6 @@
       }
     },
     "flake-utils": {
-      "locked": {
-        "lastModified": 1629284811,
-        "narHash": "sha256-JHgasjPR0/J1J3DRm4KxM4zTyAj4IOJY8vIl75v/kPI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "c5d161cc0af116a2e17f54316f0bf43f0819785c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_2": {
       "inputs": {
         "systems": "systems"
       },
@@ -311,7 +298,7 @@
         "type": "github"
       }
     },
-    "flake-utils_3": {
+    "flake-utils_2": {
       "inputs": {
         "systems": "systems_2"
       },
@@ -321,27 +308,6 @@
         "owner": "numtide",
         "repo": "flake-utils",
         "rev": "c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "flake-utils_4": {
-      "inputs": {
-        "systems": [
-          "stylix",
-          "systems"
-        ]
-      },
-      "locked": {
-        "lastModified": 1710146030,
-        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
         "type": "github"
       },
       "original": {
@@ -646,7 +612,7 @@
     },
     "nuschtosSearch": {
       "inputs": {
-        "flake-utils": "flake-utils_3",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixvim",
           "nixpkgs"
@@ -726,7 +692,7 @@
         "assets": "assets",
         "firefox-addons": "firefox-addons",
         "flake-programs-sqlite": "flake-programs-sqlite",
-        "flake-utils": "flake-utils_2",
+        "flake-utils": "flake-utils",
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
@@ -765,7 +731,9 @@
         "base16-helix": "base16-helix",
         "base16-vim": "base16-vim",
         "flake-compat": "flake-compat_3",
-        "flake-utils": "flake-utils_4",
+        "flake-utils": [
+          "flake-utils"
+        ],
         "gnome-shell": "gnome-shell",
         "home-manager": [
           "home-manager"

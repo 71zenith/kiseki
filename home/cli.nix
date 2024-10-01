@@ -35,6 +35,15 @@
       enableZshIntegration = true;
     };
 
+    ripgrep = {
+      enable = true;
+      arguments = [
+        "--ignore-file=${pkgs.writeText ".ignore" ''
+          flake.lock
+        ''}"
+      ];
+    };
+
     bat.enable = true;
 
     eza = {

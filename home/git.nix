@@ -23,6 +23,7 @@
       pl = "pull --rebase";
       l = "log";
       cm = "checkout master";
+      m = "merge";
       f = "reset --hard";
       rs = "restore --staged";
       lp = "log -p";
@@ -32,12 +33,13 @@
       qa = "stash apply";
       qc = "stash clear";
       p = "push -v";
-      pf = "push -v --force";
+      pf = "push -v --force-with-lease";
       d = "diff";
       dc = "diff --cached";
-      b = "rebase";
+      b = "rebase -i";
       ba = "rebase --abort";
       bc = "rebase --continue";
+      gh = "!git remote -v | grep github.com | grep fetch | head -1 | awk '{print $2}' | sed 's|git@github.com:|https://github.com/|' | xargs xdg-open";
       cl = "clone";
     };
     difftastic = {
