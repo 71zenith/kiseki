@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   lib,
   ...
 }: let
@@ -19,7 +20,7 @@ in {
       settings = {
         srgb = true;
         font = {
-          normal = [config.stylix.fonts.monospace.name "Mamelon"];
+          normal = osConfig.fonts.fontconfig.defaultFonts.monospace;
           size = config.stylix.fonts.sizes.terminal;
         };
       };

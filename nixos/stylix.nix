@@ -43,9 +43,9 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = [config.stylix.fonts.serif.name "Mamelon"];
+      sansSerif = [config.stylix.fonts.serif.name "Mamelon 5 Hi"];
       serif = sansSerif;
-      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Mamelon"];
+      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Mamelon 5 Hi"];
     };
     packages = with pkgs; [
       my-fonts
