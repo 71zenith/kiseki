@@ -16,8 +16,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs._0x-proto;
-        name = "0xProto";
+        package = pkgs.my-fonts;
+        name = "Iosevka Kiseki";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -43,9 +43,9 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = [config.stylix.fonts.serif.name "Mamelon 5 Hi"];
+      sansSerif = [config.stylix.fonts.serif.name "Mamelon 4 Hi"];
       serif = sansSerif;
-      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Mamelon 5 Hi"];
+      monospace = [config.stylix.fonts.monospace.name "Mamelon 4 Hi"];
     };
     packages = with pkgs; [
       my-fonts
