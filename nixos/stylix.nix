@@ -45,11 +45,10 @@
     fontconfig.defaultFonts = rec {
       sansSerif = [config.stylix.fonts.serif.name "Mamelon"];
       serif = sansSerif;
-      monospace = [config.stylix.fonts.monospace.name "Fantasque Sans Mono"];
+      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Mamelon"];
     };
     packages = with pkgs; [
       my-fonts
-      fantasque-sans-mono
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
   };

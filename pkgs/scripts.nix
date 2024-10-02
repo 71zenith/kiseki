@@ -136,12 +136,6 @@ in {
     id=$(pulsemixer -l | grep glava | sed -nE 's/.*ID: (.+?), Name.*/\1/p')
     ([ -n "$id" ] && pulsemixer --id $id --toggle-mute) || (tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg)
   '';
-  openFoot = writeShellScript "openFoot" ''
-    size=$1
-    shift
-    run=$*
-    footclient -o "main.font=${config.stylix.fonts.monospace.name}:size=$size" $run
-  '';
   floatToggle = writeShellScript "floatToggle" ''
     if [ -e "/tmp/hypr.float" ]; then
       hyprctl keyword windowrulev2 "unset,class:.*" && rm -rf /tmp/hypr.float
