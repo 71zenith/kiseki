@@ -49,6 +49,7 @@
     nix-output-monitor
     nurl
     nix-tree
+    nix-init
     nvd
     sops
     cachix

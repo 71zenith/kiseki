@@ -115,13 +115,13 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                                    | Description                        |
 |-------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
-| [fantasque-sans](https://github.com/belluzj/fantasque-sans)             | monospace font                     |
+| [0xproto](https://github.com/0xType/0xProto)                            | monospace font                     |
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
 | [rampart-one](https://www.freejapanesefont.com/rampart-one-download/)   | "stylized" font for weebs          |
 | [kaushan-script](https://fonts.google.com/specimen/Kaushan+Script)      | "stylized" font                    |
-| [typo_deco](https://eng.m.fontke.com/font/14781710/)                    | "stylized" font for korean         |
+| [typo-deco](https://eng.m.fontke.com/font/14781710/)                    | "stylized" font for korean         |
 
 ## Resources
 

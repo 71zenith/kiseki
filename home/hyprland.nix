@@ -111,7 +111,7 @@ in {
         "tile, title:Neovide,class:neovide"
       ];
       workspace = [
-        "special:music, on-created-empty:${scripts.openFoot} 18 spotify_player"
+        "special:music, on-created-empty:footclient spotify_player"
       ];
       input = {
         kb_options = osConfig.services.xserver.xkb.options;

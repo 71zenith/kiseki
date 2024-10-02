@@ -89,7 +89,10 @@ in {
     foot = {
       enable = true;
       settings = {
-        main = {pad = "5x5";};
+        main = {
+          pad = "5x5";
+          font = lib.mkForce "monospace:size=${toString config.stylix.fonts.sizes.terminal}";
+        };
         mouse = {hide-when-typing = "no";};
         key-bindings = {
           scrollback-up-page = "Control+u";

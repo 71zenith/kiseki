@@ -16,8 +16,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs.fantasque-sans-mono;
-        name = "Fantasque Sans Mono";
+        package = pkgs._0x-proto;
+        name = "0xProto";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -27,7 +27,7 @@
         applications = 14;
         desktop = 14;
         popups = 14;
-        terminal = 16;
+        terminal = 15;
       };
     };
     opacity = {
@@ -45,9 +45,11 @@
     fontconfig.defaultFonts = rec {
       sansSerif = [config.stylix.fonts.serif.name "Mamelon"];
       serif = sansSerif;
+      monospace = [config.stylix.fonts.monospace.name "Fantasque Sans Mono"];
     };
     packages = with pkgs; [
       my-fonts
+      fantasque-sans-mono
       (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
     ];
   };
