@@ -43,9 +43,9 @@ in {
           require("nvim-autopairs.completion.cmp").on_confirm_done())
       '';
       # HACK: till upstream fix arrives
-      highlight = {
-        WinBar.bg = config.lib.stylix.colors.withHashtag.base00;
-        WinBarNC.bg = config.lib.stylix.colors.withHashtag.base00;
+      highlight = with config.lib.stylix.colors.withHashtag; {
+        WinBar.bg = base00;
+        WinBarNC.bg = base00;
       };
       globals = {
         mapleader = " ";
@@ -491,15 +491,9 @@ in {
         };
       };
       keymaps = let
-        mkKeymapDesc = key: mode: action: desc: {
-          inherit key mode action;
-          options = {inherit desc;};
-        };
-        mkKeymapOpt = key: mode: action: opt: {
-          inherit key mode action;
-          options = opt;
-        };
         mkKeymap = key: mode: action: {inherit key mode action;};
+        mkKeymapDesc = key: mode: action: desc: (mkKeymap key mode action) // {options = {inherit desc;};};
+        mkKeymapOpt = key: mode: action: opt: (mkKeymap key mode action) // {options = opt;};
       in [
         (mkKeymapDesc "<leader>la" "n" "<CMD>lua vim.lsp.buf.code_action()<CR>" "Show code actions")
         (mkKeymapDesc "<leader>lo" "n" "<CMD>lua vim.lsp.buf.definition()<CR>" "Goto definition")
@@ -569,6 +563,7 @@ in {
         (mkKeymapDesc "<leader>wb" "n" "<CMD>e #<CR>" "Switch to other buffer")
         (mkKeymapDesc "[b" "n" "<CMD>bprevious<CR>" "Previous buffer")
         (mkKeymapDesc "]b" "n" "<CMD>bnext<CR>" "Next buffer")
+
         (mkKeymapDesc "<C-h>" "n" "<C-w>h" "Navigate to pane left")
         (mkKeymapDesc "<C-l>" "n" "<C-w>l" "Navigate to pane right")
         (mkKeymapDesc "<C-k>" "n" "<C-w>k" "Navigate to pane up")
@@ -591,6 +586,7 @@ in {
         (mkKeymap "<C-l>" "c" "<CR>")
         (mkKeymap "<C-h>" "c" "<ESC>")
         (mkKeymap "<C-k>" "c" "<C-p>")
+
         (mkKeymapDesc "]q" "n" "<CMD>cnext<CR>" "Next quickfix")
         (mkKeymapDesc "[q" "n" "<CMD>cprev<CR>" "Prev quickfix")
         (mkKeymapDesc "<leader>v" ["n" "t"] "<CMD>1ToggleTerm direction=float name=はい <CR>" "Open terminal")

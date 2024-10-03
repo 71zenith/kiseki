@@ -50,6 +50,14 @@ in {
     };
   });
 
+  _0xproto = super._0xproto.overrideAttrs (oldAttrs: {
+    version = "2.201";
+    src = super.fetchzip {
+      url = "https://github.com/0xType/0xProto/releases/download/${oldAttrs.version}/0xProto_${builtins.replaceStrings ["."] ["_"] oldAttrs.version}.zip";
+      hash = "sha256-hUQGCsktnun9924+k6ECQuQ1Ddl/qGmtuLWERh/vDpc=";
+    };
+  });
+
   spotify-player = super.spotify-player.overrideAttrs (oldAttrs: {
     version = "unstable-2024-09-27";
     src = super.fetchFromGitHub {

@@ -92,7 +92,10 @@ in {
       settings = {
         main = {
           pad = "5x5";
-          font = lib.mkForce "monospace:size=${toString config.stylix.fonts.sizes.terminal}";
+          font = lib.mkForce (builtins.concatStringsSep "," (
+            map (name: (name + ":size=" + toString config.stylix.fonts.sizes.terminal + ":fontfeatures=ss01"))
+            osConfig.fonts.fontconfig.defaultFonts.monospace
+          ));
         };
         mouse = {hide-when-typing = "no";};
         key-bindings = {
@@ -109,6 +112,7 @@ in {
         };
       };
     };
+
     hyprlock = let
       rgb = color: "rgb(${color})";
     in {

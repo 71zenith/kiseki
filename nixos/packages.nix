@@ -22,6 +22,7 @@
 
     ## helpful
     gcc
+    pipes-rs
     xdg-utils
     ffmpeg
     nvtopPackages.nvidia

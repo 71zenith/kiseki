@@ -69,7 +69,6 @@ in {
   stylix.targets.gtk.extraCss = with config.lib.stylix.colors.withHashtag; ''
     @define-color accent_color ${base0A};
     @define-color accent_bg_color ${base0A};
-    * { border-radius: 0; }
   '';
 
   gtk = {

@@ -34,6 +34,7 @@
     zoxide = {
       enable = true;
       enableZshIntegration = true;
+      options = ["--cmd cd"];
     };
 
     ripgrep = {
@@ -42,6 +43,7 @@
         "--ignore-file=${pkgs.writeText ".ignore" ''
           flake.lock
         ''}"
+        "-i"
       ];
     };
 
