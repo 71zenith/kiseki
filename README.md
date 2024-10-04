@@ -16,7 +16,7 @@
 
 <details><summary><b>Individual screenshots</b></summary>
 
-![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot23.png?raw=true)
+![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot24.png?raw=true)
 
 ![](https://github.com/71zenith/assets/blob/master/screenshot/workflow/1.png?raw=true)
 
@@ -29,7 +29,6 @@
 ![](https://github.com/71zenith/assets/blob/master/screenshot/workflow/5.png?raw=true)
 
 ![](https://github.com/71zenith/assets/blob/master/screenshot/workflow/6.png?raw=true)
-
 </details>
 
 previous iterations are in [assets/screenshot](https://github.com/71zenith/assets/tree/master/screenshot).
