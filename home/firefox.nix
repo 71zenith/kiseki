@@ -8,8 +8,8 @@
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "129.0";
-    hash = "sha256-hpkEO5BhMVtINQG8HN4xqfas/R6q5pYPZiFK8bilIDs=";
+    rev = "ab5ede0fef39f02f0ef2bd119879226e3ab71f9f";
+    hash = "sha256-s54Y6Ix7W942T+TIwGudoqDzUHifMBJOU9AWqpqIKl4=";
   };
   minimal-arc = pkgs.fetchFromGitHub {
     owner = "zayihu";

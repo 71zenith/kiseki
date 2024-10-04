@@ -119,7 +119,7 @@
     #zed-editor
     #lem-ncurses
 
-    # disabled
+    #NOTE: disabled
     #logseq
     #openmw
   ];

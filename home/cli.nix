@@ -49,7 +49,7 @@
 
     fd = {
       enable = true;
-      extraOptions = ["-p"];
+      extraOptions = ["-p" "-i"];
     };
 
     bat.enable = true;

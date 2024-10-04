@@ -309,9 +309,9 @@ in {
             sections = {
               lualine_a = ["fancy_mode"];
               lualine_b = ["fancy_branch" "fancy_diff" "fancy_diagnostics"];
-              lualine_y = ["fancy_filetype"];
               lualine_x = ["fancy_macro" "fancy_lsp_servers"];
-              lualine_z = ["fancy_location"];
+              lualine_y = ["fancy_filetype"];
+              lualine_z = ["fancy_searchcount" "fancy_location"];
             };
           };
         };

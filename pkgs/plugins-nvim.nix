@@ -20,22 +20,4 @@ in {
       hash = "sha256-abe9ZGmL7U9rC+LxC3LO5/bOn8lHke1FCKO0V3TZGs0=";
     };
   };
-  org-bullets = buildVimPlugin {
-    name = "org-bullets";
-    src = fetchFromGitHub {
-      owner = "nvim-orgmode";
-      repo = "org-bullets.nvim";
-      rev = "3623e86e0fa6d07f45042f7207fc333c014bf167";
-      hash = "sha256-aIEe1dgUmDzu9kl33JCNcgyfp8DymURltH0HcZfph0Y=";
-    };
-  };
-  incline-nvim = buildVimPlugin {
-    name = "incline-nvim";
-    src = fetchFromGitHub {
-      owner = "b0o";
-      repo = "incline.nvim";
-      rev = "16fc9c073e3ea4175b66ad94375df6d73fc114c0";
-      hash = "sha256-5DoIvIdAZV7ZgmQO2XmbM3G+nNn4tAumsShoN3rDGrs=";
-    };
-  };
 }
