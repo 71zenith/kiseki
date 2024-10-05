@@ -9,6 +9,7 @@
     polarity = "dark";
     image = "${pkgs.my-walls}/share/wallpapers/oxocarbon.png";
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
+    override.base00 = "131313";
     fonts = rec {
       serif = {
         package = pkgs.my-fonts;

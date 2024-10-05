@@ -21,6 +21,12 @@ in {
       vimAlias = true;
       defaultEditor = true;
       colorschemes.oxocarbon.enable = true;
+      colorschemes.oxocarbon.package = pkgs.vimPlugins.oxocarbon-nvim.overrideAttrs {
+        postPatch = ''
+          substituteInPlace lua/oxocarbon/init.lua \
+           --replace-fail '#161616' '${config.lib.stylix.colors.withHashtag.base00}'
+        '';
+      };
       performance = {
         combinePlugins = {
           enable = true;
@@ -341,6 +347,7 @@ in {
           enable = true;
           settings = {
             highlight.disable = ["zig"];
+            highlight.enable = true;
             incremental_selection = {
               enable = true;
               keymaps = {

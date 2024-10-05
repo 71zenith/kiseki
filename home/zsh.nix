@@ -16,11 +16,12 @@ in {
         function precmd() {
           print -Pn "\e]133;A\e\\"
           if ! builtin zle; then
-          print -n "\e]133;D\e\\"
+            print -n "\e]133;D\e\\"
           fi
         }
         function preexec {
           print -n "\e]133;C\e\\"
+          print -n "\e[5 q"
         }
         function osc7-pwd() {
           emulate -L zsh
