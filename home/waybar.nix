@@ -107,6 +107,14 @@ in {
           icon-spacing = 5;
           on-click = "pkill glava";
         };
+        "idle_inhibitor" = {
+          format = "{icon}";
+          on-click-right = "hyprlock";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
         "group/custom" = {
           orientation = "inherit";
           drawer = {
@@ -117,6 +125,7 @@ in {
             "image#toggle"
             "custom/power"
             "hyprland/submap"
+            "idle_inhibitor"
             "custom/osk"
             "custom/gammastep"
           ];
@@ -250,15 +259,15 @@ in {
 
         #custom-power, #custom-gammastep, #submap, #custom-osk { margin: 0 1px; }
         #taskbar button:hover, #custom-power:hover, #custom-gammastep:hover,
-        #submap:hover, #custom-osk:hover { background-color: @base01; }
+        #submap:hover, #custom-osk:hover, #idle_inhibitor:hover { background-color: @base01; }
 
         #window { margin-bottom: 2px; margin-right: 0; padding-right: 0; }
         #taskbar { margin-bottom: 2px; margin-left: 0; padding-left: 0; }
         #taskbar button { padding: 0 7px; }
 
         #privacy, #gamemode, #image.toggle { margin: 0 2px; padding: 0 2px; }
-        #custom-power, #custom-gammastep.on, #submap, #custom-osk.on { color: @base09; }
-        #custom-gammastep.off, #custom-osk.off { color: @base02; }
+        #custom-power, #custom-gammastep.on, #submap, #custom-osk.on, #idle_inhibitor.activated { color: @base09; }
+        #custom-gammastep.off, #custom-osk.off, #idle_inhibitor.deactivated { color: @base02; }
 
         #custom-progress {
           font-size: 2pt;
