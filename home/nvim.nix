@@ -485,9 +485,12 @@ in {
         };
         telescope = {
           enable = true;
-          extensions.frecency = {
-            enable = true;
-            settings.db_validate_threshold = 200;
+          extensions = {
+            frecency = {
+              enable = true;
+              settings.db_validate_threshold = 200;
+            };
+            fzf-native.enable = true;
           };
           settings.defaults.mappings.i = {
             "<C-j>".__raw = "require('telescope.actions').move_selection_next";
