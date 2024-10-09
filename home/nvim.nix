@@ -168,9 +168,9 @@ in {
             end
           '';
           servers = {
-            nil-ls.enable = true;
+            nil_ls.enable = true;
             bashls.enable = true;
-            rust-analyzer = {
+            rust_analyzer = {
               enable = true;
               installCargo = true;
               installRustc = true;
@@ -178,7 +178,7 @@ in {
             };
             pyright.enable = true;
             zls.enable = true;
-            ruff-lsp.enable = true;
+            ruff_lsp.enable = true;
           };
         };
         gitsigns = {
