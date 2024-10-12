@@ -87,6 +87,7 @@
     mgba
     snes9x-gtk
     duckstation
+    pcsx2
 
     # dev
     ## doom emacs

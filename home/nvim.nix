@@ -181,6 +181,12 @@ in {
             ruff_lsp.enable = true;
           };
         };
+        zig = {
+          enable = true;
+          settings = {
+            fmt_autosave = 0;
+          };
+        };
         gitsigns = {
           enable = true;
           settings = {
@@ -188,7 +194,13 @@ in {
             linehl = true;
           };
         };
-        cursorline.enable = true;
+        cursorline = {
+          enable = true;
+          cursorword.hl = {
+            bold = true;
+            underline = false;
+          };
+        };
         toggleterm = {
           enable = true;
           settings.direction = "float";
