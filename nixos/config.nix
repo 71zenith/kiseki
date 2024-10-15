@@ -45,7 +45,7 @@ in {
     };
   };
 
-  #NOTE: VNC server
+  # NOTE: VNC server
   networking.firewall.allowedTCPPorts = [5900];
 
   nix = {
@@ -103,12 +103,16 @@ in {
       };
     };
 
+    flatpak.enable = true;
+
     # NOTE: calibre drive detection
     udisks2.enable = true;
 
     # NOTE: nautilus trash support
     gvfs.enable = true;
   };
+
+  environment.pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
 
   security = {
     sudo.extraRules = [

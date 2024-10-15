@@ -88,6 +88,7 @@
     snes9x-gtk
     duckstation
     pcsx2
+    lime3ds
 
     # dev
     ## doom emacs
@@ -120,7 +121,7 @@
     #zed-editor
     #lem-ncurses
 
-    #NOTE: disabled
+    # NOTE: disabled
     #logseq
     #openmw
   ];

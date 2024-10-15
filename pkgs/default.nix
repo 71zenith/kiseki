@@ -63,8 +63,8 @@ in {
     src = super.fetchFromGitHub {
       owner = "aome510";
       repo = oldAttrs.pname;
-      rev = "b202385153a80b3e9410f4fcb91b541e41f4136e";
-      hash = "sha256-O17czRq0YAvAB/c/3cKjIntHRYHLB9a8v6Cl/dC4HTc=";
+      rev = "80006c62b5b80840819ec9afc7da1a7e4e75e98a";
+      hash = "sha256-Fk0xltwE6eaQgwIli0EhvEUKUiBFHIhWIgNV0Q0nv+w=";
     };
   });
 
@@ -80,7 +80,7 @@ in {
     checkPhase = null;
   });
 
-  #NOTE: fuck glava; version below has --pipe and **actually** builds (fuck meson too)
+  # NOTE: fuck glava; version below has --pipe and **actually** builds (fuck meson too)
   glava = super.glava.overrideAttrs (oldAttrs: {
     version = "unstable-no-meson";
     src = super.fetchFromGitHub {
