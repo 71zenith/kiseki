@@ -259,6 +259,7 @@ in {
           "$mod1, f, fullscreenstate, -1 2"
           "$mod2, t, fullscreen, 1"
           "$mod2, q, exit,"
+          "$mod2, c, pseudo,"
           "$mod2, s, togglefloating,"
           "$mod2, r, exec, hyprctl reload"
 
