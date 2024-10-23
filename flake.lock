@@ -564,6 +564,22 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/fb192fec7cc7a4c26d51779e9bab07ce6fa5597a.tar.gz"
       }
     },
+    "nixpkgs-old": {
+      "locked": {
+        "lastModified": 1712551226,
+        "narHash": "sha256-odbWX2HFBZZxIQVHhj52qA8izlzSFejkROg1encwinw=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f601f6b835ff67b95fd34b02163cf4df3b2f86ce",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "f601f6b835ff67b95fd34b02163cf4df3b2f86ce",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1729357638,
@@ -697,6 +713,7 @@
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-old": "nixpkgs-old",
         "nixvim": "nixvim",
         "prismlauncher": "prismlauncher",
         "sops-nix": "sops-nix",

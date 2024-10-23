@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-old,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     # Cli
     ## internet
@@ -74,7 +78,7 @@
     gimp
 
     ## games
-    heroic
+    pkgs-old.heroic
     prismlauncher
     steam-run
     protonup-qt
@@ -88,7 +92,7 @@
     snes9x-gtk
     duckstation
     pcsx2
-    lime3ds
+    #lime3ds
 
     # dev
     ## doom emacs
