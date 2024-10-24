@@ -115,8 +115,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 |-------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
 | [0xproto](https://github.com/0xType/0xProto)                            | monospace font                     |
-| [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
-| [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
+| [Itim](https://thaifonts.org/fonts/itim-regular)                        | "everything else" font             |
+| [fafo-nihongo](https://www.behance.net/asset/331393/Fafo-Sans)          | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
 | [rampart-one](https://www.freejapanesefont.com/rampart-one-download/)   | "stylized" font for weebs          |
 | [kaushan-script](https://fonts.google.com/specimen/Kaushan+Script)      | "stylized" font                    |

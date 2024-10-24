@@ -7,13 +7,13 @@
   stylix = {
     enable = true;
     polarity = "dark";
-    image = "${pkgs.my-walls}/share/wallpapers/oxocarbon.png";
+    image = "${pkgs.my-misc}/share/passive/oxocarbon.png";
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
     override.base00 = "131313";
     fonts = rec {
       serif = {
         package = pkgs.my-fonts;
-        name = "Kollektif";
+        name = "Itim";
       };
       sansSerif = serif;
       monospace = {
@@ -44,9 +44,9 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = [config.stylix.fonts.serif.name "Mamelon 4 Hi"];
+      sansSerif = [config.stylix.fonts.serif.name "Fafo Nihongo"];
       serif = sansSerif;
-      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Symbols Nerd Font Mono" "Mamelon 4 Hi"];
+      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Symbols Nerd Font Mono" "Fafo Nihongo"];
     };
     packages = with pkgs; [
       my-fonts

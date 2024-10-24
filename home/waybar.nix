@@ -227,6 +227,8 @@ in {
         * { border: 0; border-radius: 0; min-height: 0; }
         #waybar { transition: background-color .1s; }
         #waybar.hidden { opacity: .1; }
+        * { font-family: ${builtins.concatStringsSep "," osConfig.fonts.fontconfig.defaultFonts.sansSerif}; }
+
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,
         #privacy, #gamemode, #custom-power, #custom-gammastep, #custom-osk, #submap {
@@ -246,7 +248,7 @@ in {
         #workspaces button.empty { color: @base03; }
         #workspaces button.active { color: @base0B; }
 
-        #mpris { margin-top: 1px; color: @base09; }
+        #mpris { margin-top: 1px; margin-bottom: 1px; color: @base09; }
         #pulseaudio { color: @base0D; }
         #pulseaudio.muted, #network.disconnected { color: @base0A; }
         #network { color: @base0F; }

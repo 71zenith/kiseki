@@ -80,7 +80,7 @@
     ## games
     pkgs-old.heroic
     prismlauncher
-    steam-run
+    # steam-run
     protonup-qt
 
     ### VNs
