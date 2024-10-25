@@ -126,7 +126,7 @@
     #lem-ncurses
 
     # NOTE: disabled
-    #logseq
-    #openmw
+    # logseq
+    # openmw
   ];
 }

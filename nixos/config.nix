@@ -3,6 +3,7 @@
   config,
   inputs,
   lib,
+  pkgs-old,
   pcName,
   myUserName,
   myName,
@@ -88,9 +89,8 @@ in {
 
   services = {
     mysql = {
-      enable = false;
-      package = pkgs.mariadb-embedded;
-      user = myUserName;
+      enable = true;
+      package = pkgs.mysql84;
     };
 
     greetd = {
@@ -114,19 +114,7 @@ in {
 
   environment.pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
 
-  security = {
-    sudo.extraRules = [
-      {
-        users = [myUserName];
-        commands = [
-          {
-            command = "ALL";
-            options = ["NOPASSWD"];
-          }
-        ];
-      }
-    ];
-  };
+  security.sudo.wheelNeedsPassword = false;
 
   time.timeZone = "Asia/Kolkata";
   i18n = {
@@ -168,10 +156,7 @@ in {
       flake = "${home myUserName}/kiseki";
     };
 
-    nix-ld = {
-      enable = true;
-      package = pkgs.nix-ld-rs;
-    };
+    nix-ld.enable = true;
   };
 
   users.users = {
@@ -192,7 +177,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs pkgs-old;
       inherit pcName myUserName myName mailId;
     };
     users.${myUserName} = import ../home;

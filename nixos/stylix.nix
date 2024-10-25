@@ -44,9 +44,9 @@
   };
   fonts = {
     fontconfig.defaultFonts = rec {
-      sansSerif = [config.stylix.fonts.serif.name "Fafo Nihongo"];
+      sansSerif = ["Mamelon 4 Hi"];
       serif = sansSerif;
-      monospace = [config.stylix.fonts.monospace.name "Geist Mono" "Symbols Nerd Font Mono" "Fafo Nihongo"];
+      monospace = ["Geist Mono" "Symbols Nerd Font Mono" "Mamelon 4 Hi"];
     };
     packages = with pkgs; [
       my-fonts

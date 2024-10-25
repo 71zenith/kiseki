@@ -27,14 +27,6 @@ in {
           on-scroll-up = "hyprctl dispatch workspace r-1";
           on-scroll-down = "hyprctl dispatch workspace r+1";
           format-icons = {
-            "1" = "一";
-            "2" = "二";
-            "3" = "三";
-            "4" = "四";
-            "5" = "五";
-            "6" = "六";
-            "7" = "七";
-            "8" = "八";
             "music" = "";
             "mpv" = "";
           };
@@ -225,9 +217,9 @@ in {
     style =
       ''
         * { border: 0; border-radius: 0; min-height: 0; }
+        * { font-family: ${builtins.concatStringsSep "," (map (font: ''"${font}"'') osConfig.fonts.fontconfig.defaultFonts.sansSerif)}; }
         #waybar { transition: background-color .1s; }
         #waybar.hidden { opacity: .1; }
-        * { font-family: ${builtins.concatStringsSep "," osConfig.fonts.fontconfig.defaultFonts.sansSerif}; }
 
 
         #clock, #mpris, #network, #tray, #pulseaudio, #workspaces, #image.toggle,

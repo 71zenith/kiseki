@@ -168,7 +168,13 @@ in {
             end
           '';
           servers = {
-            nil_ls.enable = true;
+            nil_ls = {
+              enable = true;
+              settings.nix.flake = {
+                autoArchive = true;
+                nixpkgsInputName = "nixos";
+              };
+            };
             bashls.enable = true;
             rust_analyzer = {
               enable = true;
