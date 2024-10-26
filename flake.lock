@@ -10,11 +10,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1729738333,
-        "narHash": "sha256-1AlpeamMV3bjH0v2VGprKlDReoxdCaY5YX0DHr0s4Sk=",
+        "lastModified": 1729964436,
+        "narHash": "sha256-q627lE1NoLFTvsdiFwBJle1XFMgT+DDcRQSFcwyhFLs=",
         "owner": "71zenith",
         "repo": "assets",
-        "rev": "c4a61f7ad238481454f768a8832c02e2f46e0c8f",
+        "rev": "16adf33ef3613b476521879a74aa1be02d669b4e",
         "type": "github"
       },
       "original": {
@@ -443,6 +443,26 @@
         "type": "github"
       }
     },
+    "hosts": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1729730377,
+        "narHash": "sha256-t5kzFO1yjY7RrFLeK9MBbY7aRb2ThY1ytaXGVcC0Y+g=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "ca8d6e37fa152c3981a63e789d97b313d440d21a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "type": "github"
+      }
+    },
     "ixx": {
       "inputs": {
         "flake-utils": [
@@ -739,6 +759,7 @@
         "flake-programs-sqlite": "flake-programs-sqlite",
         "flake-utils": "flake-utils",
         "home-manager": "home-manager",
+        "hosts": "hosts",
         "nix-colors": "nix-colors",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs",

@@ -25,6 +25,10 @@
         home-manager.follows = "home-manager";
       };
     };
+    hosts = {
+      url = "github:StevenBlack/hosts";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -117,6 +121,7 @@
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         flake-programs-sqlite.nixosModules.programs-sqlite
+        hosts.nixosModule
         (import ./nixos/config.nix)
       ];
     };

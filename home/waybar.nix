@@ -200,7 +200,7 @@ in {
           exec = pkgs.writeShellScript "centWay" ''
             while :; do
               echo "{ \"text\" : \"_\" , \"class\" : \"$(playerctl --ignore-player firefox metadata --format 'cent{{ (position / 100) / (mpris:length / 100) * 100 }}' | cut -d. -f1)\" }"
-              sleep 2.5
+              sleep 1
             done
           '';
         };

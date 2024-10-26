@@ -6,6 +6,12 @@
   ...
 }: let
   inherit (config.stylix.base16Scheme) palette;
+  greasemonkey = pkgs.fetchFromGitHub {
+    owner = "afreakk";
+    repo = "greasemonkeyscripts";
+    rev = "2ff7742d56fa626b4023a365a85e11750245b27c";
+    hash = "sha256-bmyK4AiB5RMlF0aEGl4R9WZQLxfjaOG8WvLka9hiqlw=";
+  };
 in {
   stylix.targets.zathura.enable = false;
 
@@ -110,6 +116,47 @@ in {
           style = "beam";
           color = "${palette.base01} ${palette.base05}";
         };
+      };
+    };
+
+    qutebrowser = with pkgs; {
+      enable = true;
+      greasemonkey = [
+        (writeText "adblock.js" (builtins.readFile "${greasemonkey}/youtube_adblock.js"))
+        (writeText "sponsorblock.js" (builtins.readFile "${greasemonkey}/youtube_sponsorblock.js"))
+      ];
+      settings = {
+        auto_save.session = true;
+        content.user_stylesheets = toString (writeText "forcefont.css" "* { font-family: ${config.stylix.fonts.sansSerif.name} !important; }");
+        completion.use_best_match = true;
+        url.default_page = "https://71zenith.github.io";
+        content.blocking.adblock.lists = [
+          "https://easylist.to/easylist/easylist.txt"
+          "https://easylist.to/easylist/easyprivacy.txt"
+          "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt"
+          "https://secure.fanboy.co.nz/fanboy-annoyance.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badlists.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/badware.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/lan-block.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/legacy.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/quick-fixes.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/resource-abuse.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/ubol-filters.txt"
+          "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/unbreak.txt"
+          "https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts"
+          "https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts"
+        ];
+      };
+      searchEngines = {
+        DEFAULT = "https://search.brave.com/search?q={}";
+        gh = "https://github.com/search?q={}&type=code";
+        np = "https://search.nixos.org/packages?channel=unstable&type=packages&query={}";
+        no = "https://search.nixos.org/options?channel=unstable&type=packages&query={}";
+        nw = "https://wiki.nixos.org/wiki/{}";
+        g = "https://www.google.com/search?hl=en&q={}";
       };
     };
 

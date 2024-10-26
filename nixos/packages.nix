@@ -80,7 +80,6 @@
     ## games
     pkgs-old.heroic
     prismlauncher
-    # steam-run
     protonup-qt
 
     ### VNs
@@ -92,7 +91,6 @@
     snes9x-gtk
     duckstation
     pcsx2
-    #lime3ds
 
     # dev
     ## doom emacs

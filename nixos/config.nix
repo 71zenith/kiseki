@@ -46,8 +46,12 @@ in {
     };
   };
 
-  # NOTE: VNC server
-  networking.firewall.allowedTCPPorts = [5900];
+  networking = {
+    # NOTE: VNC server
+    firewall.allowedTCPPorts = [5900];
+
+    stevenBlackHosts.enable = true;
+  };
 
   nix = {
     settings = {
