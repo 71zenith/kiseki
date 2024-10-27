@@ -13,17 +13,17 @@ in {
     ./modules
     ./cli.nix
     ./gui.nix
-    ./mpv.nix
-    ./zsh.nix
-    ./waybar.nix
-    ./nvim.nix
-    ./git.nix
-    ./rofi.nix
-    ./eww.nix
-    ./xdg.nix
-    ./firefox.nix
-    ./spotify-player.nix
-    ./hyprland.nix
+    ./video.nix
+    ./shell.nix
+    ./bar.nix
+    ./editor.nix
+    ./vcs.nix
+    ./launcher.nix
+    ./widget.nix
+    ./desktop.nix
+    ./browser.nix
+    ./music.nix
+    ./wm.nix
   ];
 
   # NOTE: virt-manager fix
@@ -77,13 +77,6 @@ in {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme.override {color = "teal";};
     };
-  };
-
-  xdg.portal = {
-    enable = true;
-    config.common.default = ["hyprland" "gtk"];
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
   };
 
   xresources.properties = with config.lib.stylix.colors.withHashtag; {

@@ -27,7 +27,6 @@
   };
   programs.spotify-player = {
     enable = true;
-    enableZshIntegration = true;
     settings = {
       client_id_command = "cat /run/secrets/spot_client_id";
       client_port = 8080;

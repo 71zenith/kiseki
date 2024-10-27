@@ -12,6 +12,7 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
+  yuzu = self.callPackage ./yuzu.nix {};
 
   ani-skip = self.mpvScripts.callPackage ./ani-skip.nix {};
   mpv-youtube-search = self.mpvScripts.callPackage ./mpv-youtube-search.nix {};

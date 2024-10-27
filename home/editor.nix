@@ -175,6 +175,7 @@ in {
                 nixpkgsInputName = "nixos";
               };
             };
+            texlab.enable = true;
             bashls.enable = true;
             rust_analyzer = {
               enable = true;
@@ -296,20 +297,22 @@ in {
         };
         noice = {
           enable = true;
-          lsp.override = {
-            "cmp.entry.get_documentation" = true;
-            "vim.lsp.util.convert_input_to_markdown_lines" = true;
-            "vim.lsp.util.stylize_markdown" = true;
-          };
-          views = {
-            cmdline_popup.border.style = "single";
-            cmdline_popupmenu.border.style = "single";
-          };
-          presets = {
-            bottom_search = true;
-            command_palette = true;
-            long_message_to_split = true;
-            lsp_doc_border = false;
+          settings = {
+            lsp.override = {
+              "cmp.entry.get_documentation" = true;
+              "vim.lsp.util.convert_input_to_markdown_lines" = true;
+              "vim.lsp.util.stylize_markdown" = true;
+            };
+            views = {
+              cmdline_popup.border.style = "single";
+              cmdline_popupmenu.border.style = "single";
+            };
+            presets = {
+              bottom_search = true;
+              command_palette = true;
+              long_message_to_split = true;
+              lsp_doc_border = false;
+            };
           };
         };
         neogit = {

@@ -81,6 +81,7 @@
     pkgs-old.heroic
     prismlauncher
     protonup-qt
+    yuzu
 
     ### VNs
     onscripter-en

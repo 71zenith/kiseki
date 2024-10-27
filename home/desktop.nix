@@ -1,6 +1,18 @@
-{config, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   xdg = {
     enable = true;
+
+    portal = {
+      enable = true;
+      config.common.default = ["hyprland" "gtk"];
+      xdgOpenUsePortal = true;
+      extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
+    };
+
     mime.enable = true;
     mimeApps = {
       enable = true;
@@ -51,6 +63,7 @@
         "image/webp" = viewer;
       };
     };
+
     userDirs = {
       enable = true;
       createDirectories = true;
@@ -63,6 +76,7 @@
       templates = "${config.home.homeDirectory}/.local/share/templates";
       publicShare = "${config.home.homeDirectory}/.local/share/public";
     };
+
     configFile."electron-flags.conf".text = ''
       --enable-features=WaylandWindowDecorations
       --enable-features=UseOzonePlatform

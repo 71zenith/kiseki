@@ -2,7 +2,7 @@
   description = "crossbell cathedral";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-old.url = "github:nixos/nixpkgs?rev=f601f6b835ff67b95fd34b02163cf4df3b2f86ce";
     flake-utils.url = "github:numtide/flake-utils";
     nix-colors.url = "github:misterio77/nix-colors";
@@ -34,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     prismlauncher = {
-      url = "github:Diegiwg/PrismLauncher-Cracked?ref=v8.4.1";
+      url = "github:Diegiwg/PrismLauncher-Cracked?ref=9.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-programs-sqlite = {
