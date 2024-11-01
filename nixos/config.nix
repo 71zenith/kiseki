@@ -107,8 +107,6 @@ in {
       };
     };
 
-    flatpak.enable = true;
-
     # NOTE: calibre drive detection
     udisks2.enable = true;
 

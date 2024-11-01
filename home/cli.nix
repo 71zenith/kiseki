@@ -59,7 +59,7 @@
       enableZshIntegration = true;
       git = true;
       icons = "always";
-      extraOptions = ["--hyperlink"];
+      extraOptions = ["--hyperlink" "--no-quotes"];
     };
 
     sptlrx = {

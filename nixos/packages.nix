@@ -50,7 +50,7 @@
     wayvnc
 
     ## nix
-    nitch
+    microfetch
     nix-output-monitor
     nurl
     nix-tree

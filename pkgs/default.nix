@@ -96,13 +96,6 @@ in {
         --replace-fail "#define BAR_GAP 1" "#define BAR_GAP 2"
     '';
   });
-  nitch = super.nitch.overrideAttrs {
-    postPatch = ''
-      substituteInPlace src/funcs/packages/getNixPkgs.nim \
-        --replace-fail 'std/[strutils, osproc]' 'std/[strutils, osproc, os]' \
-        --replace-fail '~/.nix-profile"' '/etc/profiles/per-user/" & getEnv("USER")'
-    '';
-  };
   nix-output-monitor = let
     icons = {
       "↑" = "f062";

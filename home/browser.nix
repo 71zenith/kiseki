@@ -21,7 +21,7 @@ in {
   programs = {
     firefox = {
       enable = true;
-
+      nativeMessagingHosts = [pkgs.tridactyl-native];
       profiles = {
         ${myUserName} = {
           id = 0;
@@ -40,7 +40,7 @@ in {
             don-t-fuck-with-paste
             skip-redirect
             search-by-image
-            vimium-c
+            tridactyl
             ublock-origin
             sidebery
             inputs.firefox-addons.packages.${pkgs.system}."10ten-ja-reader"
@@ -53,6 +53,7 @@ in {
             "general.autoScroll" = true;
             "extensions.autoDisableScopes" = 0;
             "extensions.allowPrivateBrowsingByDefault" = true;
+            "browser.toolbars.bookmarks.visibility" = "never";
 
             # TELEMETRY
             "browser.ping-centre.telemetry" = false;

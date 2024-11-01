@@ -144,26 +144,6 @@ in {
     fi
     pkill -RTMIN+11 waybar
   '';
-  torMpv = writeShellScript "torMpv" ''
-    [ -z "$*" ] && query=$(rofi -dmenu -l 0 -p "" -mesg "Enter your search" -theme-str 'window {width: 500px;}' | tr ' ' '+') || query=$(printf "%s" "$*" | tr ' ' '+')
-    [ -z "$query" ] && exit 1
-    srch="https://nyaa.land/?q=$query&f=0&c=1_0"
-    notify-send "Searching nyaa"
-    data=$(curl -Ls "$srch")
-    title=$(echo "$data" | sed -nE 's|<a href="/view/.*title="([^"]+)">([^<]+)</a>|\1|p')
-    magnet=$(echo "$data" | sed -nE 's|<a href="([^"]+)"><i class="fa fa-fw fa-magnet">.*|\1|p')
-    details=$(echo "$data" | sed -nE 's|<td class="text-center">([^<]+)</td>|\1|p' | paste - - - - -d / | cut -d/ -f1,2,3 | sed -nE 's|([^/]+)/([^/]+)/([^/]+)$|[\1/\2/\3]|p' | sed 's|^|<span foreground="${config.lib.stylix.colors.withHashtag.base03}">|; s|$|</span>|')
-    [ -z "$title" ] && notify-send "No search results" && exit 1
-    paste <(echo "$title") <(echo "$details") <(echo "$magnet") -d '\t' | grep -v '/0/' \
-      | rofi -i -no-custom -dmenu -theme-str 'window { width: 1000px; } element { children: [element-text];} listview { lines: 12;}' \
-        -ellipsize-mode middle -p "" -matching glob -markup-rows \
-        -display-column-separator "\t" -display-columns 1,2 | while read -r entry; do
-      notify-send "Opening $(echo "$entry" | cut -f1)"
-      setsid mpv "$(echo "$entry" | cut -f3)"
-      exit 0
-    done
-    notify-send "No search results" && exit 1
-  '';
   openVNC = writeShellScript "openVNC" ''
     set -e
     wayvnc 0.0.0.0 &
