@@ -64,7 +64,7 @@ in {
         neovide_padding_top = 8;
         neovide_padding_right = 8;
         neovide_padding_left = 8;
-        neovide_transparency = 0.90;
+        neovide_transparency = config.stylix.opacity.terminal;
       };
       clipboard.providers.wl-copy.enable = true;
       enableMan = false;
