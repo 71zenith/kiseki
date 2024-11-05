@@ -13,17 +13,17 @@ in {
     ./modules
     ./cli.nix
     ./gui.nix
-    ./video.nix
-    ./shell.nix
-    ./bar.nix
-    ./editor.nix
-    ./vcs.nix
-    ./launcher.nix
-    ./widget.nix
-    ./desktop.nix
-    ./browser.nix
-    ./music.nix
-    ./wm.nix
+    ./mpv.nix
+    ./zsh.nix
+    ./waybar.nix
+    ./nvim.nix
+    ./git.nix
+    ./rofi.nix
+    ./eww.nix
+    ./xdg.nix
+    ./firefox.nix
+    ./spotify-player.nix
+    ./hyprland.nix
   ];
 
   # NOTE: virt-manager fix
