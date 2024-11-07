@@ -60,14 +60,14 @@ in {
   });
 
   sptlrx = super.sptlrx.overrideAttrs (oldAttrs: {
-    version = "unstable-2024-07-23";
+    version = "unstable-2024-10-27";
     src = super.fetchFromGitHub {
       owner = "raitonoberu";
       repo = oldAttrs.pname;
-      rev = "c03f1cb220936a06dec44069bfb01bf66b72c3d4";
-      hash = "sha256-6QaEx4pQnoELe6J/yukr+G0IhZxIjl4IF1cWzJYQVO4=";
+      rev = "be71eb5defec847b467f5d69d10f0037e71fdfbe";
+      hash = "sha256-8dq7cxihrjSrJeOga7Jgzv5k4lbhavYJRi4uv60GkGc=";
     };
-    vendorHash = "sha256-pExSQcYjqliZZg/91t52yk6UJ4QCbpToMpONIFUNkwc=";
+    vendorHash = "sha256-N02+B8btheskAAhWnPpFN/E/aarCxmCi07sYnfsYDmY=";
     checkPhase = null;
   });
 

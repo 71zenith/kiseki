@@ -138,7 +138,7 @@ in {
         blur = {
           enabled = true;
           noise = 0;
-          size = 2;
+          size = 3;
           passes = 3;
         };
         drop_shadow = true;
