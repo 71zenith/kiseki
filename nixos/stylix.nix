@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  config,
   ...
 }: {
   stylix = {
@@ -9,11 +8,10 @@
     polarity = "dark";
     image = "${pkgs.my-misc}/share/passive/oxocarbon.png";
     base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
-    override.base00 = "131313";
     fonts = rec {
       serif = {
         package = pkgs.my-fonts;
-        name = "Itim";
+        name = "Kollektif";
       };
       sansSerif = serif;
       monospace = {
@@ -25,16 +23,16 @@
         name = "Noto Color Emoji";
       };
       sizes = {
-        applications = 14;
-        desktop = 14;
+        applications = 13;
+        desktop = 13;
         popups = 14;
         terminal = 15;
       };
     };
     opacity = {
-      terminal = 0.87;
-      popups = 0.87;
-      desktop = 0.87;
+      terminal = 0.8;
+      popups = 0.8;
+      desktop = 0.8;
     };
     cursor = {
       package = pkgs.phinger-cursors;
