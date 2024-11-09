@@ -121,7 +121,7 @@ in {
         g = "git";
         rm = "rm -Ivr";
         mv = "mv -iv";
-        cp = "cp -ivr";
+        cp = "xcp -vr";
         c = "clear";
         df = "duf -hide special";
         mkdir = "mkdir -pv";

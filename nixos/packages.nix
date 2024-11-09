@@ -17,6 +17,7 @@
 
     ## rusty unix
     dust
+    xcp
     duf
     fd
     file
