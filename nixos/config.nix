@@ -3,7 +3,6 @@
   config,
   inputs,
   lib,
-  pkgs-old,
   pcName,
   myUserName,
   myName,
@@ -93,7 +92,7 @@ in {
 
   services = {
     mysql = {
-      enable = true;
+      enable = false;
       package = pkgs.mysql84;
     };
 
@@ -113,6 +112,8 @@ in {
     # NOTE: nautilus trash support
     gvfs.enable = true;
   };
+
+  systemd.coredump.enable = false;
 
   environment.pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
 
@@ -179,7 +180,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs pkgs-old;
+      inherit inputs;
       inherit pcName myUserName myName mailId;
     };
     users.${myUserName} = import ../home;

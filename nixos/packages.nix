@@ -1,8 +1,4 @@
-{
-  pkgs,
-  pkgs-old,
-  ...
-}: {
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     # Cli
     ## internet
@@ -79,7 +75,7 @@
     gimp
 
     ## games
-    pkgs-old.heroic
+    heroic
     prismlauncher
     protonup-qt
     yuzu
