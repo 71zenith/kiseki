@@ -2,7 +2,7 @@
   description = "crossbell cathedral";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
