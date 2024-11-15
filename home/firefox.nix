@@ -11,11 +11,11 @@
     rev = "ab5ede0fef39f02f0ef2bd119879226e3ab71f9f";
     hash = "sha256-s54Y6Ix7W942T+TIwGudoqDzUHifMBJOU9AWqpqIKl4=";
   };
-  ultima = pkgs.fetchFromGitHub {
-    owner = "soulhotel";
-    repo = "FF-ULTIMA";
-    rev = "d7d53dd31af32618c13b0e5b5c0405080a3f3673";
-    hash = "sha256-IAdqKF4WfQzo1I/tizHMWDLST/T2tKz4do+Dkw9eZs8=";
+  textfox = pkgs.fetchFromGitHub {
+    owner = "adriankarlen";
+    repo = "textfox";
+    rev = "9a3b37962600961179a0876c36ebc0e40bb4b897";
+    hash = "sha256-eKVCGMBtzG866IKz/HXtpuug6IRo+jI1EXYpGxjTDKs=";
   };
 in {
   programs.firefox = {
@@ -69,11 +69,6 @@ in {
           "browser.cache.memory.capacity" = -1;
           "middlemouse.paste" = false;
           "network.dns.echconfig.enabled" = true;
-
-          "user.theme.dark.a" = false;
-          "user.theme.light.a" = false;
-          "ultima.theme.extensions" = false;
-          "ultima.urlbar.centered" = false;
 
           # PRIVACY
           "privacy.donottrackheader.enabled" = true;
@@ -240,47 +235,19 @@ in {
           ${builtins.readFile "${betterfox}/Fastfox.js"}
           ${builtins.readFile "${betterfox}/Peskyfox.js"}
           ${builtins.readFile "${betterfox}/Smoothfox.js"}
-          ${builtins.readFile "${ultima}/user.js"}
+          ${builtins.readFile "${textfox}/user.js"}
         '';
-        userChrome = with config.lib.stylix.colors.withHashtag; ''
-          @import "${ultima}/userChrome.css";
-          :root, body, * {
-            --uc-ultima-window: ${base00};
-            --uc-text: ${base06};
-            --uc-dark-color: ${base01};
-            --uc-light-color: ${base04};
-            --uc-accent-i: ${base09};
-            --uc-accent-ii: ${base06};
-            --uc-accent-iii: ${base08};
-            --uc-accent-iv: ${base07};
-            --uc-accent-v: ${base0F};
-            --uc-accent-vi: ${base0A};
-            --uc-accent-vii: ${base0F};
-            --uc-background-main: ${base01};
-            --uc-background-layered: ${base00};
-            --uc-transparent: rgba(0,0,0,0);
-            --uc-button-selected: ${base03};
-            --uc-tab-selected-bg: ${base01};
-            --uc-urlbar-background: ${base01};
-            --uc-panel-background: ${base01};
-            --uc-panel-border: ${base00};
-            --uc-panel-border-ii: ${base00};
-            --uc-context-menu: ${base01};
-          }
-          #nav-bar {
-            padding-block-start: 0px !important;
-            border: none !important;
-            box-shadow: none !important;
-            background: transparent !important;
+        userChrome = ''
+          @import "${textfox}/chrome/userChrome.css";
+          :root {
+            --tf-font-family: "${config.stylix.fonts.serif.name}";
+            --tf-font-size: ${toString config.stylix.fonts.sizes.terminal};
+            --tf-display-horizontal-tabs: block;
+            --tf-bg: ${config.lib.stylix.colors.withHashtag.base00};
           }
         '';
-        userContent = with config.lib.stylix.colors.withHashtag; ''
-          @import "${ultima}/userContent.css";
-          @-moz-document url("about:newtab") {
-            body {
-              background-color: ${base01} !important;
-            }
-          }
+        userContent = ''
+          @import "${textfox}/chrome/userContent.css";
         '';
       };
     };
