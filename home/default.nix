@@ -61,6 +61,19 @@ in {
 
   xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
 
+  xdg.configFile."nsxiv/exec/key-handler".source = pkgs.writeShellScript "keyHandler" ''
+    while read file; do
+      case "$1" in
+        "x") swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 "$file"
+          ;;
+        "c") wl-copy < "$file" && echo "Copied to clipboard"
+          ;;
+        "z") gimp "$file" &
+          ;;
+      esac
+    done
+  '';
+
   qt = {
     enable = true;
     platformTheme.name = "gtk3";

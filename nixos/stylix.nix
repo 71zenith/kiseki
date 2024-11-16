@@ -1,13 +1,31 @@
-{
-  pkgs,
-  inputs,
-  ...
-}: {
+{pkgs, ...}: {
   stylix = {
     enable = true;
     polarity = "dark";
     image = "${pkgs.my-misc}/share/passive/oxocarbon.png";
-    base16Scheme = inputs.nix-colors.colorSchemes.oxocarbon-dark;
+    base16Scheme = {
+      slug = "oxocarbon-dark";
+      name = "Oxocarbon Dark";
+      author = "shaunsingh/IBM";
+      palette = {
+        base00 = "161616";
+        base01 = "262626";
+        base02 = "393939";
+        base03 = "525252";
+        base04 = "dde1e6";
+        base05 = "f2f4f8";
+        base06 = "ffffff";
+        base07 = "08bdba";
+        base08 = "3ddbd9";
+        base09 = "78a9ff";
+        base0A = "ee5396";
+        base0B = "33b1ff";
+        base0C = "ff7eb6";
+        base0D = "42be65";
+        base0E = "be95ff";
+        base0F = "82cfff";
+      };
+    };
     fonts = rec {
       serif = {
         package = pkgs.my-fonts;
@@ -16,7 +34,7 @@
       sansSerif = serif;
       monospace = {
         package = pkgs._0xproto;
-        name = "0xProto";
+        name = "Victor Mono Medium";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -44,7 +62,7 @@
     fontconfig.defaultFonts = rec {
       sansSerif = ["Mamelon 4 Hi"];
       serif = sansSerif;
-      monospace = ["Geist Mono" "Symbols Nerd Font Mono" "Mamelon 4 Hi"];
+      monospace = ["Symbols Nerd Font Mono" "Mamelon 4 Hi"];
     };
     packages = with pkgs; [
       my-fonts

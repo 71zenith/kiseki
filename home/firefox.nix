@@ -8,8 +8,8 @@
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "ab5ede0fef39f02f0ef2bd119879226e3ab71f9f";
-    hash = "sha256-s54Y6Ix7W942T+TIwGudoqDzUHifMBJOU9AWqpqIKl4=";
+    rev = "131.0";
+    hash = "sha256-CxPZxo9G44lRocNngjfwTBHSqL5dEJ5MNO5Iauoxp2Y=";
   };
   textfox = pkgs.fetchFromGitHub {
     owner = "adriankarlen";
@@ -69,6 +69,11 @@ in {
           "browser.cache.memory.capacity" = -1;
           "middlemouse.paste" = false;
           "network.dns.echconfig.enabled" = true;
+
+          # ICONS
+          "shyfox.enable.context.menu.icons" = true;
+          "shyfox.enable.ext.mono.context.icons" = true;
+          "shyfox.enable.ext.mono.toolbar.icons" = true;
 
           # PRIVACY
           "privacy.donottrackheader.enabled" = true;
