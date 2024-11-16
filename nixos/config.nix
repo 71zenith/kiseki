@@ -113,7 +113,10 @@ in {
     gvfs.enable = true;
   };
 
-  systemd.coredump.enable = false;
+  systemd.coredump = {
+    enable = false;
+    extraConfig = "Storage=none";
+  };
 
   environment.pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
 

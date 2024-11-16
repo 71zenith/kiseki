@@ -100,6 +100,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                               | Description    |
 |----------------------------------------------------|----------------|
 | [eza](https://github.com/eza-community/eza)        | ls alter       |
+| [xcp](https://github.com/tarka/xcp)                | cp alter       |
 | [duf](https://github.com/muesli/duf)               | df alter       |
 | [zoxide](https://github.com/ajeetdsouza/zoxide)    | smarter cd     |
 | [dust](https://github.com/bootandy/dust)           | du alter       |
@@ -114,8 +115,8 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                                    | Description                        |
 |-------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
-| [0xproto](https://github.com/0xType/0xProto)                            | monospace font                     |
-| [Itim](https://thaifonts.org/fonts/itim-regular)                        | "everything else" font             |
+| [victor-mono](https://rubjo.github.io/victor-mono/)                     | monospace font                     |
+| [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
 | [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
 | [rampart-one](https://www.freejapanesefont.com/rampart-one-download/)   | "stylized" font for weebs          |
