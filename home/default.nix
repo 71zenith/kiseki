@@ -84,12 +84,14 @@ in {
     @define-color accent_bg_color ${base0A};
   '';
 
-  gtk = {
+  gtk = rec {
     enable = true;
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme.override {color = "teal";};
     };
+    gtk3.extraConfig.gtk-xft-hinting = 1;
+    gtk4 = {inherit (gtk3) extraConfig;};
   };
 
   xresources.properties = with config.lib.stylix.colors.withHashtag; {

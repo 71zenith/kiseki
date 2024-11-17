@@ -113,12 +113,13 @@ in {
     gvfs.enable = true;
   };
 
-  systemd.coredump = {
-    enable = false;
-    extraConfig = "Storage=none";
-  };
+  systemd.coredump.extraConfig = "Storage=none";
 
-  environment.pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
+  environment = {
+    pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
+
+    variables.FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
+  };
 
   security.sudo.wheelNeedsPassword = false;
 

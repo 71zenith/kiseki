@@ -30,7 +30,6 @@
         "text/html" = browser;
         "text/xml" = browser;
         "text/plain" = editor;
-        "text/*" = editor;
         "application/x-wine-extension-ini" = editor;
 
         "application/json" = browser;
@@ -53,10 +52,15 @@
         "inode/directory" = fileManager;
         "application/zip" = fileManager;
 
-        "audio/*" = player;
-        "video/*" = player;
+        "audio/mpeg" = player;
+        "audio/aac" = player;
+        "audio/flac" = player;
+        "audio/wav" = player;
+        "video/mp4" = player;
+        "video/vnd.mpegurl" = player;
+        "video/x-matroska" = player;
+        "application/x-mpegURL" = player;
 
-        "image/*" = viewer;
         "image/gif" = viewer;
         "image/jpeg" = viewer;
         "image/png" = viewer;
