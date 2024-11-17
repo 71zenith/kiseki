@@ -118,6 +118,7 @@ in {
   environment = {
     pathsToLink = ["/share/xdg-desktop-portal" "/share/applications"];
 
+    # NOTE: font stem darkening
     variables.FREETYPE_PROPERTIES = "cff:no-stem-darkening=0 autofitter:no-stem-darkening=0";
   };
 

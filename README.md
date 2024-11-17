@@ -16,7 +16,7 @@
 
 <details><summary><b>Individual screenshots</b></summary>
 
-![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot24.png?raw=true)
+![](https://github.com/71zenith/assets/blob/master/screenshot/screenshot25.png?raw=true)
 
 ![](https://github.com/71zenith/assets/blob/master/screenshot/workflow/1.png?raw=true)
 
@@ -112,16 +112,16 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 
 ## Standardised config
 
-| Name                                                                    | Description                        |
-|-------------------------------------------------------------------------|------------------------------------|
-| [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)      | base16 theme                       |
-| [victor-mono](https://rubjo.github.io/victor-mono/)                     | monospace font                     |
-| [kollektif](https://unblast.com/kollektif-sans-typeface/)               | "everything else" font             |
-| [mamelon](https://moji-waku.com/mamelon/index.html)                     | "everything else" font for weebs   |
-| [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)  | "everything else" font for normies |
-| [rampart-one](https://www.freejapanesefont.com/rampart-one-download/)   | "stylized" font for weebs          |
-| [kaushan-script](https://fonts.google.com/specimen/Kaushan+Script)      | "stylized" font                    |
-| [typo-deco](https://eng.m.fontke.com/font/14781710/)                    | "stylized" font for korean         |
+| Name                                                                        | Description                        |
+|-----------------------------------------------------------------------------|------------------------------------|
+| [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)          | base16 theme                       |
+| [victor-mono](https://rubjo.github.io/victor-mono/)                         | monospace font                     |
+| [kollektif](https://unblast.com/kollektif-sans-typeface/)                   | "everything else" font             |
+| [yutapon-coding](https://vector.co.jp/soft/dl/win95/writing/se416234.html)  | "everything else" font for weebs   |
+| [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)      | "everything else" font for normies |
+| [rampart-one](https://www.freejapanesefont.com/rampart-one-download/)       | "stylized" font for weebs          |
+| [kaushan-script](https://fonts.google.com/specimen/Kaushan+Script)          | "stylized" font                    |
+| [typo-deco](https://eng.m.fontke.com/font/14781710/)                        | "stylized" font for korean         |
 
 ## Resources
 

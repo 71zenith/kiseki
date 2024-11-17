@@ -44,7 +44,7 @@
         applications = 13;
         desktop = 13;
         popups = 14;
-        terminal = 15;
+        terminal = 14;
       };
     };
     opacity = {
@@ -59,10 +59,13 @@
     };
   };
   fonts = {
-    fontconfig.defaultFonts = rec {
-      sansSerif = ["Mamelon 4 Hi"];
-      serif = sansSerif;
-      monospace = ["Symbols Nerd Font Mono" "Mamelon 4 Hi"];
+    fontconfig = {
+      defaultFonts = rec {
+        sansSerif = ["Yutapon coding Regular"];
+        serif = sansSerif;
+        monospace = ["Symbols Nerd Font Mono" "Yutapon coding Regular"];
+      };
+      hinting.style = "full";
     };
     packages = with pkgs; [
       my-fonts

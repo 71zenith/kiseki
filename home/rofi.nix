@@ -46,7 +46,7 @@
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = with config.lib.stylix.colors.withHashtag; {
-        font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.applications}";
+        font = "${config.stylix.fonts.serif.name} ${toString config.stylix.fonts.sizes.popups}";
         background = with config.lib.stylix.colors; mkLiteral "rgba(${base00-rgb-r}, ${base00-rgb-g}, ${base00-rgb-b}, ${toString config.stylix.opacity.popups})";
         border = mkLiteral base01;
         background-alt = mkLiteral base01;

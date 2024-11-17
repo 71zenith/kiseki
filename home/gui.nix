@@ -15,17 +15,6 @@ in {
   # };
 
   programs = {
-    neovide = {
-      enable = true;
-      settings = {
-        srgb = true;
-        font = {
-          normal = osConfig.fonts.fontconfig.defaultFonts.monospace;
-          size = config.stylix.fonts.sizes.terminal;
-        };
-      };
-    };
-
     emacs = {
       enable = true;
       package = pkgs.emacs29-pgtk;
@@ -87,15 +76,33 @@ in {
       };
     };
 
+    neovide = {
+      enable = true;
+      settings = {
+        srgb = true;
+        font = {
+          normal = osConfig.fonts.fontconfig.defaultFonts.monospace;
+          size = config.stylix.fonts.sizes.terminal;
+          features."${config.stylix.fonts.monospace.name}" = ["+ss01" "+ss07" "+ss02"];
+        };
+        hinting = "full";
+        edging = "antialias";
+      };
+    };
+
     foot = {
       enable = true;
       settings = {
         main = {
           pad = "5x5";
-          font = lib.mkForce (builtins.concatStringsSep "," (
-            map (name: (name + ":size=" + toString config.stylix.fonts.sizes.terminal + ":fontfeatures=ss01"))
-            osConfig.fonts.fontconfig.defaultFonts.monospace
-          ));
+          font = lib.mkForce (config.stylix.fonts.monospace.name
+            + ":size="
+            + toString config.stylix.fonts.sizes.terminal
+            + ":"
+            + (
+              builtins.concatStringsSep ":" (map (name: ("fontfeatures=" + name))
+                (map (x: builtins.substring 1 (-1) x) config.programs.neovide.settings.font.features."${config.stylix.fonts.monospace.name}"))
+            ));
         };
         mouse = {hide-when-typing = "no";};
         key-bindings = {
