@@ -59,13 +59,10 @@
     };
   };
   fonts = {
-    fontconfig = {
-      defaultFonts = rec {
-        sansSerif = ["Yutapon coding Regular"];
-        serif = sansSerif;
-        monospace = ["Symbols Nerd Font Mono" "Yutapon coding Regular"];
-      };
-      hinting.style = "full";
+    fontconfig.defaultFonts = rec {
+      sansSerif = ["Yutapon coding Regular"];
+      serif = sansSerif;
+      monospace = ["Symbols Nerd Font Mono" "Yutapon coding Regular"];
     };
     packages = with pkgs; [
       my-fonts
