@@ -8,6 +8,7 @@
   inherit (config.stylix.base16Scheme) palette;
 in {
   stylix.targets.zathura.enable = false;
+  stylix.targets.hyprlock.enable = false;
 
   # i18n.inputMethod = {
   #   enabled = "fcitx5";
@@ -77,7 +78,7 @@ in {
     };
 
     neovide = {
-      enable = true;
+      enable = false;
       settings = {
         srgb = true;
         font = {

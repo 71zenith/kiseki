@@ -24,6 +24,7 @@ in {
     ./firefox.nix
     ./spotify-player.nix
     ./hyprland.nix
+    ./discord.nix
   ];
 
   # NOTE: virt-manager fix

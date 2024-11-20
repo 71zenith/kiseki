@@ -64,7 +64,7 @@
     _7zz
 
     # gui
-    calibre
+    # calibre
     vesktop
     librewolf
     qbittorrent

@@ -5,8 +5,6 @@
   osConfig,
   ...
 }: let
-  rgb = color: "rgb(${color})";
-  inherit (config.stylix.base16Scheme) palette;
   scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
 in {
   # FIXME: do not anger me; fuck hyprpaper
@@ -120,7 +118,6 @@ in {
       };
       dwindle = {
         force_split = 2;
-        no_gaps_when_only = false;
         pseudotile = false;
         preserve_split = true;
       };
@@ -137,12 +134,13 @@ in {
         rounding = 12;
         blur = {
           enabled = true;
-          noise = 0;
-          size = 3;
-          passes = 3;
+          size = 8;
+          passes = 2;
         };
-        drop_shadow = true;
-        shadow_range = 15;
+        shadow = {
+          enabled = true;
+          range = 15;
+        };
         dim_inactive = true;
         dim_strength = 0.1618;
       };
@@ -151,12 +149,6 @@ in {
         gaps_in = 5;
         gaps_out = 8;
         border_size = 0;
-        "col.active_border" = lib.mkForce (rgb palette.base0A);
-      };
-      group = {
-        "col.border_inactive" = lib.mkForce (rgb palette.base0D);
-        "col.border_active" = lib.mkForce (rgb palette.base06);
-        "col.border_locked_active" = lib.mkForce (rgb palette.base06);
       };
       cursor = {
         no_hardware_cursors = true;
