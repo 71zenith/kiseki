@@ -134,7 +134,7 @@ in {
         rounding = 12;
         blur = {
           enabled = true;
-          size = 8;
+          size = 3;
           passes = 2;
         };
         shadow = {

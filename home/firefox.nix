@@ -14,8 +14,8 @@
   textfox = pkgs.fetchFromGitHub {
     owner = "adriankarlen";
     repo = "textfox";
-    rev = "9a3b37962600961179a0876c36ebc0e40bb4b897";
-    hash = "sha256-eKVCGMBtzG866IKz/HXtpuug6IRo+jI1EXYpGxjTDKs=";
+    rev = "a89fe50463d1a9b7f621ca73166c1421cc8bc565";
+    hash = "sha256-2u+HqvFHiXXIGGdieFPlPbjnGgrjXfZU4sc/bBy79Vk=";
   };
 in {
   programs.firefox = {
@@ -248,6 +248,7 @@ in {
             --tf-font-family: "${config.stylix.fonts.serif.name}";
             --tf-font-size: ${toString config.stylix.fonts.sizes.terminal};
             --tf-display-horizontal-tabs: block;
+            --tf-nav-buttons-display: block;
             --tf-bg: ${config.lib.stylix.colors.withHashtag.base00};
           }
         '';
