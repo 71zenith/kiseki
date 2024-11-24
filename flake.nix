@@ -31,10 +31,6 @@
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    prismlauncher = {
-      url = "github:Diegiwg/PrismLauncher-Cracked?ref=9.0";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     flake-programs-sqlite = {
       url = "github:wamserma/flake-programs-sqlite";
       inputs = {
@@ -100,7 +96,6 @@
     };
     overlays = {
       nixpkgs.overlays = with inputs; [
-        prismlauncher.overlays.default
         assets.overlays.default
         (import ./pkgs {inherit (nixpkgs) lib;})
       ];

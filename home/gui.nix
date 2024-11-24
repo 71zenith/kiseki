@@ -78,7 +78,7 @@ in {
     };
 
     neovide = {
-      enable = false;
+      enable = true;
       settings = {
         srgb = true;
         font = {
