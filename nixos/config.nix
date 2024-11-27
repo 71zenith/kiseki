@@ -82,7 +82,7 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_xanmod;
+    kernelPackages = pkgs.linuxPackages_cachyos;
   };
 
   documentation = {
@@ -197,5 +197,5 @@ in {
   # virtualisation.libvirtd.enable = true;
   # programs.virt-manager.enable = true;
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 }

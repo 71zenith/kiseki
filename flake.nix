@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -119,6 +120,7 @@
         home-manager.nixosModules.home-manager
         sops-nix.nixosModules.sops
         flake-programs-sqlite.nixosModules.programs-sqlite
+        chaotic.nixosModules.default
         hosts.nixosModule
         (import ./nixos/config.nix)
       ];
