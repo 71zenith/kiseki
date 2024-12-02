@@ -66,7 +66,7 @@
     };
     packages = with pkgs; [
       my-fonts
-      (nerdfonts.override {fonts = ["NerdFontsSymbolsOnly"];})
+      nerd-fonts.symbols-only
     ];
   };
 }

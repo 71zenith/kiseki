@@ -50,6 +50,7 @@
     ignores = [
       "*~"
       "*.swp"
+      ".zig-cache"
       "*result*"
       ".direnv"
       "tmp"

@@ -11,7 +11,7 @@
     Service = {
       ExecStart = pkgs.writeShellScript "changeCover" ''
         playerctl metadata --format '{{playerName}} {{mpris:artUrl}}' -F  --ignore-player firefox | while read -r player url; do
-          if ([ "$player" = "mpv" ] || [ "$player" = "spotify_player" ]) && [ -n "$url" ]; then
+          if [ "$player" = "spotify_player" ] && [ -n "$url" ]; then
             curl "$url" > /tmp/cover.jpg
             pkill -RTMIN+8 waybar
             magick /tmp/cover.jpg -resize 1x1\! -format "fg = #%[hex:u]\n" info: 2>/dev/null > /tmp/cover.info

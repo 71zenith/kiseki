@@ -82,7 +82,7 @@ in {
       };
       efi.canTouchEfiVariables = true;
     };
-    kernelPackages = pkgs.linuxPackages_cachyos;
+    kernelPackages = pkgs.linuxPackages_xanmod;
   };
 
   documentation = {

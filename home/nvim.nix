@@ -152,8 +152,12 @@ in {
         };
         dressing.enable = true;
         web-devicons.enable = true;
+        dap = {
+          enable = true;
+        };
         lsp = {
           enable = true;
+          inlayHints = true;
           preConfig = ''
             local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
             for type, icon in pairs(signs) do

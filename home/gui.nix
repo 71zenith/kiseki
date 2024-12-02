@@ -100,10 +100,8 @@ in {
             + ":size="
             + toString config.stylix.fonts.sizes.terminal
             + ":"
-            + (
-              builtins.concatStringsSep ":" (map (name: ("fontfeatures=" + name))
-                (map (x: builtins.substring 1 (-1) x) config.programs.neovide.settings.font.features."${config.stylix.fonts.monospace.name}"))
-            ));
+            + (builtins.concatStringsSep ":" (map (name: ("fontfeatures=" + name))
+                (map (x: builtins.substring 1 (-1) x) config.programs.neovide.settings.font.features."${config.stylix.fonts.monospace.name}"))));
         };
         mouse = {hide-when-typing = "no";};
         key-bindings = {

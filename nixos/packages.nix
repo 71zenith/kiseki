@@ -7,6 +7,7 @@
     wget
     yt-dlp
     rsync
+    rclone
     ani-cli
     dra-cla
     nhentai
@@ -78,6 +79,7 @@
     heroic
     prismlauncher
     protonup-qt
+    shipwright
     yuzu
 
     ### VNs
@@ -87,7 +89,7 @@
     desmume
     mgba
     snes9x-gtk
-    duckstation
+
     pcsx2
 
     # dev
