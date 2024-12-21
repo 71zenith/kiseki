@@ -12,6 +12,7 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
+  spotify-player = self.callPackage ./spotify-player.nix {};
   yuzu = self.callPackage ./yuzu.nix {};
 
   ani-skip = self.mpvScripts.callPackage ./ani-skip.nix {};
@@ -20,15 +21,6 @@ in {
   vesktop = wrapElectron "vesktop";
   spotify = wrapElectron "spotify";
   logseq = wrapElectron "logseq";
-
-  dra-cla = (super.dra-cla.override {mpv = null;}).overrideAttrs (oldAttrs: {
-    src = super.fetchFromGitHub {
-      owner = "CoolnsX";
-      repo = oldAttrs.pname;
-      rev = "24d7eaa5d433bc2cbbba4f23552cd812506fefee";
-      hash = "sha256-BmBQSkLSq+BaxkzXEy3hlI3qNq2NCIoGKDKt7gyDz+s=";
-    };
-  });
 
   librewolf = super.librewolf.override {
     extraPrefs = ''

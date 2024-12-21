@@ -36,6 +36,7 @@ in {
         require("buffer_manager").setup({ focus_alternate_buffer = true})
         require("which-key").setup({icons = {rules = false}})
         require("supermaven-nvim").setup({})
+        require("nvim-paredit").setup({use_default_keys = true})
       '';
       extraConfigLuaPost = ''
         require("cmp").event:on(
@@ -134,7 +135,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager supermaven-nvim];
+      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim lualine-so-fancy buffer-manager supermaven-nvim nvim-paredit vim-jack-in cmp-conjure];
       plugins = {
         nix.enable = false;
         nvim-bqf.enable = true;
@@ -152,9 +153,8 @@ in {
         };
         dressing.enable = true;
         web-devicons.enable = true;
-        dap = {
-          enable = true;
-        };
+        debugprint.enable = true;
+        conjure.enable = true;
         lsp = {
           enable = true;
           inlayHints = true;
@@ -295,9 +295,11 @@ in {
             formatting = {
               alejandra.enable = true;
               black.enable = true;
+              zprint.enable = true;
             };
             diagnostics = {
               statix.enable = true;
+              clj_kondo.enable = true;
             };
           };
         };
@@ -449,6 +451,10 @@ in {
             sources = [
               {
                 name = "supermaven";
+                keyword_length = 1;
+              }
+              {
+                name = "conjure";
                 keyword_length = 1;
               }
               {

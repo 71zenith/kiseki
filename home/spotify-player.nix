@@ -80,10 +80,6 @@
         key_sequence = "R";
       }
       {
-        command = "VolumeUp";
-        key_sequence = "=";
-      }
-      {
         command = "Shuffle";
         key_sequence = "S";
       }
