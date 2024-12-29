@@ -7,8 +7,10 @@
 }: let
   inherit (config.stylix.base16Scheme) palette;
 in {
-  stylix.targets.zathura.enable = false;
-  stylix.targets.hyprlock.enable = false;
+  stylix.targets = {
+    zathura.enable = false;
+    hyprlock.enable = false;
+  };
 
   # i18n.inputMethod = {
   #   enabled = "fcitx5";

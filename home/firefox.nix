@@ -1,21 +1,20 @@
 {
   inputs,
   pkgs,
-  config,
   myUserName,
   ...
 }: let
   betterfox = pkgs.fetchFromGitHub {
     owner = "yokoffing";
     repo = "Betterfox";
-    rev = "131.0";
-    hash = "sha256-CxPZxo9G44lRocNngjfwTBHSqL5dEJ5MNO5Iauoxp2Y=";
+    rev = "09dd87a3abcb15a88798941e5ed74e4aa593108c";
+    hash = "sha256-Uu/a5t74GGvMIJP5tptqbiFiA+x2hw98irPdl8ynGoE=";
   };
-  textfox = pkgs.fetchFromGitHub {
-    owner = "adriankarlen";
-    repo = "textfox";
-    rev = "a89fe50463d1a9b7f621ca73166c1421cc8bc565";
-    hash = "sha256-2u+HqvFHiXXIGGdieFPlPbjnGgrjXfZU4sc/bBy79Vk=";
+  lepton = pkgs.fetchFromGitHub {
+    owner = "black7375";
+    repo = "Firefox-UI-Fix";
+    rev = "7d96af3abec66fc10bb412d0368b04a505199eac";
+    hash = "sha256-JEJnmYjY9I0I8rxYVQLMjiayk6PnKq/eptZD8GvaDBo=";
   };
 in {
   programs.firefox = {
@@ -69,11 +68,8 @@ in {
           "browser.cache.memory.capacity" = -1;
           "middlemouse.paste" = false;
           "network.dns.echconfig.enabled" = true;
-
-          # ICONS
-          "shyfox.enable.context.menu.icons" = true;
-          "shyfox.enable.ext.mono.context.icons" = true;
-          "shyfox.enable.ext.mono.toolbar.icons" = true;
+          "browser.tabs.loadBookmarksInTabs" = true;
+          "browser.urlbar.maxRichResults" = true;
 
           # PRIVACY
           "privacy.donottrackheader.enabled" = true;
@@ -96,16 +92,6 @@ in {
                 name = "Nix Options";
                 keyword = "no";
                 url = "https://search.nixos.org/options?channel=unstable";
-              }
-              {
-                name = "NixOS Wiki";
-                keyword = "nw";
-                url = "https://wiki.nixos.org/wiki/";
-              }
-              {
-                name = "Home-Manager";
-                keyword = "hm";
-                url = "https://nix-community.github.io/home-manager/options.xhtml";
               }
             ];
           }
@@ -155,11 +141,6 @@ in {
             toolbar = false;
             bookmarks = [
               {
-                name = "Google";
-                keyword = "g";
-                url = "https://google.com";
-              }
-              {
                 name = "Twitter";
                 keyword = "tw";
                 url = "https://twitter.com";
@@ -196,30 +177,10 @@ in {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@np"];
             };
-            "Home Manager" = {
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@hm"];
-              urls = [{template = "https://home-manager-options.extranix.com/?release=master&query={searchTerms}";}];
-            };
             "NixOS Options" = {
               urls = [{template = "https://search.nixos.org/options?channel=unstable&type=packages&query={searchTerms}";}];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@no"];
-            };
-            "NixOS Wiki" = {
-              urls = [{template = "https://wiki.nixos.org/wiki/{searchTerms}";}];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@nw"];
-            };
-            "Noogle" = {
-              urls = [{template = "https://noogle.dev/q?term={searchTerms}";}];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@ng"];
-            };
-            "NixVim" = {
-              urls = [{template = "https://nix-community.github.io/nixvim/?search={searchTerms}";}];
-              icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-              definedAliases = ["@nv"];
             };
             "YouTube" = {
               iconUpdateURL = "https://youtube.com/favicon.ico";
@@ -240,20 +201,13 @@ in {
           ${builtins.readFile "${betterfox}/Fastfox.js"}
           ${builtins.readFile "${betterfox}/Peskyfox.js"}
           ${builtins.readFile "${betterfox}/Smoothfox.js"}
-          ${builtins.readFile "${textfox}/user.js"}
+          ${builtins.readFile "${lepton}/user.js"}
         '';
         userChrome = ''
-          @import "${textfox}/chrome/userChrome.css";
-          :root {
-            --tf-font-family: "${config.stylix.fonts.serif.name}";
-            --tf-font-size: ${toString config.stylix.fonts.sizes.terminal};
-            --tf-display-horizontal-tabs: block;
-            --tf-nav-buttons-display: block;
-            --tf-bg: ${config.lib.stylix.colors.withHashtag.base00};
-          }
+          @import "${lepton}/userChrome.css";
         '';
         userContent = ''
-          @import "${textfox}/chrome/userContent.css";
+          @import "${lepton}/userContent.css";
         '';
       };
     };

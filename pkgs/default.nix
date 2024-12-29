@@ -12,7 +12,6 @@ in {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
-  spotify-player = self.callPackage ./spotify-player.nix {};
   yuzu = self.callPackage ./yuzu.nix {};
 
   ani-skip = self.mpvScripts.callPackage ./ani-skip.nix {};

@@ -1,8 +1,27 @@
 {
+  inputs,
   config,
   pkgs,
   ...
 }: {
+  imports = [inputs.sops-nix.homeManagerModules.sops];
+  sops = {
+    defaultSopsFile = ../secrets/secrets.yaml;
+    age.sshKeyPaths = ["${config.home.homeDirectory}/.ssh/id_ed25519"];
+    secrets = {
+      spot_username = {};
+      spot_auth_data = {};
+      spot_client_id = {};
+    };
+    templates."credentials.json" = {
+      content = builtins.toJSON {
+        username = config.sops.placeholder.spot_username;
+        auth_type = 1;
+        auth_data = config.sops.placeholder.spot_auth_data;
+      };
+      path = "${config.xdg.cacheHome}/spotify-player/credentials.json";
+    };
+  };
   systemd.user.services.changeCover = {
     Unit = {
       PartOf = ["graphical-session.target"];

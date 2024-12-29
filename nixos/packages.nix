@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  pkgs-stable,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     # Cli
     ## internet
@@ -9,8 +13,6 @@
     rsync
     rclone
     ani-cli
-    dra-cla
-    nhentai
 
     ## rusty unix
     dust
@@ -24,7 +26,6 @@
 
     ## helpful
     gcc
-    pipes-rs
     xdg-utils
     ffmpeg
     nvtopPackages.nvidia
@@ -34,13 +35,10 @@
     playerctl
     translate-shell
     pulsemixer
-    lutgen
-    gammastep
 
     ## wayland
     grimblast
     cliphist
-    hyprpicker
     swww
     wl-clipboard
     wvkbd
@@ -55,7 +53,6 @@
     nix-init
     nvd
     sops
-    cachix
 
     ## compression
     zip
@@ -65,39 +62,33 @@
     _7zz
 
     # gui
-    # calibre
-    vesktop
-    librewolf
-    qbittorrent
+    pkgs-stable.calibre
+    pkgs-stable.vesktop
+    pkgs-stable.qbittorrent
     nautilus
     qalculate-qt
     glava
-    nsxiv
+    pkgs-stable.nsxiv
     gimp
 
     ## games
-    heroic
+    pkgs-stable.heroic
     prismlauncher
     protonup-qt
-    shipwright
-    yuzu
+    # shipwright
+    # yuzu
 
     ### VNs
-    onscripter-en
+    pkgs-stable.onscripter-en
 
     ### emulators
-    desmume
-    mgba
+    # desmume
+    pkgs-stable.mgba
     snes9x-gtk
 
-    pcsx2
+    pkgs-stable.pcsx2
 
     # dev
-    ## doom emacs
-    (aspellWithDicts (dicts: with dicts; [en en-computers en-science]))
-    wordnet
-    cmigemo
-
     ### lsp
     nil
     zls
@@ -121,10 +112,5 @@
     ## editors
     neovim
     #zed-editor
-    #lem-ncurses
-
-    # NOTE: disabled
-    # logseq
-    # openmw
   ];
 }

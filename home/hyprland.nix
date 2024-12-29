@@ -89,6 +89,8 @@ in {
       ];
       layerrule = [
         "noanim, selection"
+        "blur, rofi"
+        "blur, waybar"
       ];
       windowrulev2 = [
         "stayfocused, title:^()$,class:^(steam)$"
@@ -153,7 +155,6 @@ in {
       cursor = {
         no_hardware_cursors = true;
       };
-      blurls = ["waybar" "rofi"];
       animations = {
         enabled = true;
         bezier = [

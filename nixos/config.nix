@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-stable,
   config,
   inputs,
   lib,
@@ -28,28 +29,13 @@ in {
       vpn_private_jp = {};
       vpn_private_us = {};
       vpn_private_nl = {};
-      spot_username = {};
-      spot_auth_data = {};
-      spot_client_id = {owner = myUserName;};
-      cachix_token = {owner = myUserName;};
-    };
-    # TODO: move to home-manager after #529(https://github.com/Mic92/sops-nix/pull/529) is merged
-    templates."credentials.json" = {
-      owner = myUserName;
-      content = builtins.toJSON {
-        username = config.sops.placeholder.spot_username;
-        auth_type = 1;
-        auth_data = config.sops.placeholder.spot_auth_data;
-      };
-      path = "${home myUserName}/.cache/spotify-player/credentials.json";
     };
   };
 
   networking = {
+    stevenBlackHosts.enable = true;
     # NOTE: VNC server
     firewall.allowedTCPPorts = [5900];
-
-    stevenBlackHosts.enable = true;
   };
 
   nix = {
@@ -185,7 +171,7 @@ in {
     useGlobalPkgs = true;
     useUserPackages = true;
     extraSpecialArgs = {
-      inherit inputs;
+      inherit inputs pkgs-stable;
       inherit pcName myUserName myName mailId;
     };
     users.${myUserName} = import ../home;
