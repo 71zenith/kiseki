@@ -17,6 +17,7 @@
     hash = "sha256-JEJnmYjY9I0I8rxYVQLMjiayk6PnKq/eptZD8GvaDBo=";
   };
 in {
+  stylix.targets.firefox.profileNames = [myUserName];
   programs.firefox = {
     enable = true;
     nativeMessagingHosts = [pkgs.tridactyl-native];
@@ -43,6 +44,7 @@ in {
           inputs.firefox-addons.packages.${pkgs.system}."10ten-ja-reader"
         ];
         settings = {
+          # GENERAL
           "browser.startup.page" = "https://71zenith.github.io/";
           "browser.display.use_document_fonts" = 0;
           "browser.ctrlTab.sortByRecentlyUsed" = false;
@@ -80,7 +82,7 @@ in {
 
         bookmarks = [
           {
-            name = "NixOS";
+            name = "nix";
             toolbar = false;
             bookmarks = [
               {
@@ -96,7 +98,7 @@ in {
             ];
           }
           {
-            name = "1337";
+            name = "uhh";
             toolbar = false;
             bookmarks = [
               {
@@ -137,7 +139,7 @@ in {
             ];
           }
           {
-            name = "waste";
+            name = "fml";
             toolbar = false;
             bookmarks = [
               {
@@ -177,7 +179,7 @@ in {
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@np"];
             };
-            "NixOS Options" = {
+            "Nix Options" = {
               urls = [{template = "https://search.nixos.org/options?channel=unstable&type=packages&query={searchTerms}";}];
               icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
               definedAliases = ["@no"];

@@ -19,7 +19,6 @@ in {
 
   vesktop = wrapElectron "vesktop";
   spotify = wrapElectron "spotify";
-  logseq = wrapElectron "logseq";
 
   librewolf = super.librewolf.override {
     extraPrefs = ''

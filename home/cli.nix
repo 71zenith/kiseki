@@ -14,8 +14,6 @@
       };
     };
 
-    home-manager.enable = true;
-
     less = {
       enable = true;
       keys = ''
