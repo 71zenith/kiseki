@@ -1,14 +1,4 @@
-{lib}: self: super: let
-  wrapElectron = packageName:
-    super.${packageName}.overrideAttrs (oldAttrs: {
-      nativeBuildInputs = (oldAttrs.nativeBuildInputs or []) ++ [super.makeWrapper];
-      postFixup = ''
-        ${oldAttrs.postFixup or ""}
-        wrapProgram $out/bin/${packageName} \
-          --add-flags "--disable-gpu-compositing"
-      '';
-    });
-in {
+self: super: {
   yazi-plugins = self.callPackage ./yazi-plugins.nix {};
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
   ani-cli = self.callPackage ./ani-cli.nix {};
@@ -16,9 +6,6 @@ in {
 
   ani-skip = self.mpvScripts.callPackage ./ani-skip.nix {};
   mpv-youtube-search = self.mpvScripts.callPackage ./mpv-youtube-search.nix {};
-
-  vesktop = wrapElectron "vesktop";
-  spotify = wrapElectron "spotify";
 
   librewolf = super.librewolf.override {
     extraPrefs = ''
@@ -92,7 +79,7 @@ in {
     super.nix-output-monitor.overrideAttrs {
       postPatch = ''
         substituteInPlace lib/NOM/Print.hs \
-          ${lib.concatLines (lib.mapAttrsToList (old: new: "--replace-fail '${old}' '\\x${new}' \\") icons)}
+          ${super.lib.concatLines (super.lib.mapAttrsToList (old: new: "--replace-fail '${old}' '\\x${new}' \\") icons)}
       '';
     };
 }

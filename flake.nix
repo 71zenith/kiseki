@@ -77,7 +77,7 @@
     overlays = {
       nixpkgs.overlays = with inputs; [
         assets.overlays.default
-        (import ./pkgs {inherit (nixpkgs) lib;})
+        (import ./pkgs)
       ];
     };
   in {

@@ -73,8 +73,9 @@
 
     ## games
     pkgs-stable.heroic
-    prismlauncher
+    (prismlauncher.override {jdks = with pkgs; [jdk21 jdk23 jdk17];})
     protonup-qt
+    # viper
     # shipwright
     # yuzu
 

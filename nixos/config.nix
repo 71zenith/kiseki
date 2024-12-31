@@ -92,6 +92,12 @@ in {
       };
     };
 
+    audiobookshelf = {
+      enable = true;
+      openFirewall = true;
+      group = "users";
+    };
+
     # NOTE: calibre drive detection
     udisks2.enable = true;
 

@@ -33,7 +33,7 @@ in {
         };
       };
       extraConfigLuaPre = ''
-        -- require("buffer_manager").setup({ focus_alternate_buffer = true})
+        require("buffer_manager").setup({ focus_alternate_buffer = true})
         require("which-key").setup({icons = {rules = false}})
         require("supermaven-nvim").setup({})
         require("nvim-paredit").setup({use_default_keys = true})
@@ -135,7 +135,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim supermaven-nvim nvim-paredit vim-jack-in cmp-conjure];
+      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim supermaven-nvim nvim-paredit vim-jack-in cmp-conjure buffer-manager lualine-so-fancy];
       plugins = {
         nix.enable = false;
         nvim-bqf.enable = true;

@@ -79,40 +79,23 @@ in {
       };
     };
 
-    neovide = {
-      enable = true;
-      settings = {
-        srgb = true;
-        font = {
-          normal = osConfig.fonts.fontconfig.defaultFonts.monospace;
-          size = config.stylix.fonts.sizes.terminal;
-          features."${config.stylix.fonts.monospace.name}" = ["+ss01" "+ss07" "+ss02"];
-        };
-        hinting = "full";
-        edging = "antialias";
-      };
-    };
-
     foot = {
       enable = true;
       settings = {
         main = {
           pad = "5x5";
-          font = lib.mkForce (config.stylix.fonts.monospace.name
-            + ":size="
-            + toString config.stylix.fonts.sizes.terminal
-            + ":"
-            + (builtins.concatStringsSep ":" (map (name: ("fontfeatures=" + name))
-                (map (x: builtins.substring 1 (-1) x) config.programs.neovide.settings.font.features."${config.stylix.fonts.monospace.name}"))));
+          font = lib.mkForce (builtins.concatStringsSep "," (
+            map (name: (name + ":size=" + toString config.stylix.fonts.sizes.terminal))
+            osConfig.fonts.fontconfig.defaultFonts.monospace
+          ));
         };
-        mouse = {hide-when-typing = "no";};
         key-bindings = {
           scrollback-up-page = "Control+u";
           scrollback-down-page = "Control+d";
           scrollback-up-line = "Mod1+k";
+          scrollback-down-line = "Mod1+j";
           pipe-command-output = "[wl-copy] Control+Shift+g";
           pipe-scrollback = "[sh -c 'cat > /tmp/console'] Control+Shift+f";
-          scrollback-down-line = "Mod1+j";
         };
         cursor = {
           style = "beam";
@@ -180,6 +163,7 @@ in {
         };
       };
     };
+
     mako = {
       enable = true;
       defaultTimeout = 5000;

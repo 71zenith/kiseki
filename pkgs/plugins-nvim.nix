@@ -3,8 +3,8 @@
   inherit (pkgs.vimUtils) buildVimPlugin;
 in {
   lualine-so-fancy = buildVimPlugin {
-    pname = "lualine-so-fancy";
-    version = "latest";
+    name = "lualine-so-fancy";
+    doCheck = false;
     src = fetchFromGitHub {
       owner = "meuter";
       repo = "lualine-so-fancy.nvim";
@@ -13,8 +13,8 @@ in {
     };
   };
   buffer-manager = buildVimPlugin {
-    pname = "buffer-manager";
-    version = "latest";
+    name = "buffer-manager";
+    doCheck = false;
     src = fetchFromGitHub {
       owner = "j-morano";
       repo = "buffer_manager.nvim";

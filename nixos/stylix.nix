@@ -33,8 +33,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs._0xproto;
-        name = "Victor Mono Medium";
+        package = pkgs.fantasque-sans-mono;
+        name = "Fantasque Sans Mono";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -44,7 +44,7 @@
         applications = 13;
         desktop = 13;
         popups = 14;
-        terminal = 14;
+        terminal = 16;
       };
     };
     opacity = {

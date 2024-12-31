@@ -47,7 +47,7 @@
   programs.spotify-player = {
     enable = true;
     settings = {
-      client_id_command = "cat /run/secrets/spot_client_id";
+      client_id_command = "cat ${config.xdg.configHome}/sops-nix/secrets/spot_client_id";
       client_port = 8080;
       play_icon = " ";
       pause_icon = " ";
@@ -60,9 +60,7 @@
       progress_bar_type = "Rectangle";
       cover_img_scale = 1.9;
       cover_img_length = 10;
-      layout = {
-        playback_window_position = "Bottom";
-      };
+      layout.playback_window_position = "Bottom";
       device = {
         name = "lain";
         device_type = "speaker";
