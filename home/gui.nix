@@ -11,6 +11,10 @@ in {
     zathura.enable = false;
     hyprlock.enable = false;
   };
+  imports = [
+    (import ./modules.nix { inherit config lib pkgs; prog = "satty"; type = "toml"; })
+    (import ./modules.nix { inherit config lib pkgs; prog = "sptlrx"; type = "yaml"; })
+  ];
 
   # i18n.inputMethod = {
   #   enabled = "fcitx5";

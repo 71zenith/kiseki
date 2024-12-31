@@ -59,7 +59,6 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [flakes](https://wiki.nixos.org/wiki/Flakes)                           | nix lifeline                |
 | [home-manager](https://github.com/nix-community/home-manager)          | dotfiles manager            |
 | [stylix](https://github.com/danth/stylix)                              | auto themer                 |
-| [nix-colors](https://github.com/Misterio77/nix-colors)                 | base 16 scheme              |
 | [nixvim](https://github.com/nix-community/nixvim)                      | nvim config in nix          |
 | [nh](https://github.com/viperML/nh)                                    | nix helper                  |
 | [sops-nix](https://github.com/Mic92/sops-nix)                          | secrets manager             |
@@ -73,14 +72,12 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [hyprland](https://github.com/hyprwm/Hyprland)                 | compositor              |
 | [hyprlock](https://github.com/hyprwm/hyprlock)                 | lock screen             |
 | [firefox](https://www.mozilla.org/en-US/firefox/)              | web browser             |
-| [neovide](https://github.com/neovide/neovide)                  | neovim gui              |
 | [foot](https://codeberg.org/dnkl/foot)                         | terminal                |
 | [zathura](https://pwmt.org/projects/zathura)                   | pdf/epub viewer         |
 | [waybar](https://github.com/Alexays/Waybar)                    | status bar              |
 | [mpv](https://github.com/mpv-player/mpv)                       | media player (da goat)  |
-| [eww](https://github.com/elkowar/eww)                          | widget                  |
+| [eww](https://github.com/elkowar/eww)                          | widgets                 |
 | [rofi](https://github.com/davatorium/rofi)                     | custom launcher         |
-| [satty](https://github.com/gabm/Satty)                         | annotation tool         |
 | [calibre](https://github.com/kovidgoyal/calibre)               | ebook manager           |
 | [fcitx5](https://github.com/fcitx/fcitx5)                      | japanese input          |
 | [mako](https://github.com/emersion/mako)                       | notification daemon     |
@@ -89,7 +86,6 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | [sptlrx](https://github.com/raitonoberu/sptlrx)                | lyrics tui              |
 | [fzf](https://github.com/junegunn/fzf)                         | fuzzy finder            |
 | [glava](https://github.com/jarcode-foss/glava)                 | audio visualizer        |
-| [ani-cli](https://github.com/pystardust/ani-cli)               | anime tool              |
 | [zsh](http://www.zsh.org)                                      | shell                   |
 | [spotify-player](https://github.com/aome510/spotify-player)    | spotify tui (love it)   |
 | [yazi](https://github.com/sxyazi/yazi)                         | tui file manager        |
@@ -115,7 +111,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                                        | Description                        |
 |-----------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)          | base16 theme                       |
-| [fantasque-sans](https://github.com/belluzj/fantasque-sans)                 | monospace font                     |
+| [iosevka](https://typeof.net/Iosevka/)                                      | monospace font                     |
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)                   | "everything else" font             |
 | [yutapon-coding](https://vector.co.jp/soft/dl/win95/writing/se416234.html)  | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)      | "everything else" font for normies |

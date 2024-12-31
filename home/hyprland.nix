@@ -107,7 +107,6 @@ in {
         "idleinhibit always, class:steam_app_0"
         "tile, class:Nsxiv,xwayland:1"
         "workspace special:mpv silent, initialTitle:mpvplay"
-        "tile, title:Neovide,class:neovide"
       ];
       workspace = [
         "special:music, on-created-empty:footclient -o 'dpi-aware=yes' spotify_player"
@@ -214,7 +213,6 @@ in {
           "$mod4, Print, exec, grimblast --notify edit area"
 
           "$mod2, f, exec, firefox"
-          "$mod2, v, exec, neovide"
           "$mod2, e, exec, emacs"
           "$mod2, p, exec, qbittorrent"
           "$mod2, g, exec, heroic"

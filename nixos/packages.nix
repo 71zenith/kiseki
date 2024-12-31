@@ -4,7 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    # Cli
+    # CLI
     ## internet
     aria2
     curl
@@ -61,7 +61,7 @@
     unrar
     _7zz
 
-    # gui
+    # GUI
     pkgs-stable.calibre
     pkgs-stable.vesktop
     pkgs-stable.qbittorrent
@@ -83,16 +83,13 @@
     pkgs-stable.onscripter-en
 
     ### emulators
-    # desmume
+    pkgs-stable.desmume
     pkgs-stable.mgba
     snes9x-gtk
 
     pkgs-stable.pcsx2
 
-    # dev
-    ### lsp
-    nil
-    zls
+    # DEV
 
     ## libs
     libnotify
@@ -109,9 +106,9 @@
     python3
     python312Packages.ipython
     zig
+    zls
 
     ## editors
     neovim
-    #zed-editor
   ];
 }

@@ -10,7 +10,6 @@
 in {
   stylix.targets.kde.enable = false;
   imports = [
-    ./modules
     ./cli.nix
     ./gui.nix
     ./mpv.nix

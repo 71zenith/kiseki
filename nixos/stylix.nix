@@ -33,8 +33,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs.fantasque-sans-mono;
-        name = "Fantasque Sans Mono";
+        package = pkgs.iosevka-bin.override {variant = "SGr-IosevkaTermCurly";};
+        name = "Iosevka Term Curly";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
@@ -44,7 +44,7 @@
         applications = 13;
         desktop = 13;
         popups = 14;
-        terminal = 16;
+        terminal = 15;
       };
     };
     opacity = {
