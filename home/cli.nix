@@ -90,7 +90,7 @@
       enable = true;
       enableZshIntegration = true;
       fileWidgetCommand = "fd -E .direnv -t f";
-      colors = {bg = lib.mkForce "-1";};
+      colors.bg = lib.mkForce "-1";
     };
 
     yazi = {
@@ -101,30 +101,13 @@
         manager.prepend_keymap = [
           {
             run = ''shell 'for path in "$@"; do echo "file://$path"; done | wl-copy -t text/uri-list' --confirm'';
-            on = ["y"];
+            on = ["c" "f"];
           }
           {
             run = ''shell "$SHELL" --block --confirm'';
             on = ["w"];
           }
-          {
-            run = "plugin --sync max-preview";
-            on = ["T"];
-          }
-          {
-            run = "tasks_show";
-            on = ["W"];
-          }
         ];
-        tasks.prepend_keymap = [
-          {
-            run = "close";
-            on = ["W"];
-          }
-        ];
-      };
-      plugins = {
-        max-preview = "${pkgs.yazi-plugins}/share/max-preview.yazi";
       };
       settings = {
         manager = {

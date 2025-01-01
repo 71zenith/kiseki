@@ -1,12 +1,11 @@
 {
   pkgs,
   config,
-  lib,
   myUserName,
   osConfig,
   ...
 }: let
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs config;};
 in {
   stylix.targets.kde.enable = false;
   imports = [
@@ -41,13 +40,10 @@ in {
 
     inherit (osConfig.system) stateVersion;
 
-    sessionPath = [
-      "${config.xdg.configHome}/emacs/bin"
-    ];
+    # NOTE: DOOM EMACS
+    # sessionPath = ["${config.xdg.configHome}/emacs/bin"];
 
-    packages = [
-      scripts._4khd
-    ];
+    packages = [scripts._4khd];
 
     sessionVariables = {
       MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g";
@@ -57,20 +53,22 @@ in {
   };
   fonts.fontconfig = {inherit (osConfig.fonts.fontconfig) defaultFonts;};
 
-  xdg.configFile."nixpkgs/config.nix".source = ./nixpkgs.nix;
+  xdg.configFile = {
+    "nixpkgs/config.nix".source = ./nixpkgs.nix;
 
-  xdg.configFile."nsxiv/exec/key-handler".source = pkgs.writeShellScript "keyHandler" ''
-    while read file; do
-      case "$1" in
-        "x") swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 "$file"
-          ;;
-        "c") wl-copy < "$file" && echo "Copied to clipboard"
-          ;;
-        "z") gimp "$file" &
-          ;;
-      esac
-    done
-  '';
+    "nsxiv/exec/key-handler".source = pkgs.writeShellScript "keyHandler" ''
+      while read file; do
+        case "$1" in
+          "x") swww img -f Mitchell -t any --transition-fps 75 --transition-duration 2 "$file"
+            ;;
+          "c") wl-copy < "$file" && echo "Copied to clipboard"
+            ;;
+          "z") gimp "$file" &
+            ;;
+        esac
+      done
+    '';
+  };
 
   qt = {
     enable = true;

@@ -67,7 +67,6 @@
     ### NOTE: DECLARE USER ###
     pcName = "izanagi";
     myUserName = "zen";
-    myName = "Mori Zen";
     mailId = "71zenith@proton.me";
 
     system = "x86_64-linux";
@@ -103,7 +102,7 @@
     nixosConfigurations.${pcName} = nixpkgs.lib.nixosSystem {
       specialArgs = {
         inherit inputs pkgs-stable;
-        inherit pcName myUserName myName mailId;
+        inherit pcName myUserName mailId;
       };
       modules = with inputs; [
         caches

@@ -1,10 +1,9 @@
 {
   pkgs,
   config,
-  lib,
   ...
 }: let
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs config;};
 in {
   programs = {
     zsh = {
@@ -40,11 +39,6 @@ in {
 
         bindkey "^[[1;5C" forward-word
         bindkey "^[[1;5D" backward-word
-
-        function ,() {
-          com=$1 && shift
-          nix run nixpkgs#$com -- $*
-        }
 
         function fzf-comp-widget() {
           local FZF_CTRL_T_COMMAND=${scripts.fzfComp}

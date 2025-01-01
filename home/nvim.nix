@@ -36,7 +36,6 @@ in {
         require("buffer_manager").setup({ focus_alternate_buffer = true})
         require("which-key").setup({icons = {rules = false}})
         require("supermaven-nvim").setup({})
-        require("nvim-paredit").setup({use_default_keys = true})
       '';
       extraConfigLuaPost = ''
         require("cmp").event:on(
@@ -126,7 +125,7 @@ in {
         updatetime = 200;
         showbreak = "⤷ ";
       };
-      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim supermaven-nvim nvim-paredit vim-jack-in cmp-conjure buffer-manager lualine-so-fancy];
+      extraPlugins = with plugins // pkgs.vimPlugins; [satellite-nvim supermaven-nvim buffer-manager lualine-so-fancy];
       plugins = {
         nix.enable = false;
         nvim-bqf.enable = true;
@@ -145,7 +144,6 @@ in {
         dressing.enable = true;
         web-devicons.enable = true;
         debugprint.enable = true;
-        conjure.enable = true;
         lsp = {
           enable = true;
           inlayHints = true;
@@ -166,12 +164,6 @@ in {
             };
             texlab.enable = true;
             bashls.enable = true;
-            rust_analyzer = {
-              enable = true;
-              installCargo = true;
-              installRustc = true;
-              settings.check.command = "clippy";
-            };
             pyright.enable = true;
             zls.enable = true;
             ruff_lsp.enable = true;
@@ -341,7 +333,6 @@ in {
             };
           };
         };
-        luasnip.enable = true;
         which-key = {
           enable = true;
           settings.spec = [
@@ -445,10 +436,6 @@ in {
                 keyword_length = 1;
               }
               {
-                name = "conjure";
-                keyword_length = 1;
-              }
-              {
                 name = "nvim_lsp";
                 keyword_length = 2;
               }
@@ -460,17 +447,8 @@ in {
                 name = "buffer";
                 keyword_length = 4;
               }
-              {
-                name = "luasnip";
-                keyword_length = 2;
-              }
             ];
             matching.disallow_fullfuzzy_matching = true;
-            snippet.expand = ''
-              function(args)
-                require('luasnip').lsp_expand(args.body)
-              end
-            '';
             mapping = {
               "<C-Space>" = "cmp.mapping.complete()";
               "<C-d>" = "cmp.mapping.scroll_docs(-4)";
@@ -482,28 +460,8 @@ in {
               "<C-p>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
               "<C-j>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
               "<C-n>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
-              "<TAB>" = ''
-                  cmp.mapping(function(fallback)
-                  if cmp.visible() then
-                    cmp.select_next_item()
-                  elseif require('luasnip').locally_jumpable(1) then
-                    require('luasnip').jump(1)
-                  else
-                    fallback()
-                  end
-                end, { "i", "s" })
-              '';
-              "<S-TAB>" = ''
-                  cmp.mapping(function(fallback)
-                  if cmp.visible() then
-                    cmp.select_prev_item()
-                  elseif require('luasnip').locally_jumpable(-1) then
-                    require('luasnip').jump(-1)
-                  else
-                    fallback()
-                  end
-                end, { "i", "s" })
-              '';
+              "<TAB>" = "cmp.mapping(cmp.mapping.select_next_item(), {'i', 's'})";
+              "<S-Tab>" = "cmp.mapping(cmp.mapping.select_prev_item(), {'i', 's'})";
             };
           };
         };
@@ -527,7 +485,7 @@ in {
       keymaps = let
         mkKeymap = key: mode: action: {inherit key mode action;};
         mkKeymapDesc = key: mode: action: desc: (mkKeymap key mode action) // {options = {inherit desc;};};
-        mkKeymapOpt = key: mode: action: opt: (mkKeymap key mode action) // {options = opt;};
+        mkKeymapExpr = key: mode: action: (mkKeymap key mode action) // {options = {expr = true;};};
       in [
         (mkKeymapDesc "<leader>la" "n" "<CMD>lua vim.lsp.buf.code_action()<CR>" "Show code actions")
         (mkKeymapDesc "<leader>lo" "n" "<CMD>lua vim.lsp.buf.definition()<CR>" "Goto definition")
@@ -559,10 +517,10 @@ in {
         (mkKeymap "<C-d>" "n" "<C-d>zz")
         (mkKeymap "p" "v" "P")
 
-        (mkKeymapOpt "<Up>" ["n" "x"] "v:count == 0 ? 'gk' : 'k'" {expr = true;})
-        (mkKeymapOpt "<Down>" ["n" "x"] "v:count == 0 ? 'gj' : 'j'" {expr = true;})
-        (mkKeymapOpt "k" ["n" "x"] "v:count == 0 ? 'gk' : 'k'" {expr = true;})
-        (mkKeymapOpt "j" ["n" "x"] "v:count == 0 ? 'gj' : 'j'" {expr = true;})
+        (mkKeymapExpr "<Up>" ["n" "x"] "v:count == 0 ? 'gk' : 'k'")
+        (mkKeymapExpr "<Down>" ["n" "x"] "v:count == 0 ? 'gj' : 'j'")
+        (mkKeymapExpr "k" ["n" "x"] "v:count == 0 ? 'gk' : 'k'")
+        (mkKeymapExpr "j" ["n" "x"] "v:count == 0 ? 'gj' : 'j'")
 
         (mkKeymapDesc "J" ["x" "v"] ":move '>+1<CR>gv=gv" "Move down")
         (mkKeymapDesc "<leader>fc" "n" "<CMD>Telescope grep_string<CR>" "Find string under cursor")

@@ -12,8 +12,16 @@ in {
     hyprlock.enable = false;
   };
   imports = [
-    (import ./modules.nix { inherit config lib pkgs; prog = "satty"; type = "toml"; })
-    (import ./modules.nix { inherit config lib pkgs; prog = "sptlrx"; type = "yaml"; })
+    (import ./modules.nix {
+      inherit config lib pkgs;
+      prog = "satty";
+      type = "toml";
+    })
+    (import ./modules.nix {
+      inherit config lib pkgs;
+      prog = "sptlrx";
+      type = "yaml";
+    })
   ];
 
   # i18n.inputMethod = {
@@ -23,7 +31,7 @@ in {
 
   programs = {
     emacs = {
-      enable = true;
+      enable = false;
       package = pkgs.emacs29-pgtk;
       extraPackages = epkgs: [epkgs.vterm];
     };
@@ -72,14 +80,14 @@ in {
         recolor-lightcolor = "rgba(256,256,256,0)";
       };
       mappings = {
-        "h" = "feedkeys '<C-Left>'";
-        "j" = "feedkeys '<C-Down>'";
-        "k" = "feedkeys '<C-Up>'";
-        "l" = "feedkeys '<C-Right>'";
         "i" = "recolor";
         "f" = "toggle_fullscreen";
         "[fullscreen] i" = "recolor";
         "[fullscreen] f" = "toggle_fullscreen";
+        "<Left>" = "feedkeys '<C-Left>'";
+        "<Down>" = "feedkeys '<C-Down>'";
+        "<Up>" = "feedkeys '<C-Up>'";
+        "<Right>" = "feedkeys '<C-Right>'";
       };
     };
 
@@ -96,9 +104,9 @@ in {
         key-bindings = {
           scrollback-up-page = "Control+u";
           scrollback-down-page = "Control+d";
-          scrollback-up-line = "Mod1+k";
-          scrollback-down-line = "Mod1+j";
-          pipe-command-output = "[wl-copy] Control+Shift+g";
+          scrollback-up-line = "Control+Shift+k";
+          scrollback-down-line = "Control+Shift+j";
+          pipe-command-output = "[wl-copy -n] Control+Shift+g";
           pipe-scrollback = "[sh -c 'cat > /tmp/console'] Control+Shift+f";
         };
         cursor = {
@@ -139,7 +147,7 @@ in {
         };
 
         label = {
-          text = "Hello, $DESC";
+          text = "Unlock?";
           text_align = "center";
           color = rgb palette.base04;
           font_size = 30;

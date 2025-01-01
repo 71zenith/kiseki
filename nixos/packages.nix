@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   pkgs-stable,
   ...
@@ -73,7 +74,8 @@
 
     ## games
     pkgs-stable.heroic
-    (prismlauncher.override {jdks = with pkgs; [jdk21 jdk23 jdk17];})
+    (prismlauncher.override {jdks = with pkgs; [jdk23 jdk21 jdk17];})
+    inputs.nix-gaming.packages.${pkgs.system}.viper
     protonup-qt
     # viper
     # shipwright

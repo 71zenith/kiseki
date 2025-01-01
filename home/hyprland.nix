@@ -5,7 +5,7 @@
   osConfig,
   ...
 }: let
-  scripts = import ../pkgs/scripts.nix {inherit pkgs lib config;};
+  scripts = import ../pkgs/scripts.nix {inherit pkgs config;};
 in {
   # FIXME: do not anger me; fuck hyprpaper
   services.hyprpaper.enable = lib.mkForce false;
@@ -13,22 +13,6 @@ in {
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
-    extraConfig = ''
-      submap = 
-      bind = ,mouse:272, killactive
-      bind = ,escape, submap, reset
-      bind = ,mouse:272, submap, reset
-      bind = ,mouse:273, submap, reset
-      submap = reset
-      submap = 
-      bindm = ,mouse:272, movewindow
-      bind = ,mouse:273, submap, reset
-      submap = reset
-      submap = 󰙖
-      bindm = ,mouse:272, resizewindow
-      bind = ,mouse:273, submap, reset
-      submap = reset
-    '';
     settings = {
       env = [
         "LIBVA_DRIVER_NAME,nvidia"
@@ -151,9 +135,7 @@ in {
         gaps_out = 8;
         border_size = 0;
       };
-      cursor = {
-        no_hardware_cursors = true;
-      };
+      cursor.no_hardware_cursors = true;
       animations = {
         enabled = true;
         bezier = [
@@ -237,7 +219,6 @@ in {
           "$mod1, y, exec, ${scripts.copyVid}"
           "$mod1, v, exec, ${scripts.clipShow}"
           "$mod1, g, exec, ${scripts.glavaShow}"
-          "$mod1, semicolon, exec, ${scripts.floatToggle}"
           "$mod1, bracketleft, exec, ${scripts.copyPalette} glava"
           "$mod1, bracketright, exec, ${scripts.copyPalette} eww"
           "$mod1, apostrophe, exec, pkill wayvnc || ${scripts.openVNC}"

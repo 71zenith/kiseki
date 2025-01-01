@@ -1,10 +1,9 @@
 {
   config,
   pkgs,
-  lib,
 }: let
   inherit (pkgs) writeShellScriptBin writeShellScript wtype tesseract5 socat;
-  _ = lib.getExe;
+  _ = pkgs.lib.getExe;
 in {
   wlOcr = writeShellScript "wlOcr" ''
     grimblast save area - | ${_ tesseract5} -l eng+jpn+jpn_vert+kor+kor_vert+deu+rus - - | wl-copy
@@ -117,7 +116,7 @@ in {
     "
     for i in $input; do
         [ -e "$i" ] && echo "$i"
-    done | uniq
+    done
   '';
   epubOpen = writeShellScript "epubOpen" ''
     epubs=$(fd -e=epub . ~/kindle/)
@@ -135,14 +134,6 @@ in {
   glavaShow = writeShellScript "glavaShow" ''
     id=$(pulsemixer -l | grep glava | sed -nE 's/.*ID: (.+?), Name.*/\1/p')
     ([ -n "$id" ] && pulsemixer --id $id --toggle-mute) || (tail -f /tmp/cover.info 2>/dev/null | glava --pipe=fg)
-  '';
-  floatToggle = writeShellScript "floatToggle" ''
-    if [ -e "/tmp/hypr.float" ]; then
-      hyprctl keyword windowrulev2 "unset,class:.*" && rm -rf /tmp/hypr.float
-    else
-      hyprctl keyword windowrulev2 "float,class:.*" && touch /tmp/hypr.float
-    fi
-    pkill -RTMIN+11 waybar
   '';
   openVNC = writeShellScript "openVNC" ''
     set -e

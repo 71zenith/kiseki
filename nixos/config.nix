@@ -6,7 +6,6 @@
   lib,
   pcName,
   myUserName,
-  myName,
   mailId,
   ...
 }: let
@@ -26,6 +25,7 @@ in {
     secrets = {
       root_pass.neededForUsers = true;
       user_pass.neededForUsers = true;
+      ssh_public = {};
       vpn_private_jp = {};
       vpn_private_us = {};
       vpn_private_nl = {};
@@ -165,8 +165,9 @@ in {
     };
     ${myUserName} = {
       isNormalUser = true;
-      description = myName;
       shell = pkgs.zsh;
+      homeMode = "770";
+      openssh.authorizedKeys.keyFiles = [config.sops.secrets.ssh_public.path];
       hashedPasswordFile = config.sops.secrets.user_pass.path;
       extraGroups = ["wheel" "libvirtd" "input"];
     };
@@ -178,7 +179,7 @@ in {
     useUserPackages = true;
     extraSpecialArgs = {
       inherit inputs pkgs-stable;
-      inherit pcName myUserName myName mailId;
+      inherit pcName myUserName mailId;
     };
     users.${myUserName} = import ../home;
   };
