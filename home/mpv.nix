@@ -29,12 +29,6 @@
       demuxer-readahead-secs = "60";
       border = "no";
       keepaspect-window = "no";
-      deband = true;
-      deband-grain = 0;
-      deband-range = 12;
-      deband-threshold = 32;
-      dither-depth = "auto";
-      dither = "fruit";
       screenshot-directory = config.xdg.userDirs.pictures;
     };
     scriptOpts = {
@@ -87,16 +81,14 @@
     scripts = with pkgs.mpvScripts;
       [
         mpris
-        autoload
-        mpv-cheatsheet
+        # autoload
         youtube-upnext
         memo
-        reload
         uosc
         webtorrent-mpv-hook
-        thumbfast
+        # thumbfast
         sponsorblock
       ]
-      ++ (with pkgs; [mpv-youtube-search ani-skip]);
+      ++ (with pkgs; [mpv-youtube-search]);
   };
 }

@@ -138,8 +138,9 @@ in {
   };
 
   programs = {
-    zsh.enable = true;
-
+    # NOTE: completions/integration/root access
+    fish.enable = true;
+    foot.enable = true;
     hyprland.enable = true;
 
     steam = {
@@ -165,7 +166,7 @@ in {
     };
     ${myUserName} = {
       isNormalUser = true;
-      shell = pkgs.zsh;
+      shell = pkgs.fish;
       homeMode = "770";
       openssh.authorizedKeys.keyFiles = [config.sops.secrets.ssh_public.path];
       hashedPasswordFile = config.sops.secrets.user_pass.path;

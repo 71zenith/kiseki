@@ -17,11 +17,6 @@ in {
       prog = "satty";
       type = "toml";
     })
-    (import ./modules.nix {
-      inherit config lib pkgs;
-      prog = "sptlrx";
-      type = "yaml";
-    })
   ];
 
   # i18n.inputMethod = {

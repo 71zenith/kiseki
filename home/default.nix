@@ -12,7 +12,7 @@ in {
     ./cli.nix
     ./gui.nix
     ./mpv.nix
-    ./zsh.nix
+    ./fish.nix
     ./waybar.nix
     ./nvim.nix
     ./git.nix
@@ -46,9 +46,11 @@ in {
     packages = [scripts._4khd];
 
     sessionVariables = {
-      MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g";
-      MANROFFOPT = "-P -c";
+      MANPAGER = "batman";
+      BATMAN_IS_BEING_MANPAGER = "yes";
+      MANROFFOPT = "-c";
       LESS = "-R --use-color";
+      DIRENV_LOG_FORMAT = "";
     };
   };
   fonts.fontconfig = {inherit (osConfig.fonts.fontconfig) defaultFonts;};

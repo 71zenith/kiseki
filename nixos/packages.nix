@@ -13,7 +13,7 @@
     yt-dlp
     rsync
     rclone
-    ani-cli
+    (ani-cli.override {mpv = null;})
 
     ## rusty unix
     dust
@@ -75,9 +75,7 @@
     ## games
     pkgs-stable.heroic
     (prismlauncher.override {jdks = with pkgs; [jdk23 jdk21 jdk17];})
-    inputs.nix-gaming.packages.${pkgs.system}.viper
     protonup-qt
-    # viper
     # shipwright
     # yuzu
 

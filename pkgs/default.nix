@@ -1,9 +1,6 @@
 self: super: {
   fcitx5-fluent = self.callPackage ./fcitx5-fluent.nix {};
-  ani-cli = self.callPackage ./ani-cli.nix {};
   yuzu = self.callPackage ./yuzu.nix {};
-
-  ani-skip = self.mpvScripts.callPackage ./ani-skip.nix {};
   mpv-youtube-search = self.mpvScripts.callPackage ./mpv-youtube-search.nix {};
 
   librewolf = super.librewolf.override {
@@ -24,14 +21,6 @@ self: super: {
       repo = oldAttrs.pname;
       rev = "398b0328efe1e060301e7f8bfd2623c202646dd3";
       hash = "sha256-AqvKiqRzA5ICu1BT3PW7PCSwsgzFsg1DunNErKi4SoI=";
-    };
-  });
-
-  _0xproto = super._0xproto.overrideAttrs (oldAttrs: {
-    version = "2.201";
-    src = super.fetchzip {
-      url = "https://github.com/0xType/0xProto/releases/download/${oldAttrs.version}/0xProto_${builtins.replaceStrings ["."] ["_"] oldAttrs.version}.zip";
-      hash = "sha256-hUQGCsktnun9924+k6ECQuQ1Ddl/qGmtuLWERh/vDpc=";
     };
   });
 
@@ -62,6 +51,7 @@ self: super: {
         --replace-fail "#define BAR_GAP 1" "#define BAR_GAP 2"
     '';
   });
+
   nix-output-monitor = let
     icons = {
       "↑" = "f062";

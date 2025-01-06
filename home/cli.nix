@@ -4,6 +4,13 @@
   lib,
   ...
 }: {
+  imports = [
+    (import ./modules.nix {
+      inherit config lib pkgs;
+      prog = "sptlrx";
+      type = "yaml";
+    })
+  ];
   programs = {
     btop = {
       enable = true;
@@ -24,14 +31,13 @@
 
     direnv = {
       enable = true;
-      enableZshIntegration = true;
       silent = true;
       nix-direnv.enable = true;
     };
 
     zoxide = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       options = ["--cmd cd"];
     };
 
@@ -50,11 +56,14 @@
       extraOptions = ["-p" "-i"];
     };
 
-    bat.enable = true;
+    bat = {
+      enable = true;
+      extraPackages = with pkgs.bat-extras; [batman];
+    };
 
     eza = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       git = true;
       icons = "always";
       extraOptions = ["--hyperlink" "--no-quotes"];
@@ -88,14 +97,14 @@
 
     fzf = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       fileWidgetCommand = "fd -E .direnv -t f";
       colors.bg = lib.mkForce "-1";
     };
 
     yazi = {
       enable = true;
-      enableZshIntegration = true;
+      enableFishIntegration = true;
       shellWrapperName = "ya";
       keymap = {
         manager.prepend_keymap = [
