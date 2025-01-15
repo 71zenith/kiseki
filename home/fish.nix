@@ -31,9 +31,9 @@ in {
         del = "nh clean all --nogcroots";
         ss = "nh search";
         g = "git";
-        rs = exp "nix run nixpkgs#%";
-        ts = exp "nix shell nixpkgs#%";
-        bs = exp "nix build --print-out-paths nixpkgs#%";
+        rs = exp "nix run --impure nixpkgs#%";
+        ts = exp "nix shell --impure nixpkgs#%";
+        bs = exp "nix build --impure --print-out-paths nixpkgs#%";
       };
       shellAliases = {
         nv = "nvim";

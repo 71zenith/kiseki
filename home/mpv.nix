@@ -12,7 +12,6 @@
       vo = "gpu";
       loop-file = "inf";
       hwdec = "vaapi";
-      gpu-context = "wayland";
       scale = "ewa_lanczossharp";
       cscale = "ewa_lanczossharp";
       save-position-on-quit = "yes";
@@ -24,7 +23,7 @@
       image-display-duration = "inf";
       osd-font = config.stylix.fonts.monospace.name;
       cache = "yes";
-      demuxer-max-bytes = "650MiB";
+      demuxer-max-bytes = "300MiB";
       demuxer-max-back-bytes = "50MiB";
       demuxer-readahead-secs = "60";
       border = "no";

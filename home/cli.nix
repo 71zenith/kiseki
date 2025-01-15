@@ -56,10 +56,7 @@
       extraOptions = ["-p" "-i"];
     };
 
-    bat = {
-      enable = true;
-      extraPackages = with pkgs.bat-extras; [batman];
-    };
+    bat.enable = true;
 
     eza = {
       enable = true;
