@@ -46,7 +46,7 @@ in {
     packages = [scripts._4khd];
 
     sessionVariables = {
-      MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g -Dh+k -DE+c -DW+y";
+      MANPAGER = "less -R --use-color -Dd+m -Du+b -DP+g -DE+c -DW+y";
       MANROFFOPT = "-P -c";
       LESS = "-R --use-color";
       DIRENV_LOG_FORMAT = "";

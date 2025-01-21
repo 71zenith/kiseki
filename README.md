@@ -111,7 +111,7 @@ wallpapers are in [assets/active](https://github.com/71zenith/assets/tree/master
 | Name                                                                        | Description                        |
 |-----------------------------------------------------------------------------|------------------------------------|
 | [oxocarbon](https://github.com/nyoom-engineering/base16-oxocarbon)          | base16 theme                       |
-| [iosevka](https://typeof.net/Iosevka/)                                      | monospace font                     |
+| [zenbones-proto](https://github.com/zenbones-theme/zenbones-mono)           | monospace font                     |
 | [kollektif](https://unblast.com/kollektif-sans-typeface/)                   | "everything else" font             |
 | [yutapon-coding](https://vector.co.jp/soft/dl/win95/writing/se416234.html)  | "everything else" font for weebs   |
 | [noto-color-emoji](https://fonts.google.com/specimen/Noto+Color+Emoji)      | "everything else" font for normies |

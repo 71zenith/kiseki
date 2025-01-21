@@ -93,7 +93,7 @@ in {
         "workspace special:mpv silent, initialTitle:mpvplay"
       ];
       workspace = [
-        "special:music, on-created-empty:footclient -o 'dpi-aware=yes' spotify_player"
+        "special:music, on-created-empty:footclient spotify_player"
       ];
       input = {
         kb_options = osConfig.services.xserver.xkb.options;
@@ -208,7 +208,7 @@ in {
 
           "$mod1, return, exec, footclient"
           "$mod1, comma, exec, pkill btop || footclient -T quick btop"
-          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a foot'"
+          "$mod1, period, exec, ${lib.getExe pkgs.hdrop} -b -f -g 230 -w 85 -h 65 -c foot 'footclient -a terminal'"
           "$mod1, slash, exec, eww open romaji --toggle"
 
           "$mod1, o, exec, ${scripts.wlOcr}"

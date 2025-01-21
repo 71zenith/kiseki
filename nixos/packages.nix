@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   pkgs-stable,
   ...
@@ -77,7 +76,7 @@
     (prismlauncher.override {jdks = with pkgs; [jdk23 jdk21 jdk17];})
     protonup-qt
     # shipwright
-    # yuzu
+    yuzu
 
     ### VNs
     pkgs-stable.onscripter-en

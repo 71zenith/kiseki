@@ -33,8 +33,8 @@
       };
       sansSerif = serif;
       monospace = {
-        package = pkgs.iosevka-bin.override {variant = "SGr-IosevkaTermCurly";};
-        name = "Iosevka Term Curly";
+        package = pkgs.my-fonts;
+        name = "Zenbones Proto";
       };
       emoji = {
         package = pkgs.noto-fonts-emoji;
