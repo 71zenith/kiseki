@@ -41,7 +41,6 @@
     cliphist
     swww
     wl-clipboard
-    wvkbd
     eww
     wayvnc
 
@@ -109,5 +108,6 @@
 
     ## editors
     neovim
+    emacs30-pgtk
   ];
 }

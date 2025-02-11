@@ -25,12 +25,6 @@ in {
   # };
 
   programs = {
-    emacs = {
-      enable = true;
-      package = pkgs.emacs30-pgtk;
-      extraPackages = epkgs: [epkgs.vterm];
-    };
-
     satty = {
       enable = true;
       settings = {
