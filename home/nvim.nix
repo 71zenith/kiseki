@@ -184,7 +184,7 @@ in {
         };
         cursorline = {
           enable = true;
-          cursorword.hl = {
+          settings.cursorword.hl = {
             bold = true;
             underline = false;
           };

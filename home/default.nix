@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  lib,
   myUserName,
   osConfig,
   ...
@@ -73,7 +74,7 @@ in {
 
   qt = {
     enable = true;
-    platformTheme.name = "gtk3";
+    platformTheme.name = lib.mkForce "gtk3";
   };
 
   stylix.targets.gtk.extraCss = with config.lib.stylix.colors.withHashtag; ''

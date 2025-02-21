@@ -71,7 +71,7 @@
     gimp
 
     ## games
-    pkgs-stable.heroic
+    heroic
     (prismlauncher.override {jdks = with pkgs; [jdk23 jdk21 jdk17];})
     protonup-qt
     # shipwright
@@ -105,9 +105,11 @@
     python312Packages.ipython
     zig
     zls
+    leiningen
 
     ## editors
     neovim
     emacs30-pgtk
+    emacs-lsp-booster
   ];
 }

@@ -153,7 +153,7 @@ in {
   services = {
     blueman-applet.enable = true;
     hypridle = {
-      enable = true;
+      enable = false;
       settings = {
         general = {
           ignore_dbus_inhibit = false;
