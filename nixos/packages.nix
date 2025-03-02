@@ -1,5 +1,6 @@
 {
   pkgs,
+  inputs,
   pkgs-stable,
   ...
 }: {
@@ -84,6 +85,7 @@
     pkgs-stable.desmume
     pkgs-stable.mgba
     snes9x-gtk
+    inputs.zen-browser.packages."${system}".default
 
     pkgs-stable.pcsx2
 

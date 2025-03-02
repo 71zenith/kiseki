@@ -26,7 +26,7 @@ in {
         id = 0;
         isDefault = true;
         name = myUserName;
-        extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+        extensions.packages = with inputs.firefox-addons.packages.${pkgs.system}; [
           refined-github
           sponsorblock
           mal-sync

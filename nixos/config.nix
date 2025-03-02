@@ -1,5 +1,4 @@
 {
-  
   pkgs,
   pkgs-stable,
   config,
@@ -148,6 +147,7 @@ in {
       enable = true;
       gamescopeSession.enable = true;
       protontricks.enable = true;
+      protontricks.package = pkgs-stable.protontricks;
       platformOptimizations.enable = true;
     };
 
